@@ -5,22 +5,20 @@ document.addEventListener("DOMContentLoaded", function () {
   const filterItems = (searchTerm) => {
     document.querySelectorAll(".bibliography, .unloaded").forEach((element) => element.classList.remove("unloaded"));
 
-    // highlight-search-term
-    if (CSS.highlights) {
-      const nonMatchingElements = highlightSearchTerm({ search: searchTerm, selector: ".bibliography > li" });
-      if (nonMatchingElements == null) {
-        return;
-      }
-      nonMatchingElements.forEach((element) => {
+    const bibliographyItems = document.querySelectorAll(".bibliography > li");
+
+    bibliographyItems.forEach((element) => {
+      const row = element.querySelector(".row[data-search-text]");
+      const searchableText = row?.dataset.searchText || element.innerText.toLowerCase();
+      if (searchableText.indexOf(searchTerm) === -1) {
         element.classList.add("unloaded");
-      });
-    } else {
-      // Simply add unloaded class to all non-matching items if Browser does not support CSS highlights
-      document.querySelectorAll(".bibliography > li").forEach((element, index) => {
-        const text = element.innerText.toLowerCase();
-        if (text.indexOf(searchTerm) == -1) {
-          element.classList.add("unloaded");
-        }
+      }
+    });
+
+    if (CSS.highlights && searchTerm.trim() !== "") {
+      highlightSearchTerm({
+        search: searchTerm,
+        selector: ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keywords",
       });
     }
 

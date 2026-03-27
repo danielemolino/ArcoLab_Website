@@ -1,6 +1,15 @@
 ---
 ---
-<div class="row">
+{% assign keyword_items = '' | split: '' %}
+{% if entry.keywords %}
+  {% assign keyword_items = entry.keywords | split: ';' %}
+{% endif %}
+{% assign keyword_data = '' %}
+{% if keyword_items.size > 0 %}
+  {% assign keyword_data = entry.keywords | downcase | split: ';' | join: '|' %}
+{% endif %}
+{% capture search_text %}{{ entry.title }} {{ entry.author }} {{ entry.journal }} {{ entry.booktitle }} {{ entry.note }} {{ entry.keywords }} {{ entry.doi }}{% endcapture %}
+<div class="row" data-search-text="{{ search_text | normalize_whitespace | downcase | escape }}" {% if keyword_data != '' %}data-keywords="{{ keyword_data | strip | escape }}"{% endif %}>
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -186,6 +195,16 @@
     <div class="periodical">
       {{ entry.note | strip }}
     </div>
+    {% if keyword_items.size > 0 %}
+      <div class="publication-keywords">
+        {% for keyword in keyword_items %}
+          {% assign clean_keyword = keyword | strip %}
+          {% if clean_keyword != '' %}
+            <span class="publication-keyword">{{ clean_keyword }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">

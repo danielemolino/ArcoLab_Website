@@ -285,6 +285,82 @@
   line-height: 1.85;
 }
 
+.publications-keyword-filters {
+  max-width: 980px;
+  margin: 0 auto 1.5rem;
+}
+
+.publications-keyword-title {
+  margin-bottom: 0.65rem;
+  color: #9ea7cb;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.publications-keyword-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+
+.publications-keyword-chip {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  padding: 0.5rem 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--global-text-color);
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  transition:
+    transform 0.18s ease,
+    border-color 0.18s ease,
+    background-color 0.18s ease,
+    color 0.18s ease;
+
+  &:hover {
+    transform: translateY(-1px);
+    border-color: rgba(124, 109, 255, 0.45);
+    background: rgba(108, 92, 231, 0.08);
+    color: #fff;
+  }
+
+  &.is-active {
+    border-color: rgba(124, 109, 255, 0.6);
+    background: linear-gradient(135deg, rgba(91, 79, 207, 0.95) 0%, rgba(108, 92, 231, 0.95) 100%);
+    color: #fff;
+  }
+}
+
+.publication-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.95rem;
+}
+
+.publication-keyword {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.34rem 0.68rem;
+  border-radius: 999px;
+  background: rgba(108, 92, 231, 0.1);
+  color: #c8c3ff;
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.member-profile-publications {
+  margin-top: 0;
+
+  ol.bibliography li {
+    margin-bottom: 1rem;
+  }
+}
+
 .bibsearch-form-input {
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;

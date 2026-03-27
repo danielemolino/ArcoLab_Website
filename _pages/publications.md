@@ -17,6 +17,10 @@ nav_order: 3
 
 {% include bib_search.liquid %}
 
+<div id="publications-keyword-filters" class="publications-keyword-filters"></div>
+
 <div class="publications">
 {% bibliography %}
 </div>
+
+<script src="{{ '/assets/js/publications-filters.js' | relative_url }}"></script>

@@ -37,14 +37,8 @@ description: Full profile and selected publications of Paolo Soda.
 
   <div class="member-profile-section">
     <h2>Selected Publications</h2>
-    <div class="about-publications-list">
-      {% for publication in member.publications %}
-        <article class="about-publication-item">
-          <p class="about-publication-citation">
-            {{ member.name }} ({{ publication.year }}). {{ publication.title }}. <em>{{ publication.venue }}</em>.
-          </p>
-        </article>
-      {% endfor %}
+    <div class="publications member-profile-publications">
+      {% bibliography --group_by none --query @*[selected=true && author ^= Soda] %}
     </div>
     {% if member.publications_url %}
       <p class="member-profile-footnote">

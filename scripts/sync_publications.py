@@ -42,9 +42,11 @@ FIELD_ORDER = [
     "pages",
     "year",
     "month",
+    "arxiv",
     "doi",
     "url",
     "abstract",
+    "keywords",
     "pdf",
     "code",
     "website",
@@ -60,6 +62,7 @@ REQUIRED_COLUMNS = {
     "year",
     "code",
     "website",
+    "keywords",
     "selected",
 }
 
@@ -93,6 +96,14 @@ def truthy(value: str) -> bool:
     return str(value).strip().lower() in {"1", "true", "yes", "y", "selected"}
 
 
+def arxiv_id_from_doi(doi: str) -> str:
+    doi = normalize_space(doi)
+    match = re.match(r"^10\.48550/arxiv\.([A-Za-z0-9.\-_/]+)$", doi, re.IGNORECASE)
+    if not match:
+        return ""
+    return match.group(1)
+
+
 def authors_from_sheet(value: str) -> str:
     value = normalize_space(value)
     if not value:
@@ -102,6 +113,21 @@ def authors_from_sheet(value: str) -> str:
     parts = [normalize_space(part) for part in value.split(";")]
     parts = [part for part in parts if part]
     return " and ".join(parts)
+
+
+def normalize_keywords(value: str) -> str:
+    if not value:
+        return ""
+    parts = re.split(r"[;,]", value)
+    cleaned = [normalize_space(part) for part in parts if normalize_space(part)]
+    unique: list[str] = []
+    seen: set[str] = set()
+    for item in cleaned:
+        key = item.lower()
+        if key not in seen:
+            unique.append(item)
+            seen.add(key)
+    return "; ".join(unique)
 
 
 def authors_from_crossref(author_list: list[dict[str, Any]]) -> str:
@@ -262,10 +288,12 @@ def build_key(row: dict[str, str], entry: dict[str, str]) -> str:
 
 
 def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
+    doi_from_sheet = row.get("doi", "")
+    arxiv_id = arxiv_id_from_doi(doi_from_sheet)
     metadata = None
-    if enrich and row.get("doi"):
-        metadata = fetch_crossref_by_doi(row["doi"])
-    if enrich and metadata is None and row.get("title"):
+    if enrich and doi_from_sheet and not arxiv_id:
+        metadata = fetch_crossref_by_doi(doi_from_sheet)
+    if enrich and metadata is None and row.get("title") and not arxiv_id:
         metadata = search_crossref_by_title(row["title"])
 
     title_from_metadata = ""
@@ -281,10 +309,12 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
         authors_from_crossref((metadata or {}).get("author", [])),
     )
     doi = first_non_empty(
-        row.get("doi", ""),
+        doi_from_sheet,
         normalize_space(str((metadata or {}).get("DOI", ""))),
     )
     url = f"https://doi.org/{doi}" if doi else ""
+    if arxiv_id:
+        url = f"https://arxiv.org/abs/{arxiv_id}"
 
     container_title = normalize_space(
         " ".join((metadata or {}).get("container-title", []))
@@ -297,6 +327,7 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
         "author": author,
         "journal": first_non_empty(
             row.get("journal", ""),
+            f"arXiv preprint arXiv:{arxiv_id}" if arxiv_id else "",
             container_title if entry_type == "article" else "",
         ),
         "booktitle": first_non_empty(
@@ -322,9 +353,11 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
             first_year_from_crossref(metadata or {}),
         ),
         "month": row.get("month", ""),
+        "arxiv": "",
         "doi": doi,
         "url": first_non_empty(row.get("url", ""), url),
         "abstract": row.get("abstract", ""),
+        "keywords": normalize_keywords(row.get("keywords", "")),
         "pdf": row.get("pdf", ""),
         "code": row.get("code", ""),
         "website": row.get("website", ""),
