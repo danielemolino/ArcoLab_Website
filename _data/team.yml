@@ -1,0 +1,67 @@
+# Add lab members here as the team page grows.
+- name: Paolo Soda
+  slug: paolo-soda
+  profile_path: /team/paolo-soda/
+  role: prof
+  affiliation: Campus Bio-Medico University of Rome
+  title: Full Professor of Information Processing Systems
+  subtitle: Coordinator of the National PhD in Artificial Intelligence, Health and Life Sciences Area
+  email: p.soda@unicampus.it
+  photo: /faces/paolo_soda.png
+  external_url: https://www.unicampus.it/en/people/paolo-soda/
+  publications_url: https://www.unicampus.it/people/paolo-soda/
+  visiting_role: Visiting Professor in Artificial Intelligence and Biomedical Engineering, Umea University
+  interests:
+    - Artificial Intelligence
+    - Machine Learning
+    - Big Data Analytics
+    - Medical Image and Video Analysis
+  short_bio: Leads Arco Lab across artificial intelligence, machine learning, biomedical engineering, and translational medical research.
+  bio: Paolo Soda graduated with honors in Biomedical Engineering in 2004 and earned a PhD in Biomedical Engineering in 2008, both at Campus Bio-Medico University of Rome. He is Full Professor of Information Processing Systems at UCBM and Visiting Professor in Artificial Intelligence and Biomedical Engineering at Umea University. His research focuses on artificial intelligence, machine learning, big data analytics, and 2D and 3D image and video processing and analysis.
+  publications:
+    - year: 2025
+      title: "LatentAugment: Data augmentation via guided manipulation of GAN's latent space"
+      venue: IEEE Transactions on Pattern Analysis and Machine Intelligence
+    - year: 2025
+      title: A systematic review of intermediate fusion in multimodal deep learning for biomedical applications
+      venue: Image and Vision Computing
+    - year: 2024
+      title: "Multimodal explainability via latent shift applied to COVID-19 stratification"
+      venue: Pattern Recognition
+    - year: 2024
+      title: "A deep learning approach for overall survival prediction in lung cancer with missing values"
+      venue: Computer Methods and Programs in Biomedicine
+  order: 1
+- name: Valerio Guarrasi
+  slug: valerio-guarrasi
+  profile_path: /team/valerio-guarrasi/
+  role: researcher
+  affiliation: Campus Bio-Medico University of Rome
+  title: Fixed-term Researcher in Artificial Intelligence and Computing Systems
+  subtitle: Faculty member in Biomedical Engineering and Intelligent Systems Engineering
+  email: valerio.guarrasi@unicampus.it
+  photo: /faces/valerio_guarrasi.png
+  external_url: https://www.unicampus.it/en/people/valerio-guarrasi-2/
+  publications_url: https://guarrasi1995.github.io/publications/
+  interests:
+    - Multimodal Deep Learning
+    - Generative AI
+    - Medical Imaging
+    - AI for Healthcare
+  short_bio: Works on multimodal deep learning, generative AI, medical imaging, and biomedical applications of artificial intelligence.
+  bio: Valerio Guarrasi is a fixed-term researcher at Campus Bio-Medico University of Rome in the area of Artificial Intelligence and Computing Systems. His work focuses on multimodal deep learning, generative AI, medical imaging, and biomedical applications of artificial intelligence. At UCBM he is also involved in teaching activities in Biomedical Engineering and Intelligent Systems Engineering.
+  highlight: Finalist for the Most Promising Researcher in Robotics and Artificial Intelligence 2025.
+  publications:
+    - year: 2025
+      title: "A graph neural network-based model with Out-of-Distribution Robustness for enhancing Antiretroviral Therapy Outcome Prediction for HIV-1"
+      venue: Computerized Medical Imaging and Graphics
+    - year: 2025
+      title: A systematic review of intermediate fusion in multimodal deep learning for biomedical applications
+      venue: Image and Vision Computing
+    - year: 2025
+      title: "An optimized ensemble search approach for classification of higher-level gait disorder using brain magnetic resonance images"
+      venue: Computers in Biology and Medicine
+    - year: 2024
+      title: "Multimodal explainability via latent shift applied to COVID-19 stratification"
+      venue: Pattern Recognition
+  order: 2

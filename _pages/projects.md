@@ -1,65 +1,49 @@
 ---
 layout: page
-title: projects
+title: Projects
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: Research projects and applied AI initiatives at Arco Lab.
 nav: true
-nav_order: 3
-display_categories: [work, fun]
-horizontal: false
+nav_order: 2
 ---
 
-<!-- pages/projects.md -->
-<div class="projects">
-{% if site.enable_project_categories and page.display_categories %}
-  <!-- Display categorized projects -->
-  {% for category in page.display_categories %}
-  <a id="{{ category }}" href=".#{{ category }}">
-    <h2 class="category">{{ category }}</h2>
-  </a>
-  {% assign categorized_projects = site.projects | where: "category", category %}
-  {% assign sorted_projects = categorized_projects | sort: "importance" %}
-  <!-- Generate cards for each project -->
-  {% if page.horizontal %}
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
-    {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
-    {% endfor %}
-    </div>
-  </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
-  {% endfor %}
-
-{% else %}
-
-<!-- Display projects without categories -->
+Arco Lab develops research initiatives spanning medical imaging, multimodal clinical data analysis, and decision-support systems, with each project page collecting the core context, team, and related outputs.
 
 {% assign sorted_projects = site.projects | sort: "importance" %}
-
-  <!-- Generate cards for each project -->
-
-{% if page.horizontal %}
-
-  <div class="container">
-    <div class="row row-cols-1 row-cols-md-2">
+{% if sorted_projects.size > 0 %}
+  <div class="about-project-grid">
     {% for project in sorted_projects %}
-      {% include projects_horizontal.liquid %}
+      <article
+        class="about-project-card about-project-card-clickable"
+        onclick="window.location.href='{{ project.url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url }}'; }"
+        role="link"
+        tabindex="0"
+        aria-label="View {{ project.title }} project"
+      >
+        <img src="{{ project.img }}" alt="{{ project.title }}">
+        <div class="about-project-body">
+          {% if project.project_type %}
+            <span class="about-project-badge">{{ project.project_type }}</span>
+          {% endif %}
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="about-project-meta">
+            {% if project.team %}
+              <span><i class="fa-regular fa-user"></i> {{ project.team | size }} team members</span>
+            {% endif %}
+            {% if project.timeline %}
+              <span><i class="fa-regular fa-calendar"></i> {{ project.timeline }}</span>
+            {% endif %}
+            {% if project.status %}
+              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+            {% endif %}
+          </div>
+          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
     {% endfor %}
-    </div>
   </div>
-  {% else %}
-  <div class="row row-cols-1 row-cols-md-3">
-    {% for project in sorted_projects %}
-      {% include projects.liquid %}
-    {% endfor %}
-  </div>
-  {% endif %}
+{% else %}
+  <p>No projects are available yet.</p>
 {% endif %}
-</div>

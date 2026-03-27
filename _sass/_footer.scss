@@ -3,18 +3,24 @@
  ******************************************************************************/
 
 footer.fixed-bottom {
-  background-color: var(--global-footer-bg-color);
-  font-size: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(10, 15, 44, 0.84);
+  backdrop-filter: blur(18px);
+  font-size: 0.76rem;
 
   .container {
     color: var(--global-footer-text-color);
-    padding-top: 9px;
-    padding-bottom: 8px;
+    max-width: 1120px;
+    padding-top: 12px;
+    padding-bottom: 11px;
     text-align: center;
+    line-height: 1.6;
   }
 
   a {
     color: var(--global-footer-link-color);
+    font-weight: 600;
+    transition: color 0.2s ease;
 
     &:hover {
       color: var(--global-theme-color);
@@ -24,12 +30,15 @@ footer.fixed-bottom {
 }
 
 footer.sticky-bottom {
-  border-top: 1px solid var(--global-divider-color);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   padding-top: 40px;
   padding-bottom: 40px;
   font-size: 0.9rem;
+  background: rgba(10, 15, 44, 0.72);
 
   .container {
     text-align: center;
+    color: var(--global-footer-text-color);
+    line-height: 1.7;
   }
 }
