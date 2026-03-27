@@ -2,7 +2,7 @@
 layout: about
 title: About
 permalink: /
-subtitle: <a class="about-hero-badge" href="/contact/">Arco Lab is hiring! <span>Apply &rarr;</span></a>
+subtitle:
 
 selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
@@ -21,18 +21,7 @@ latest_posts:
 <section class="about-hero">
   <div class="about-hero-inner">
     <div class="about-hero-title-shell">
-      <div class="about-hero-logo-intro" id="about-hero-logo-intro" aria-hidden="true">
-        <video id="about-hero-logo-video" muted playsinline preload="auto" poster="{{ '/assets/branding/arco/lockup/logo_arco_cb.png' | relative_url }}">
-          <source src="{{ '/assets/branding/arco/motion/logo_arco_video.mp4' | relative_url }}" type="video/mp4">
-        </video>
-        <img
-          id="about-hero-logo-static"
-          src="{{ '/assets/branding/arco/lockup/logo_arco_cb.png' | relative_url }}"
-          alt="ArCo Lab"
-          hidden
-        >
-        <img id="about-hero-logo-fallback" src="{{ '/assets/branding/arco/motion/logo_arco.gif' | relative_url }}" alt="" hidden>
-      </div>
+      <img class="about-hero-logo-static" src="{{ '/assets/branding/arco/lockup/logo_arco_cb.png' | relative_url }}" alt="ArCo Lab">
     </div>
 
     <p class="about-hero-lead">
@@ -50,56 +39,6 @@ latest_posts:
     </div>
   </div>
 </section>
-
-<script>
-  (() => {
-    const intro = document.getElementById("about-hero-logo-intro");
-    const video = document.getElementById("about-hero-logo-video");
-    const staticLogo = document.getElementById("about-hero-logo-static");
-    const fallback = document.getElementById("about-hero-logo-fallback");
-
-    if (!intro || !video || !staticLogo || !fallback) return;
-
-    const showStaticLogo = () => {
-      video.hidden = true;
-      fallback.hidden = true;
-      staticLogo.hidden = false;
-    };
-
-    intro.hidden = false;
-    staticLogo.hidden = true;
-    fallback.hidden = true;
-    video.hidden = false;
-
-    video.play().catch(() => {
-      video.hidden = true;
-      fallback.hidden = false;
-      setTimeout(() => {
-        showStaticLogo();
-      }, 2600);
-    });
-
-    video.addEventListener(
-      "ended",
-      () => {
-        showStaticLogo();
-      },
-      { once: true }
-    );
-
-    video.addEventListener(
-      "error",
-      () => {
-        video.hidden = true;
-        fallback.hidden = false;
-        setTimeout(() => {
-          showStaticLogo();
-        }, 2600);
-      },
-      { once: true }
-    );
-  })();
-</script>
 
 <section class="about-overview">
   <div class="about-stats-grid">
@@ -127,6 +66,35 @@ latest_posts:
       <h2>Active research initiatives</h2>
       <p>From methodological innovation to clinically meaningful applications.</p>
     </article>
+  </div>
+</section>
+
+<section class="about-section about-section-flagship">
+  <div class="about-flagship-panel">
+    <div class="about-flagship-copy">
+      <p class="about-section-kicker">From Methods to Medicine</p>
+      <h2>Building clinically grounded AI systems with translational intent</h2>
+      <p class="about-section-copy">
+        Arco Lab works across the full path from methodological innovation to realistic clinical evaluation, combining technical rigor, data-centric experimentation, and collaborative validation with medical partners.
+      </p>
+    </div>
+    <div class="about-flagship-grid">
+      <article class="about-flagship-card">
+        <span class="about-flagship-step">01</span>
+        <h3>Method Design</h3>
+        <p>Robust multimodal models, representation learning, explainability, and uncertainty-aware pipelines.</p>
+      </article>
+      <article class="about-flagship-card">
+        <span class="about-flagship-step">02</span>
+        <h3>Clinical Framing</h3>
+        <p>Problem definitions shaped by imaging workflows, patient cohorts, decision pathways, and deployment constraints.</p>
+      </article>
+      <article class="about-flagship-card">
+        <span class="about-flagship-step">03</span>
+        <h3>Translational Evaluation</h3>
+        <p>Validation strategies focused on generalization, interpretability, and real-world relevance for healthcare settings.</p>
+      </article>
+    </div>
   </div>
 </section>
 

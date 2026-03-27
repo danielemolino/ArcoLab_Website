@@ -46,6 +46,7 @@ footer.sticky-bottom {
   align-items: center;
   justify-content: space-between;
   gap: 1rem 1.5rem;
+  position: relative;
 }
 
 .footer-primary,
@@ -104,6 +105,27 @@ footer.sticky-bottom {
 .footer-tertiary a,
 .footer-tertiary span {
   font-size: 0.75rem;
+}
+
+.footer-secondary a {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -0.2rem;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.42);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.18s ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
 }
 
 .footer-tertiary {

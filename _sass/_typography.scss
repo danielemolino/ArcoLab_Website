@@ -19,6 +19,22 @@ strong {
   color: var(--global-text-color);
 }
 
+p {
+  line-height: 1.85;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+h4,
+h5,
+h6 {
+  letter-spacing: -0.01em;
+}
+
 hr {
   border-top: 1px solid var(--global-divider-color);
 }

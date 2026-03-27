@@ -121,6 +121,20 @@ html[data-theme="light"] {
   }
 }
 
+body {
+  background:
+    radial-gradient(circle at top left, rgba(92, 80, 231, 0.1) 0%, rgba(92, 80, 231, 0) 26%),
+    radial-gradient(circle at 85% 15%, rgba(255, 151, 81, 0.08) 0%, rgba(255, 151, 81, 0) 22%),
+    linear-gradient(180deg, #0a0f2c 0%, #0b102f 46%, #090d24 100%);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: rgba(124, 109, 255, 0.35);
+  color: #fff;
+}
+
 html[data-theme="dark"] {
   color-scheme: dark;
   --global-bg-color: #0a0f2c;

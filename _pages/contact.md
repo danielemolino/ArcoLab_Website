@@ -43,4 +43,24 @@ nav_order: 5
       </div>
     </aside>
   </div>
+
+  <div class="contact-page-grid">
+    <article class="contact-page-card">
+      <p class="contact-page-card-kicker">Prospective Students</p>
+      <h2>PhD, postdoc, and thesis inquiries</h2>
+      <p>
+        If you are interested in joining the lab, send a short message with your background, current affiliation, and research interests. Relevant areas include medical imaging, multimodal learning, clinical AI, and trustworthy decision support.
+      </p>
+      <a class="about-project-link" href="mailto:arcolab@unicampus.it">Write to the lab <span aria-hidden="true">&rarr;</span></a>
+    </article>
+
+    <article class="contact-page-card">
+      <p class="contact-page-card-kicker">Collaborations</p>
+      <h2>Academic and clinical partnerships</h2>
+      <p>
+        Arco Lab is interested in collaborations that connect methodological AI research with clinically meaningful applications, translational studies, and shared research infrastructure.
+      </p>
+      <a class="about-project-link" href="/projects/">See project directions <span aria-hidden="true">&rarr;</span></a>
+    </article>
+  </div>
 </section>
