@@ -37,6 +37,7 @@
     margin-top: 0;
 
     li {
+      position: relative;
       margin-bottom: 1.4rem;
       padding: 1.65rem 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -52,6 +53,25 @@
         transform: translateY(-3px);
         border-color: rgba(124, 109, 255, 0.35);
         box-shadow: 0 28px 68px rgba(0, 0, 0, 0.24);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 1rem;
+        top: 1rem;
+        bottom: 1rem;
+        width: 3px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(124, 109, 255, 1) 0%, rgba(91, 79, 207, 0.35) 100%);
+      }
+
+      &:nth-child(3n + 2)::before {
+        background: linear-gradient(180deg, rgba(98, 153, 255, 1) 0%, rgba(91, 79, 207, 0.35) 100%);
+      }
+
+      &:nth-child(3n)::before {
+        background: linear-gradient(180deg, rgba(84, 221, 167, 1) 0%, rgba(91, 79, 207, 0.35) 100%);
       }
 
       .preview {
@@ -256,7 +276,7 @@
 .publications-intro {
   max-width: 840px;
   margin: 0 auto 2rem;
-  padding: 0.75rem 0 0.5rem;
+  padding: 1.5rem 0 0.75rem;
   text-align: center;
 
   h1 {
@@ -266,6 +286,15 @@
     line-height: 1;
     color: #fff;
   }
+}
+
+.publications-intro-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
 .publications-intro-kicker {
@@ -288,6 +317,10 @@
 .publications-keyword-filters {
   max-width: 980px;
   margin: 0 auto 1.5rem;
+  padding: 1.2rem 1.2rem 1.25rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1.4rem;
+  background: rgba(255, 255, 255, 0.025);
 }
 
 .publications-keyword-title {
@@ -371,5 +404,25 @@
   &:focus {
     border-color: rgba(124, 109, 255, 0.45);
     box-shadow: 0 0 0 0.2rem rgba(108, 92, 231, 0.16);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .publications {
+    ol.bibliography li {
+      padding: 1.3rem 1rem 1.2rem 1.2rem;
+    }
+  }
+
+  .publications-keyword-filters {
+    padding: 1rem;
+  }
+
+  .publications-intro-actions {
+    align-items: stretch;
+
+    .about-hero-btn {
+      width: 100%;
+    }
   }
 }

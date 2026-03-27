@@ -20,7 +20,20 @@ latest_posts:
 
 <section class="about-hero">
   <div class="about-hero-inner">
-    <h1 class="about-hero-title">Applied AI for Medicine</h1>
+    <div class="about-hero-title-shell">
+      <div class="about-hero-logo-intro" id="about-hero-logo-intro" aria-hidden="true">
+        <video id="about-hero-logo-video" muted playsinline preload="auto" poster="{{ '/assets/branding/arco/lockup/logo_arco_cb.png' | relative_url }}">
+          <source src="{{ '/assets/branding/arco/motion/logo_arco_video.mp4' | relative_url }}" type="video/mp4">
+        </video>
+        <img
+          id="about-hero-logo-static"
+          src="{{ '/assets/branding/arco/lockup/logo_arco_cb.png' | relative_url }}"
+          alt="ArCo Lab"
+          hidden
+        >
+        <img id="about-hero-logo-fallback" src="{{ '/assets/branding/arco/motion/logo_arco.gif' | relative_url }}" alt="" hidden>
+      </div>
+    </div>
 
     <p class="about-hero-lead">
       Arco Lab advances applied artificial intelligence for medicine at Campus Bio-Medico University of Rome, with research spanning medical imaging, clinical data analysis, and decision support systems.
@@ -37,6 +50,56 @@ latest_posts:
     </div>
   </div>
 </section>
+
+<script>
+  (() => {
+    const intro = document.getElementById("about-hero-logo-intro");
+    const video = document.getElementById("about-hero-logo-video");
+    const staticLogo = document.getElementById("about-hero-logo-static");
+    const fallback = document.getElementById("about-hero-logo-fallback");
+
+    if (!intro || !video || !staticLogo || !fallback) return;
+
+    const showStaticLogo = () => {
+      video.hidden = true;
+      fallback.hidden = true;
+      staticLogo.hidden = false;
+    };
+
+    intro.hidden = false;
+    staticLogo.hidden = true;
+    fallback.hidden = true;
+    video.hidden = false;
+
+    video.play().catch(() => {
+      video.hidden = true;
+      fallback.hidden = false;
+      setTimeout(() => {
+        showStaticLogo();
+      }, 2600);
+    });
+
+    video.addEventListener(
+      "ended",
+      () => {
+        showStaticLogo();
+      },
+      { once: true }
+    );
+
+    video.addEventListener(
+      "error",
+      () => {
+        video.hidden = true;
+        fallback.hidden = false;
+        setTimeout(() => {
+          showStaticLogo();
+        }, 2600);
+      },
+      { once: true }
+    );
+  })();
+</script>
 
 <section class="about-overview">
   <div class="about-stats-grid">
@@ -117,7 +180,7 @@ latest_posts:
           <span><i class="fa-regular fa-file-lines"></i> 14+ studies</span>
           <span><i class="fa-solid fa-database"></i> longitudinal cohorts</span>
         </div>
-        <a class="about-focus-link" href="/projects/">View Research <span aria-hidden="true">&rarr;</span></a>
+        <a class="about-focus-link" href="/projects/">See related projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </article>
 
@@ -139,7 +202,7 @@ latest_posts:
           <span><i class="fa-regular fa-file-lines"></i> pilot systems</span>
           <span><i class="fa-solid fa-hospital"></i> healthcare deployment</span>
         </div>
-        <a class="about-focus-link" href="/projects/">Learn More <span aria-hidden="true">&rarr;</span></a>
+        <a class="about-focus-link" href="/projects/">Explore ongoing work <span aria-hidden="true">&rarr;</span></a>
       </div>
     </article>
   </div>
@@ -158,7 +221,7 @@ latest_posts:
         <li>Rigorous evaluation pipelines for robustness, interpretability, and translational relevance.</li>
       </ul>
       <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/projects/">
-        <span>Explore the Lab</span>
+        <span>View research directions</span>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
@@ -224,7 +287,7 @@ latest_posts:
             <a class="about-team-action-link" href="/publications/" onclick="event.stopPropagation()"><i class="fa-solid fa-book-open"></i></a>
             <a class="about-team-action-link" href="{{ member.profile_path }}" onclick="event.stopPropagation()"><i class="fa-solid fa-user-group"></i></a>
           </div>
-          <span class="about-team-profile-link">View profile <span aria-hidden="true">&rarr;</span></span>
+          <span class="about-team-profile-link">Open profile <span aria-hidden="true">&rarr;</span></span>
         </div>
       </article>
     {% endfor %}
@@ -262,7 +325,7 @@ latest_posts:
               <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
             {% endif %}
           </div>
-          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Read more <span aria-hidden="true">&rarr;</span></a>
+          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     {% endfor %}

@@ -1,20 +1,23 @@
-{% capture footer_contents %}
-  &copy; Copyright {{ site.time | date: '%Y' }}
-  {{ site.first_name }}
-  {{ site.middle_name }}
-  {{ site.last_name }}. {{ site.footer_text }}
-  {% if site.impressum_path %}
-    <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-  {% endif %}
-  {% if site.last_updated %}
-    Last updated: {{ 'now' | date: '%B %d, %Y' }}.
-  {% endif %}
-{% endcapture %}
-
 {% if site.footer_fixed %}
   <footer class="fixed-bottom" role="contentinfo">
-    <div class="container mt-0">
-      {{ footer_contents }}
+    <div class="container mt-0 footer-panel">
+      <div class="footer-primary">
+        <a class="footer-brand" href="/about/" aria-label="{{ site.org_name | default: site.title }}">
+          <img src="{{ '/assets/branding/arco/lockup/logo_arco_wb.png' | relative_url }}" alt="{{ site.org_name | default: site.title }}">
+        </a>
+        <p class="footer-institution">{{ site.institution }}</p>
+      </div>
+      <div class="footer-secondary">
+        <a href="/about/">About</a>
+        <a href="/team/">Team</a>
+        <a href="/projects/">Projects</a>
+        <a href="/publications/">Publications</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-tertiary">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span>&copy; {{ site.time | date: '%Y' }} {{ site.org_name | default: site.title }}</span>
+      </div>
     </div>
   </footer>
 {% else %}
@@ -23,8 +26,24 @@
       {% include newsletter.liquid %}
     {% endif %}
 
-    <div class="container">
-      {{ footer_contents }}
+    <div class="container footer-panel">
+      <div class="footer-primary">
+        <a class="footer-brand" href="/about/" aria-label="{{ site.org_name | default: site.title }}">
+          <img src="{{ '/assets/branding/arco/lockup/logo_arco_wb.png' | relative_url }}" alt="{{ site.org_name | default: site.title }}">
+        </a>
+        <p class="footer-institution">{{ site.institution }}</p>
+      </div>
+      <div class="footer-secondary">
+        <a href="/about/">About</a>
+        <a href="/team/">Team</a>
+        <a href="/projects/">Projects</a>
+        <a href="/publications/">Publications</a>
+        <a href="/contact/">Contact</a>
+      </div>
+      <div class="footer-tertiary">
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+        <span>&copy; {{ site.time | date: '%Y' }} {{ site.org_name | default: site.title }}</span>
+      </div>
     </div>
   </footer>
 {% endif %}

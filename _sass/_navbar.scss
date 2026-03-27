@@ -14,20 +14,7 @@
 
 #navbar .container {
   position: relative;
-  padding-left: 11rem;
-}
-
-#navbar .container::before {
-  content: "Arco Lab";
-  position: absolute;
-  left: 0.75rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #fff;
-  font-size: 1.08rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  white-space: nowrap;
+  padding-left: 0;
 }
 
 .navbar .dropdown-menu,
@@ -76,31 +63,81 @@
 
   .navbar-brand {
     color: #fff;
-    opacity: 0;
-    width: 10rem;
+    opacity: 1;
+    width: 12.75rem;
+    min-width: 12.75rem;
+    margin-left: 0.2rem;
     margin-right: 1rem;
-    pointer-events: none;
+    pointer-events: auto;
+  }
+
+  .navbar-brand.navbar-brand-lockup {
+    display: inline-flex;
+    align-items: center;
+    min-height: 3.25rem;
+    padding: 0;
+    position: absolute;
+    left: 0.35rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 3;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 2.65rem;
+      object-fit: contain;
+    }
   }
 
   .navbar-nav .nav-item .nav-link {
+    position: relative;
     color: #fff;
     font-weight: 500;
     letter-spacing: 0.02em;
     padding-left: 1rem;
     padding-right: 1rem;
+    transition:
+      color 0.2s ease,
+      opacity 0.2s ease;
 
     &:hover {
       color: var(--global-hover-color);
+      opacity: 1;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 1rem;
+      right: 1rem;
+      bottom: 0.35rem;
+      height: 2px;
+      border-radius: 999px;
+      background: rgba(124, 109, 255, 0.95);
+      transform: scaleX(0);
+      transform-origin: center;
+      transition: transform 0.2s ease;
+    }
+
+    &:hover::after,
+    &:focus-visible::after {
+      transform: scaleX(1);
     }
   }
 
   .navbar-nav .nav-item.active > .nav-link {
     background-color: inherit;
     font-weight: 700;
-    color: var(--global-theme-color);
+    color: #fff;
 
     &:hover {
       color: var(--global-hover-color);
+    }
+
+    &::after {
+      transform: scaleX(1);
     }
   }
 
@@ -225,18 +262,30 @@
   }
 }
 
-@media (max-width: 575.98px) {
-  #navbar .container {
-    padding-left: 5.75rem;
-  }
+.navbar-collapse {
+  justify-content: center;
+}
 
-  #navbar .container::before {
-    left: 1rem;
-    font-size: 0.98rem;
+.navbar-collapse .navbar-nav {
+  width: 100%;
+  justify-content: center;
+}
+
+@media (max-width: 575.98px) {
+  .navbar.navbar-light .navbar-brand.navbar-brand-lockup {
+    width: 9.6rem;
+    min-width: 9.6rem;
+    left: 0.75rem;
   }
 
   .navbar.navbar-light .navbar-nav .nav-item .nav-link {
     padding-left: 0;
     padding-right: 0;
+
+    &::after {
+      left: 0;
+      right: auto;
+      width: 2.75rem;
+    }
   }
 }

@@ -7,7 +7,29 @@ nav: true
 nav_order: 1
 ---
 
-The Arco Lab team brings together expertise in artificial intelligence, biomedical engineering, and clinically grounded computational research.
+<section class="page-hero page-hero-team">
+  <div class="page-hero-copy">
+    <p class="page-hero-kicker">People</p>
+    <h1>Team</h1>
+    <p class="page-hero-lead">
+      Arco Lab brings together researchers working across artificial intelligence, biomedical engineering, and clinically grounded computational research. Each profile collects current roles, research interests, and selected outputs.
+    </p>
+    <div class="member-profile-links">
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/contact/">Get in touch</a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="/publications/">Browse publications <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+  <aside class="page-hero-panel">
+    <div class="page-hero-metric">
+      <span class="page-hero-metric-value">{{ site.data.team | size }}</span>
+      <span class="page-hero-metric-label">Current profiles</span>
+    </div>
+    <div class="page-hero-metric">
+      <span class="page-hero-metric-value">AI + Medicine</span>
+      <span class="page-hero-metric-label">Interdisciplinary research focus</span>
+    </div>
+  </aside>
+</section>
 
 {% assign team_members = site.data.team | sort: "order" %}
 <div class="about-team-grid">
@@ -47,7 +69,7 @@ The Arco Lab team brings together expertise in artificial intelligence, biomedic
             <a class="about-team-action-link" href="/contact/" aria-label="Contact" onclick="event.stopPropagation()"><i class="fa-regular fa-envelope"></i></a>
           {% endif %}
         </div>
-        <span class="about-team-profile-link">View profile <span aria-hidden="true">&rarr;</span></span>
+        <span class="about-team-profile-link">Open profile <span aria-hidden="true">&rarr;</span></span>
       </div>
     </article>
   {% endfor %}

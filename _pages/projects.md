@@ -7,7 +7,29 @@ nav: true
 nav_order: 2
 ---
 
-Arco Lab develops research initiatives spanning medical imaging, multimodal clinical data analysis, and decision-support systems, with each project page collecting the core context, team, and related outputs.
+<section class="page-hero page-hero-projects">
+  <div class="page-hero-copy">
+    <p class="page-hero-kicker">Research Portfolio</p>
+    <h1>Projects</h1>
+    <p class="page-hero-lead">
+      Arco Lab develops projects spanning medical imaging, multimodal clinical data analysis, and decision-support systems. Each project page gathers the core context, involved researchers, and related outputs in a format ready to scale to larger funded initiatives.
+    </p>
+    <div class="member-profile-links">
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/team/">Meet the team</a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="/contact/">Discuss a collaboration <span aria-hidden="true">&rarr;</span></a>
+    </div>
+  </div>
+  <aside class="page-hero-panel">
+    <div class="page-hero-metric">
+      <span class="page-hero-metric-value">{{ site.projects | size }}</span>
+      <span class="page-hero-metric-label">Structured project pages</span>
+    </div>
+    <div class="page-hero-metric">
+      <span class="page-hero-metric-value">Translational</span>
+      <span class="page-hero-metric-label">From methods to clinical deployment</span>
+    </div>
+  </aside>
+</section>
 
 {% assign sorted_projects = site.projects | sort: "importance" %}
 {% if sorted_projects.size > 0 %}
@@ -39,7 +61,7 @@ Arco Lab develops research initiatives spanning medical imaging, multimodal clin
               <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
             {% endif %}
           </div>
-          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project <span aria-hidden="true">&rarr;</span></a>
+          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     {% endfor %}

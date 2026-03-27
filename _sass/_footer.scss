@@ -13,7 +13,6 @@ footer.fixed-bottom {
     max-width: 1120px;
     padding-top: 12px;
     padding-bottom: 11px;
-    text-align: center;
     line-height: 1.6;
   }
 
@@ -37,8 +36,93 @@ footer.sticky-bottom {
   background: rgba(10, 15, 44, 0.72);
 
   .container {
-    text-align: center;
     color: var(--global-footer-text-color);
     line-height: 1.7;
+  }
+}
+
+.footer-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.footer-primary,
+.footer-secondary,
+.footer-tertiary {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footer-primary {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  max-width: 12rem;
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 2.3rem;
+    object-fit: contain;
+  }
+}
+
+.footer-lab-name,
+.footer-institution {
+  margin: 0;
+}
+
+.footer-lab-name {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.footer-institution {
+  color: var(--global-footer-text-color);
+  font-size: 0.72rem;
+  max-width: 18rem;
+}
+
+.footer-secondary {
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-secondary a,
+.footer-tertiary a,
+.footer-tertiary span {
+  font-size: 0.75rem;
+}
+
+.footer-tertiary {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 991.98px) {
+  .footer-panel {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .footer-primary {
+    flex-wrap: wrap;
+  }
+
+  .footer-secondary,
+  .footer-tertiary {
+    justify-content: flex-start;
   }
 }
