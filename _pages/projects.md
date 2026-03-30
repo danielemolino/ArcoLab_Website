@@ -48,6 +48,11 @@ nav_order: 2
           {% if project.project_type %}
             <span class="about-project-badge">{{ project.project_type }}</span>
           {% endif %}
+          <div class="about-project-story-strip">
+            <span>Challenge</span>
+            <span>Approach</span>
+            <span>Outputs</span>
+          </div>
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div class="about-project-meta">

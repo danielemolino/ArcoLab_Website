@@ -1,23 +1,37 @@
 import { highlightSearchTerm } from "./highlight-search-term.js";
 
 document.addEventListener("DOMContentLoaded", function () {
+  const searchInput = document.getElementById("bibsearch");
+  if (!searchInput) return;
+
+  const normalizeText = (value) =>
+    (value || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
+
   // actual bibsearch logic
   const filterItems = (searchTerm) => {
     document.querySelectorAll(".bibliography, .unloaded").forEach((element) => element.classList.remove("unloaded"));
 
     const bibliographyItems = document.querySelectorAll(".bibliography > li");
+    const normalizedSearchTerm = normalizeText(searchTerm);
+    const searchTokens = normalizedSearchTerm.split(" ").filter(Boolean);
 
     bibliographyItems.forEach((element) => {
       const row = element.querySelector(".row[data-search-text]");
-      const searchableText = row?.dataset.searchText || element.innerText.toLowerCase();
-      if (searchableText.indexOf(searchTerm) === -1) {
+      const searchableText = normalizeText(row?.dataset.searchText || element.innerText);
+      const matches =
+        searchTokens.length === 0 ||
+        searchTokens.every((token) => searchableText.includes(token));
+      if (!matches) {
         element.classList.add("unloaded");
       }
     });
 
-    if (CSS.highlights && searchTerm.trim() !== "") {
+    if (CSS.highlights && normalizedSearchTerm !== "") {
       highlightSearchTerm({
-        search: searchTerm,
+        search: normalizedSearchTerm,
         selector: ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keywords",
       });
     }
@@ -49,20 +63,24 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   const updateInputField = () => {
-    const hashValue = decodeURIComponent(window.location.hash.substring(1)); // Remove the '#' character
-    document.getElementById("bibsearch").value = hashValue;
-    filterItems(hashValue);
+    const params = new URLSearchParams(window.location.search);
+    const queryValue = (params.get("search") || "").trim();
+    const hashValue = decodeURIComponent(window.location.hash.substring(1));
+    const value = queryValue || hashValue;
+    searchInput.value = value;
+    filterItems(value.toLowerCase());
   };
 
   // Sensitive search. Only start searching if there's been no input for 300 ms
   let timeoutId;
-  document.getElementById("bibsearch").addEventListener("input", function () {
+  searchInput.addEventListener("input", function () {
     clearTimeout(timeoutId); // Clear the previous timeout
-    const searchTerm = this.value.toLowerCase();
-    timeoutId = setTimeout(filterItems(searchTerm), 300);
+    const searchTerm = this.value;
+    timeoutId = setTimeout(() => filterItems(searchTerm), 300);
   });
 
   window.addEventListener("hashchange", updateInputField); // Update the filter when the hash changes
+  window.addEventListener("popstate", updateInputField);
 
   updateInputField(); // Update filter when page loads
 });

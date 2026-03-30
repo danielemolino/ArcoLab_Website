@@ -6,6 +6,22 @@
 
 .publications {
   margin-top: 2rem;
+  width: 100%;
+
+  .row {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+    margin-left: 0;
+    margin-right: 0;
+    display: block;
+  }
+
+  .row > [class*="col-"] {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
 
   h1 {
     color: var(--global-theme-color);
@@ -35,10 +51,14 @@
     list-style: none;
     padding: 0;
     margin-top: 0;
+    margin-left: 0;
+    width: 100%;
 
     li {
       position: relative;
       margin-bottom: 1.4rem;
+      margin-left: 0;
+      margin-right: 0;
       padding: 1.65rem 1.5rem;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 1.5rem;
@@ -396,8 +416,9 @@
 
 .bibsearch-form-input {
   display: block;
-  width: min(100%, 980px);
-  margin: 0 auto 1rem;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 0 1rem;
   min-height: 3.65rem;
   padding-left: 1.35rem !important;
   padding-right: 1.15rem !important;
@@ -419,6 +440,24 @@
     color: #959cbc;
     opacity: 1;
   }
+}
+
+.arco-scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1100;
+  width: 100%;
+  height: 3px;
+  transform-origin: left center;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, #5b4fcf 0%, #6c5ce7 55%, #5bc6ff 100%);
+  box-shadow: 0 0 18px rgba(108, 92, 231, 0.5);
+  pointer-events: none;
+}
+
+html {
+  scroll-padding-top: 5.5rem;
 }
 
 @media (max-width: 767.98px) {

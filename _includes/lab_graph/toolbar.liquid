@@ -1,0 +1,56 @@
+<div class="lab-graph-toolbar">
+  <div class="lab-graph-toolbar-row">
+    <div class="lab-graph-mode-toggle" role="tablist" aria-label="Graph mode">
+      {% if site.lab_graph.enable_people %}
+        <button class="lab-graph-chip is-active" type="button" data-graph-mode="people">People Graph</button>
+      {% endif %}
+      {% if site.lab_graph.enable_papers %}
+        <button class="lab-graph-chip" type="button" data-graph-mode="papers">Paper Graph</button>
+      {% endif %}
+      {% if site.lab_graph.enable_hybrid %}
+        <button class="lab-graph-chip" type="button" data-graph-mode="hybrid">Hybrid Graph</button>
+      {% endif %}
+    </div>
+
+    <div class="lab-graph-toolbar-actions">
+      <button type="button" class="lab-graph-button" data-graph-action="fit">Fit graph</button>
+      <button type="button" class="lab-graph-button" data-graph-action="reset">Reset filters</button>
+    </div>
+  </div>
+
+  <div class="lab-graph-toolbar-row lab-graph-toolbar-row-filters">
+    <label class="lab-graph-field">
+      <span>Search</span>
+      <input id="lab-graph-search" type="search" placeholder="Search people, papers, venues, topics" />
+    </label>
+
+    <label class="lab-graph-field">
+      <span>Role</span>
+      <select id="lab-graph-role-filter">
+        <option value="">All roles</option>
+      </select>
+    </label>
+
+    <label class="lab-graph-field">
+      <span>Topic</span>
+      <select id="lab-graph-topic-filter">
+        <option value="">All topics</option>
+      </select>
+    </label>
+
+    <label class="lab-graph-field">
+      <span>Year</span>
+      <select id="lab-graph-year-filter">
+        <option value="">All years</option>
+      </select>
+    </label>
+
+    <label class="lab-graph-field lab-graph-field-inline">
+      <span>Focus depth</span>
+      <select id="lab-graph-focus-depth">
+        <option value="1">1 hop</option>
+        <option value="2">2 hops</option>
+      </select>
+    </label>
+  </div>
+</div>

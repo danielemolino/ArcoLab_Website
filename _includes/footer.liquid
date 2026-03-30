@@ -48,4 +48,15 @@
   </footer>
 {% endif %}
 
+<div class="palette-switcher" aria-label="Developer palette switcher">
+  <div class="palette-switcher-label">Palette</div>
+  <div class="palette-switcher-options">
+    <button type="button" class="palette-switcher-option is-active" data-palette-variant="current-refined">Current</button>
+    <button type="button" class="palette-switcher-option" data-palette-variant="clinical-blue">Clinical</button>
+    <button type="button" class="palette-switcher-option" data-palette-variant="graphite-electric">Graphite</button>
+    <button type="button" class="palette-switcher-option" data-palette-variant="midnight-emerald">Emerald</button>
+    <button type="button" class="palette-switcher-option" data-palette-variant="deep-ink-amber">Amber</button>
+  </div>
+</div>
+
 <script src="{{ '/assets/js/arco-ui.js' | relative_url | bust_file_cache }}"></script>

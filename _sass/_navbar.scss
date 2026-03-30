@@ -87,7 +87,7 @@
     min-height: 3.25rem;
     padding: 0;
     position: absolute;
-    left: 0.35rem;
+    left: -0.95rem;
     top: 50%;
     transform: translateY(-50%);
     z-index: 3;
@@ -284,15 +284,26 @@
 }
 
 .navbar-collapse .navbar-nav {
-  width: 100%;
+  width: auto;
   justify-content: center;
+}
+
+@media (min-width: 576px) {
+  #navbar .container {
+    justify-content: center;
+  }
+
+  #navbar .navbar-collapse {
+    flex-grow: 0;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 575.98px) {
   .navbar.navbar-light .navbar-brand.navbar-brand-lockup {
     width: 9.6rem;
     min-width: 9.6rem;
-    left: 0.75rem;
+    left: -0.05rem;
   }
 
   .navbar.navbar-light .navbar-nav .nav-item .nav-link {

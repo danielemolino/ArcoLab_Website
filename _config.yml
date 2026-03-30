@@ -60,6 +60,17 @@ search_enabled: true
 socials_in_search: true
 posts_in_search: true
 bib_search: true
+lab_graph:
+  enabled: false
+  nav_title: Graph
+  show_in_nav: true
+  enable_people: true
+  enable_papers: true
+  enable_hybrid: true
+  default_view: people
+  default_focus_depth: 1
+  initial_min_shared_publications: 1
+  initial_max_nodes: 120
 
 # Dimensions
 max_width: 930px

@@ -69,6 +69,26 @@ latest_posts:
   </div>
 </section>
 
+<section class="about-section about-section-signal">
+  <div class="about-signal-strip">
+    <article class="about-signal-item">
+      <span class="about-signal-label">Featured Direction</span>
+      <strong>Multimodal Clinical AI</strong>
+      <p>Models combining imaging, clinical records, and context for robust decision support.</p>
+    </article>
+    <article class="about-signal-item">
+      <span class="about-signal-label">Method Priority</span>
+      <strong>Reliable Generative Systems</strong>
+      <p>Foundation models, data generation, and trustworthy pipelines for biomedical settings.</p>
+    </article>
+    <article class="about-signal-item">
+      <span class="about-signal-label">Translational Lens</span>
+      <strong>Impact Beyond Benchmarking</strong>
+      <p>Evaluation built around clinical plausibility, robustness, and deployment realism.</p>
+    </article>
+  </div>
+</section>
+
 <section class="about-section about-section-flagship">
   <div class="about-flagship-panel">
     <div class="about-flagship-copy">
@@ -93,6 +113,39 @@ latest_posts:
         <span class="about-flagship-step">03</span>
         <h3>Translational Evaluation</h3>
         <p>Validation strategies focused on generalization, interpretability, and real-world relevance for healthcare settings.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="about-section about-section-featured-project">
+  <div class="about-featured-project-panel">
+    <div class="about-featured-project-copy">
+      <p class="about-section-kicker">Featured Project Lens</p>
+      <h2>Designing multimodal systems that stay useful under real clinical constraints</h2>
+      <p class="about-section-copy">
+        Our project portfolio focuses on models that combine data modalities, remain interpretable to domain experts, and preserve performance when data quality, missing values, or deployment conditions change.
+      </p>
+      <div class="about-featured-project-points">
+        <span><i class="fa-solid fa-wave-square"></i> Multimodal inputs</span>
+        <span><i class="fa-solid fa-shield-heart"></i> Robust evaluation</span>
+        <span><i class="fa-solid fa-user-doctor"></i> Clinical usability</span>
+      </div>
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/projects/">
+        <span>Open Project Portfolio</span>
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+    <div class="about-featured-project-stack">
+      <article class="about-featured-project-card">
+        <span class="about-featured-project-step">Clinical Challenge</span>
+        <h3>Fragmented and heterogeneous medical data</h3>
+        <p>Real healthcare workflows rarely offer clean, balanced, single-modality datasets.</p>
+      </article>
+      <article class="about-featured-project-card">
+        <span class="about-featured-project-step">Arco Approach</span>
+        <h3>Joint modelling, explainability, and robustness</h3>
+        <p>We design methods that stay intelligible and reliable while handling complexity.</p>
       </article>
     </div>
   </div>
@@ -223,11 +276,12 @@ latest_posts:
     <p class="about-section-copy">
       A multidisciplinary team working at the intersection of artificial intelligence, medicine, and translational research.
     </p>
+    <a class="about-focus-link" href="/team/">View all profiles <span aria-hidden="true">&rarr;</span></a>
   </div>
 
   {% assign team_preview = site.data.team | sort: "order" %}
   <div class="about-team-grid">
-    {% for member in team_preview limit: 2 %}
+    {% for member in team_preview limit: 4 %}
       <article
         class="about-team-card about-team-card-clickable"
         onclick="window.location.href='{{ member.profile_path }}'"
@@ -238,6 +292,9 @@ latest_posts:
       >
         <img src="{{ member.photo }}" alt="{{ member.name }}">
         <div class="about-team-body">
+          <div class="about-team-card-header">
+            <span class="about-team-role-badge">{{ member.role_label }}</span>
+          </div>
           <h3>{{ member.name }}</h3>
           {% if member.title %}
             <p class="about-team-role">{{ member.title }}</p>

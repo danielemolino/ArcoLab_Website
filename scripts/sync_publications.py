@@ -243,12 +243,14 @@ def search_crossref_by_title(title: str) -> dict[str, Any] | None:
     return items[0]
 
 
-def load_rows(source: str) -> list[dict[str, str]]:
+def load_rows(source: str, mirror_path: Path | None = None) -> list[dict[str, str]]:
     source = normalize_google_sheet_source(source)
     if re.match(r"^https?://", source):
         request = urllib.request.Request(source, headers={"User-Agent": USER_AGENT})
         with urllib.request.urlopen(request, timeout=20) as response:
             raw = response.read().decode("utf-8-sig")
+        if mirror_path is not None:
+            mirror_path.write_text(raw, encoding="utf-8")
     else:
         raw = Path(source).read_text(encoding="utf-8-sig")
 
@@ -433,7 +435,8 @@ def main() -> int:
         str(DEFAULT_SOURCE),
     )
 
-    rows = load_rows(source)
+    mirror_path = DEFAULT_SOURCE if re.match(r"^https?://", normalize_google_sheet_source(source)) else None
+    rows = load_rows(source, mirror_path=mirror_path)
     entries: list[dict[str, str]] = []
     seen_identifiers: set[str] = set()
 

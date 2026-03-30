@@ -32,8 +32,25 @@ nav_order: 1
 </section>
 
 {% assign team_members = site.data.team | sort: "order" %}
-<div class="about-team-grid">
-  {% for member in team_members %}
+{% assign role_sections = "pi|Principal Investigator,faculty|Faculty,researcher|Researchers,postdoc|Postdoctoral Researchers,phd|PhD Students,student|Students,collaborator|Collaborators,alumni|Alumni" | split: "," %}
+
+{% for section in role_sections %}
+{% assign parts = section | split: "|" %}
+{% assign role_key = parts[0] %}
+{% assign role_label = parts[1] %}
+{% assign section_members = team_members | where: "role", role_key %}
+{% if section_members.size > 0 %}
+<section class="team-role-group">
+  <div class="team-role-heading">
+    <div>
+      <p class="team-role-kicker">People</p>
+      <h2>{{ role_label }}</h2>
+    </div>
+    <span class="team-role-count">{{ section_members.size }}</span>
+  </div>
+
+  <div class="about-team-grid">
+    {% for member in section_members %}
     <article
       class="about-team-card about-team-card-clickable"
       onclick="window.location.href='{{ member.profile_path }}'"
@@ -44,33 +61,40 @@ nav_order: 1
     >
       <img src="{{ member.photo }}" alt="{{ member.name }}">
       <div class="about-team-body">
+        <div class="about-team-card-header">
+          <span class="about-team-role-badge">{{ member.role_label }}</span>
+        </div>
         <h3>{{ member.name }}</h3>
         {% if member.title %}
-          <p class="about-team-role">{{ member.title }}</p>
-        {% endif %}
-        {% if member.subtitle %}
-          <p class="about-team-bio">{{ member.subtitle }}</p>
+        <p class="about-team-role">{{ member.title }}</p>
         {% endif %}
         <p class="about-team-bio">{{ member.short_bio | default: member.bio }}</p>
         {% if member.interests %}
-          <div class="about-team-tags">
-            {% for interest in member.interests limit: 3 %}
-              <span>{{ interest }}</span>
-            {% endfor %}
-          </div>
+        <div class="about-team-tags">
+          {% for interest in member.interests limit: 3 %}
+          <span>{{ interest }}</span>
+          {% endfor %}
+        </div>
         {% endif %}
         <div class="about-team-links">
-          <a class="about-team-action-link" href="{{ member.profile_path }}" aria-label="View profile" onclick="event.stopPropagation()"><i class="fa-solid fa-user"></i></a>
-          <a class="about-team-action-link" href="{{ member.external_url }}" aria-label="Official profile" onclick="event.stopPropagation()"><i class="fa-solid fa-up-right-from-square"></i></a>
-          <a class="about-team-action-link" href="/publications/" aria-label="Publications" onclick="event.stopPropagation()"><i class="fa-solid fa-book-open"></i></a>
+          {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
+          <a class="about-team-action-link" href="{{ member.scholar_url }}" aria-label="Google Scholar" title="Google Scholar" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-graduation-cap"></i></a>
+          {% endif %}
+          {% if member.external_url %}
+          <a class="about-team-action-link" href="{{ member.external_url }}" aria-label="Official profile" title="Official profile" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-building-columns"></i></a>
+          {% endif %}
+          <a class="about-team-action-link" href="/publications/?search={{ member.name | url_encode }}" aria-label="Filter publications by {{ member.name }}" title="Publications by {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-book-open"></i></a>
           {% if member.email %}
-            <a class="about-team-action-link" href="mailto:{{ member.email }}" aria-label="Email" onclick="event.stopPropagation()"><i class="fa-regular fa-envelope"></i></a>
+          <a class="about-team-action-link" href="mailto:{{ member.email }}" aria-label="Email {{ member.name }}" title="Email {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
           {% else %}
-            <a class="about-team-action-link" href="/contact/" aria-label="Contact" onclick="event.stopPropagation()"><i class="fa-regular fa-envelope"></i></a>
+          <a class="about-team-action-link" href="/contact/" aria-label="Contact" title="Contact" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
           {% endif %}
         </div>
         <span class="about-team-profile-link">Open profile <span aria-hidden="true">&rarr;</span></span>
       </div>
     </article>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endfor %}

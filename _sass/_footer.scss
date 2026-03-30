@@ -47,6 +47,16 @@ footer.sticky-bottom {
   justify-content: space-between;
   gap: 1rem 1.5rem;
   position: relative;
+  padding: 0.35rem 0;
+}
+
+.footer-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 1.2rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
 }
 
 .footer-primary,
@@ -105,6 +115,16 @@ footer.sticky-bottom {
 .footer-tertiary a,
 .footer-tertiary span {
   font-size: 0.75rem;
+}
+
+.footer-tertiary span,
+.footer-tertiary a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.28rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
 }
 
 .footer-secondary a {
