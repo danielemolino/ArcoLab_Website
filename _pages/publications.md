@@ -15,6 +15,12 @@ nav_order: 3
   </p>
   <div class="publications-intro-actions">
     <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/projects/">Explore projects</a>
+    {% if site.lab_graph.enabled %}
+      <a class="about-hero-btn publications-graph-btn" href="/graph/">
+        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i>
+        <span>Open paper graph</span>
+      </a>
+    {% endif %}
     <a class="about-hero-btn about-hero-btn-secondary" href="/team/">Open researcher profiles <span aria-hidden="true">&rarr;</span></a>
   </div>
 </section>
@@ -22,6 +28,8 @@ nav_order: 3
 {% include bib_search.liquid %}
 
 <div id="publications-keyword-filters" class="publications-keyword-filters"></div>
+<div id="publications-project-filters" class="publications-keyword-filters"></div>
+<div id="publications-year-filters" class="publications-keyword-filters"></div>
 
 <div class="publications">
 {% bibliography %}

@@ -1,30 +1,30 @@
 ---
 layout: page
-title: Clinical AI for Risk Stratification
-permalink: /projects/clinical-risk-stratification/
-description: Multimodal decision-support research for patient stratification, outcome prediction, and clinically grounded deployment pathways.
-img: /assets/img/11.jpg
-importance: 2
+title: Federated Medical Platforms
+permalink: /projects/federated-medical-platforms/
+description: Placeholder project on federated learning, multi-site validation, and privacy-aware AI infrastructure for biomedical applications.
+img: /assets/img/7.jpg
+importance: 5
 project_state: active
-category: decision-support
-project_type: Decision Support
-status: Through June 2028
-timeline: 2024-2028
+category: federated-ai
+project_type: Clinical Application
+status: Through November 2027
+timeline: 2025-2027
 team:
-  - Paolo Soda
-  - Valerio Guarrasi
+  - Ermanno Cordelli
+  - Camillo Maria Caruso
 focus_areas:
-  - Clinical Data Analysis
-  - Multimodal Learning
-  - Outcome Prediction
+  - Federated Learning
+  - Multi-site Validation
+  - Privacy-aware AI
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Hospital and clinical partners
+  - Multi-centre biomedical partners
 highlights:
-  - Multimodal pipelines that integrate imaging, tabular, and longitudinal clinical information.
-  - Outcome prediction models designed for robustness under real-world missingness and distribution shift.
-  - Decision-support interfaces aligned with practical care pathways and human oversight.
-project_filter: clinical-risk-stratification
+  - Placeholder direction on privacy-aware training across institutions.
+  - Placeholder direction on validation under heterogeneous data conditions.
+  - Placeholder direction on clinically grounded infrastructures for collaborative AI.
+project_filter: federated-medical-platforms
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -44,7 +44,7 @@ project_filter: clinical-risk-stratification
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/?project={{ page.project_filter | url_encode }}">View Publications</a>
         <a class="about-hero-btn about-hero-btn-secondary" href="/projects/">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -53,12 +53,8 @@ project_filter: clinical-risk-stratification
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        This project line develops machine learning methods for clinically relevant risk stratification, combining multimodal evidence sources to support decision-making in complex medical settings. It focuses on model robustness, interpretability, and practical integration into translational research workflows.
-      </p>
-      <p>
-        The programme spans data fusion, longitudinal modelling, and predictive analytics, with attention to deployment constraints such as missing values, heterogeneous cohorts, and human-in-the-loop decision support.
-      </p>
+      <p>Placeholder copy for a project focused on federated and multi-site AI systems where privacy constraints, heterogeneity, and institutional collaboration shape the technical design.</p>
+      <p>Placeholder copy on how collaborative infrastructures can support biomedical AI while preserving robustness and deployment realism.</p>
     </div>
 
     <aside class="project-profile-panel">

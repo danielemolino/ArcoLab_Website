@@ -1,30 +1,30 @@
 ---
 layout: page
-title: Clinical AI for Risk Stratification
-permalink: /projects/clinical-risk-stratification/
-description: Multimodal decision-support research for patient stratification, outcome prediction, and clinically grounded deployment pathways.
-img: /assets/img/11.jpg
-importance: 2
-project_state: active
-category: decision-support
-project_type: Decision Support
-status: Through June 2028
-timeline: 2024-2028
+title: COVID Prognosis Platform
+permalink: /projects/covid-prognosis-platform/
+description: Placeholder completed project on multimodal prognosis modelling and decision support for COVID-related clinical workflows.
+img: /assets/img/6.jpg
+importance: 6
+project_state: ended
+category: clinical-ai
+project_type: Clinical Application
+status: Completed in July 2024
+timeline: 2021-2024
 team:
   - Paolo Soda
   - Valerio Guarrasi
 focus_areas:
-  - Clinical Data Analysis
-  - Multimodal Learning
-  - Outcome Prediction
+  - COVID-19
+  - Prognosis
+  - Multimodal AI
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Hospital and clinical partners
+  - Hospital and imaging partners
 highlights:
-  - Multimodal pipelines that integrate imaging, tabular, and longitudinal clinical information.
-  - Outcome prediction models designed for robustness under real-world missingness and distribution shift.
-  - Decision-support interfaces aligned with practical care pathways and human oversight.
-project_filter: clinical-risk-stratification
+  - Placeholder direction on multimodal prognosis pipelines.
+  - Placeholder direction on clinical risk stratification under emergency conditions.
+  - Placeholder direction on translational validation for operational settings.
+project_filter: covid-prognosis-platform
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -44,7 +44,7 @@ project_filter: clinical-risk-stratification
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/?project={{ page.project_filter | url_encode }}">View Publications</a>
         <a class="about-hero-btn about-hero-btn-secondary" href="/projects/">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -53,12 +53,8 @@ project_filter: clinical-risk-stratification
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        This project line develops machine learning methods for clinically relevant risk stratification, combining multimodal evidence sources to support decision-making in complex medical settings. It focuses on model robustness, interpretability, and practical integration into translational research workflows.
-      </p>
-      <p>
-        The programme spans data fusion, longitudinal modelling, and predictive analytics, with attention to deployment constraints such as missing values, heterogeneous cohorts, and human-in-the-loop decision support.
-      </p>
+      <p>Placeholder copy for a completed translational project focused on prognosis and operational decision support during pandemic-related clinical workflows.</p>
+      <p>Placeholder copy on lessons learned, completed outputs, and how the methods informed later project lines.</p>
     </div>
 
     <aside class="project-profile-panel">

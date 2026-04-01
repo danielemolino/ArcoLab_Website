@@ -1,0 +1,59 @@
+<div class="member-profile-publications publications">
+  <ol class="bibliography">
+    {% for publication in include.publications %}
+      {% assign keyword_items = '' | split: '' %}
+      {% if publication.keywords %}
+        {% assign keyword_items = publication.keywords | split: ';' %}
+      {% endif %}
+      {% assign project_items = '' | split: '' %}
+      {% if publication.projects %}
+        {% assign project_items = publication.projects | split: ';' %}
+      {% endif %}
+      <li>
+        <div class="row">
+          <div class="col-sm-10">
+            <div class="title">{{ publication.title }}</div>
+            {% if publication.author %}
+              <div class="author">{{ publication.author }}</div>
+            {% endif %}
+            <div class="periodical">
+              {% if publication.venue != blank %}<em>{{ publication.venue }}</em>{% endif %}{% if publication.venue != blank and publication.year != blank %}, {% endif %}{% if publication.year != blank %}{{ publication.year }}{% endif %}
+            </div>
+            {% if keyword_items.size > 0 %}
+              <div class="publication-keywords">
+                {% for keyword in keyword_items %}
+                  {% assign clean_keyword = keyword | strip %}
+                  {% if clean_keyword != '' %}
+                    <span class="publication-keyword">{{ clean_keyword }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            {% if project_items.size > 0 %}
+              <div class="publication-keywords publication-projects">
+                {% for project in project_items %}
+                  {% assign clean_project = project | strip %}
+                  {% if clean_project != '' %}
+                    <span class="publication-keyword publication-project">{{ clean_project }}</span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            {% endif %}
+            <div class="links">
+              {% if publication.abstract != blank %}<a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>{% endif %}
+              {% if publication.doi_url != blank %}<a href="{{ publication.doi_url }}" class="btn btn-sm z-depth-0" role="button">DOI</a>{% endif %}
+              {% if publication.code != blank %}<a href="{{ publication.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>{% endif %}
+              {% if publication.pdf != blank %}<a href="{{ publication.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>{% endif %}
+              {% if publication.website != blank %}<a href="{{ publication.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>{% endif %}
+            </div>
+            {% if publication.abstract != blank %}
+              <div class="abstract hidden">
+                <p>{{ publication.abstract }}</p>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</div>

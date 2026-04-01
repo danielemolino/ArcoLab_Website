@@ -2,9 +2,20 @@
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
-      <a class="navbar-brand title font-weight-lighter navbar-brand-lockup" href="{{ site.baseurl }}/" aria-label="{{ site.title }}">
-        <img src="{{ '/assets/branding/arco/lockup/logo_arco_wb.png' | relative_url }}" alt="{{ site.title }}">
-      </a>
+      <div class="navbar-brand title font-weight-lighter navbar-brand-lockup" aria-label="{{ site.title }}">
+        <a class="navbar-brand-link navbar-brand-link-arco" href="{{ site.baseurl }}/" aria-label="ArCo Lab home">
+          <img class="navbar-brand-arco" src="{{ '/assets/branding/arco/symbol/logo_arco_cb.png' | relative_url }}" alt="ArCo Lab">
+        </a>
+        <a
+          class="navbar-brand-link navbar-brand-link-ucbm"
+          href="https://www.unicampus.it/"
+          aria-label="Università Campus Bio-Medico di Roma"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img class="navbar-brand-ucbm" src="{{ '/assets/branding/arco/lockup/Logo_UCBM.png' | relative_url }}" alt="Università Campus Bio-Medico di Roma">
+        </a>
+      </div>
       {% if page.permalink == '/' and site.enable_navbar_social %}
         <!-- Social Icons -->
         <div class="navbar-brand social">{% social_links %}</div>
@@ -26,7 +37,7 @@
       </button>
 
       <div class="collapse navbar-collapse text-right" id="navbarNav">
-        <ul class="navbar-nav ml-auto flex-nowrap">
+        <ul class="navbar-nav flex-nowrap">
           {% for page in site.pages %}
             {% if page.permalink == '/' %} {% assign about_title = page.title %} {% endif %}
           {% endfor %}
@@ -102,28 +113,17 @@
               {% endif %}
             {% endif %}
           {% endfor %}
-          {% if site.lab_graph.enabled and site.lab_graph.show_in_nav %}
-            <li class="nav-item {% if page.permalink == '/graph/' %}active{% endif %}">
-              <a class="nav-link" href="{{ '/graph/' | relative_url }}">
-                {{- site.lab_graph.nav_title | default: 'Graph' -}}
-                {% if page.permalink == '/graph/' %}
-                  <span class="sr-only">(current)</span>
-                {% endif %}
-              </a>
-            </li>
-          {% endif %}
-          {% if site.enable_darkmode %}
-            <!-- Toogle theme mode -->
-            <li class="toggle-container">
-              <button id="light-toggle" title="Change theme">
-                <i class="fa-half-sun-moon" id="light-toggle-system"></i>
-                <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
-                <i class="fa-solid fa-sun" id="light-toggle-light"></i>
-              </button>
-            </li>
-          {% endif %}
         </ul>
       </div>
+      {% if site.enable_darkmode %}
+        <div class="toggle-container">
+          <button id="light-toggle" title="Change theme">
+            <i class="fa-half-sun-moon" id="light-toggle-system"></i>
+            <i class="fa-solid fa-moon" id="light-toggle-dark"></i>
+            <i class="fa-solid fa-sun" id="light-toggle-light"></i>
+          </button>
+        </div>
+      {% endif %}
     </div>
   </nav>
   {% if site.enable_progressbar %}

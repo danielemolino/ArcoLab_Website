@@ -5,10 +5,11 @@ permalink: /projects/explainable-brain-mri/
 description: Translational research on trustworthy neuroimaging AI for quantitative analysis, uncertainty estimation, and clinical interpretability.
 img: /assets/img/10.jpg
 importance: 1
+project_state: active
 category: medical-imaging
 project_type: Medical Imaging
-status: Ongoing
-timeline: 2024-present
+status: Through December 2027
+timeline: 2024-2027
 team:
   - Paolo Soda
   - Valerio Guarrasi
@@ -17,16 +18,16 @@ focus_areas:
   - Explainability
   - Trustworthy AI
 collaborators:
-  - Campus Bio-Medico University of Rome
+  - Università Campus Bio-Medico di Roma
   - Clinical imaging partners
 highlights:
   - Robust modelling pipelines for structural and multimodal MRI analysis.
   - Interpretable representations to support clinical understanding and trust.
   - Validation strategies focused on generalization, uncertainty, and translational usability.
-related_publications:
-  - Multimodal explainability via latent shift applied to COVID-19 stratification
-  - LatentAugment: Data Augmentation via Guided Manipulation of GAN's Latent Space
+project_filter: explainable-brain-mri
 ---
+
+{% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
 
 <section class="project-profile">
   <div class="project-profile-hero">
@@ -70,21 +71,6 @@ related_publications:
         <p>{{ page.timeline }}</p>
       </div>
       <div class="project-profile-panel-block">
-        <h3>Team</h3>
-        <ul class="project-profile-list">
-          {% for person in page.team %}
-            {% assign team_member = site.data.team | where: "name", person | first %}
-            <li>
-              {% if team_member and team_member.profile_path %}
-                <a href="{{ team_member.profile_path }}">{{ person }}</a>
-              {% else %}
-                {{ person }}
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-      <div class="project-profile-panel-block">
         <h3>Collaborators</h3>
         <ul class="project-profile-list">
           {% for organization in page.collaborators %}
@@ -106,14 +92,24 @@ related_publications:
 
   <div class="project-profile-section">
     <h2>Related Publications</h2>
-    <div class="about-publications-list">
-      {% for publication in page.related_publications %}
-        <article class="about-publication-item">
-          <p class="about-publication-citation">
-            <a href="/publications/">{{ publication }}</a>
-          </p>
-        </article>
-      {% endfor %}
-    </div>
+    {% if project_publications and project_publications != empty %}
+      {% include publication_cards.liquid publications=project_publications %}
+    {% else %}
+      <div class="publications project-related-publications">
+        <ol class="bibliography">
+          <li>
+            <div class="row">
+              <div class="col-sm-10">
+                <div class="title">Project-linked publications</div>
+                <div class="periodical">No publications are linked to this project yet. Once project tags are assigned in the publications workflow, related outputs will appear here automatically.</div>
+                <div class="links">
+                  <a href="/publications/?project={{ page.project_filter | url_encode }}" class="btn btn-sm z-depth-0" role="button">Browse Publications</a>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </div>
+    {% endif %}
   </div>
 </section>

@@ -1,15 +1,7 @@
 <div class="lab-graph-toolbar">
   <div class="lab-graph-toolbar-row">
-    <div class="lab-graph-mode-toggle" role="tablist" aria-label="Graph mode">
-      {% if site.lab_graph.enable_people %}
-        <button class="lab-graph-chip is-active" type="button" data-graph-mode="people">People Graph</button>
-      {% endif %}
-      {% if site.lab_graph.enable_papers %}
-        <button class="lab-graph-chip" type="button" data-graph-mode="papers">Paper Graph</button>
-      {% endif %}
-      {% if site.lab_graph.enable_hybrid %}
-        <button class="lab-graph-chip" type="button" data-graph-mode="hybrid">Hybrid Graph</button>
-      {% endif %}
+    <div class="lab-graph-mode-toggle" aria-label="Graph mode">
+      <span class="lab-graph-chip is-active">Paper Graph</span>
     </div>
 
     <div class="lab-graph-toolbar-actions">
@@ -21,13 +13,15 @@
   <div class="lab-graph-toolbar-row lab-graph-toolbar-row-filters">
     <label class="lab-graph-field">
       <span>Search</span>
-      <input id="lab-graph-search" type="search" placeholder="Search people, papers, venues, topics" />
+      <input id="lab-graph-search" type="search" placeholder="Search papers, venues, authors, topics" />
     </label>
 
     <label class="lab-graph-field">
-      <span>Role</span>
-      <select id="lab-graph-role-filter">
-        <option value="">All roles</option>
+      <span>Links</span>
+      <select id="lab-graph-link-filter">
+        <option value="all">Authors + Keywords</option>
+        <option value="authors">Authors only</option>
+        <option value="keywords">Keywords only</option>
       </select>
     </label>
 
@@ -38,19 +32,14 @@
       </select>
     </label>
 
-    <label class="lab-graph-field">
-      <span>Year</span>
-      <select id="lab-graph-year-filter">
-        <option value="">All years</option>
-      </select>
-    </label>
-
-    <label class="lab-graph-field lab-graph-field-inline">
-      <span>Focus depth</span>
-      <select id="lab-graph-focus-depth">
-        <option value="1">1 hop</option>
-        <option value="2">2 hops</option>
-      </select>
-    </label>
+    <div class="lab-graph-field lab-graph-year-range">
+      <span>Year range</span>
+      <div class="lab-graph-year-range-values">
+        <strong id="lab-graph-year-min-label">-</strong>
+        <strong id="lab-graph-year-max-label">-</strong>
+      </div>
+      <input id="lab-graph-year-min" type="range" step="1" />
+      <input id="lab-graph-year-max" type="range" step="1" />
+    </div>
   </div>
 </div>

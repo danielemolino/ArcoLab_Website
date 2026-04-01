@@ -1,6 +1,7 @@
-{% if site.teachings %}
+{% assign courses_source = site.data.education_courses %}
+{% if courses_source and courses_source.size > 0 %}
   <div class="courses">
-    {% assign courses_by_year = site.teachings | sort: 'year' | reverse | group_by: 'year' %}
+    {% assign courses_by_year = courses_source | sort: 'year' | reverse | group_by: 'year' %}
 
     {% for year_group in courses_by_year %}
       <h2 class="year">{{ year_group.name }}</h2>
@@ -8,17 +9,20 @@
         {% assign year_courses = year_group.items | sort: 'term' %}
         {% for course in year_courses %}
           <div class="course-item">
-            <h3 class="course-title">
-              <a href="{{ course.url | relative_url }}">{{ course.title }}</a>
-            </h3>
+            <div class="course-heading">
+              <h3 class="course-title">{{ course.title }}</h3>
+              {% if course.cfu %}
+                <span class="course-cfu">{{ course.cfu }} CFU</span>
+              {% endif %}
+            </div>
 
             <div class="course-meta">
-              {% if course.term %}
-                <span class="course-term">{{ course.term }}</span>
+              {% if course.degree_program %}
+                <span class="course-term">{{ course.degree_program }}</span>
               {% endif %}
 
-              {% if course.instructor %}
-                <span class="course-instructor">{{ course.instructor }}</span>
+              {% if course.year %}
+                <span class="course-instructor">{{ course.year }}</span>
               {% endif %}
             </div>
 
@@ -27,6 +31,15 @@
                 {{ course.description | markdownify }}
               </div>
             {% endif %}
+
+            <div class="course-facts">
+              {% if course.holder %}
+                <p><strong>Course Lead:</strong> {{ course.holder }}</p>
+              {% endif %}
+              {% if course.assistants %}
+                <p><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
+              {% endif %}
+            </div>
           </div>
         {% endfor %}
       </div>

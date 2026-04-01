@@ -13,47 +13,69 @@ const uniq = (values) => [...new Set((values || []).filter(Boolean))];
 
 const intersect = (a, b) => a.filter((value) => b.includes(value));
 
+const STOP_WORDS = new Set([
+  "a",
+  "an",
+  "and",
+  "for",
+  "from",
+  "in",
+  "of",
+  "on",
+  "the",
+  "to",
+  "via",
+  "with",
+]);
+
+const titleAcronym = (title) => {
+  const tokens = String(title || "")
+    .replace(/[^A-Za-z0-9 ]+/g, " ")
+    .split(/\s+/)
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .filter((token) => !STOP_WORDS.has(token.toLowerCase()));
+
+  return tokens
+    .slice(0, 3)
+    .map((token) => token[0]?.toUpperCase() || "")
+    .join("") || "P";
+};
+
+const shortPaperLabelBase = (paper) => {
+  const firstAuthor = String((paper.authors || [])[0] || "")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .pop() || "Paper";
+  const cleanSurname = firstAuthor.replace(/[^A-Za-z0-9]/g, "") || "Paper";
+  const surname = cleanSurname.charAt(0).toUpperCase() + cleanSurname.slice(1).toLowerCase();
+  const year = String(paper.year || "").slice(-2) || "00";
+  const acronym = titleAcronym(paper.title);
+  return `${surname}${year}-${acronym}`;
+};
+
 export function createGraphStore(rawData) {
-  const people = (rawData.people || []).map((person) => ({
-    ...person,
-    interests: uniq(person.interests || []),
-    publications: (person.publications || []).map((publication) => ({
-      ...publication,
-      topics: uniq(person.interests || []),
-    })),
-  }));
+  const papers = (rawData.papers || [])
+    .map((paper) => ({
+      ...paper,
+      id: paper.id || slug(`${paper.title}-${paper.year}`),
+      authors: uniq(paper.authors || []),
+      authorIds: uniq((paper.authorIds || []).map((author) => normalizeText(author))),
+      firstAuthorId: normalizeText((paper.authors || [])[0] || ""),
+      topics: uniq((paper.topics || []).map((topic) => normalizeText(topic)).filter(Boolean)),
+    }))
+    .sort((a, b) => String(b.year).localeCompare(String(a.year)));
 
-  const paperMap = new Map();
-
-  people.forEach((person) => {
-    person.publications.forEach((publication) => {
-      const paperId = publication.id || slug(`${publication.title}-${publication.year}`);
-      const existing = paperMap.get(paperId) || {
-        id: paperId,
-        type: "paper",
-        title: publication.title,
-        year: publication.year,
-        venue: publication.venue,
-        doiUrl: publication.doiUrl,
-        url: publication.url,
-        pdf: publication.pdf,
-        code: publication.code,
-        website: publication.website,
-        authors: [],
-        authorIds: [],
-        topics: [],
-      };
-
-      existing.authors = uniq([...existing.authors, person.name]);
-      existing.authorIds = uniq([...existing.authorIds, person.id]);
-      existing.topics = uniq([...(existing.topics || []), ...(person.interests || [])]);
-      paperMap.set(paperId, existing);
-    });
+  const labelCounts = new Map();
+  papers.forEach((paper) => {
+    const base = shortPaperLabelBase(paper);
+    const count = (labelCounts.get(base) || 0) + 1;
+    labelCounts.set(base, count);
+    paper.shortLabel = count === 1 ? base : `${base}-${count}`;
   });
 
-  const papers = Array.from(paperMap.values()).sort((a, b) => String(b.year).localeCompare(String(a.year)));
-
-  return { people, papers };
+  return { papers };
 }
 
 const matchesSearch = (payload, query) => {
@@ -77,84 +99,13 @@ const matchesSearch = (payload, query) => {
     .every((token) => haystack.includes(token));
 };
 
-const personPassesFilters = (person, filters) => {
-  if (filters.role && person.role !== filters.role) return false;
-  if (filters.topic && !(person.interests || []).includes(filters.topic)) return false;
-  if (filters.year) {
-    const hasYear = (person.publications || []).some((publication) => String(publication.year) === String(filters.year));
-    if (!hasYear) return false;
-  }
-  return matchesSearch(person, filters.search);
-};
-
 const paperPassesFilters = (paper, filters) => {
   if (filters.topic && !(paper.topics || []).includes(filters.topic)) return false;
-  if (filters.year && String(paper.year) !== String(filters.year)) return false;
+  const paperYear = Number(paper.year || 0);
+  if (filters.yearMin && paperYear < Number(filters.yearMin)) return false;
+  if (filters.yearMax && paperYear > Number(filters.yearMax)) return false;
   return matchesSearch(paper, filters.search);
 };
-
-function buildPeopleElements(store, filters) {
-  const visiblePeople = store.people.filter((person) => personPassesFilters(person, filters));
-  const nodes = visiblePeople.map((person) => ({
-    data: {
-      id: `person:${person.id}`,
-      entityId: person.id,
-      type: "person",
-      label: person.name,
-      subtitle: person.title,
-      role: person.role,
-      roleLabel: person.roleLabel,
-      groupLabel: person.groupLabel,
-      topics: person.interests || [],
-      photo: person.photo,
-      profilePath: person.profilePath,
-      publicationCount: person.publicationCount || (person.publications || []).length,
-      email: person.email,
-      externalUrl: person.externalUrl,
-      scholarUrl: person.scholarUrl,
-      orcidUrl: person.orcidUrl,
-      githubUrl: person.githubUrl,
-      linkedinUrl: person.linkedinUrl,
-    },
-  }));
-
-  const edges = [];
-  for (let i = 0; i < visiblePeople.length; i += 1) {
-    for (let j = i + 1; j < visiblePeople.length; j += 1) {
-      const source = visiblePeople[i];
-      const target = visiblePeople[j];
-      const sourcePubIds = new Set((source.publications || []).map((publication) => publication.id));
-      const targetPubIds = new Set((target.publications || []).map((publication) => publication.id));
-      const sharedPublicationIds = [...sourcePubIds].filter((id) => targetPubIds.has(id));
-      const sharedTopics = intersect(source.interests || [], target.interests || []);
-
-      if (
-        sharedPublicationIds.length < (filters.minSharedPublications || 1) &&
-        sharedTopics.length === 0
-      ) {
-        continue;
-      }
-
-      edges.push({
-        data: {
-          id: `edge:person:${source.id}:${target.id}`,
-          source: `person:${source.id}`,
-          target: `person:${target.id}`,
-          relation: sharedPublicationIds.length > 0 ? "coauthor" : "topic",
-          label:
-            sharedPublicationIds.length > 0
-              ? `${sharedPublicationIds.length} shared paper${sharedPublicationIds.length > 1 ? "s" : ""}`
-              : `${sharedTopics.length} shared topic${sharedTopics.length > 1 ? "s" : ""}`,
-          weight: sharedPublicationIds.length * 2 + sharedTopics.length,
-          sharedPublicationIds,
-          sharedTopics,
-        },
-      });
-    }
-  }
-
-  return { nodes, edges };
-}
 
 function buildPaperElements(store, filters) {
   const visiblePapers = store.papers.filter((paper) => paperPassesFilters(paper, filters));
@@ -163,7 +114,8 @@ function buildPaperElements(store, filters) {
       id: `paper:${paper.id}`,
       entityId: paper.id,
       type: "paper",
-      label: paper.title,
+      label: paper.shortLabel,
+      fullTitle: paper.title,
       year: paper.year,
       venue: paper.venue,
       authors: paper.authors,
@@ -183,22 +135,50 @@ function buildPaperElements(store, filters) {
       const target = visiblePapers[j];
       const sharedAuthors = intersect(source.authorIds || [], target.authorIds || []);
       const sharedTopics = intersect(source.topics || [], target.topics || []);
+      const linkMode = filters.linkMode || "all";
+      const useAuthors = linkMode === "all" || linkMode === "authors";
+      const useTopics = linkMode === "all" || linkMode === "keywords";
+      const activeSharedAuthors = useAuthors ? sharedAuthors : [];
+      const activeSharedTopics = useTopics ? sharedTopics : [];
 
-      if (sharedAuthors.length === 0 && sharedTopics.length === 0) continue;
+      if (activeSharedAuthors.length === 0 && activeSharedTopics.length === 0) continue;
+
+      const firstAuthorShared =
+        !!source.firstAuthorId &&
+        !!target.firstAuthorId &&
+        source.firstAuthorId === target.firstAuthorId &&
+        activeSharedAuthors.includes(source.firstAuthorId);
+
+      const authorScore = activeSharedAuthors.reduce((score, authorId) => {
+        const isFirstAuthor = authorId === source.firstAuthorId || authorId === target.firstAuthorId;
+        return score + (isFirstAuthor ? 3 : 1.25);
+      }, 0);
+
+      const multiAuthorBonus = activeSharedAuthors.length > 1 ? (activeSharedAuthors.length - 1) * 1.4 : 0;
+      const topicScore =
+        activeSharedTopics.length > 0 ? activeSharedTopics.length * 1.3 + Math.max(0, activeSharedTopics.length - 1) * 0.9 : 0;
+      const totalWeight = Number((authorScore + multiAuthorBonus + topicScore).toFixed(2));
+
+      let relation = "topic";
+      if (activeSharedAuthors.length > 0 && activeSharedTopics.length > 0) relation = "mixed";
+      else if (activeSharedAuthors.length > 0) relation = "coauthor";
 
       edges.push({
         data: {
           id: `edge:paper:${source.id}:${target.id}`,
           source: `paper:${source.id}`,
           target: `paper:${target.id}`,
-          relation: sharedAuthors.length > 0 ? "coauthor" : "topic",
-          label:
-            sharedAuthors.length > 0
-              ? `${sharedAuthors.length} shared author${sharedAuthors.length > 1 ? "s" : ""}`
-              : `${sharedTopics.length} shared topic${sharedTopics.length > 1 ? "s" : ""}`,
-          weight: sharedAuthors.length * 2 + sharedTopics.length,
-          sharedAuthors,
-          sharedTopics,
+          relation,
+          label: [
+            activeSharedAuthors.length > 0 ? `${activeSharedAuthors.length} shared author${activeSharedAuthors.length > 1 ? "s" : ""}` : "",
+            activeSharedTopics.length > 0 ? `${activeSharedTopics.length} shared keyword${activeSharedTopics.length > 1 ? "s" : ""}` : "",
+          ]
+            .filter(Boolean)
+            .join(" · "),
+          weight: totalWeight,
+          sharedAuthors: activeSharedAuthors,
+          sharedTopics: activeSharedTopics,
+          firstAuthorShared,
         },
       });
     }
@@ -207,61 +187,15 @@ function buildPaperElements(store, filters) {
   return { nodes, edges };
 }
 
-function buildHybridElements(store, filters) {
-  const peopleElements = buildPeopleElements(store, filters);
-  const paperElements = buildPaperElements(store, filters);
-
-  const visiblePersonIds = new Set(peopleElements.nodes.map((node) => node.data.entityId));
-  const visiblePaperIds = new Set(paperElements.nodes.map((node) => node.data.entityId));
-
-  const authoredEdges = [];
-  store.people.forEach((person) => {
-    if (!visiblePersonIds.has(person.id)) return;
-    (person.publications || []).forEach((publication) => {
-      if (!visiblePaperIds.has(publication.id)) return;
-      authoredEdges.push({
-        data: {
-          id: `edge:authored:${person.id}:${publication.id}`,
-          source: `person:${person.id}`,
-          target: `paper:${publication.id}`,
-          relation: "authored",
-          label: "authored by",
-          weight: 1,
-        },
-      });
-    });
-  });
-
-  return {
-    nodes: [...peopleElements.nodes, ...paperElements.nodes],
-    edges: [...peopleElements.edges, ...paperElements.edges, ...authoredEdges],
-  };
-}
-
 export function collectFilterOptions(store) {
-  const roleMap = new Map();
-  store.people.forEach((person) => {
-    if (person.role && person.roleLabel && !roleMap.has(person.role)) {
-      roleMap.set(person.role, person.roleLabel);
-    }
-  });
-
   return {
-    roles: Array.from(roleMap.entries())
-      .map(([value, label]) => ({ value, label }))
-      .sort((a, b) => a.label.localeCompare(b.label)),
-    topics: uniq([
-      ...store.people.flatMap((person) => person.interests || []),
-      ...store.papers.flatMap((paper) => paper.topics || []),
-    ]).sort(),
+    topics: uniq(store.papers.flatMap((paper) => paper.topics || [])).sort(),
     years: uniq(store.papers.map((paper) => String(paper.year || "")))
       .filter(Boolean)
       .sort((a, b) => b.localeCompare(a)),
   };
 }
 
-export function buildGraphElements(store, mode, filters) {
-  if (mode === "papers") return buildPaperElements(store, filters);
-  if (mode === "hybrid") return buildHybridElements(store, filters);
-  return buildPeopleElements(store, filters);
+export function buildGraphElements(store, _mode, filters) {
+  return buildPaperElements(store, filters);
 }

@@ -32,9 +32,16 @@ nav_order: 2
 </section>
 
 {% assign sorted_projects = site.projects | sort: "importance" %}
-{% if sorted_projects.size > 0 %}
-  <div class="about-project-grid">
-    {% for project in sorted_projects %}
+{% assign active_projects = sorted_projects | where: "project_state", "active" %}
+{% assign ended_projects = sorted_projects | where: "project_state", "ended" %}
+{% if active_projects.size > 0 %}
+  <section class="about-section">
+    <div class="about-section-heading">
+      <h2>Active Projects</h2>
+      <p class="about-section-kicker">Current Research Lines</p>
+    </div>
+    <div class="about-project-grid">
+      {% for project in active_projects %}
       <article
         class="about-project-card about-project-card-clickable"
         onclick="window.location.href='{{ project.url }}'"
@@ -56,8 +63,8 @@ nav_order: 2
           <h3>{{ project.title }}</h3>
           <p>{{ project.description }}</p>
           <div class="about-project-meta">
-            {% if project.team %}
-              <span><i class="fa-regular fa-user"></i> {{ project.team | size }} team members</span>
+            {% if project.collaborators %}
+              <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
             {% endif %}
             {% if project.timeline %}
               <span><i class="fa-regular fa-calendar"></i> {{ project.timeline }}</span>
@@ -69,8 +76,58 @@ nav_order: 2
           <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
-    {% endfor %}
-  </div>
-{% else %}
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% if ended_projects.size > 0 %}
+  <section class="about-section about-section-last">
+    <div class="about-section-heading">
+      <h2>Ended Projects</h2>
+      <p class="about-section-kicker">Completed Initiatives</p>
+    </div>
+    <div class="about-project-grid">
+      {% for project in ended_projects %}
+      <article
+        class="about-project-card about-project-card-clickable"
+        onclick="window.location.href='{{ project.url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url }}'; }"
+        role="link"
+        tabindex="0"
+        aria-label="View {{ project.title }} project"
+      >
+        <img src="{{ project.img }}" alt="{{ project.title }}">
+        <div class="about-project-body">
+          {% if project.project_type %}
+            <span class="about-project-badge">{{ project.project_type }}</span>
+          {% endif %}
+          <div class="about-project-story-strip">
+            <span>Challenge</span>
+            <span>Approach</span>
+            <span>Outputs</span>
+          </div>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="about-project-meta">
+            {% if project.collaborators %}
+              <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
+            {% endif %}
+            {% if project.timeline %}
+              <span><i class="fa-regular fa-calendar"></i> {{ project.timeline }}</span>
+            {% endif %}
+            {% if project.status %}
+              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+            {% endif %}
+          </div>
+          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+
+{% if active_projects.size == 0 and ended_projects.size == 0 %}
   <p>No projects are available yet.</p>
 {% endif %}

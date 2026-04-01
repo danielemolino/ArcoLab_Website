@@ -1,33 +1,26 @@
 <section class="page-hero page-hero-graph">
   <div class="page-hero-copy">
     <p class="page-hero-kicker">Lab Graph</p>
-    <h1>Explore connections across people and papers</h1>
+    <h1>Explore connections across publications</h1>
     <p class="page-hero-lead">
-      Navigate a live graph of Arco Lab researchers and selected publications. Switch between people, papers, and hybrid mode, search by name or title, and isolate local neighborhoods without leaving the site.
+      Navigate a live graph of ArCo Lab publications, explore thematic clusters, and inspect related papers through shared authors, topics, and publication years.
     </p>
     <div class="member-profile-links">
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/team/">Open team profiles</a>
-      <a class="about-hero-btn about-hero-btn-secondary" href="/publications/">Browse publications <span aria-hidden="true">&rarr;</span></a>
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/">Browse publications</a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="/projects/">Explore projects <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
   <aside class="page-hero-panel">
     <div class="page-hero-metric">
-      <span class="page-hero-metric-value">{{ site.data.team | size }}</span>
-      <span class="page-hero-metric-label">People nodes available</span>
-    </div>
-    <div class="page-hero-metric">
-      <span class="page-hero-metric-value">{{ site.lab_graph.default_view | capitalize }}</span>
-      <span class="page-hero-metric-label">Default exploration mode</span>
+      <span class="page-hero-metric-value">{{ site.data.publications | size }}</span>
+      <span class="page-hero-metric-label">Publications currently mapped in the graph</span>
     </div>
   </aside>
 </section>
 
 <section
   class="lab-graph-shell"
-  data-default-view="{{ site.lab_graph.default_view | default: 'people' }}"
-  data-enable-people="{{ site.lab_graph.enable_people }}"
-  data-enable-papers="{{ site.lab_graph.enable_papers }}"
-  data-enable-hybrid="{{ site.lab_graph.enable_hybrid }}"
+  data-default-view="{{ site.lab_graph.default_view | default: 'papers' }}"
   data-default-focus-depth="{{ site.lab_graph.default_focus_depth | default: 1 }}"
   data-initial-min-shared-publications="{{ site.lab_graph.initial_min_shared_publications | default: 1 }}"
   data-initial-max-nodes="{{ site.lab_graph.initial_max_nodes | default: 120 }}"

@@ -44,7 +44,6 @@ REQUIRED_COLUMNS = {
     "role",
     "title",
     "email",
-    "external_url",
     "scholar_url",
     "orcid_url",
     "interests",
@@ -60,40 +59,30 @@ ROLE_META = {
         "card_label": "Principal Investigator",
         "sort": 0,
     },
-    "faculty": {
-        "group_label": "Faculty",
-        "card_label": "Faculty",
-        "sort": 1,
-    },
     "researcher": {
         "group_label": "Researchers",
         "card_label": "Researcher",
-        "sort": 2,
+        "sort": 1,
     },
     "postdoc": {
-        "group_label": "Postdoctoral Researchers",
-        "card_label": "Postdoctoral Researcher",
-        "sort": 3,
+        "group_label": "Post Doc",
+        "card_label": "Post Doc",
+        "sort": 2,
     },
     "phd": {
-        "group_label": "PhD Students",
-        "card_label": "PhD Student",
-        "sort": 4,
-    },
-    "student": {
-        "group_label": "Students",
-        "card_label": "Student",
-        "sort": 5,
+        "group_label": "PhD Candidate",
+        "card_label": "PhD Candidate",
+        "sort": 3,
     },
     "collaborator": {
         "group_label": "Collaborators",
         "card_label": "Collaborator",
-        "sort": 6,
+        "sort": 4,
     },
     "alumni": {
-        "group_label": "Alumni",
-        "card_label": "Alumnus",
-        "sort": 7,
+        "group_label": "PhD Alumni",
+        "card_label": "PhD Alumni",
+        "sort": 5,
     },
 }
 
@@ -177,16 +166,16 @@ def normalize_role(value: str) -> str:
     key = normalize_space(value).lower()
     aliases = {
         "prof": "pi",
-        "professor": "faculty",
-        "faculty member": "faculty",
+        "professor": "researcher",
+        "faculty": "researcher",
+        "faculty member": "researcher",
         "researchers": "researcher",
         "post-doc": "postdoc",
+        "post doc": "postdoc",
         "phd candidate": "phd",
         "phd candidates": "phd",
         "phd student": "phd",
         "phd students": "phd",
-        "student": "student",
-        "students": "student",
         "collaborators": "collaborator",
     }
     key = aliases.get(key, key)
@@ -401,15 +390,13 @@ def venue_for_entry(entry: dict[str, str]) -> str:
     return first_non_empty(entry.get("journal", ""), entry.get("booktitle", ""), entry.get("publisher", ""))
 
 
-def selected_publications_for_member(
+def recent_publications_for_member(
     bibliography: list[dict[str, str]],
     name: str,
     surname: str,
 ) -> list[dict[str, str]]:
     publications: list[dict[str, str]] = []
     for entry in bibliography:
-        if entry.get("selected", "").lower() != "true":
-            continue
         authors = split_list(entry.get("author", "").replace(" and ", ";"))
         if not any(author_matches_member(author, name, surname) for author in authors):
             continue
@@ -418,6 +405,7 @@ def selected_publications_for_member(
                 "title": entry.get("title", ""),
                 "venue": venue_for_entry(entry),
                 "year": entry.get("year", ""),
+                "abstract": entry.get("abstract", ""),
                 "doi_url": f"https://doi.org/{entry['doi']}" if entry.get("doi") else "",
                 "url": entry.get("url", ""),
                 "pdf": entry.get("pdf", ""),
@@ -426,7 +414,7 @@ def selected_publications_for_member(
             }
         )
     publications.sort(key=lambda item: (item.get("year", ""), item.get("title", "")), reverse=True)
-    return publications
+    return publications[:3]
 
 
 def build_member(
@@ -443,7 +431,7 @@ def build_member(
     slug = slugify(full_name)
     interests = split_list(row.get("interests", ""))
     photo = sync_photo(photo_source, photo_dest, name, surname)
-    selected_publications = selected_publications_for_member(bibliography, name, surname)
+    recent_publications = recent_publications_for_member(bibliography, name, surname)
 
     return {
         "name": full_name,
@@ -458,7 +446,6 @@ def build_member(
         "title": row.get("title", ""),
         "email": row.get("email", ""),
         "photo": photo,
-        "external_url": row.get("external_url", ""),
         "scholar_url": row.get("scholar_url", ""),
         "orcid_url": row.get("orcid_url", ""),
         "github_url": row.get("github_url", ""),
@@ -466,7 +453,7 @@ def build_member(
         "interests": interests,
         "short_bio": row.get("short_bio", ""),
         "bio": row.get("bio", ""),
-        "selected_publications": selected_publications,
+        "recent_publications": recent_publications,
     }
 
 
@@ -496,7 +483,6 @@ def write_yaml(members: list[dict[str, Any]], destination: Path) -> None:
         lines.append(f"  title: {yaml_quote(member['title'])}")
         lines.append(f"  email: {yaml_quote(member['email'])}")
         lines.append(f"  photo: {member['photo']}")
-        lines.append(f"  external_url: {yaml_quote(member['external_url'])}")
         lines.append(f"  scholar_url: {yaml_quote(member['scholar_url'])}")
         lines.append(f"  orcid_url: {yaml_quote(member['orcid_url'])}")
         lines.append(f"  github_url: {yaml_quote(member['github_url'])}")
@@ -510,30 +496,27 @@ def write_yaml(members: list[dict[str, Any]], destination: Path) -> None:
         lines.append(f"  short_bio: {yaml_quote(member['short_bio'])}")
         lines.append(f"  bio: {yaml_quote(member['bio'])}")
         lines.append(f"  order: {index}")
-        if member["selected_publications"]:
-            lines.append("  selected_publications:")
-            for publication in member["selected_publications"]:
+        if member["recent_publications"]:
+            lines.append("  recent_publications:")
+            for publication in member["recent_publications"]:
                 lines.append(f"    - title: {yaml_quote(publication['title'])}")
                 lines.append(f"      venue: {yaml_quote(publication['venue'])}")
                 lines.append(f"      year: {yaml_quote(publication['year'])}")
+                lines.append(f"      abstract: {yaml_quote(publication.get('abstract', ''))}")
                 lines.append(f"      doi_url: {yaml_quote(publication['doi_url'])}")
                 lines.append(f"      url: {yaml_quote(publication['url'])}")
                 lines.append(f"      pdf: {yaml_quote(publication['pdf'])}")
                 lines.append(f"      code: {yaml_quote(publication['code'])}")
                 lines.append(f"      website: {yaml_quote(publication['website'])}")
         else:
-            lines.append("  selected_publications: []")
+            lines.append("  recent_publications: []")
 
     destination.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def render_profile_page(member: dict[str, Any]) -> str:
     links = []
-    if member["external_url"]:
-        links.append(
-            '        <a class="member-profile-link-btn member-profile-link-btn-primary" href="{{ member.external_url }}"><i class="fa-solid fa-building-columns"></i><span>Official Profile</span></a>'
-        )
-    if member["scholar_url"] and is_google_scholar_url(member["scholar_url"]) and canonical_url(member["scholar_url"]) != canonical_url(member["external_url"]):
+    if member["scholar_url"] and is_google_scholar_url(member["scholar_url"]):
         links.append(
             '        <a class="member-profile-link-btn member-profile-link-btn-scholar" href="{{ member.scholar_url }}"><i class="fa-solid fa-graduation-cap"></i><span>Google Scholar</span></a>'
         )
@@ -560,7 +543,7 @@ def render_profile_page(member: dict[str, Any]) -> str:
 layout: page
 title: {member['name']}
 permalink: /team/{member['slug']}/
-description: Full profile and selected publications of {member['name']}.
+description: Full profile and recent publications of {member['name']}.
 ---
 
 {{% assign member = site.data.team | where: "slug", "{member['slug']}" | first %}}
@@ -587,11 +570,11 @@ description: Full profile and selected publications of {member['name']}.
   </div>
 
   <div class="member-profile-section">
-    <h2>Selected Publications</h2>
-    {{% if member.selected_publications and member.selected_publications != empty %}}
+    <h2>Recent Publications</h2>
+    {{% if member.recent_publications and member.recent_publications != empty %}}
       {{% include member_selected_publications.liquid %}}
     {{% else %}}
-      <p class="member-profile-footnote">Selected publications will appear here when they are marked as featured in the bibliography workflow.</p>
+      <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
     {{% endif %}}
 
     {{% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}}

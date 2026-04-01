@@ -1,30 +1,30 @@
 ---
 layout: page
-title: Clinical AI for Risk Stratification
-permalink: /projects/clinical-risk-stratification/
-description: Multimodal decision-support research for patient stratification, outcome prediction, and clinically grounded deployment pathways.
-img: /assets/img/11.jpg
-importance: 2
+title: Industrial and Agriculture AI Systems
+permalink: /projects/agri-industrial-ai-systems/
+description: Placeholder project on industrial AI pipelines, monitoring systems, and agriculture-oriented applications built from the lab's core methods.
+img: /assets/img/8.jpg
+importance: 4
 project_state: active
-category: decision-support
-project_type: Decision Support
-status: Through June 2028
-timeline: 2024-2028
+category: industrial-ai
+project_type: Industrial Application
+status: Through March 2028
+timeline: 2025-2028
 team:
-  - Paolo Soda
-  - Valerio Guarrasi
+  - Matteo Tortora
+  - Daniele Molino
 focus_areas:
-  - Clinical Data Analysis
-  - Multimodal Learning
-  - Outcome Prediction
+  - Industrial AI
+  - Agriculture
+  - Monitoring Systems
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Hospital and clinical partners
+  - Industrial and agritech partners
 highlights:
-  - Multimodal pipelines that integrate imaging, tabular, and longitudinal clinical information.
-  - Outcome prediction models designed for robustness under real-world missingness and distribution shift.
-  - Decision-support interfaces aligned with practical care pathways and human oversight.
-project_filter: clinical-risk-stratification
+  - Placeholder direction on reliable sensing and monitoring systems.
+  - Placeholder direction on predictive models for industrial and agriculture scenarios.
+  - Placeholder direction on transferring lab methods beyond healthcare while keeping interpretability.
+project_filter: agri-industrial-ai-systems
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -44,7 +44,7 @@ project_filter: clinical-risk-stratification
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/?project={{ page.project_filter | url_encode }}">View Publications</a>
         <a class="about-hero-btn about-hero-btn-secondary" href="/projects/">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -53,12 +53,8 @@ project_filter: clinical-risk-stratification
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        This project line develops machine learning methods for clinically relevant risk stratification, combining multimodal evidence sources to support decision-making in complex medical settings. It focuses on model robustness, interpretability, and practical integration into translational research workflows.
-      </p>
-      <p>
-        The programme spans data fusion, longitudinal modelling, and predictive analytics, with attention to deployment constraints such as missing values, heterogeneous cohorts, and human-in-the-loop decision support.
-      </p>
+      <p>Placeholder copy for an applied project that extends ArCo Lab methods to industrial and agriculture-oriented settings, with emphasis on monitoring, prediction, and deployment stability.</p>
+      <p>Placeholder copy on using robust AI methods outside the strictly clinical context while preserving reliability, readability, and practical utility.</p>
     </div>
 
     <aside class="project-profile-panel">

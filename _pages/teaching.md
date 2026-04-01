@@ -12,7 +12,7 @@ nav_order: 4
     <p class="page-hero-kicker">Teaching</p>
     <h1>Education</h1>
     <p class="page-hero-lead">
-      Arco Lab contributes to teaching activities in artificial intelligence, biomedical engineering, intelligent systems, and related computational methods at Campus Bio-Medico University of Rome.
+      Arco Lab contributes to teaching activities in artificial intelligence, biomedical engineering, intelligent systems, and related computational methods at Università Campus Bio-Medico di Roma.
     </p>
     <div class="member-profile-links">
       <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/team/">Meet the instructors</a>
@@ -21,7 +21,7 @@ nav_order: 4
   </div>
   <aside class="page-hero-panel">
     <div class="page-hero-metric">
-      <span class="page-hero-metric-value">{{ site.teachings | size }}</span>
+      <span class="page-hero-metric-value">{{ site.data.education_courses | size }}</span>
       <span class="page-hero-metric-label">Course entries</span>
     </div>
     <div class="page-hero-metric">
@@ -31,25 +31,12 @@ nav_order: 4
   </aside>
 </section>
 
-<section class="contact-page-grid education-grid">
-  <article class="contact-page-card">
-    <p class="contact-page-card-kicker">Course Areas</p>
-    <h2>Topics taught by the lab</h2>
-    <p>Current teaching activities span machine learning, data science, biomedical engineering, and intelligent systems.</p>
-  </article>
-  <article class="contact-page-card">
-    <p class="contact-page-card-kicker">Academic Role</p>
-    <h2>Research-informed teaching</h2>
-    <p>Courses are aligned with the lab’s work in applied AI for medicine, bridging methodological foundations and real biomedical applications.</p>
-  </article>
-</section>
-
 <section class="about-section education-courses-section">
   <div class="about-section-heading">
     <h2>Courses</h2>
     <p class="about-section-kicker">Current Teaching Portfolio</p>
     <p class="about-section-copy">
-      This section can grow over time with courses, teaching responsibilities, and educational resources linked to the lab.
+      Each course card summarizes the teaching activity, the degree program, credits, and the instructional team without requiring a separate page for every entry.
     </p>
   </div>
   {% include courses.liquid %}

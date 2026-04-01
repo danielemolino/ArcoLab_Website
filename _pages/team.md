@@ -32,7 +32,7 @@ nav_order: 1
 </section>
 
 {% assign team_members = site.data.team | sort: "order" %}
-{% assign role_sections = "pi|Principal Investigator,faculty|Faculty,researcher|Researchers,postdoc|Postdoctoral Researchers,phd|PhD Students,student|Students,collaborator|Collaborators,alumni|Alumni" | split: "," %}
+{% assign role_sections = "pi|Principal Investigator,researcher|Researchers,collaborator|Collaborators,postdoc|Post Doc,phd|PhD Candidate" | split: "," %}
 
 {% for section in role_sections %}
 {% assign parts = section | split: "|" %}
@@ -80,9 +80,6 @@ nav_order: 1
           {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
           <a class="about-team-action-link" href="{{ member.scholar_url }}" aria-label="Google Scholar" title="Google Scholar" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-graduation-cap"></i></a>
           {% endif %}
-          {% if member.external_url %}
-          <a class="about-team-action-link" href="{{ member.external_url }}" aria-label="Official profile" title="Official profile" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-building-columns"></i></a>
-          {% endif %}
           <a class="about-team-action-link" href="/publications/?search={{ member.name | url_encode }}" aria-label="Filter publications by {{ member.name }}" title="Publications by {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-book-open"></i></a>
           {% if member.email %}
           <a class="about-team-action-link" href="mailto:{{ member.email }}" aria-label="Email {{ member.name }}" title="Email {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
@@ -98,3 +95,66 @@ nav_order: 1
 </section>
 {% endif %}
 {% endfor %}
+
+<section class="team-role-group team-alumni-group">
+  <details class="team-alumni-details">
+    <summary class="team-alumni-summary">View PhD Alumni</summary>
+    <div class="team-role-heading">
+      <div>
+        <p class="team-role-kicker">People</p>
+        <h2>PhD Alumni</h2>
+      </div>
+      <span class="team-role-count">4</span>
+    </div>
+
+    <div class="about-team-grid">
+      <article class="about-team-card">
+        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <div class="about-team-body">
+          <div class="about-team-card-header">
+            <span class="about-team-role-badge">PhD Alumni</span>
+          </div>
+          <h3>Placeholder Alumna One</h3>
+          <p class="about-team-role">Former PhD Candidate in Artificial Intelligence</p>
+          <p class="about-team-bio">Placeholder content for a completed PhD profile that can later include thesis topic, current position, and period in the lab.</p>
+        </div>
+      </article>
+
+      <article class="about-team-card">
+        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <div class="about-team-body">
+          <div class="about-team-card-header">
+            <span class="about-team-role-badge">PhD Alumni</span>
+          </div>
+          <h3>Placeholder Alumnus Two</h3>
+          <p class="about-team-role">Former PhD Candidate in Biomedical Engineering</p>
+          <p class="about-team-bio">Placeholder content for a former doctoral researcher, ready to be replaced by real alumni information and current affiliation.</p>
+        </div>
+      </article>
+
+      <article class="about-team-card">
+        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <div class="about-team-body">
+          <div class="about-team-card-header">
+            <span class="about-team-role-badge">PhD Alumni</span>
+          </div>
+          <h3>Placeholder Alumna Three</h3>
+          <p class="about-team-role">Former PhD Candidate in Applied AI</p>
+          <p class="about-team-bio">Placeholder content for a past lab member whose profile can later highlight thesis area, collaborations, and current destination.</p>
+        </div>
+      </article>
+
+      <article class="about-team-card">
+        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <div class="about-team-body">
+          <div class="about-team-card-header">
+            <span class="about-team-role-badge">PhD Alumni</span>
+          </div>
+          <h3>Placeholder Alumnus Four</h3>
+          <p class="about-team-role">Former PhD Candidate in Clinical AI</p>
+          <p class="about-team-bio">Placeholder content for a completed PhD path, intended as a temporary entry until real alumni records are added.</p>
+        </div>
+      </article>
+    </div>
+  </details>
+</section>

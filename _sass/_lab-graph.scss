@@ -90,12 +90,63 @@
 
 .lab-graph-field input,
 .lab-graph-field select {
+  appearance: none;
+  -webkit-appearance: none;
   min-height: 2.9rem;
   padding: 0.75rem 0.95rem;
   border: 1px solid rgba(255, 255, 255, 0.09);
   border-radius: 0.95rem;
   background: rgba(255, 255, 255, 0.04);
-  color: var(--global-text-color);
+  color: #f5f7ff;
+  color-scheme: dark;
+}
+
+.lab-graph-field input[type="range"] {
+  min-height: auto;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  box-shadow: none;
+}
+
+.lab-graph-field select {
+  padding-right: 2.8rem;
+  background-image:
+    linear-gradient(45deg, transparent 50%, #c9c5ff 50%),
+    linear-gradient(135deg, #c9c5ff 50%, transparent 50%);
+  background-position:
+    calc(100% - 1.15rem) calc(50% - 0.12rem),
+    calc(100% - 0.75rem) calc(50% - 0.12rem);
+  background-size: 0.42rem 0.42rem, 0.42rem 0.42rem;
+  background-repeat: no-repeat;
+}
+
+.lab-graph-field select option {
+  background: #111735;
+  color: #f5f7ff;
+}
+
+.lab-graph-year-range {
+  min-width: 15rem;
+}
+
+.lab-graph-year-range-values {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 2.2rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 0.95rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: #f5f7ff;
+}
+
+.lab-graph-year-range-values strong {
+  font-size: 0.95rem;
+  font-weight: 700;
 }
 
 .lab-graph-layout {
@@ -173,10 +224,6 @@
   border-radius: 999px;
 }
 
-.lab-graph-legend-dot-person {
-  background: #6c5ce7;
-}
-
 .lab-graph-legend-dot-paper {
   background: #4d6bff;
   border-radius: 0.25rem;
@@ -194,10 +241,6 @@
 
 .lab-graph-legend-line-topic {
   background: rgba(84, 221, 167, 0.7);
-}
-
-.lab-graph-legend-line-authored {
-  background: rgba(98, 153, 255, 0.7);
 }
 
 .lab-graph-details {

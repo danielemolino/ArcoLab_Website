@@ -1,28 +1,7 @@
 (() => {
   const root = document.documentElement;
   root.classList.add("has-arco-ui");
-  const paletteStorageKey = "arco-palette-variant";
-  const paletteButtons = Array.from(document.querySelectorAll("[data-palette-variant]"));
-
-  const applyPalette = (variant) => {
-    const resolved = variant || "current-refined";
-    root.setAttribute("data-palette-variant", resolved);
-    paletteButtons.forEach((button) => {
-      const isActive = button.getAttribute("data-palette-variant") === resolved;
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", isActive ? "true" : "false");
-    });
-  };
-
-  applyPalette(window.localStorage.getItem(paletteStorageKey) || "current-refined");
-
-  paletteButtons.forEach((button) => {
-    button.addEventListener("click", () => {
-      const variant = button.getAttribute("data-palette-variant") || "current-refined";
-      window.localStorage.setItem(paletteStorageKey, variant);
-      applyPalette(variant);
-    });
-  });
+  root.setAttribute("data-palette-variant", "current-refined");
 
   const navbar = document.getElementById("navbar");
   const updateNavbar = () => {

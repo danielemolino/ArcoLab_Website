@@ -15,13 +15,10 @@ export function positionTooltip(tooltip, event) {
 
 export function renderTooltip(node) {
   const data = node.data();
-  const meta =
-    data.type === "paper"
-      ? `${data.venue || "Publication"}${data.year ? `, ${data.year}` : ""}`
-      : data.roleLabel || "";
+  const meta = `${data.venue || "Publication"}${data.year ? `, ${data.year}` : ""}`;
   return `
-    <p class="lab-graph-tooltip-kicker">${data.type === "paper" ? "Paper" : "Person"}</p>
-    <strong>${data.label}</strong>
+    <p class="lab-graph-tooltip-kicker">Paper</p>
+    <strong>${data.fullTitle || data.label}</strong>
     <p>${meta}</p>
   `;
 }
@@ -41,9 +38,6 @@ export function fillSelect(select, values, formatter = (value) => value) {
 export function renderDetails(panel, node, actions) {
   const data = node.data();
   const links = [];
-  if (data.profilePath) links.push(`<a class="lab-graph-detail-link" href="${data.profilePath}">Open profile</a>`);
-  if (data.externalUrl) links.push(`<a class="lab-graph-detail-link" href="${data.externalUrl}">Official page</a>`);
-  if (data.scholarUrl) links.push(`<a class="lab-graph-detail-link" href="${data.scholarUrl}">Google Scholar</a>`);
   if (data.doiUrl) links.push(`<a class="lab-graph-detail-link" href="${data.doiUrl}">DOI</a>`);
   if (data.pdf) links.push(`<a class="lab-graph-detail-link" href="${data.pdf}">PDF</a>`);
   if (data.code) links.push(`<a class="lab-graph-detail-link" href="${data.code}">Code</a>`);
@@ -51,13 +45,9 @@ export function renderDetails(panel, node, actions) {
 
   panel.innerHTML = `
     <div class="lab-graph-details-card">
-      <p class="lab-graph-details-kicker">${data.type === "paper" ? "Paper node" : "Person node"}</p>
-      <h2>${data.label}</h2>
-      ${
-        data.type === "paper"
-          ? `<p class="lab-graph-details-meta">${data.venue || "Publication"}${data.year ? `, ${data.year}` : ""}</p>`
-          : `<p class="lab-graph-details-meta">${data.roleLabel || ""}${data.title ? ` · ${data.title}` : ""}</p>`
-      }
+      <p class="lab-graph-details-kicker">Paper node</p>
+      <h2>${data.fullTitle || data.label}</h2>
+      <p class="lab-graph-details-meta">${data.venue || "Publication"}${data.year ? `, ${data.year}` : ""}</p>
       ${
         (data.topics || []).length
           ? `<div class="lab-graph-details-tags">${data.topics
@@ -70,21 +60,12 @@ export function renderDetails(panel, node, actions) {
           ? `<p class="lab-graph-details-copy"><strong>Authors:</strong> ${data.authors.join(", ")}</p>`
           : ""
       }
-      ${
-        data.publicationCount
-          ? `<p class="lab-graph-details-copy"><strong>Selected publications:</strong> ${data.publicationCount}</p>`
-          : ""
-      }
       <div class="lab-graph-details-actions">
         <button type="button" class="lab-graph-button" data-detail-action="center">Center node</button>
-        <button type="button" class="lab-graph-button" data-detail-action="isolate">Isolate neighborhood</button>
-        <button type="button" class="lab-graph-button" data-detail-action="clear">Clear isolation</button>
       </div>
       ${links.length ? `<div class="lab-graph-details-links">${links.join("")}</div>` : ""}
     </div>
   `;
 
   panel.querySelector('[data-detail-action="center"]')?.addEventListener("click", actions.center);
-  panel.querySelector('[data-detail-action="isolate"]')?.addEventListener("click", actions.isolate);
-  panel.querySelector('[data-detail-action="clear"]')?.addEventListener("click", actions.clear);
 }

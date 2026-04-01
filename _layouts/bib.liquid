@@ -8,8 +8,16 @@
 {% if keyword_items.size > 0 %}
   {% assign keyword_data = entry.keywords | downcase | split: ';' | join: '|' %}
 {% endif %}
-{% capture search_text %}{{ entry.title }} {{ entry.author }} {{ entry.journal }} {{ entry.booktitle }} {{ entry.note }} {{ entry.keywords }} {{ entry.doi }}{% endcapture %}
-<div class="row" data-search-text="{{ search_text | normalize_whitespace | downcase | escape }}" {% if keyword_data != '' %}data-keywords="{{ keyword_data | strip | escape }}"{% endif %}>
+{% assign project_items = '' | split: '' %}
+{% if entry.projects %}
+  {% assign project_items = entry.projects | split: ';' %}
+{% endif %}
+{% assign project_data = '' %}
+{% if project_items.size > 0 %}
+  {% assign project_data = entry.projects | downcase | split: ';' | join: '|' %}
+{% endif %}
+{% capture search_text %}{{ entry.title }} {{ entry.author }} {{ entry.journal }} {{ entry.booktitle }} {{ entry.note }} {{ entry.keywords }} {{ entry.projects }} {{ entry.doi }} {{ entry.year }}{% endcapture %}
+<div class="row" data-search-text="{{ search_text | normalize_whitespace | downcase | escape }}" {% if keyword_data != '' %}data-keywords="{{ keyword_data | strip | escape }}"{% endif %}{% if project_data != '' %} data-projects="{{ project_data | strip | escape }}"{% endif %}{% if entry.year %} data-year="{{ entry.year | escape }}"{% endif %}>
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}
@@ -205,6 +213,16 @@
         {% endfor %}
       </div>
     {% endif %}
+    {% if project_items.size > 0 %}
+      <div class="publication-keywords publication-projects">
+        {% for project in project_items %}
+          {% assign clean_project = project | strip %}
+          {% if clean_project != '' %}
+            <span class="publication-keyword publication-project">{{ clean_project }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
 
     <!-- Links/Buttons -->
     <div class="links">
@@ -214,7 +232,7 @@
         </a>
       {% endif %}
       {% if entry.abstract %}
-        <a class="abstract btn btn-sm z-depth-0" role="button">Abs</a>
+        <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
       {% endif %}
       {% if entry.doi %}
         <a href="https://doi.org/{{ entry.doi }}" class="btn btn-sm z-depth-0" role="button">DOI</a>

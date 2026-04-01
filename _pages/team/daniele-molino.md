@@ -2,7 +2,7 @@
 layout: page
 title: Daniele Molino
 permalink: /team/daniele-molino/
-description: Full profile and selected publications of Daniele Molino.
+description: Full profile and recent publications of Daniele Molino.
 ---
 
 {% assign member = site.data.team | where: "slug", "daniele-molino" | first %}
@@ -34,11 +34,11 @@ description: Full profile and selected publications of Daniele Molino.
   </div>
 
   <div class="member-profile-section">
-    <h2>Selected Publications</h2>
-    {% if member.selected_publications and member.selected_publications != empty %}
+    <h2>Recent Publications</h2>
+    {% if member.recent_publications and member.recent_publications != empty %}
       {% include member_selected_publications.liquid %}
     {% else %}
-      <p class="member-profile-footnote">Selected publications will appear here when they are marked as featured in the bibliography workflow.</p>
+      <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
     {% endif %}
 
     {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}

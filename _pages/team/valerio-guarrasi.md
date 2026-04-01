@@ -2,7 +2,7 @@
 layout: page
 title: Valerio Guarrasi
 permalink: /team/valerio-guarrasi/
-description: Full profile and selected publications of Valerio Guarrasi.
+description: Full profile and recent publications of Valerio Guarrasi.
 ---
 
 {% assign member = site.data.team | where: "slug", "valerio-guarrasi" | first %}
@@ -23,7 +23,6 @@ description: Full profile and selected publications of Valerio Guarrasi.
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="member-profile-link-btn member-profile-link-btn-primary" href="{{ member.external_url }}"><i class="fa-solid fa-building-columns"></i><span>Official Profile</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-scholar" href="{{ member.scholar_url }}"><i class="fa-solid fa-graduation-cap"></i><span>Google Scholar</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-orcid" href="{{ member.orcid_url }}"><i class="fa-solid fa-id-badge"></i><span>ORCID</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-linkedin" href="{{ member.linkedin_url }}"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>
@@ -34,11 +33,11 @@ description: Full profile and selected publications of Valerio Guarrasi.
   </div>
 
   <div class="member-profile-section">
-    <h2>Selected Publications</h2>
-    {% if member.selected_publications and member.selected_publications != empty %}
+    <h2>Recent Publications</h2>
+    {% if member.recent_publications and member.recent_publications != empty %}
       {% include member_selected_publications.liquid %}
     {% else %}
-      <p class="member-profile-footnote">Selected publications will appear here when they are marked as featured in the bibliography workflow.</p>
+      <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
     {% endif %}
 
     {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}

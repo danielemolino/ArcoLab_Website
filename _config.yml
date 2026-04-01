@@ -2,15 +2,15 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Arco Lab # the website title (if blank, full name will be used instead)
+title: Arco Lab
 first_name: Arco
 middle_name:
 last_name: Lab
-email: arcolab@unicampus.it
-institution: Campus Bio-Medico University of Rome
+email: arcolabucbm@gmail.com
+institution: Università Campus Bio-Medico di Roma
 org_name: Arco Lab
 contact_note:
-description: "Applied AI research in medicine - Campus Bio-Medico University of Rome"
+description: "Applied AI research in medicine - Università Campus Bio-Medico di Roma"
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
   Hosted by <a href="https://pages.github.com/" target="_blank">GitHub Pages</a>.
@@ -61,13 +61,13 @@ socials_in_search: true
 posts_in_search: true
 bib_search: true
 lab_graph:
-  enabled: false
+  enabled: true
   nav_title: Graph
-  show_in_nav: true
-  enable_people: true
+  show_in_nav: false
+  enable_people: false
   enable_papers: true
-  enable_hybrid: true
-  default_view: people
+  enable_hybrid: false
+  default_view: papers
   default_focus_depth: 1
   initial_min_shared_publications: 1
   initial_max_nodes: 120
