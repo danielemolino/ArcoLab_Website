@@ -13,6 +13,15 @@ assets/rendercv/rendercv_output/*.typ
 Gemfile.lock
 node_modules/
 vendor
+.env
+.env.*
 shared/google-service-account.json
 shared/google-service-account.*.json
+shared/*service-account*.json
+shared/credentials*.json
+shared/publications_sync.json
+shared/team_sync.json
+shared/education_sync.json
+shared/news_sync.json
+!shared/*.example.json
 shared/*.secret.json

@@ -153,7 +153,8 @@ latest_posts:
 
   {% assign featured_projects = site.projects | sort: "importance" %}
   <div class="about-project-rail" aria-label="Active research projects">
-    {% for project in featured_projects limit: 5 %}
+    {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
+    {% for project in featured_projects_limited %}
       <article
         class="about-project-card about-project-card-clickable"
         onclick="window.location.href='{{ project.url }}'"
@@ -161,6 +162,35 @@ latest_posts:
         role="link"
         tabindex="0"
         aria-label="View {{ project.title }} project"
+      >
+        <img src="{{ project.img }}" alt="{{ project.title }}">
+        <div class="about-project-body">
+          {% if project.project_type %}
+            <span class="about-project-badge">{{ project.project_type }}</span>
+          {% endif %}
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <div class="about-project-meta">
+            {% if project.collaborators %}
+              <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
+            {% endif %}
+            {% if project.status %}
+              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+            {% endif %}
+          </div>
+          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+        </div>
+      </article>
+    {% endfor %}
+    {% for project in featured_projects_limited %}
+      <article
+        class="about-project-card about-project-card-clickable"
+        onclick="window.location.href='{{ project.url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url }}'; }"
+        role="link"
+        tabindex="0"
+        aria-label="View {{ project.title }} project"
+        aria-hidden="true"
       >
         <img src="{{ project.img }}" alt="{{ project.title }}">
         <div class="about-project-body">

@@ -442,10 +442,16 @@
   scroll-snap-type: x proximity;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  cursor: grab;
 }
 
 .about-project-rail::-webkit-scrollbar {
   display: none;
+}
+
+.about-project-rail.is-dragging {
+  cursor: grabbing;
+  user-select: none;
 }
 
 .about-stats-grid {
