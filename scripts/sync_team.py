@@ -533,10 +533,10 @@ def render_profile_page(member: dict[str, Any]) -> str:
             '        <a class="member-profile-link-btn member-profile-link-btn-linkedin" href="{{ member.linkedin_url }}"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>'
         )
     links.append(
-        '        <a class="member-profile-link-btn member-profile-link-btn-publications" href="/publications/?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>'
+        '        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ \'/publications/\' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>'
     )
     links.append(
-        '        <a class="member-profile-link-btn member-profile-link-btn-back" href="/team/"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>'
+        '        <a class="member-profile-link-btn member-profile-link-btn-back" href="{{ \'/team/\' | relative_url }}"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>'
     )
 
     return f"""---
@@ -551,7 +551,7 @@ description: Full profile and recent publications of {member['name']}.
 <section class="member-profile">
   <div class="member-profile-hero">
     <div class="member-profile-media">
-      <img src="{{{{ member.photo }}}}" alt="{{{{ member.name }}}}">
+      <img src="{{{{ member.photo | relative_url }}}}" alt="{{{{ member.name }}}}">
     </div>
     <div class="member-profile-copy">
       <p class="member-profile-kicker">{{{{ member.role_label }}}}</p>
@@ -585,7 +585,7 @@ description: Full profile and recent publications of {member['name']}.
     {{% else %}}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search={member['name'].replace(' ', '%20')}">/publications/?search={member['name']}</a>
+        <a href="{{{{ '/publications/' | relative_url }}}}?search={member['name'].replace(' ', '%20')}">{{{{ '/publications/' | relative_url }}}}?search={member['name']}</a>
       </p>
     {{% endif %}}
   </div>

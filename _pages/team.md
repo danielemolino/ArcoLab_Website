@@ -15,8 +15,8 @@ nav_order: 1
       Arco Lab brings together researchers working across artificial intelligence, biomedical engineering, and clinically grounded computational research. Each profile collects current roles, research interests, and selected outputs.
     </p>
     <div class="member-profile-links">
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/contact/">Get in touch</a>
-      <a class="about-hero-btn about-hero-btn-secondary" href="/publications/">Browse publications <span aria-hidden="true">&rarr;</span></a>
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/contact/' | relative_url }}">Get in touch</a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/publications/' | relative_url }}">Browse publications <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
   <aside class="page-hero-panel">
@@ -59,7 +59,7 @@ nav_order: 1
       tabindex="0"
       aria-label="View {{ member.name }} profile"
     >
-      <img src="{{ member.photo }}" alt="{{ member.name }}">
+      <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
       <div class="about-team-body">
         <div class="about-team-card-header">
           <span class="about-team-role-badge">{{ member.role_label }}</span>
@@ -80,11 +80,11 @@ nav_order: 1
           {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
           <a class="about-team-action-link" href="{{ member.scholar_url }}" aria-label="Google Scholar" title="Google Scholar" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-graduation-cap"></i></a>
           {% endif %}
-          <a class="about-team-action-link" href="/publications/?search={{ member.name | url_encode }}" aria-label="Filter publications by {{ member.name }}" title="Publications by {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-book-open"></i></a>
+          <a class="about-team-action-link" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}" aria-label="Filter publications by {{ member.name }}" title="Publications by {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-book-open"></i></a>
           {% if member.email %}
           <a class="about-team-action-link" href="mailto:{{ member.email }}" aria-label="Email {{ member.name }}" title="Email {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
           {% else %}
-          <a class="about-team-action-link" href="/contact/" aria-label="Contact" title="Contact" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
+          <a class="about-team-action-link" href="{{ '/contact/' | relative_url }}" aria-label="Contact" title="Contact" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
           {% endif %}
         </div>
         <span class="about-team-profile-link">Open profile <span aria-hidden="true">&rarr;</span></span>
@@ -109,7 +109,7 @@ nav_order: 1
 
     <div class="about-team-grid">
       <article class="about-team-card">
-        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
         <div class="about-team-body">
           <div class="about-team-card-header">
             <span class="about-team-role-badge">PhD Alumni</span>
@@ -121,7 +121,7 @@ nav_order: 1
       </article>
 
       <article class="about-team-card">
-        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
         <div class="about-team-body">
           <div class="about-team-card-header">
             <span class="about-team-role-badge">PhD Alumni</span>
@@ -133,7 +133,7 @@ nav_order: 1
       </article>
 
       <article class="about-team-card">
-        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
         <div class="about-team-body">
           <div class="about-team-card-header">
             <span class="about-team-role-badge">PhD Alumni</span>
@@ -145,7 +145,7 @@ nav_order: 1
       </article>
 
       <article class="about-team-card">
-        <img src="/assets/img/prof_pic_color.png" alt="Placeholder PhD alumnus">
+        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
         <div class="about-team-body">
           <div class="about-team-card-header">
             <span class="about-team-role-badge">PhD Alumni</span>

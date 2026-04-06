@@ -29,15 +29,15 @@ latest_posts:
     </p>
 
     <div class="about-hero-actions">
-      <a class="about-hero-btn about-hero-btn-primary" href="/team/">
+      <a class="about-hero-btn about-hero-btn-primary" href="{{ '/team/' | relative_url }}">
         <i class="fa-solid fa-users"></i>
         <span>Meet the Team</span>
       </a>
-      <a class="about-hero-btn about-hero-btn-primary" href="/publications/">
+      <a class="about-hero-btn about-hero-btn-primary" href="{{ '/publications/' | relative_url }}">
         <i class="fa-solid fa-book-open"></i>
         <span>View Publications</span>
       </a>
-      <a class="about-hero-btn about-hero-btn-primary" href="/projects/">
+      <a class="about-hero-btn about-hero-btn-primary" href="{{ '/projects/' | relative_url }}">
         <i class="fa-solid fa-diagram-project"></i>
         <span>Explore Projects</span>
       </a>
@@ -126,7 +126,7 @@ latest_posts:
         <span><i class="fa-solid fa-shield-heart"></i> Robust evaluation</span>
         <span><i class="fa-solid fa-user-doctor"></i> Clinical usability</span>
       </div>
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/projects/">
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/projects/' | relative_url }}">
         <span>Open Project Portfolio</span>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
@@ -226,13 +226,13 @@ latest_posts:
         <li>Placeholder copy on shared research directions, project work, and scientific exchange inside the lab.</li>
         <li>Placeholder copy on training, mentorship, and the growth of PhD students, postdocs, and researchers.</li>
       </ul>
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/team/">
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/team/' | relative_url }}">
         <span>Open Team Page</span>
         <i class="fa-solid fa-arrow-right"></i>
       </a>
     </div>
     <div class="about-split-media">
-      <img src="/assets/img/12.jpg" alt="Team presentation placeholder">
+      <img src="{{ '/assets/img/12.jpg' | relative_url }}" alt="Team presentation placeholder">
     </div>
   </div>
 </section>

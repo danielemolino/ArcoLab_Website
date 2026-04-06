@@ -10,7 +10,7 @@ description: Full profile and recent publications of Aurora Rofena.
 <section class="member-profile">
   <div class="member-profile-hero">
     <div class="member-profile-media">
-      <img src="{{ member.photo }}" alt="{{ member.name }}">
+      <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
     </div>
     <div class="member-profile-copy">
       <p class="member-profile-kicker">{{ member.role_label }}</p>
@@ -25,8 +25,8 @@ description: Full profile and recent publications of Aurora Rofena.
       <div class="member-profile-links">
         <a class="member-profile-link-btn member-profile-link-btn-scholar" href="{{ member.scholar_url }}"><i class="fa-solid fa-graduation-cap"></i><span>Google Scholar</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-orcid" href="{{ member.orcid_url }}"><i class="fa-solid fa-id-badge"></i><span>ORCID</span></a>
-        <a class="member-profile-link-btn member-profile-link-btn-publications" href="/publications/?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>
-        <a class="member-profile-link-btn member-profile-link-btn-back" href="/team/"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>
+        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>
+        <a class="member-profile-link-btn member-profile-link-btn-back" href="{{ '/team/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>
       </div>
     </div>
   </div>

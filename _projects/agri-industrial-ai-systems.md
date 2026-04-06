@@ -32,7 +32,7 @@ project_filter: agri-industrial-ai-systems
 <section class="project-profile">
   <div class="project-profile-hero">
     <div class="project-profile-media">
-      <img src="{{ page.img }}" alt="{{ page.title }}">
+      <img src="{{ page.img | relative_url }}" alt="{{ page.title }}">
     </div>
     <div class="project-profile-copy">
       <p class="project-profile-kicker">{{ page.project_type }}</p>
@@ -44,8 +44,8 @@ project_filter: agri-industrial-ai-systems
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/publications/?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="/projects/">Back to Projects <span aria-hidden="true">&rarr;</span></a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
   </div>
@@ -99,7 +99,7 @@ project_filter: agri-industrial-ai-systems
                 <div class="title">Project-linked publications</div>
                 <div class="periodical">No publications are linked to this project yet. Once project tags are assigned in the publications workflow, related outputs will appear here automatically.</div>
                 <div class="links">
-                  <a href="/publications/?project={{ page.project_filter | url_encode }}" class="btn btn-sm z-depth-0" role="button">Browse Publications</a>
+                  <a href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}" class="btn btn-sm z-depth-0" role="button">Browse Publications</a>
                 </div>
               </div>
             </div>
