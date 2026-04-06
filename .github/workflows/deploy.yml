@@ -77,6 +77,17 @@ jobs:
         with:
           node-version: "20"
 
+      - name: Configure _config.yml for GitHub Pages
+        uses: fjogeleit/yaml-update-action@main
+        with:
+          commitChange: false
+          valueFile: "_config.yml"
+          changes: |
+            {
+              "url": "https://${{ github.repository_owner }}.github.io",
+              "baseurl": "/${{ github.event.repository.name }}"
+            }
+
       - name: Install system dependencies
         run: |
           sudo apt-get update
