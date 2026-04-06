@@ -157,13 +157,13 @@ latest_posts:
     {% for project in featured_projects_limited %}
       <article
         class="about-project-card about-project-card-clickable"
-        onclick="window.location.href='{{ project.url }}'"
-        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url }}'; }"
+        onclick="window.location.href='{{ project.url | relative_url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
         role="link"
         tabindex="0"
         aria-label="View {{ project.title }} project"
       >
-        <img src="{{ project.img }}" alt="{{ project.title }}">
+        <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
         <div class="about-project-body">
           {% if project.project_type %}
             <span class="about-project-badge">{{ project.project_type }}</span>
@@ -178,21 +178,21 @@ latest_posts:
               <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
             {% endif %}
           </div>
-          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+          <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     {% endfor %}
     {% for project in featured_projects_limited %}
       <article
         class="about-project-card about-project-card-clickable"
-        onclick="window.location.href='{{ project.url }}'"
-        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url }}'; }"
+        onclick="window.location.href='{{ project.url | relative_url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
         role="link"
         tabindex="0"
         aria-label="View {{ project.title }} project"
         aria-hidden="true"
       >
-        <img src="{{ project.img }}" alt="{{ project.title }}">
+        <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
         <div class="about-project-body">
           {% if project.project_type %}
             <span class="about-project-badge">{{ project.project_type }}</span>
@@ -207,7 +207,7 @@ latest_posts:
               <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
             {% endif %}
           </div>
-          <a class="about-project-link" href="{{ project.url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+          <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
         </div>
       </article>
     {% endfor %}
