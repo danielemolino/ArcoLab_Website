@@ -1,0 +1,6 @@
+{% assign email = site.data.socials.email | default: site.email %}
+{% if email %}
+  <a href="mailto:{{ email }}" aria-label="Email ArCo Lab" title="Email ArCo Lab">
+    <i class="fa-solid fa-envelope"></i>
+  </a>
+{% endif %}

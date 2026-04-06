@@ -18,7 +18,7 @@
       </div>
       {% if page.permalink == '/' and site.enable_navbar_social %}
         <!-- Social Icons -->
-        <div class="navbar-brand social">{% social_links %}</div>
+        <div class="navbar-brand social">{% include social_links.liquid %}</div>
       {% endif %}
       <!-- Navbar Toggle -->
       <button
