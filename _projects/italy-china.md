@@ -1,30 +1,27 @@
 ---
 layout: page
-title: Neuroimaging Foundation Benchmark
-permalink: /projects/neuroimaging-foundation-benchmark/
-description: Placeholder completed project on benchmark design, evaluation protocols, and foundation model assessment for neuroimaging tasks.
-img: /assets/img/5.jpg
-importance: 7
+title: Italy-China (2023-2025)
+permalink: /projects/italy-china/
+description: Bilateral research programme on trustworthy multimodal AI for COVID-19 risk analysis, explainability, and robust validation across imaging and clinical data.
+img: /assets/img/6.jpg
+importance: 3
 project_state: ended
-category: benchmarking
-project_type: Medical Imaging
-status: Completed in December 2023
-timeline: 2022-2023
-team:
-  - Ermanno Cordelli
-  - Filippo Ruffini
+category: clinical-ai
+project_type: Collaborative Research
+status: Completed in December 2025
+timeline: 2023-2025
 focus_areas:
-  - Neuroimaging
-  - Foundation Models
-  - Benchmarking
+  - COVID-19 Prognosis
+  - Trustworthy AI
+  - Multimodal Learning
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Research imaging partners
+  - Shenzhen University
 highlights:
-  - Placeholder direction on systematic benchmarking for foundation models.
-  - Placeholder direction on reproducible evaluation design.
-  - Placeholder direction on lessons transferred to later imaging projects.
-project_filter: neuroimaging-foundation-benchmark
+  - Multimodal signatures for severe COVID-19 outcomes using imaging and clinical variables.
+  - Explainable AI methods for risk factor analysis and transparent prognostic modelling.
+  - Bilateral collaboration joining chest X-ray and chest CT expertise with robust validation protocols.
+project_filter: italy-china
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -53,8 +50,12 @@ project_filter: neuroimaging-foundation-benchmark
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>Placeholder copy for a completed project dedicated to benchmarking, comparative evaluation, and reporting protocols for neuroimaging and representation-learning models.</p>
-      <p>Placeholder copy on how this line informed later work on robust validation and deployment realism.</p>
+      <p>
+        The Italy-China programme focused on trustworthy next-generation precision medicine for COVID-19, combining chest X-ray, chest CT, and clinical information to identify patients at risk of severe outcomes. The technical core of the project was multimodal deep learning for richer joint representations under limited and heterogeneous biomedical data.
+      </p>
+      <p>
+        Beyond pure prediction, the programme addressed explainability, counterfactual reasoning, and human-understandable concepts to make AI outputs more useful to physicians, patients, and regulators. The collaboration joined ArCo’s work on multimodal learning and explainable AI with complementary expertise in deep networks and CT-driven risk analysis.
+      </p>
     </div>
 
     <aside class="project-profile-panel">

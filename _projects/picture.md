@@ -1,31 +1,28 @@
 ---
 layout: page
-title: Multimodal Virtual Biopsy
-permalink: /projects/multimodal-virtual-biopsy/
-description: Placeholder project on multimodal virtual biopsy pipelines for clinically interpretable prediction and synthetic data support.
-img: /assets/img/9.jpg
-importance: 3
+title: PICTURE
+permalink: /projects/picture/
+description: AI-driven prediction of pathological complete response after neoadjuvant therapies in non-small cell lung cancer through multimodal data fusion.
+img: /assets/projects/picture-overview.png
+importance: 2
 project_state: active
 category: multimodal-clinical-ai
 project_type: Clinical Application
-status: Through September 2028
-timeline: 2025-2028
-team:
-  - Paolo Soda
-  - Aurora Rofena
-  - Camillo Maria Caruso
+status: Through December 2026
+timeline: 2023-2026
 focus_areas:
+  - Pathological Response Prediction
   - Multimodal Learning
-  - Virtual Biopsy
-  - Predictive Modelling
+  - Explainable AI
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Clinical oncology partners
+  - Università degli Studi di Torino
+  - Università degli Studi di Cassino
 highlights:
-  - Placeholder direction on fusing imaging, pathology, and clinical variables.
-  - Placeholder direction on interpretable prediction pipelines for translational workflows.
-  - Placeholder direction on synthetic data support for robust validation.
-project_filter: multimodal-virtual-biopsy
+  - Fusion of radiology, histology, cytology, molecular data, and electronic health records.
+  - Prediction of pathological complete response before surgery in NSCLC.
+  - Robust and explainable multimodal deep learning pipelines, including transfer toward chemoimmunotherapy settings.
+project_filter: picture
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -54,8 +51,12 @@ project_filter: multimodal-virtual-biopsy
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>Placeholder copy for a project page centred on multimodal virtual biopsy, combining heterogeneous clinical evidence into clinically meaningful prediction and stratification workflows.</p>
-      <p>Placeholder copy on bridging methodological modelling with translational scenarios where interpretability, robustness, and cross-modal consistency are essential.</p>
+      <p>
+        PICTURE addresses one of the central questions in contemporary lung oncology: whether pathological complete response after neoadjuvant treatment can be predicted before surgical resection. The project assumes that a multimodal view of the patient offers a more faithful representation of treatment response than any single data source taken in isolation.
+      </p>
+      <p>
+        The project develops AI systems that integrate radiology imaging, histology, cytology, molecular data, and electronic health records to support pre-surgical decision-making in NSCLC. Alongside predictive performance, PICTURE emphasizes robustness, explainability, and the possibility of transferring learned models toward chemoimmunotherapy scenarios.
+      </p>
     </div>
 
     <aside class="project-profile-panel">

@@ -25,7 +25,7 @@ latest_posts:
     </div>
 
     <p class="about-hero-lead">
-      Arco Lab advances applied artificial intelligence for medicine at Università Campus Bio-Medico di Roma, with research spanning medical imaging, clinical data analysis, and decision support systems.
+      ArCo at Università Campus Bio-Medico di Roma specializes in artificial intelligence research, with applications spanning medicine, industrial and environmental monitoring, energy management, and digital twins. Established in 2004, the lab develops AI-driven methodologies including multimodal learning, AI resilience, and computer vision, with a strong focus on oncology, connected health, medical records, and biomedical signals.
     </p>
 
     <div class="about-hero-actions">
@@ -151,7 +151,7 @@ latest_posts:
     <h2>Active Research Projects</h2>
   </div>
 
-  {% assign featured_projects = site.projects | sort: "importance" %}
+  {% assign featured_projects = site.projects | where: "project_state", "active" | sort: "importance" %}
   <div class="about-project-rail" aria-label="Active research projects">
     {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
     {% for project in featured_projects_limited %}

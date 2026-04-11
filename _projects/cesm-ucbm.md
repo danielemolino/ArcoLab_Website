@@ -1,30 +1,27 @@
 ---
 layout: page
-title: Industrial and Agriculture AI Systems
-permalink: /projects/agri-industrial-ai-systems/
-description: Placeholder project on industrial AI pipelines, monitoring systems, and agriculture-oriented applications built from the lab's core methods.
-img: /assets/img/8.jpg
-importance: 4
+title: CESM@UCBM
+permalink: /projects/cesm-ucbm/
+description: Deep generative modelling for virtual contrast enhancement in spectral mammography, supported by a publicly released in-house CESM dataset.
+img: /assets/projects/cesm-vce.png
+importance: 5
 project_state: active
-category: industrial-ai
-project_type: Industrial Application
-status: Through March 2028
-timeline: 2025-2028
-team:
-  - Matteo Tortora
-  - Daniele Molino
+category: generative-medical-imaging
+project_type: Clinical Application
+status: Dataset and study available
+timeline: 2021-2024 dataset programme
 focus_areas:
-  - Industrial AI
-  - Agriculture
-  - Monitoring Systems
+  - Generative AI
+  - Mammography
+  - Dataset Curation
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Industrial and agritech partners
+  - Fondazione Policlinico Universitario Campus Bio-Medico
 highlights:
-  - Placeholder direction on reliable sensing and monitoring systems.
-  - Placeholder direction on predictive models for industrial and agriculture scenarios.
-  - Placeholder direction on transferring lab methods beyond healthcare while keeping interpretability.
-project_filter: agri-industrial-ai-systems
+  - Virtual contrast enhancement from low-energy images only, reducing reliance on contrast medium and double acquisition.
+  - Public release of a 1138-image CESM dataset with imaging and clinical annotations.
+  - Comparative evaluation of autoencoder, Pix2Pix, and CycleGAN approaches with radiologist assessment.
+project_filter: cesm-ucbm
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -53,8 +50,12 @@ project_filter: agri-industrial-ai-systems
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>Placeholder copy for an applied project that extends ArCo Lab methods to industrial and agriculture-oriented settings, with emphasis on monitoring, prediction, and deployment stability.</p>
-      <p>Placeholder copy on using robust AI methods outside the strictly clinical context while preserving reliability, readability, and practical utility.</p>
+      <p>
+        CESM@UCBM studies virtual contrast enhancement in contrast-enhanced spectral mammography. The central technical goal is to generate synthetic recombined images from low-energy acquisitions only, preserving the clinical value of CESM while reducing the burden associated with contrast administration and higher radiation exposure.
+      </p>
+      <p>
+        The project is also a data resource effort. It released a curated in-house dataset of 1138 CESM images collected at the Fondazione Policlinico Universitario Campus Bio-Medico, with acquisition metadata and lesion-related annotations that support reproducible research on generative models and breast imaging analysis.
+      </p>
     </div>
 
     <aside class="project-profile-panel">

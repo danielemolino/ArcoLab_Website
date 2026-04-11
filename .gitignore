@@ -25,3 +25,5 @@ shared/education_sync.json
 shared/news_sync.json
 !shared/*.example.json
 shared/*.secret.json
+www.cosbi-lab.it/
+www.cosbi-lab.it.zip

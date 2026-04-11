@@ -1,30 +1,27 @@
 ---
 layout: page
-title: Explainable AI for Brain MRI Analysis
-permalink: /projects/explainable-brain-mri/
-description: Translational research on trustworthy neuroimaging AI for quantitative analysis, uncertainty estimation, and clinical interpretability.
-img: /assets/img/10.jpg
-importance: 1
-project_state: active
-category: medical-imaging
-project_type: Medical Imaging
-status: Through December 2027
-timeline: 2024-2027
-team:
-  - Paolo Soda
-  - Valerio Guarrasi
+title: We-ease-it
+permalink: /projects/we-ease-it/
+description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
+img: /assets/projects/we-ease-it-model.png
+importance: 6
+project_state: ended
+category: digital-health
+project_type: Clinical Application
+status: Completed in May 2024
+timeline: 2021-2024
 focus_areas:
-  - Brain MRI
-  - Explainability
-  - Trustworthy AI
+  - Telemonitoring
+  - Digital Health
+  - Predictive Modelling
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Clinical imaging partners
+  - Fondazione Policlinico Universitario Campus Bio-Medico
 highlights:
-  - Robust modelling pipelines for structural and multimodal MRI analysis.
-  - Interpretable representations to support clinical understanding and trust.
-  - Validation strategies focused on generalization, uncertainty, and translational usability.
-project_filter: explainable-brain-mri
+  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
+  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
+  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
+project_filter: we-ease-it
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -44,7 +41,7 @@ project_filter: explainable-brain-mri
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/team/' | relative_url }}">Meet the Team</a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -54,10 +51,10 @@ project_filter: explainable-brain-mri
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        This project investigates clinically meaningful artificial intelligence for brain MRI analysis, combining representation learning, multimodal modelling, and explainability-aware evaluation. The goal is to support diagnostic and prognostic workflows with systems that remain technically robust while being intelligible to clinical stakeholders.
+        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
       </p>
       <p>
-        The work integrates methodological research on data efficiency and interpretability with application-driven validation on imaging tasks where reliability and transparency are essential for translational adoption.
+        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
       </p>
     </div>
 

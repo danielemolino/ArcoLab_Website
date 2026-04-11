@@ -1,30 +1,27 @@
 ---
 layout: page
-title: Federated Medical Platforms
-permalink: /projects/federated-medical-platforms/
-description: Placeholder project on federated learning, multi-site validation, and privacy-aware AI infrastructure for biomedical applications.
-img: /assets/img/7.jpg
-importance: 5
+title: AIDA - PRIN 2022
+permalink: /projects/aida-prin-2022/
+description: Explainable multimodal deep learning for personalized oncology, with a focus on robust fusion, missing modalities, and clinical validation in non-small cell lung cancer.
+img: /assets/projects/aida-visual.jpg
+importance: 1
 project_state: active
-category: federated-ai
+category: multimodal-clinical-ai
 project_type: Clinical Application
-status: Through November 2027
-timeline: 2025-2027
-team:
-  - Ermanno Cordelli
-  - Camillo Maria Caruso
+status: Through December 2026
+timeline: 2023-2026
 focus_areas:
-  - Federated Learning
-  - Multi-site Validation
-  - Privacy-aware AI
+  - Multimodal Deep Learning
+  - Explainable AI
+  - Personalized Oncology
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Multi-centre biomedical partners
+  - Hospital oncology partners
 highlights:
-  - Placeholder direction on privacy-aware training across institutions.
-  - Placeholder direction on validation under heterogeneous data conditions.
-  - Placeholder direction on clinically grounded infrastructures for collaborative AI.
-project_filter: federated-medical-platforms
+  - Multimodal representation learning across radiomics, pathomics, and electronic health records.
+  - Explainable AI methods for attention, counterfactual reasoning, and user-facing clinical transparency.
+  - Prospective validation in non-small cell lung cancer with comparison against conventional clinical markers.
+project_filter: aida-prin-2022
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -53,8 +50,12 @@ project_filter: federated-medical-platforms
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>Placeholder copy for a project focused on federated and multi-site AI systems where privacy constraints, heterogeneity, and institutional collaboration shape the technical design.</p>
-      <p>Placeholder copy on how collaborative infrastructures can support biomedical AI while preserving robustness and deployment realism.</p>
+      <p>
+        AIDA develops explainable multimodal deep learning for healthcare scenarios where single-modality pipelines are not enough. The project investigates when and how to fuse heterogeneous evidence, how to learn stronger shared representations, and how to maintain robustness when data are incomplete or some modalities are missing.
+      </p>
+      <p>
+        The translational application is personalized oncology in non-small cell lung cancer, where radiomic, pathomic, and electronic health record data are combined to predict response, relapse, progression-free survival, and overall survival. The project also studies clinical trust through explainability mechanisms designed for physicians and domain experts.
+      </p>
     </div>
 
     <aside class="project-profile-panel">

@@ -1,30 +1,26 @@
 ---
 layout: page
-title: Clinical AI for Risk Stratification
-permalink: /projects/clinical-risk-stratification/
-description: Multimodal decision-support research for patient stratification, outcome prediction, and clinically grounded deployment pathways.
-img: /assets/img/11.jpg
-importance: 2
-project_state: active
-category: decision-support
-project_type: Decision Support
-status: Through June 2028
-timeline: 2024-2028
-team:
-  - Paolo Soda
-  - Valerio Guarrasi
+title: Visual4DTracker
+permalink: /projects/visual4dtracker/
+description: Software-oriented line on visual interaction with 3D+t image stacks, supporting exploration, tracking, and analysis workflows for biomedical image sequences.
+img: /assets/img/5.jpg
+importance: 7
+project_state: ended
+category: imaging-tools
+project_type: Research Software
+status: Completed software line
+timeline: Software resource
 focus_areas:
-  - Clinical Data Analysis
-  - Multimodal Learning
-  - Outcome Prediction
+  - Image Analysis
+  - Research Software
+  - Visual Tracking
 collaborators:
   - Università Campus Bio-Medico di Roma
-  - Hospital and clinical partners
 highlights:
-  - Multimodal pipelines that integrate imaging, tabular, and longitudinal clinical information.
-  - Outcome prediction models designed for robustness under real-world missingness and distribution shift.
-  - Decision-support interfaces aligned with practical care pathways and human oversight.
-project_filter: clinical-risk-stratification
+  - Visual interaction with 3D+t image stacks for analysis and exploration workflows.
+  - Software-oriented support for tracking and inspection in temporal biomedical imaging data.
+  - Reusable tooling that complements the lab's broader imaging and computer vision work.
+project_filter: visual4dtracker
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -44,7 +40,7 @@ project_filter: clinical-risk-stratification
         {% endfor %}
       </div>
       <div class="member-profile-links">
-        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -54,10 +50,10 @@ project_filter: clinical-risk-stratification
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        This project line develops machine learning methods for clinically relevant risk stratification, combining multimodal evidence sources to support decision-making in complex medical settings. It focuses on model robustness, interpretability, and practical integration into translational research workflows.
+        Visual4DTracker appears in the previous lab portfolio as a software-focused effort centered on the interaction with 3D+t image stacks. The available archived material is minimal, but it clearly identifies the project as part of the lab’s imaging tooling line rather than as a conventional funded clinical project.
       </p>
       <p>
-        The programme spans data fusion, longitudinal modelling, and predictive analytics, with attention to deployment constraints such as missing values, heterogeneous cohorts, and human-in-the-loop decision support.
+        In the current site, it is represented as a compact research software page that can later be enriched with interface screenshots, supported use cases, and links to related publications or code repositories.
       </p>
     </div>
 
