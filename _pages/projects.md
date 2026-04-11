@@ -35,6 +35,7 @@ nav_order: 2
 {% assign active_projects = sorted_projects | where: "project_state", "active" %}
 {% assign ended_projects = sorted_projects | where: "project_state", "ended" %}
 {% if active_projects.size > 0 %}
+
   <section class="about-section">
     <div class="about-section-heading">
       <h2>Active Projects</h2>
@@ -82,6 +83,7 @@ nav_order: 2
 {% endif %}
 
 {% if ended_projects.size > 0 %}
+
   <section class="about-section about-section-last">
     <div class="about-section-heading">
       <h2>Ended Projects</h2>
@@ -129,5 +131,6 @@ nav_order: 2
 {% endif %}
 
 {% if active_projects.size == 0 and ended_projects.size == 0 %}
+
   <p>No projects are available yet.</p>
 {% endif %}

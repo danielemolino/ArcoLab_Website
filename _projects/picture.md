@@ -77,6 +77,7 @@ project_filter: picture
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

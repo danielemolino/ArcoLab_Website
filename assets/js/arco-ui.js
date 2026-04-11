@@ -43,7 +43,7 @@
     ".member-profile-section",
     ".project-profile-hero",
     ".project-profile-section",
-    ".project-profile-panel"
+    ".project-profile-panel",
   ];
 
   const revealTargets = selectors.flatMap((selector) => Array.from(document.querySelectorAll(selector)));
@@ -62,7 +62,7 @@
     },
     {
       threshold: 0.14,
-      rootMargin: "0px 0px -8% 0px"
+      rootMargin: "0px 0px -8% 0px",
     }
   );
 
@@ -85,7 +85,7 @@
       }
 
       return {
-        setWidth: firstDuplicate.offsetLeft - firstOriginal.offsetLeft
+        setWidth: firstDuplicate.offsetLeft - firstOriginal.offsetLeft,
       };
     };
 

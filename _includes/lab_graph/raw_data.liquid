@@ -1,23 +1,23 @@
 <script id="lab-graph-data" type="application/json">
-{
-  "papers": [
-    {% for publication in site.data.publications %}
-      {
-        "id": {{ publication.key | default: publication.title | slugify | append: '-' | append: publication.year | jsonify }},
-        "type": "paper",
-        "title": {{ publication.title | jsonify }},
-        "year": {{ publication.year | jsonify }},
-        "venue": {{ publication.venue | jsonify }},
-        "doiUrl": {{ publication.doi_url | jsonify }},
-        "url": {{ publication.url | jsonify }},
-        "pdf": {{ publication.pdf | jsonify }},
-        "code": {{ publication.code | jsonify }},
-        "website": {{ publication.website | jsonify }},
-        "authors": {{ publication.author | split: " and " | jsonify }},
-        "authorIds": {{ publication.author | split: " and " | jsonify }},
-        "topics": {{ publication.keywords | split: ";" | jsonify }}
-      }{% unless forloop.last %},{% endunless %}
-    {% endfor %}
-  ]
-}
+  {
+    "papers": [
+      {% for publication in site.data.publications %}
+        {
+          "id": {{ publication.key | default: publication.title | slugify | append: '-' | append: publication.year | jsonify }},
+          "type": "paper",
+          "title": {{ publication.title | jsonify }},
+          "year": {{ publication.year | jsonify }},
+          "venue": {{ publication.venue | jsonify }},
+          "doiUrl": {{ publication.doi_url | jsonify }},
+          "url": {{ publication.url | jsonify }},
+          "pdf": {{ publication.pdf | jsonify }},
+          "code": {{ publication.code | jsonify }},
+          "website": {{ publication.website | jsonify }},
+          "authors": {{ publication.author | split: " and " | jsonify }},
+          "authorIds": {{ publication.author | split: " and " | jsonify }},
+          "topics": {{ publication.keywords | split: ";" | jsonify }}
+        }{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+  }
 </script>

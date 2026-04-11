@@ -76,6 +76,7 @@ project_filter: claro
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

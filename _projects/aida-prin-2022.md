@@ -76,6 +76,7 @@ project_filter: aida-prin-2022
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

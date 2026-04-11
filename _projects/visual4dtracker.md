@@ -75,6 +75,7 @@ project_filter: visual4dtracker
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

@@ -52,5 +52,6 @@ description: Full profile and recent publications of Daniele Molino.
         <a href="/publications/?search=Daniele%20Molino">/publications/?search=Daniele Molino</a>
       </p>
     {% endif %}
+
   </div>
 </section>

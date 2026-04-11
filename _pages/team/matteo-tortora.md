@@ -50,5 +50,6 @@ description: Full profile and recent publications of Matteo Tortora.
         <a href="/publications/?search=Matteo%20Tortora">/publications/?search=Matteo Tortora</a>
       </p>
     {% endif %}
+
   </div>
 </section>

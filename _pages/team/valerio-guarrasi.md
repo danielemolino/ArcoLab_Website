@@ -51,5 +51,6 @@ description: Full profile and recent publications of Valerio Guarrasi.
         <a href="/publications/?search=Valerio%20Guarrasi">/publications/?search=Valerio Guarrasi</a>
       </p>
     {% endif %}
+
   </div>
 </section>

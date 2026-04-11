@@ -8,8 +8,9 @@ lab_graph: true
 ---
 
 {% if site.lab_graph.enabled %}
-  {% include lab_graph/page.liquid %}
+{% include lab_graph/page.liquid %}
 {% else %}
+
   <section class="page-hero page-hero-graph">
     <div class="page-hero-copy">
       <p class="page-hero-kicker">Lab Graph</p>

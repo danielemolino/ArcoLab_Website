@@ -50,5 +50,6 @@ description: Full profile and recent publications of Camillo Maria Caruso.
         <a href="/publications/?search=Camillo%20Maria%20Caruso">/publications/?search=Camillo Maria Caruso</a>
       </p>
     {% endif %}
+
   </div>
 </section>

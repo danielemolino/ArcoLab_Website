@@ -40,6 +40,7 @@ nav_order: 1
 {% assign role_label = parts[1] %}
 {% assign section_members = team_members | where: "role", role_key %}
 {% if section_members.size > 0 %}
+
 <section class="team-role-group">
   <div class="team-role-heading">
     <div>
@@ -156,5 +157,6 @@ nav_order: 1
         </div>
       </article>
     </div>
+
   </details>
 </section>

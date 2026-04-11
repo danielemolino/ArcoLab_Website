@@ -42,6 +42,7 @@ latest_posts:
         <span>Explore Projects</span>
       </a>
     </div>
+
   </div>
 </section>
 
@@ -110,6 +111,7 @@ latest_posts:
         </div>
       </article>
     </div>
+
   </div>
 </section>
 
@@ -151,7 +153,8 @@ latest_posts:
     <h2>Active Research Projects</h2>
   </div>
 
-  {% assign featured_projects = site.projects | where: "project_state", "active" | sort: "importance" %}
+{% assign featured_projects = site.projects | where: "project_state", "active" | sort: "importance" %}
+
   <div class="about-project-rail" aria-label="Active research projects">
     {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
     {% for project in featured_projects_limited %}
@@ -246,5 +249,6 @@ latest_posts:
     </p>
   </div>
 
-  {% include recent_publications.liquid %}
+{% include recent_publications.liquid %}
+
 </section>

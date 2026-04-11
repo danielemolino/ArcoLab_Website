@@ -76,6 +76,7 @@ project_filter: italy-china
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

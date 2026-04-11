@@ -77,11 +77,14 @@ nav_order: 5
         </div>
       </details>
     {% endif %}
-  {% else %}
-    <div class="contact-page-card">
-      <p class="contact-page-card-kicker">No Updates Yet</p>
-      <h2>News entries will appear here</h2>
-      <p>Once the shared news sheet is populated, the latest LinkedIn-linked updates will be listed on this page automatically.</p>
-    </div>
-  {% endif %}
+
+{% else %}
+
+<div class="contact-page-card">
+<p class="contact-page-card-kicker">No Updates Yet</p>
+<h2>News entries will appear here</h2>
+<p>Once the shared news sheet is populated, the latest LinkedIn-linked updates will be listed on this page automatically.</p>
+</div>
+{% endif %}
+
 </section>

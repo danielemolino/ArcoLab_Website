@@ -4,11 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const searchInput = document.getElementById("bibsearch");
   if (!searchInput) return;
 
-  const normalizeText = (value) =>
-    (value || "")
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
+  const normalizeText = (value) => (value || "").toLowerCase().replace(/\s+/g, " ").trim();
 
   // actual bibsearch logic
   const filterItems = (searchTerm) => {
@@ -21,9 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
     bibliographyItems.forEach((element) => {
       const row = element.querySelector(".row[data-search-text]");
       const searchableText = normalizeText(row?.dataset.searchText || element.innerText);
-      const matches =
-        searchTokens.length === 0 ||
-        searchTokens.every((token) => searchableText.includes(token));
+      const matches = searchTokens.length === 0 || searchTokens.every((token) => searchableText.includes(token));
       if (!matches) {
         element.classList.add("unloaded");
       }

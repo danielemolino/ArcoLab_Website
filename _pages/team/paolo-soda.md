@@ -50,5 +50,6 @@ description: Full profile and recent publications of Paolo Soda.
         <a href="/publications/?search=Paolo%20Soda">/publications/?search=Paolo Soda</a>
       </p>
     {% endif %}
+
   </div>
 </section>

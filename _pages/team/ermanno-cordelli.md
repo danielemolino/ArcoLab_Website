@@ -49,5 +49,6 @@ description: Full profile and recent publications of Ermanno Cordelli.
         <a href="/publications/?search=Ermanno%20Cordelli">/publications/?search=Ermanno Cordelli</a>
       </p>
     {% endif %}
+
   </div>
 </section>

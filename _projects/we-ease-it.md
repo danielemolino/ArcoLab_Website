@@ -76,6 +76,7 @@ project_filter: we-ease-it
         </ul>
       </div>
     </aside>
+
   </div>
 
   <div class="project-profile-section">

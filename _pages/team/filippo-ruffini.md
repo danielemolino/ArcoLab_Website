@@ -50,5 +50,6 @@ description: Full profile and recent publications of Filippo Ruffini.
         <a href="/publications/?search=Filippo%20Ruffini">/publications/?search=Filippo Ruffini</a>
       </p>
     {% endif %}
+
   </div>
 </section>

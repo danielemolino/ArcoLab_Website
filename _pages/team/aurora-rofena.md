@@ -50,5 +50,6 @@ description: Full profile and recent publications of Aurora Rofena.
         <a href="/publications/?search=Aurora%20Rofena">/publications/?search=Aurora Rofena</a>
       </p>
     {% endif %}
+
   </div>
 </section>

@@ -48,18 +48,8 @@ export function renderDetails(panel, node, actions) {
       <p class="lab-graph-details-kicker">Paper node</p>
       <h2>${data.fullTitle || data.label}</h2>
       <p class="lab-graph-details-meta">${data.venue || "Publication"}${data.year ? `, ${data.year}` : ""}</p>
-      ${
-        (data.topics || []).length
-          ? `<div class="lab-graph-details-tags">${data.topics
-              .map((topic) => `<span>${topic}</span>`)
-              .join("")}</div>`
-          : ""
-      }
-      ${
-        (data.authors || []).length
-          ? `<p class="lab-graph-details-copy"><strong>Authors:</strong> ${data.authors.join(", ")}</p>`
-          : ""
-      }
+      ${(data.topics || []).length ? `<div class="lab-graph-details-tags">${data.topics.map((topic) => `<span>${topic}</span>`).join("")}</div>` : ""}
+      ${(data.authors || []).length ? `<p class="lab-graph-details-copy"><strong>Authors:</strong> ${data.authors.join(", ")}</p>` : ""}
       <div class="lab-graph-details-actions">
         <button type="button" class="lab-graph-button" data-detail-action="center">Center node</button>
       </div>

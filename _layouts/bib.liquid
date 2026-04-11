@@ -17,7 +17,19 @@
   {% assign project_data = entry.projects | downcase | split: ';' | join: '|' %}
 {% endif %}
 {% capture search_text %}{{ entry.title }} {{ entry.author }} {{ entry.journal }} {{ entry.booktitle }} {{ entry.note }} {{ entry.keywords }} {{ entry.projects }} {{ entry.doi }} {{ entry.year }}{% endcapture %}
-<div class="row" data-search-text="{{ search_text | normalize_whitespace | downcase | escape }}" {% if keyword_data != '' %}data-keywords="{{ keyword_data | strip | escape }}"{% endif %}{% if project_data != '' %} data-projects="{{ project_data | strip | escape }}"{% endif %}{% if entry.year %} data-year="{{ entry.year | escape }}"{% endif %}>
+<div
+  class="row"
+  data-search-text="{{ search_text | normalize_whitespace | downcase | escape }}"
+  {% if keyword_data != '' %}
+    data-keywords="{{ keyword_data | strip | escape }}"
+  {% endif -%}
+  {% if project_data != '' %}
+    data-projects="{{ project_data | strip | escape }}"
+  {% endif -%}
+  {% if entry.year %}
+    data-year="{{ entry.year | escape }}"
+  {% endif %}
+>
   {% if site.enable_publication_thumbnails %}
     <div class="col col-sm-2 abbr">
       {%- if entry.abbr -%}

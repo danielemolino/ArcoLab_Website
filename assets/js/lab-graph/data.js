@@ -13,20 +13,7 @@ const uniq = (values) => [...new Set((values || []).filter(Boolean))];
 
 const intersect = (a, b) => a.filter((value) => b.includes(value));
 
-const STOP_WORDS = new Set([
-  "a",
-  "an",
-  "and",
-  "for",
-  "from",
-  "in",
-  "of",
-  "on",
-  "the",
-  "to",
-  "via",
-  "with",
-]);
+const STOP_WORDS = new Set(["a", "an", "and", "for", "from", "in", "of", "on", "the", "to", "via", "with"]);
 
 const titleAcronym = (title) => {
   const tokens = String(title || "")
@@ -36,18 +23,21 @@ const titleAcronym = (title) => {
     .filter(Boolean)
     .filter((token) => !STOP_WORDS.has(token.toLowerCase()));
 
-  return tokens
-    .slice(0, 3)
-    .map((token) => token[0]?.toUpperCase() || "")
-    .join("") || "P";
+  return (
+    tokens
+      .slice(0, 3)
+      .map((token) => token[0]?.toUpperCase() || "")
+      .join("") || "P"
+  );
 };
 
 const shortPaperLabelBase = (paper) => {
-  const firstAuthor = String((paper.authors || [])[0] || "")
-    .trim()
-    .split(/\s+/)
-    .filter(Boolean)
-    .pop() || "Paper";
+  const firstAuthor =
+    String((paper.authors || [])[0] || "")
+      .trim()
+      .split(/\s+/)
+      .filter(Boolean)
+      .pop() || "Paper";
   const cleanSurname = firstAuthor.replace(/[^A-Za-z0-9]/g, "") || "Paper";
   const surname = cleanSurname.charAt(0).toUpperCase() + cleanSurname.slice(1).toLowerCase();
   const year = String(paper.year || "").slice(-2) || "00";
@@ -90,7 +80,7 @@ const matchesSearch = (payload, query) => {
       ...(payload.interests || []),
       ...(payload.topics || []),
       ...(payload.authors || []),
-    ].join(" "),
+    ].join(" ")
   );
 
   return query
@@ -155,8 +145,7 @@ function buildPaperElements(store, filters) {
       }, 0);
 
       const multiAuthorBonus = activeSharedAuthors.length > 1 ? (activeSharedAuthors.length - 1) * 1.4 : 0;
-      const topicScore =
-        activeSharedTopics.length > 0 ? activeSharedTopics.length * 1.3 + Math.max(0, activeSharedTopics.length - 1) * 0.9 : 0;
+      const topicScore = activeSharedTopics.length > 0 ? activeSharedTopics.length * 1.3 + Math.max(0, activeSharedTopics.length - 1) * 0.9 : 0;
       const totalWeight = Number((authorScore + multiAuthorBonus + topicScore).toFixed(2));
 
       let relation = "topic";

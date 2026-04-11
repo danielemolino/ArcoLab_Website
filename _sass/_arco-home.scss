@@ -35,7 +35,13 @@
   width: min(92vw, 1120px);
   height: 1px;
   transform: translateX(-50%);
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(124, 109, 255, 0.22) 18%, rgba(124, 109, 255, 0.22) 82%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(124, 109, 255, 0.22) 18%,
+    rgba(124, 109, 255, 0.22) 82%,
+    rgba(255, 255, 255, 0) 100%
+  );
 }
 
 .about-section-signal {
