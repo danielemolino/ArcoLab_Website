@@ -17,6 +17,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const keywordMap = new Map();
   const projectMap = new Map();
   const yearMap = new Map();
+  const projectLabels =
+    typeof window !== "undefined" && window.arcoProjectLabels ? window.arcoProjectLabels : {};
 
   publicationRows.forEach((item) => {
     const row = item.querySelector(".row[data-search-text]");
@@ -39,8 +41,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     projects.forEach((project) => {
       const normalized = project.toLowerCase();
+      const label = projectLabels[project] || projectLabels[normalized];
+      if (Object.keys(projectLabels).length > 0 && !label) {
+        return;
+      }
       if (!projectMap.has(normalized)) {
-        projectMap.set(normalized, project);
+        projectMap.set(normalized, label || project);
       }
     });
 

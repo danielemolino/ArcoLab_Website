@@ -38,7 +38,15 @@
                 {% for project in project_items %}
                   {% assign clean_project = project | strip %}
                   {% if clean_project != '' %}
-                    <span class="publication-keyword publication-project">{{ clean_project }}</span>
+                    {% assign project_label = clean_project %}
+                    {% for site_project in site.projects %}
+                      {% assign site_project_key = site_project.project_filter | default: site_project.slug %}
+                      {% if site_project_key == clean_project %}
+                        {% assign project_label = site_project.title %}
+                        {% break %}
+                      {% endif %}
+                    {% endfor %}
+                    <span class="publication-keyword publication-project">{{ project_label }}</span>
                   {% endif %}
                 {% endfor %}
               </div>
