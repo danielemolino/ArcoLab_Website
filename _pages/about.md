@@ -184,14 +184,14 @@ latest_posts:
   </div>
   <div class="about-project-rail-controls" aria-label="Project rail controls">
     <button type="button" class="about-project-rail-control" data-project-rail-direction="prev" aria-label="Scroll projects left">
-      <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+      <span class="about-project-rail-arrow about-project-rail-arrow-left" aria-hidden="true"></span>
     </button>
     <a class="about-hero-btn about-hero-btn-primary about-inline-btn about-project-rail-main" href="{{ '/projects/' | relative_url }}">
       <i class="fa-solid fa-diagram-project"></i>
       <span>Open Project Portfolio</span>
     </a>
     <button type="button" class="about-project-rail-control" data-project-rail-direction="next" aria-label="Scroll projects right">
-      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <span class="about-project-rail-arrow about-project-rail-arrow-right" aria-hidden="true"></span>
     </button>
   </div>
 </section>
