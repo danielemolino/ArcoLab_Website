@@ -115,7 +115,7 @@ latest_posts:
   </div>
 </section>
 
-<section class="about-section">
+<section class="about-section about-section-projects">
   <div class="about-section-heading">
     <h2>Active Research Projects</h2>
   </div>
