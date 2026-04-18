@@ -222,7 +222,9 @@ latest_posts:
   <div class="about-project-rail-controls" aria-label="Project portfolio and scroll controls">
     <button type="button" class="about-project-rail-control about-project-rail-control-left" data-project-rail-direction="prev" aria-label="Scroll projects left">
       <span class="about-project-rail-arrow about-project-rail-arrow-left" aria-hidden="true">
-        <i class="fa-solid fa-chevron-left"></i>
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+          <path d="M14.5 5.5L8 12l6.5 6.5" />
+        </svg>
       </span>
     </button>
     <a class="about-hero-btn about-hero-btn-primary about-inline-btn about-project-rail-main" href="{{ '/projects/' | relative_url }}">
@@ -231,7 +233,9 @@ latest_posts:
     </a>
     <button type="button" class="about-project-rail-control about-project-rail-control-right" data-project-rail-direction="next" aria-label="Scroll projects right">
       <span class="about-project-rail-arrow about-project-rail-arrow-right" aria-hidden="true">
-        <i class="fa-solid fa-chevron-right"></i>
+        <svg viewBox="0 0 24 24" focusable="false" aria-hidden="true">
+          <path d="M9.5 5.5L16 12l-6.5 6.5" />
+        </svg>
       </span>
     </button>
   </div>
