@@ -131,22 +131,30 @@
   min-width: 15rem;
 }
 
-.lab-graph-year-range-values {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  min-height: 2.2rem;
-  padding: 0.55rem 0.85rem;
-  border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 0.95rem;
-  background: rgba(255, 255, 255, 0.04);
-  color: #f5f7ff;
+.lab-graph-year-range-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
 }
 
-.lab-graph-year-range-values strong {
-  font-size: 0.95rem;
+.lab-graph-year-select {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.lab-graph-year-select span {
+  color: #a9b1d1;
+  font-size: 0.78rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.lab-graph-year-range-summary {
+  margin: 0.55rem 0 0;
+  color: #cfd5f3;
+  font-size: 0.92rem;
+  line-height: 1.45;
 }
 
 .lab-graph-layout {
@@ -352,6 +360,10 @@
   .lab-graph-field {
     min-width: 0;
     width: 100%;
+  }
+
+  .lab-graph-year-range-inputs {
+    grid-template-columns: 1fr;
   }
 
   .lab-graph-canvas-wrap,

@@ -22,8 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     topic: document.getElementById("lab-graph-topic-filter"),
     yearMin: document.getElementById("lab-graph-year-min"),
     yearMax: document.getElementById("lab-graph-year-max"),
-    yearMinLabel: document.getElementById("lab-graph-year-min-label"),
-    yearMaxLabel: document.getElementById("lab-graph-year-max-label"),
+    yearRangeSummary: document.getElementById("lab-graph-year-range-summary"),
     actionButtons: Array.from(document.querySelectorAll("[data-graph-action]")),
   };
 
@@ -31,15 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const yearValues = filterOptions.years.map((value) => Number(value)).filter(Boolean);
   const minYear = Math.min(...yearValues);
   const maxYear = Math.max(...yearValues);
+  const yearsAscending = [...yearValues].sort((a, b) => a - b).map(String);
 
-  controls.yearMin.min = String(minYear);
-  controls.yearMin.max = String(maxYear);
+  fillSelect(controls.yearMin, yearsAscending);
+  fillSelect(controls.yearMax, yearsAscending);
   controls.yearMin.value = String(minYear);
-  controls.yearMax.min = String(minYear);
-  controls.yearMax.max = String(maxYear);
   controls.yearMax.value = String(maxYear);
-  controls.yearMinLabel.textContent = String(minYear);
-  controls.yearMaxLabel.textContent = String(maxYear);
 
   const state = {
     mode: shell.dataset.defaultView || "papers",
@@ -237,13 +233,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     state.yearMin = nextMin;
     state.yearMax = nextMax;
-    controls.yearMinLabel.textContent = String(nextMin);
-    controls.yearMaxLabel.textContent = String(nextMax);
+    controls.yearRangeSummary.textContent =
+      nextMin === minYear && nextMax === maxYear
+        ? "Showing all years"
+        : `Showing papers from ${nextMin} to ${nextMax}`;
     renderGraph();
   };
 
-  controls.yearMin.addEventListener("input", () => syncYearRange("min"));
-  controls.yearMax.addEventListener("input", () => syncYearRange("max"));
+  controls.yearMin.addEventListener("change", () => syncYearRange("min"));
+  controls.yearMax.addEventListener("change", () => syncYearRange("max"));
 
   controls.actionButtons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -258,6 +256,9 @@ document.addEventListener("DOMContentLoaded", () => {
         state.yearMin = minYear;
         state.yearMax = maxYear;
         state.centeredNodeId = "";
+        controls.yearMin.value = String(minYear);
+        controls.yearMax.value = String(maxYear);
+        controls.yearRangeSummary.textContent = "Showing all years";
         controls.search.value = "";
         controls.linkMode.value = "all";
         controls.topic.value = "";

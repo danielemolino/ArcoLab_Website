@@ -34,12 +34,19 @@
 
     <div class="lab-graph-field lab-graph-year-range">
       <span>Year range</span>
-      <div class="lab-graph-year-range-values">
-        <strong id="lab-graph-year-min-label">-</strong>
-        <strong id="lab-graph-year-max-label">-</strong>
+      <div class="lab-graph-year-range-inputs">
+        <label class="lab-graph-year-select">
+          <span>From year</span>
+          <select id="lab-graph-year-min"></select>
+        </label>
+        <label class="lab-graph-year-select">
+          <span>To year</span>
+          <select id="lab-graph-year-max"></select>
+        </label>
       </div>
-      <input id="lab-graph-year-min" type="range" step="1">
-      <input id="lab-graph-year-max" type="range" step="1">
+      <p class="lab-graph-year-range-summary" id="lab-graph-year-range-summary">
+        Showing all years
+      </p>
     </div>
   </div>
 </div>
