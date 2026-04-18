@@ -72,33 +72,9 @@
   const projectRails = Array.from(document.querySelectorAll(".about-project-rail"));
 
   projectRails.forEach((rail) => {
-    const originalCards = Array.from(rail.children);
-    const cardCount = originalCards.length;
-    if (cardCount < 4 || cardCount % 2 !== 0) return;
-
-    const getRailMetrics = () => {
-      const setSize = cardCount / 2;
-      const firstOriginal = rail.children[0];
-      const firstDuplicate = rail.children[setSize];
-      if (!firstOriginal || !firstDuplicate) {
-        return { setWidth: rail.scrollWidth / 2 };
-      }
-
-      return {
-        setWidth: firstDuplicate.offsetLeft - firstOriginal.offsetLeft,
-      };
-    };
-
     let isDragging = false;
     let dragStartX = 0;
     let dragStartScroll = 0;
-
-    const normalizeRailScroll = () => {
-      const { setWidth } = getRailMetrics();
-      if (setWidth <= 0) return;
-      if (rail.scrollLeft >= setWidth) rail.scrollLeft -= setWidth;
-      if (rail.scrollLeft < 0) rail.scrollLeft += setWidth;
-    };
 
     rail.addEventListener(
       "wheel",
@@ -106,7 +82,6 @@
         if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
         event.preventDefault();
         rail.scrollLeft += event.deltaY;
-        normalizeRailScroll();
       },
       { passive: false }
     );
@@ -123,7 +98,6 @@
       if (!isDragging) return;
       const delta = event.clientX - dragStartX;
       rail.scrollLeft = dragStartScroll - delta;
-      normalizeRailScroll();
     });
 
     window.addEventListener("mouseup", () => {
@@ -132,9 +106,7 @@
       rail.classList.remove("is-dragging");
     });
 
-    rail.addEventListener("scroll", normalizeRailScroll, { passive: true });
-
-    const controls = rail.parentElement?.querySelectorAll("[data-project-rail-direction]");
+    const controls = rail.closest(".about-section-projects")?.querySelectorAll("[data-project-rail-direction]");
     controls?.forEach((control) => {
       control.addEventListener("click", () => {
         const step = Math.max(rail.clientWidth * 0.82, 360);

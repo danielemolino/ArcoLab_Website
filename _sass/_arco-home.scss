@@ -447,13 +447,15 @@
 }
 
 .about-project-rail {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(20rem, 24.5rem);
+  display: flex;
+  flex-wrap: nowrap;
   gap: 1.25rem;
+  width: 100%;
+  min-width: 0;
   overflow-x: auto;
   padding: 0.25rem 0 1rem;
   scroll-snap-type: x proximity;
+  scroll-padding-inline: 0.25rem;
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;
@@ -1306,6 +1308,8 @@
 
 .about-project-card {
   position: relative;
+  flex: 0 0 clamp(20rem, 24vw, 24.5rem);
+  width: clamp(20rem, 24vw, 24.5rem);
   overflow: hidden;
   scroll-snap-align: start;
   transition:
@@ -2354,7 +2358,7 @@
   }
 
   .about-project-rail {
-    grid-auto-columns: minmax(18rem, 22rem);
+    gap: 1rem;
   }
 }
 
@@ -2435,8 +2439,13 @@
   }
 
   .about-project-rail {
-    grid-auto-columns: 88%;
+    gap: 0.9rem;
     padding-bottom: 0.85rem;
+  }
+
+  .about-project-card {
+    flex-basis: 88%;
+    width: 88%;
   }
 
   .page-hero-copy h1,
