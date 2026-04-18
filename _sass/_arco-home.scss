@@ -511,47 +511,17 @@
 }
 
 .about-project-rail-arrow {
-  position: relative;
-  width: 0.72rem;
-  height: 0.72rem;
-  display: block;
-  overflow: visible;
+  display: grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  color: #f5f7ff;
+  line-height: 1;
 }
 
-.about-project-rail-arrow::before,
-.about-project-rail-arrow::after {
-  content: "";
-  position: absolute;
-  left: 0.14rem;
-  width: 0.46rem;
-  height: 2px;
-  border-radius: 999px;
-  background: #f5f7ff;
-  transform-origin: center left;
-}
-
-.about-project-rail-arrow::before {
-  top: 0.14rem;
-}
-
-.about-project-rail-arrow::after {
-  bottom: 0.14rem;
-}
-
-.about-project-rail-arrow-left::before {
-  transform: rotate(-45deg);
-}
-
-.about-project-rail-arrow-left::after {
-  transform: rotate(45deg);
-}
-
-.about-project-rail-arrow-right::before {
-  transform: rotate(45deg);
-}
-
-.about-project-rail-arrow-right::after {
-  transform: rotate(-45deg);
+.about-project-rail-arrow i {
+  font-size: 0.95rem;
+  line-height: 1;
 }
 
 .about-project-rail-main {
