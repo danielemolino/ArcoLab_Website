@@ -137,7 +137,9 @@ latest_posts:
           tabindex="0"
           aria-label="View {{ project.title }} project"
         >
-          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          <div class="about-project-media">
+            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          </div>
           <div class="about-project-body">
             {% if project.project_type %}
               <span class="about-project-badge">{{ project.project_type }}</span>
@@ -166,7 +168,9 @@ latest_posts:
           aria-label="View {{ project.title }} project"
           aria-hidden="true"
         >
-          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          <div class="about-project-media">
+            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          </div>
           <div class="about-project-body">
             {% if project.project_type %}
               <span class="about-project-badge">{{ project.project_type }}</span>

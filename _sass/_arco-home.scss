@@ -1312,10 +1312,25 @@
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.24);
 }
 
-.about-project-card img {
+.about-project-media {
   height: clamp(11rem, 16vw, 13.5rem);
-  object-position: center center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
+}
+
+.about-project-media img {
+  width: 100%;
+  height: 100%;
   object-fit: contain;
+  object-position: center center;
+  display: block;
+  transition: transform 0.32s ease;
+}
+
+.about-project-card img {
   transition: transform 0.32s ease;
 }
 
