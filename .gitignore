@@ -27,3 +27,4 @@ shared/news_sync.json
 shared/*.secret.json
 www.cosbi-lab.it/
 www.cosbi-lab.it.zip
+CHAT_CONTEXT.md

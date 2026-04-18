@@ -133,5 +133,17 @@
     });
 
     rail.addEventListener("scroll", normalizeRailScroll, { passive: true });
+
+    const controls = rail.parentElement?.querySelectorAll("[data-project-rail-direction]");
+    controls?.forEach((control) => {
+      control.addEventListener("click", () => {
+        const step = Math.max(rail.clientWidth * 0.82, 360);
+        const direction = control.dataset.projectRailDirection === "prev" ? -1 : 1;
+        rail.scrollBy({
+          left: direction * step,
+          behavior: prefersReducedMotion ? "auto" : "smooth",
+        });
+      });
+    });
   });
 })();

@@ -115,39 +115,6 @@ latest_posts:
   </div>
 </section>
 
-<section class="about-section about-section-featured-project">
-  <div class="about-featured-project-panel">
-    <div class="about-featured-project-copy">
-      <p class="about-section-kicker">Featured Project Lens</p>
-      <h2>Designing multimodal systems that stay useful under real clinical constraints</h2>
-      <p class="about-section-copy">
-        Our project portfolio focuses on models that combine data modalities, remain interpretable to domain experts, and preserve performance when data quality, missing values, or deployment conditions change.
-      </p>
-      <div class="about-featured-project-points">
-        <span><i class="fa-solid fa-wave-square"></i> Multimodal inputs</span>
-        <span><i class="fa-solid fa-shield-heart"></i> Robust evaluation</span>
-        <span><i class="fa-solid fa-user-doctor"></i> Clinical usability</span>
-      </div>
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/projects/' | relative_url }}">
-        <span>Open Project Portfolio</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </a>
-    </div>
-    <div class="about-featured-project-stack">
-      <article class="about-featured-project-card">
-        <span class="about-featured-project-step">Clinical Challenge</span>
-        <h3>Fragmented and heterogeneous medical data</h3>
-        <p>Real healthcare workflows rarely offer clean, balanced, single-modality datasets.</p>
-      </article>
-      <article class="about-featured-project-card">
-        <span class="about-featured-project-step">Arco Approach</span>
-        <h3>Joint modelling, explainability, and robustness</h3>
-        <p>We design methods that stay intelligible and reliable while handling complexity.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
 <section class="about-section">
   <div class="about-section-heading">
     <h2>Active Research Projects</h2>
@@ -214,6 +181,18 @@ latest_posts:
         </div>
       </article>
     {% endfor %}
+  </div>
+  <div class="about-project-rail-controls" aria-label="Project rail controls">
+    <button type="button" class="about-project-rail-control" data-project-rail-direction="prev" aria-label="Scroll projects left">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    </button>
+    <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/projects/' | relative_url }}">
+      <i class="fa-solid fa-diagram-project"></i>
+      <span>Open Project Portfolio</span>
+    </a>
+    <button type="button" class="about-project-rail-control" data-project-rail-direction="next" aria-label="Scroll projects right">
+      <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+    </button>
   </div>
 </section>
 
