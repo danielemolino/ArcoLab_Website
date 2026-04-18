@@ -512,16 +512,18 @@
 
 .about-project-rail-arrow {
   position: relative;
-  width: 0.6rem;
-  height: 0.6rem;
+  width: 0.72rem;
+  height: 0.72rem;
+  display: block;
+  overflow: visible;
 }
 
 .about-project-rail-arrow::before,
 .about-project-rail-arrow::after {
   content: "";
   position: absolute;
-  left: 0.08rem;
-  width: 0.5rem;
+  left: 0.14rem;
+  width: 0.46rem;
   height: 2px;
   border-radius: 999px;
   background: #f5f7ff;
@@ -529,11 +531,11 @@
 }
 
 .about-project-rail-arrow::before {
-  top: 0.1rem;
+  top: 0.14rem;
 }
 
 .about-project-rail-arrow::after {
-  bottom: 0.1rem;
+  bottom: 0.14rem;
 }
 
 .about-project-rail-arrow-left::before {
