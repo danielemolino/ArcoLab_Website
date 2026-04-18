@@ -1313,7 +1313,9 @@
 }
 
 .about-project-card img {
-  aspect-ratio: 16 / 9;
+  height: clamp(11rem, 16vw, 13.5rem);
+  object-position: center center;
+  object-fit: contain;
   transition: transform 0.32s ease;
 }
 
