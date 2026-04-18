@@ -1294,6 +1294,8 @@
 
 .about-project-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
   scroll-snap-align: start;
   transition:
@@ -1313,11 +1315,14 @@
 }
 
 .about-project-media {
+  width: calc(100% - 2rem);
+  margin: 1rem auto 0;
   height: clamp(11rem, 16vw, 13.5rem);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  border-radius: 1.25rem;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.015) 100%);
 }
 
