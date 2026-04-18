@@ -451,35 +451,48 @@
   cursor: grab;
 }
 
-.about-project-rail-controls {
-  width: fit-content;
-  display: grid;
-  grid-template-columns: auto auto auto;
-  align-items: center;
-  justify-content: center;
-  gap: 0.9rem;
-  margin: 1.15rem auto 0;
+.about-project-rail-shell {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
 }
 
 .about-project-rail-control {
-  width: 2.95rem;
-  height: 2.95rem;
+  width: 3.15rem;
+  height: 3.15rem;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(124, 109, 255, 0.25);
+  border: 1px solid rgba(124, 109, 255, 0.28);
   border-radius: 999px;
-  background: linear-gradient(180deg, rgba(124, 109, 255, 0.18) 0%, rgba(95, 198, 255, 0.08) 100%);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
+  background: linear-gradient(180deg, rgba(124, 109, 255, 0.22) 0%, rgba(95, 198, 255, 0.1) 100%);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
     background 0.2s ease;
 }
 
+.about-project-rail-control-left,
+.about-project-rail-control-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+
+.about-project-rail-control-left {
+  left: -0.9rem;
+}
+
+.about-project-rail-control-right {
+  right: -0.9rem;
+}
+
 .about-project-rail-control:hover {
   transform: translateY(-2px);
   border-color: rgba(95, 198, 255, 0.45);
-  background: linear-gradient(180deg, rgba(124, 109, 255, 0.26) 0%, rgba(95, 198, 255, 0.14) 100%);
+  background: linear-gradient(180deg, rgba(124, 109, 255, 0.28) 0%, rgba(95, 198, 255, 0.16) 100%);
 }
 
 .about-project-rail-control:focus-visible {
@@ -530,13 +543,32 @@
 }
 
 .about-project-rail-main {
-  min-width: min(18rem, 58vw);
+  min-width: min(18rem, 72vw);
   justify-content: center;
-  margin-inline: 0.05rem;
 }
 
 .about-project-rail-main i {
   font-size: 0.95rem;
+}
+
+.about-project-rail-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+@media (max-width: 767.98px) {
+  .about-project-rail-control-left {
+    left: -0.65rem;
+  }
+
+  .about-project-rail-control-right {
+    right: -0.65rem;
+  }
+
+  .about-project-rail-main {
+    min-width: min(18rem, 92vw);
+  }
 }
 
 .about-project-rail::-webkit-scrollbar {

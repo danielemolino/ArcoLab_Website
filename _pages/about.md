@@ -122,77 +122,79 @@ latest_posts:
 
 {% assign featured_projects = site.projects | where: "project_state", "active" | sort: "importance" %}
 
-  <div class="about-project-rail" aria-label="Active research projects">
-    {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
-    {% for project in featured_projects_limited %}
-      <article
-        class="about-project-card about-project-card-clickable"
-        onclick="window.location.href='{{ project.url | relative_url }}'"
-        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
-        role="link"
-        tabindex="0"
-        aria-label="View {{ project.title }} project"
-      >
-        <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-        <div class="about-project-body">
-          {% if project.project_type %}
-            <span class="about-project-badge">{{ project.project_type }}</span>
-          {% endif %}
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="about-project-meta">
-            {% if project.collaborators %}
-              <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
-            {% endif %}
-            {% if project.status %}
-              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
-            {% endif %}
-          </div>
-          <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-    {% endfor %}
-    {% for project in featured_projects_limited %}
-      <article
-        class="about-project-card about-project-card-clickable"
-        onclick="window.location.href='{{ project.url | relative_url }}'"
-        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
-        role="link"
-        tabindex="0"
-        aria-label="View {{ project.title }} project"
-        aria-hidden="true"
-      >
-        <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-        <div class="about-project-body">
-          {% if project.project_type %}
-            <span class="about-project-badge">{{ project.project_type }}</span>
-          {% endif %}
-          <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
-          <div class="about-project-meta">
-            {% if project.collaborators %}
-              <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
-            {% endif %}
-            {% if project.status %}
-              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
-            {% endif %}
-          </div>
-          <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
-        </div>
-      </article>
-    {% endfor %}
-  </div>
-  <div class="about-project-rail-controls" aria-label="Project rail controls">
-    <button type="button" class="about-project-rail-control" data-project-rail-direction="prev" aria-label="Scroll projects left">
+  <div class="about-project-rail-shell">
+    <button type="button" class="about-project-rail-control about-project-rail-control-left" data-project-rail-direction="prev" aria-label="Scroll projects left">
       <span class="about-project-rail-arrow about-project-rail-arrow-left" aria-hidden="true"></span>
     </button>
+    <div class="about-project-rail" aria-label="Active research projects">
+      {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
+      {% for project in featured_projects_limited %}
+        <article
+          class="about-project-card about-project-card-clickable"
+          onclick="window.location.href='{{ project.url | relative_url }}'"
+          onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
+          role="link"
+          tabindex="0"
+          aria-label="View {{ project.title }} project"
+        >
+          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          <div class="about-project-body">
+            {% if project.project_type %}
+              <span class="about-project-badge">{{ project.project_type }}</span>
+            {% endif %}
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="about-project-meta">
+              {% if project.collaborators %}
+                <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
+              {% endif %}
+              {% if project.status %}
+                <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+              {% endif %}
+            </div>
+            <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      {% endfor %}
+      {% for project in featured_projects_limited %}
+        <article
+          class="about-project-card about-project-card-clickable"
+          onclick="window.location.href='{{ project.url | relative_url }}'"
+          onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
+          role="link"
+          tabindex="0"
+          aria-label="View {{ project.title }} project"
+          aria-hidden="true"
+        >
+          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
+          <div class="about-project-body">
+            {% if project.project_type %}
+              <span class="about-project-badge">{{ project.project_type }}</span>
+            {% endif %}
+            <h3>{{ project.title }}</h3>
+            <p>{{ project.description }}</p>
+            <div class="about-project-meta">
+              {% if project.collaborators %}
+                <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
+              {% endif %}
+              {% if project.status %}
+                <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+              {% endif %}
+            </div>
+            <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+    <button type="button" class="about-project-rail-control about-project-rail-control-right" data-project-rail-direction="next" aria-label="Scroll projects right">
+      <span class="about-project-rail-arrow about-project-rail-arrow-right" aria-hidden="true"></span>
+    </button>
+  </div>
+  <div class="about-project-rail-controls" aria-label="Project portfolio link">
     <a class="about-hero-btn about-hero-btn-primary about-inline-btn about-project-rail-main" href="{{ '/projects/' | relative_url }}">
       <i class="fa-solid fa-diagram-project"></i>
       <span>Open Project Portfolio</span>
     </a>
-    <button type="button" class="about-project-rail-control" data-project-rail-direction="next" aria-label="Scroll projects right">
-      <span class="about-project-rail-arrow about-project-rail-arrow-right" aria-hidden="true"></span>
-    </button>
   </div>
 </section>
 
