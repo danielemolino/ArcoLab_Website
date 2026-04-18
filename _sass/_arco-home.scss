@@ -564,7 +564,7 @@
 .about-project-rail-controls {
   display: grid;
   grid-template-columns: 3.15rem minmax(0, 1fr) 3.15rem;
-  gap: 1rem;
+  gap: 0.7rem;
   align-items: center;
   width: 100%;
   max-width: 1120px;
@@ -609,7 +609,7 @@
 
   .about-project-rail-controls {
     grid-template-columns: 2.8rem minmax(0, 1fr) 2.8rem;
-    gap: 0.6rem;
+    gap: 0.45rem;
   }
 }
 
