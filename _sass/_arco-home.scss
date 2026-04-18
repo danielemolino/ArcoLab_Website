@@ -452,23 +452,24 @@
 }
 
 .about-project-rail-controls {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
 }
 
 .about-project-rail-control {
-  width: 3rem;
-  height: 3rem;
+  width: 2.9rem;
+  height: 2.9rem;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 999px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.03) 100%);
-  color: #fff;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.055) 0%, rgba(255, 255, 255, 0.022) 100%);
+  color: #dfe4ff;
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.16);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -477,13 +478,22 @@
 
 .about-project-rail-control:hover {
   transform: translateY(-2px);
-  border-color: rgba(124, 109, 255, 0.34);
-  background: linear-gradient(180deg, rgba(124, 109, 255, 0.18) 0%, rgba(255, 255, 255, 0.04) 100%);
+  border-color: rgba(95, 198, 255, 0.34);
+  background: linear-gradient(180deg, rgba(95, 198, 255, 0.14) 0%, rgba(124, 109, 255, 0.12) 100%);
 }
 
 .about-project-rail-control:focus-visible {
-  outline: 2px solid rgba(124, 109, 255, 0.9);
+  outline: 2px solid rgba(95, 198, 255, 0.9);
   outline-offset: 3px;
+}
+
+.about-project-rail-main {
+  min-width: min(18rem, 58vw);
+  justify-content: center;
+}
+
+.about-project-rail-main i {
+  font-size: 0.95rem;
 }
 
 .about-project-rail::-webkit-scrollbar {
