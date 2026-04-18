@@ -74,42 +74,11 @@
   projectRails.forEach((rail) => {
     const originalCards = Array.from(rail.children);
     const cardCount = originalCards.length;
-    if (cardCount < 6 || cardCount % 3 !== 0) return;
-
-    const getRailMetrics = () => {
-      const setSize = cardCount / 3;
-      const firstOriginal = rail.children[0];
-      const firstDuplicate = rail.children[setSize];
-      if (!firstOriginal || !firstDuplicate) {
-        return { setWidth: rail.scrollWidth / 3 };
-      }
-
-      return {
-        setWidth: firstDuplicate.offsetLeft - firstOriginal.offsetLeft,
-      };
-    };
+    if (cardCount < 3) return;
 
     let isDragging = false;
     let dragStartX = 0;
     let dragStartScroll = 0;
-    let isInitialized = false;
-
-    const normalizeRailScroll = () => {
-      const { setWidth } = getRailMetrics();
-      if (setWidth <= 0) return;
-      const minScroll = setWidth;
-      const maxScroll = setWidth * 2;
-      while (rail.scrollLeft >= maxScroll) rail.scrollLeft -= setWidth;
-      while (rail.scrollLeft < minScroll) rail.scrollLeft += setWidth;
-    };
-
-    const initializeRailScroll = () => {
-      if (isInitialized) return;
-      const { setWidth } = getRailMetrics();
-      if (setWidth <= 0) return;
-      rail.scrollLeft = setWidth;
-      isInitialized = true;
-    };
 
     rail.addEventListener(
       "wheel",
@@ -117,7 +86,6 @@
         if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
         event.preventDefault();
         rail.scrollLeft += event.deltaY;
-        normalizeRailScroll();
       },
       { passive: false }
     );
@@ -134,7 +102,6 @@
       if (!isDragging) return;
       const delta = event.clientX - dragStartX;
       rail.scrollLeft = dragStartScroll - delta;
-      normalizeRailScroll();
     });
 
     window.addEventListener("mouseup", () => {
@@ -142,10 +109,6 @@
       isDragging = false;
       rail.classList.remove("is-dragging");
     });
-
-    rail.addEventListener("scroll", normalizeRailScroll, { passive: true });
-    requestAnimationFrame(initializeRailScroll);
-    window.addEventListener("load", initializeRailScroll, { once: true });
 
     const controls = rail.closest(".about-section-projects")?.querySelectorAll("[data-project-rail-direction]");
     controls?.forEach((control) => {
