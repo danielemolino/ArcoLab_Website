@@ -36,7 +36,7 @@ nav_order: 4
     <h2>Courses</h2>
     <p class="about-section-kicker">Current Teaching Portfolio</p>
     <p class="about-section-copy">
-      Each course card summarizes the teaching activity, the degree program, credits, and the instructional team without requiring a separate page for every entry.
+      Courses are grouped by degree program and presented as compact rows, with the teaching activity, credits, timing, and instructional team aligned like a table.
     </p>
   </div>
   {% include courses.liquid %}

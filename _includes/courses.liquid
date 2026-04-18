@@ -1,48 +1,52 @@
 {% assign courses_source = site.data.education_courses %}
 {% if courses_source and courses_source.size > 0 %}
   <div class="courses">
-    {% assign courses_by_year = courses_source | sort: 'year' | reverse | group_by: 'year' %}
+    {% assign courses_by_degree = courses_source | sort: 'degree_program' | group_by: 'degree_program' %}
 
-    {% for year_group in courses_by_year %}
-      <h2 class="year">{{ year_group.name }}</h2>
-      <div class="course-list">
-        {% assign year_courses = year_group.items | sort: 'term' %}
-        {% for course in year_courses %}
-          <div class="course-item">
-            <div class="course-heading">
-              <h3 class="course-title">{{ course.title }}</h3>
-              {% if course.cfu %}
-                <span class="course-cfu">{{ course.cfu }} CFU</span>
-              {% endif %}
-            </div>
+    {% for degree_group in courses_by_degree %}
+      <section class="course-group">
+        <h2 class="degree">{{ degree_group.name }}</h2>
+        <div class="course-list">
+          {% assign degree_courses = degree_group.items | sort: 'year' | reverse %}
+          {% for course in degree_courses %}
+            <article class="course-item">
+              <div class="course-row course-row-main">
+                <div class="course-cell course-cell-title">
+                  <h3 class="course-title">{{ course.title }}</h3>
+                  {% if course.description %}
+                    <div class="course-description">
+                      {{ course.description | markdownify }}
+                    </div>
+                  {% endif %}
+                </div>
 
-            <div class="course-meta">
-              {% if course.degree_program %}
-                <span class="course-term">{{ course.degree_program }}</span>
-              {% endif %}
+                <div class="course-cell course-cell-meta">
+                  {% if course.cfu %}
+                    <span class="course-cfu">{{ course.cfu }} CFU</span>
+                  {% endif %}
+                  <div class="course-meta">
+                    {% if course.year %}
+                      <span class="course-year">{{ course.year }}</span>
+                    {% endif %}
+                    {% if course.term %}
+                      <span class="course-term">{{ course.term }}</span>
+                    {% endif %}
+                  </div>
+                </div>
 
-              {% if course.year %}
-                <span class="course-instructor">{{ course.year }}</span>
-              {% endif %}
-            </div>
-
-            {% if course.description %}
-              <div class="course-description">
-                {{ course.description | markdownify }}
+                <div class="course-cell course-cell-people">
+                  {% if course.holder %}
+                    <p><strong>Lead:</strong> {{ course.holder }}</p>
+                  {% endif %}
+                  {% if course.assistants %}
+                    <p><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
+                  {% endif %}
+                </div>
               </div>
-            {% endif %}
-
-            <div class="course-facts">
-              {% if course.holder %}
-                <p><strong>Course Lead:</strong> {{ course.holder }}</p>
-              {% endif %}
-              {% if course.assistants %}
-                <p><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
-              {% endif %}
-            </div>
-          </div>
-        {% endfor %}
-      </div>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
     {% endfor %}
   </div>
 {% else %}
