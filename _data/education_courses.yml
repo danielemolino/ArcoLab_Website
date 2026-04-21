@@ -5,8 +5,6 @@
   cfu: "6"
   description: "Placeholder course summary describing an introductory teaching module on data handling, exploratory analysis, and applied computational reasoning for biomedical and engineering students."
   holder: "Prof. Placeholder Name"
-  year: "2024"
-  term: "Spring"
   assistants:
     - "Teaching Assistant One"
     - "Teaching Assistant Two"
@@ -15,8 +13,6 @@
   cfu: "8"
   description: "Placeholder course summary describing a foundational module on supervised and unsupervised learning, model assessment, and introductory AI methods with biomedical case studies."
   holder: "Prof. Placeholder Name"
-  year: "2023"
-  term: "Fall"
   assistants:
     - "Teaching Assistant One"
     - "Teaching Assistant Two"

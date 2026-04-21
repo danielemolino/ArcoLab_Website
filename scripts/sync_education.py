@@ -36,8 +36,6 @@ REQUIRED_COLUMNS = {
     "description",
     "holder",
     "assistants",
-    "year",
-    "term",
 }
 
 
@@ -133,8 +131,6 @@ def write_yaml(courses: list[dict[str, str]], destination: Path) -> None:
         lines.append(f"  cfu: {yaml_quote(course.get('cfu', ''))}")
         lines.append(f"  description: {yaml_quote(course.get('description', ''))}")
         lines.append(f"  holder: {yaml_quote(course.get('holder', ''))}")
-        lines.append(f"  year: {yaml_quote(course.get('year', ''))}")
-        lines.append(f"  term: {yaml_quote(course.get('term', ''))}")
         if assistants:
             lines.append("  assistants:")
             for assistant in assistants:
@@ -171,12 +167,17 @@ def main() -> int:
                 "description": row.get("description", ""),
                 "holder": row.get("holder", ""),
                 "assistants": row.get("assistants", ""),
-                "year": row.get("year", ""),
-                "term": row.get("term", ""),
             }
         )
 
-    courses.sort(key=lambda item: (item.get("year", ""), item.get("title", "")), reverse=True)
+    special_order = {"masters": 1, "summer schools": 2}
+
+    def sort_key(item: dict[str, str]) -> tuple[int, str, str]:
+        degree_program = normalize_space(item.get("degree_program", ""))
+        special_rank = special_order.get(degree_program.lower(), 0)
+        return (special_rank, degree_program.lower(), item.get("title", "").lower())
+
+    courses.sort(key=sort_key)
     output = Path(args.output)
     write_yaml(courses, output)
     print(f"Wrote {len(courses)} education entries to {output} from {source}")
