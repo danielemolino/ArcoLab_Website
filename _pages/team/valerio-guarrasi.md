@@ -48,9 +48,8 @@ description: Full profile and recent publications of Valerio Guarrasi.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Valerio%20Guarrasi">/publications/?search=Valerio Guarrasi</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Valerio%20Guarrasi">{{ '/publications/' | relative_url }}?search=Valerio Guarrasi</a>
       </p>
     {% endif %}
-
   </div>
 </section>

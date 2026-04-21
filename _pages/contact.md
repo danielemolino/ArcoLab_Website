@@ -17,7 +17,7 @@ nav_order: 6
       </p>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="mailto:arcolabucbm@gmail.com">Email the Lab</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="/team/">Meet the Team <span aria-hidden="true">&rarr;</span></a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/team/' | relative_url }}">Meet the Team <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
     <aside class="contact-page-panel">

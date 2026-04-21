@@ -46,9 +46,8 @@ description: Full profile and recent publications of Ermanno Cordelli.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Ermanno%20Cordelli">/publications/?search=Ermanno Cordelli</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Ermanno%20Cordelli">{{ '/publications/' | relative_url }}?search=Ermanno Cordelli</a>
       </p>
     {% endif %}
-
   </div>
 </section>

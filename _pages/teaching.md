@@ -15,8 +15,8 @@ nav_order: 4
       Arco Lab contributes to teaching activities in artificial intelligence, biomedical engineering, intelligent systems, and related computational methods at Università Campus Bio-Medico di Roma.
     </p>
     <div class="member-profile-links">
-      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="/team/">Meet the instructors</a>
-      <a class="about-hero-btn about-hero-btn-secondary" href="/contact/">Academic inquiries <span aria-hidden="true">&rarr;</span></a>
+      <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/team/' | relative_url }}">Meet the instructors</a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/contact/' | relative_url }}">Academic inquiries <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
   <aside class="page-hero-panel">

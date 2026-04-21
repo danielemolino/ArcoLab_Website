@@ -47,9 +47,8 @@ description: Full profile and recent publications of Aurora Rofena.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Aurora%20Rofena">/publications/?search=Aurora Rofena</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Aurora%20Rofena">{{ '/publications/' | relative_url }}?search=Aurora Rofena</a>
       </p>
     {% endif %}
-
   </div>
 </section>

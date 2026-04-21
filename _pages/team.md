@@ -54,8 +54,8 @@ nav_order: 1
     {% for member in section_members %}
     <article
       class="about-team-card about-team-card-clickable"
-      onclick="window.location.href='{{ member.profile_path }}'"
-      onkeydown="if(event.key === 'Enter'){ window.location.href='{{ member.profile_path }}'; }"
+      onclick="window.location.href='{{ member.profile_path | relative_url }}'"
+      onkeydown="if(event.key === 'Enter'){ window.location.href='{{ member.profile_path | relative_url }}'; }"
       role="link"
       tabindex="0"
       aria-label="View {{ member.name }} profile"

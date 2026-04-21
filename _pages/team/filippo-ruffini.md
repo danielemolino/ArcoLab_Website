@@ -47,9 +47,8 @@ description: Full profile and recent publications of Filippo Ruffini.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Filippo%20Ruffini">/publications/?search=Filippo Ruffini</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Filippo%20Ruffini">{{ '/publications/' | relative_url }}?search=Filippo Ruffini</a>
       </p>
     {% endif %}
-
   </div>
 </section>

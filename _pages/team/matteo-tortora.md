@@ -47,9 +47,8 @@ description: Full profile and recent publications of Matteo Tortora.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Matteo%20Tortora">/publications/?search=Matteo Tortora</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Matteo%20Tortora">{{ '/publications/' | relative_url }}?search=Matteo Tortora</a>
       </p>
     {% endif %}
-
   </div>
 </section>

@@ -49,9 +49,8 @@ description: Full profile and recent publications of Daniele Molino.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Daniele%20Molino">/publications/?search=Daniele Molino</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Daniele%20Molino">{{ '/publications/' | relative_url }}?search=Daniele Molino</a>
       </p>
     {% endif %}
-
   </div>
 </section>

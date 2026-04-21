@@ -19,7 +19,7 @@ nav_order: 5
         <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
         <span>Follow us on LinkedIn!</span>
       </a>
-      <a class="about-hero-btn about-hero-btn-secondary" href="/contact/">Get in touch <span aria-hidden="true">&rarr;</span></a>
+      <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/contact/' | relative_url }}">Get in touch <span aria-hidden="true">&rarr;</span></a>
     </div>
   </div>
 </section>

@@ -47,9 +47,8 @@ description: Full profile and recent publications of Camillo Maria Caruso.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Camillo%20Maria%20Caruso">/publications/?search=Camillo Maria Caruso</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Camillo%20Maria%20Caruso">{{ '/publications/' | relative_url }}?search=Camillo Maria Caruso</a>
       </p>
     {% endif %}
-
   </div>
 </section>

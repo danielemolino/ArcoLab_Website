@@ -47,9 +47,8 @@ description: Full profile and recent publications of Paolo Soda.
     {% else %}
       <p class="member-profile-footnote">
         Browse all indexed publications for this author:
-        <a href="/publications/?search=Paolo%20Soda">/publications/?search=Paolo Soda</a>
+        <a href="{{ '/publications/' | relative_url }}?search=Paolo%20Soda">{{ '/publications/' | relative_url }}?search=Paolo Soda</a>
       </p>
     {% endif %}
-
   </div>
 </section>
