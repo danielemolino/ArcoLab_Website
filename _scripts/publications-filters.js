@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const keywordFiltersRoot = document.getElementById("publications-keyword-filters");
   const projectFiltersRoot = document.getElementById("publications-project-filters");
   const yearFiltersRoot = document.getElementById("publications-year-filters");
+  const projectLabelsScript = document.getElementById("arco-project-labels");
   const publicationRows = Array.from(
     document.querySelectorAll(".publications ol.bibliography > li"),
   );
@@ -17,8 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const keywordMap = new Map();
   const projectMap = new Map();
   const yearMap = new Map();
-  const projectLabels =
-    typeof window !== "undefined" && window.arcoProjectLabels ? window.arcoProjectLabels : {};
+  let projectLabels = {};
+  if (projectLabelsScript) {
+    try {
+      projectLabels = JSON.parse(projectLabelsScript.textContent || "{}");
+    } catch (error) {
+      projectLabels = {};
+    }
+  }
+  if (Object.keys(projectLabels).length === 0 && typeof window !== "undefined" && window.arcoProjectLabels) {
+    projectLabels = window.arcoProjectLabels;
+  }
 
   publicationRows.forEach((item) => {
     const row = item.querySelector(".row[data-search-text]");
@@ -42,9 +52,6 @@ document.addEventListener("DOMContentLoaded", () => {
     projects.forEach((project) => {
       const normalized = project.toLowerCase();
       const label = projectLabels[project] || projectLabels[normalized];
-      if (Object.keys(projectLabels).length > 0 && !label) {
-        return;
-      }
       if (!projectMap.has(normalized)) {
         projectMap.set(normalized, label || project);
       }

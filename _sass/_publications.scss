@@ -183,14 +183,15 @@
           display: inline-flex;
           align-items: center;
           gap: 0.45rem;
-          min-height: 2.4rem;
+          min-height: 2.7rem;
           color: var(--global-text-color);
           border: 1px solid rgba(255, 255, 255, 0.12);
           border-radius: 999px;
-          padding: 0.42rem 0.95rem;
+          padding: 0.55rem 1.1rem;
           margin-left: 0;
           background: rgba(255, 255, 255, 0.04);
           font-weight: 700;
+          font-size: 0.92rem;
           letter-spacing: 0.01em;
           transition:
             transform 0.2s ease,
@@ -203,6 +204,42 @@
             color: var(--global-theme-color);
             border-color: var(--global-theme-color);
             background: rgba(108, 92, 231, 0.08);
+          }
+        }
+
+        a.btn.publication-cta-read {
+          border-color: rgba(255, 102, 102, 0.35);
+          background: rgba(255, 102, 102, 0.11);
+          color: #ffb2b2;
+
+          &:hover {
+            border-color: rgba(255, 102, 102, 0.7);
+            background: rgba(255, 102, 102, 0.18);
+            color: #fff;
+          }
+        }
+
+        a.btn.publication-cta-code {
+          border-color: rgba(91, 198, 255, 0.3);
+          background: rgba(91, 198, 255, 0.1);
+          color: #b8eaff;
+
+          &:hover {
+            border-color: rgba(91, 198, 255, 0.65);
+            background: rgba(91, 198, 255, 0.18);
+            color: #fff;
+          }
+        }
+
+        a.btn.publication-cta-website {
+          border-color: rgba(84, 221, 167, 0.32);
+          background: rgba(84, 221, 167, 0.1);
+          color: #bdf5df;
+
+          &:hover {
+            border-color: rgba(84, 221, 167, 0.7);
+            background: rgba(84, 221, 167, 0.18);
+            color: #fff;
           }
         }
 

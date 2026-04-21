@@ -52,27 +52,19 @@
               </div>
             {% endif %}
             <div class="links">
-              {% if publication.abstract != blank -%}
-                <a class="abstract btn btn-sm z-depth-0" role="button">Abstract</a>
-              {%- endif %}
               {% if publication.doi_url != blank -%}
-                <a href="{{ publication.doi_url }}" class="btn btn-sm z-depth-0" role="button">DOI</a>
+                <a href="{{ publication.doi_url }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-read" role="button">READ THE PAPER</a>
               {%- endif %}
               {% if publication.code != blank -%}
-                <a href="{{ publication.code }}" class="btn btn-sm z-depth-0" role="button">Code</a>
+                <a href="{{ publication.code }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-code" role="button">Code</a>
               {%- endif %}
               {% if publication.pdf != blank -%}
                 <a href="{{ publication.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
               {%- endif %}
               {% if publication.website != blank -%}
-                <a href="{{ publication.website }}" class="btn btn-sm z-depth-0" role="button">Website</a>
+                <a href="{{ publication.website }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-website" role="button">Website</a>
               {%- endif %}
             </div>
-            {% if publication.abstract != blank %}
-              <div class="abstract hidden">
-                <p>{{ publication.abstract }}</p>
-              </div>
-            {% endif %}
           </div>
         </div>
       </li>

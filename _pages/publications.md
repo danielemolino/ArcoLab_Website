@@ -11,7 +11,7 @@ nav_order: 3
   <p class="publications-intro-kicker">Research Outputs</p>
   <h1>Publications</h1>
   <p class="publications-intro-copy">
-    Arco Lab publishes across medical imaging, multimodal learning, clinical prediction, and decision-support systems. Browse the bibliography below, search by keyword, and open the available DOI, PDF, and code links for each contribution.
+    Arco Lab publishes across medical imaging, multimodal learning, clinical prediction, and decision-support systems. Browse the bibliography below, search by keyword or project, and open the paper, code, and website links for each contribution.
   </p>
   <div class="publications-intro-actions">
     <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/projects/' | relative_url }}">Explore projects</a>
@@ -39,7 +39,7 @@ nav_order: 3
   window.arcoProjectLabels = {
     {% assign sorted_projects = site.projects | sort: "title" %}
     {% for project in sorted_projects %}
-      "{{ project.project_filter | default: project.slug | escape }}": "{{ project.title | escape }}"{% unless forloop.last %},{% endunless %}
+      {{ project.project_filter | default: project.slug | jsonify }}: {{ project.title | jsonify }}{% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
 </script>

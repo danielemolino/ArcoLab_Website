@@ -47,7 +47,6 @@ FIELD_ORDER = [
     "arxiv",
     "doi",
     "url",
-    "abstract",
     "keywords",
     "projects",
     "pdf",
@@ -481,7 +480,6 @@ def write_publications_data(entries: list[dict[str, str]], destination: Path) ->
         lines.append(f"  code: {yaml_quote(entry.get('code', ''))}")
         lines.append(f"  website: {yaml_quote(entry.get('website', ''))}")
         lines.append(f"  url: {yaml_quote(entry.get('url', ''))}")
-        lines.append(f"  abstract: {yaml_quote(entry.get('abstract', ''))}")
         lines.append(f"  keywords: {yaml_quote(entry.get('keywords', ''))}")
         lines.append(f"  projects: {yaml_quote(entry.get('projects', ''))}")
     destination.write_text("\n".join(lines) + "\n", encoding="utf-8")
