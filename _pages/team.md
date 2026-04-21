@@ -44,7 +44,6 @@ nav_order: 1
 <section class="team-role-group">
   <div class="team-role-heading">
     <div>
-      <p class="team-role-kicker">People</p>
       <h2>{{ role_label }}</h2>
     </div>
     <span class="team-role-count">{{ section_members.size }}</span>
@@ -102,7 +101,6 @@ nav_order: 1
     <summary class="team-alumni-summary">View PhD Alumni</summary>
     <div class="team-role-heading">
       <div>
-        <p class="team-role-kicker">People</p>
         <h2>PhD Alumni</h2>
       </div>
       <span class="team-role-count">4</span>
