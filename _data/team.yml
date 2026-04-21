@@ -255,6 +255,47 @@
       pdf: ""
       code: "https://github.com/cosbidev/MARIA"
       website: ""
+- name: "Irene Iele"
+  given_name: "Irene"
+  surname: "Iele"
+  slug: irene-iele
+  profile_path: /team/irene-iele/
+  role: phd
+  role_label: "PhD Candidate"
+  role_group_label: "PhD Candidate"
+  title: "National PhD Candidate in Artificial Intelligence"
+  email: "irene.iele@unicampus.it"
+  photo: /assets/team_photos/irene_iele.jpg
+  scholar_url: "https://scholar.google.com/citations?user=srLH7lkAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0009-0001-1344-0609"
+  github_url: "https://github.com/ireneiele"
+  linkedin_url: "https://www.linkedin.com/in/irei012abc/"
+  interests:
+    - "Test Time Adaptation"
+    - "Medical Image Translation"
+    - "AI in Agriculture"
+  short_bio: "Works on medical imaging, radiotherapy-related AI, and data-driven clinical modelling."
+  bio: "Irene Iele is a researcher affiliated with the Artificial Intelligence and Computing Systems area at Campus Bio-Medico University of Rome. His research spans medical imaging, radiotherapy, clinical prediction, and data-driven methods for healthcare applications."
+  order: 6
+  recent_publications:
+    - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
+      venue: "arXiv preprint arXiv:2602.17683"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2602.17683"
+      url: "https://arxiv.org/abs/2602.17683"
+      pdf: ""
+      code: "https://github.com/arco-group/ndvi-forecasting"
+      website: ""
+    - title: "Sample-Aware Test-Time Adaptation for Medical Image-to-Image Translation"
+      venue: "arXiv preprint arXiv:2508.00766"
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2508.00766"
+      url: "https://arxiv.org/abs/2508.00766"
+      pdf: ""
+      code: "https://github.com/Sample-Aware-TTA/Code"
+      website: ""
 - name: "Daniele Molino"
   given_name: "Daniele"
   surname: "Molino"
@@ -276,7 +317,7 @@
     - "Medical Data Analysis"
   short_bio: "Works on multimodal artificial intelligence, generative models, and medical data analysis, with a focus on clinically grounded machine learning for healthcare applications."
   bio: "Daniele Molino is a researcher at Arco Lab, Campus Bio-Medico University of Rome, where he works on artificial intelligence for medicine. His research focuses on multimodal learning, generative models, and data-driven methods for medical imaging and clinical data analysis. His work aims to develop robust and clinically meaningful AI systems that support prediction, interpretation, and decision-making in healthcare settings."
-  order: 6
+  order: 7
   recent_publications:
     - title: "XGeM: A multi-prompt foundation model for multimodal medical data generation"
       venue: "Computerized Medical Imaging and Graphics"
@@ -327,7 +368,7 @@
     - "Multimodal Learning"
   short_bio: "Works on breast imaging, generative AI, and multimodal methods for medical imaging applications."
   bio: "Aurora Rofena is a PhD candidate affiliated with the Artificial Intelligence and Computing Systems area at Campus Bio-Medico University of Rome. Her work focuses on breast imaging, generative AI, and multimodal learning, with particular interest in mammography and clinically relevant imaging workflows."
-  order: 7
+  order: 8
   recent_publications:
     - title: "Augmented intelligence for multimodal virtual biopsy in breast cancer using generative artificial intelligence"
       venue: "Journal of Biomedical Informatics"
@@ -378,7 +419,7 @@
     - "Foundation Models"
   short_bio: "Works on medical imaging, prognosis prediction, and clinically grounded artificial intelligence."
   bio: "Filippo Ruffini is a PhD candidate affiliated with the Artificial Intelligence and Computing Systems area at Campus Bio-Medico University of Rome. His research focuses on medical imaging, prognosis prediction, multimodal modelling, and AI methods designed for clinically meaningful decision support."
-  order: 8
+  order: 9
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
       venue: "arXiv preprint arXiv:2602.17683"
