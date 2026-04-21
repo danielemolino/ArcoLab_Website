@@ -33,7 +33,6 @@ REQUIRED_COLUMNS = {
     "title",
     "degree_program",
     "cfu",
-    "description",
     "holder",
     "assistants",
 }
@@ -129,7 +128,6 @@ def write_yaml(courses: list[dict[str, str]], destination: Path) -> None:
         lines.append(f"- title: {yaml_quote(course.get('title', ''))}")
         lines.append(f"  degree_program: {yaml_quote(course.get('degree_program', ''))}")
         lines.append(f"  cfu: {yaml_quote(course.get('cfu', ''))}")
-        lines.append(f"  description: {yaml_quote(course.get('description', ''))}")
         lines.append(f"  holder: {yaml_quote(course.get('holder', ''))}")
         if assistants:
             lines.append("  assistants:")
@@ -164,7 +162,6 @@ def main() -> int:
                 "title": row.get("title", ""),
                 "degree_program": row.get("degree_program", ""),
                 "cfu": row.get("cfu", ""),
-                "description": row.get("description", ""),
                 "holder": row.get("holder", ""),
                 "assistants": row.get("assistants", ""),
             }

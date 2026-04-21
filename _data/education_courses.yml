@@ -3,7 +3,6 @@
 - title: "Data Science Fundamentals"
   degree_program: "BSc in Industrial Engineering"
   cfu: "6"
-  description: "Placeholder course summary describing an introductory teaching module on data handling, exploratory analysis, and applied computational reasoning for biomedical and engineering students."
   holder: "Prof. Placeholder Name"
   assistants:
     - "Teaching Assistant One"
@@ -11,7 +10,6 @@
 - title: "Introduction to Machine Learning"
   degree_program: "MSc in Intelligent Systems Engineering"
   cfu: "8"
-  description: "Placeholder course summary describing a foundational module on supervised and unsupervised learning, model assessment, and introductory AI methods with biomedical case studies."
   holder: "Prof. Placeholder Name"
   assistants:
     - "Teaching Assistant One"
