@@ -25,6 +25,7 @@ shared/education_sync.json
 shared/news_sync.json
 !shared/*.example.json
 shared/*.secret.json
+paolo_soda_openalex_publications_clean_final*.csv
 www.cosbi-lab.it/
 www.cosbi-lab.it.zip
 CHAT_CONTEXT.md
