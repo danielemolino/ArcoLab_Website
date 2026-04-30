@@ -17,6 +17,10 @@ nav_order: 6
       </p>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="mailto:arcolabucbm@gmail.com">Email the Lab</a>
+        <a class="about-hero-btn about-inline-btn news-linkedin-btn" href="https://www.linkedin.com/company/arco-unicampus/" target="_blank" rel="noopener">
+          <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+          <span>Follow us on LinkedIn!</span>
+        </a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/team/' | relative_url }}">Meet the Team <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>

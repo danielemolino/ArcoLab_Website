@@ -127,6 +127,23 @@ footer.sticky-bottom {
   background: rgba(255, 255, 255, 0.03);
 }
 
+.footer-linkedin-pill {
+  gap: 0.45rem;
+  border: 1px solid rgba(11, 102, 194, 0.28);
+  background: rgba(11, 102, 194, 0.14) !important;
+  color: #d9ecff !important;
+}
+
+.footer-linkedin-pill:hover {
+  border-color: rgba(11, 102, 194, 0.5);
+  background: rgba(11, 102, 194, 0.22) !important;
+  color: #fff !important;
+}
+
+.footer-linkedin-pill i {
+  font-size: 0.9rem;
+}
+
 .footer-secondary a {
   position: relative;
 

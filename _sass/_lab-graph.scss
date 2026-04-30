@@ -295,16 +295,77 @@
   font-weight: 700;
 }
 
-.lab-graph-detail-link {
+.lab-graph-details-actions .lab-graph-button {
+  min-height: 2.7rem;
+  padding: 0.55rem 1.1rem;
+  border-color: rgba(124, 109, 255, 0.34);
+  background: rgba(108, 92, 231, 0.14);
+  color: #e1dbff;
+  font-size: 0.92rem;
+}
+
+.lab-graph-details-actions .lab-graph-button:hover {
+  border-color: rgba(124, 109, 255, 0.58);
+  background: rgba(108, 92, 231, 0.2);
+}
+
+.lab-graph-details-links a.btn {
   display: inline-flex;
   align-items: center;
-  min-height: 2.3rem;
-  padding: 0.42rem 0.9rem;
+  min-height: 2.7rem;
+  padding: 0.55rem 1.1rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.04);
   color: var(--global-text-color);
   font-weight: 700;
+  font-size: 0.92rem;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.lab-graph-details-links a.btn:hover {
+  transform: translateY(-1px);
+  color: #fff;
+  text-decoration: none;
+}
+
+.lab-graph-details-links a.btn.publication-cta-read {
+  border-color: rgba(255, 102, 102, 0.35);
+  background: rgba(255, 102, 102, 0.11);
+  color: #ffb2b2;
+}
+
+.lab-graph-details-links a.btn.publication-cta-read:hover {
+  border-color: rgba(255, 102, 102, 0.7);
+  background: rgba(255, 102, 102, 0.18);
+}
+
+.lab-graph-details-links a.btn.publication-cta-code {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.07);
+  color: #f2f2f2;
+}
+
+.lab-graph-details-links a.btn.publication-cta-code:hover {
+  border-color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.lab-graph-details-links a.btn.publication-cta-website {
+  border-color: rgba(84, 221, 167, 0.32);
+  background: rgba(84, 221, 167, 0.1);
+  color: #bdf5df;
+}
+
+.lab-graph-details-links a.btn.publication-cta-website:hover {
+  border-color: rgba(84, 221, 167, 0.7);
+  background: rgba(84, 221, 167, 0.18);
+  color: #fff;
 }
 
 .lab-graph-tooltip {

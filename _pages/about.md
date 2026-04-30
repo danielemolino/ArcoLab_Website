@@ -41,6 +41,10 @@ latest_posts:
         <i class="fa-solid fa-diagram-project"></i>
         <span>Explore Projects</span>
       </a>
+      <a class="about-hero-btn about-inline-btn news-linkedin-btn" href="https://www.linkedin.com/company/arco-unicampus/" target="_blank" rel="noopener">
+        <i class="fa-brands fa-linkedin" aria-hidden="true"></i>
+        <span>Follow us on LinkedIn!</span>
+      </a>
     </div>
 
   </div>
