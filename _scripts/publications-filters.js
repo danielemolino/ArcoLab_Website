@@ -30,6 +30,12 @@ document.addEventListener("DOMContentLoaded", () => {
     projectLabels = window.arcoProjectLabels;
   }
 
+  Object.entries(projectLabels).forEach(([normalized, label]) => {
+    if (!projectMap.has(normalized)) {
+      projectMap.set(normalized, label);
+    }
+  });
+
   publicationRows.forEach((item) => {
     const row = item.querySelector(".row[data-search-text]");
     const keywords = ((row && row.dataset.keywords) || "")

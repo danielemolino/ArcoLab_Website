@@ -14,7 +14,58 @@
           <div class="col-sm-10">
             <div class="title">{{ publication.title }}</div>
             {% if publication.author %}
-              <div class="author">{{ publication.author }}</div>
+              {% assign author_items = publication.author | split: ' and ' %}
+              {% assign author_limit = author_items.size %}
+              {% if site.max_author_limit and author_items.size > site.max_author_limit %}
+                {% assign author_limit = site.max_author_limit %}
+              {% endif %}
+              <div class="author">
+                {%- for author in author_items limit: author_limit -%}
+                  {%- assign clean_author = author | strip -%}
+                  {%- if clean_author != '' -%}
+                    {%- if forloop.length > 1 -%}
+                      {%- if forloop.first == false -%}
+                        {%- if forloop.length > 2 -%}, {% elsif forloop.length == 2 -%}  {% endif -%}
+                      {%- endif -%}
+                      {%- if forloop.last and author_limit == author_items.size -%}and {% endif -%}
+                    {%- endif -%}
+                    {{ clean_author }}
+                  {%- endif -%}
+                {%- endfor -%}
+                {%- assign more_authors = author_items.size | minus: author_limit -%}
+                {%- if more_authors > 0 -%}
+                  {%- assign more_authors_hide = more_authors | append: ' more author' -%}
+                  {%- if more_authors > 1 -%}
+                    {%- assign more_authors_hide = more_authors_hide | append: 's' -%}
+                  {%- endif -%}
+                  {%- assign more_authors_show = '' -%}
+                  {%- for author in author_items offset: author_limit -%}
+                    {%- assign more_authors_show = more_authors_show | append: author | strip -%}
+                    {%- unless forloop.last -%}
+                      {%- assign more_authors_show = more_authors_show | append: ', ' -%}
+                    {%- endunless -%}
+                  {%- endfor -%}
+                  , and
+                  <span
+                    class="more-authors"
+                    title="click to view {{ more_authors_hide }}"
+                    onclick="
+                        var element = $(this);
+                        element.attr('title', '');
+                        var more_authors_text = element.text() == '{{ more_authors_hide }}' ? '{{ more_authors_show }}' : '{{ more_authors_hide }}';
+                        var cursorPosition = 0;
+                        var textAdder = setInterval(function(){
+                          element.html(more_authors_text.substring(0, cursorPosition + 1));
+                          if (++cursorPosition == more_authors_text.length){
+                            clearInterval(textAdder);
+                          }
+                      }, '{{ site.more_authors_animation_delay }}');
+                    "
+                  >
+                    {{- more_authors_hide -}}
+                  </span>
+                {%- endif -%}
+              </div>
             {% endif %}
             <div class="periodical">
               {% if publication.venue != blank -%}

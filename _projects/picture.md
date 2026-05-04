@@ -10,14 +10,15 @@ category: multimodal-clinical-ai
 project_type: Clinical Application
 status: Through December 2026
 timeline: 2023-2026
+grant_number: P2022P3CXJ-PICTURE (CUP C53D23009280001)
+official_page: https://www.unicampus.it/en/research-project/picture/
 focus_areas:
   - Pathological Response Prediction
   - Multimodal Learning
   - Explainable AI
 collaborators:
-  - Università Campus Bio-Medico di Roma
   - Università degli Studi di Torino
-  - Università degli Studi di Cassino
+  - Università degli Studi di Cassino e del Lazio Meridionale
 highlights:
   - Fusion of radiology, histology, cytology, molecular data, and electronic health records.
   - Prediction of pathological complete response before surgery in NSCLC.
@@ -43,6 +44,7 @@ project_filter: picture
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -67,6 +69,10 @@ project_filter: picture
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>

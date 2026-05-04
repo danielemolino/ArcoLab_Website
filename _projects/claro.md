@@ -2,25 +2,31 @@
 layout: page
 title: CLARO
 permalink: /projects/claro/
-description: Collaborative multi-source radiopathomics for personalized oncology in non-small cell lung cancer, turning heterogeneous patient data into actionable quantitative signatures.
+description: A collaborative multi-source radiopathomics project for personalized oncology in non-small cell lung cancer.
 img: /assets/img/10.jpg
 importance: 4
 project_state: ended
 category: personalized-oncology
 project_type: Clinical Application
-status: Completed programme
-timeline: Research programme completed
+status: 16 April 2019 - in progress
+timeline: 16 April 2019 - present
+scientific_manager: Prof. Sara Ramella
+coordinating_institution: Oncological Radiotherapy, Campus Bio-Medico University
 focus_areas:
   - RadioPathomics
   - Personalized Oncology
   - Decision Support
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Oncology and data partners
+  - Oncological Radiotherapy, Campus Bio-Medico University
+  - Bioinformatics Systems Engineering, UCBM
+  - Diagnostic imaging, UCBM
+  - Medical Oncology, UCBM
+  - Medical Oncology, University of Turin - AOU S. Luigi Gonzaga Orbassano, Italy
 highlights:
-  - Integration of medical images, radiomics, pathomics, and patient-level information into quantitative biomarkers.
-  - Decision-support systems for therapy selection in non-small cell lung cancer.
-  - Work package structure built around translational deployment in personalized medicine.
+  - Imaging characteristics specific to lung cancer used as biomarkers for response prediction.
+  - Multimodal analysis of radiological and anatomo-pathological images with clinical information.
+  - Quantitative biomarker signatures for therapy selection in stage III-IV non-small cell lung cancer.
+official_page: https://www.unicampus.it/progetto-di-ricerca/claro-a-collaborative-multi-sources-radiopathomics-approach-for-personalized-oncology-in-non-small-cell-lung-cancer/
 project_filter: claro
 ---
 
@@ -42,6 +48,7 @@ project_filter: claro
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -51,10 +58,10 @@ project_filter: claro
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        CLARO set out to convert multimodal patient information into a concise signature of quantitative biomarkers for non-small cell lung cancer. The core idea was to combine medical images, radiomics, pathomics, and other clinically relevant information into radio-pathomics-based decision support systems able to inform more personalized treatment choices.
+        CLARO was born from a collaborative project between the Faculties of Medicine and Surgery and Engineering, with the aim of identifying imaging characteristics specific to lung cancer and using them as biomarkers to predict response to oncological therapies.
       </p>
       <p>
-        The project framed this ambition as a translational oncology programme, using the digital transformation of life sciences to bridge biomarker extraction, machine learning, and therapy selection. In the old programme structure, Università Campus Bio-Medico di Roma acted as project coordinator and the work was organized into eight work packages.
+        The project combines radiological and anatomo-pathological images with other clinical information to build personalized image-analysis models for stage III-IV non-small cell lung cancer. The goal is to convert heterogeneous medical data into a single and interpretable biomarker signature to support precision medicine.
       </p>
     </div>
 
@@ -66,6 +73,14 @@ project_filter: claro
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Scientific Manager</h3>
+        <p>{{ page.scientific_manager }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Coordinating Institution</h3>
+        <p>{{ page.coordinating_institution }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>

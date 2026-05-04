@@ -1,6 +1,6 @@
 ---
 layout: page
-title: AIDA - PRIN 2022
+title: AIDA
 permalink: /projects/aida-prin-2022/
 description: Explainable multimodal deep learning for personalized oncology, with a focus on robust fusion, missing modalities, and clinical validation in non-small cell lung cancer.
 img: /assets/projects/aida-visual.jpg
@@ -10,18 +10,21 @@ category: multimodal-clinical-ai
 project_type: Clinical Application
 status: Through December 2026
 timeline: 2023-2026
+grant_number: 20228MZFAA-AIDA (CUP C53D23003620008)
+official_page: https://www.unicampus.it/progetto-di-ricerca/aida-prin-2022/
 focus_areas:
   - Multimodal Deep Learning
   - Explainable AI
   - Personalized Oncology
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Hospital oncology partners
+  - Università degli Studi di Torino
+  - Università degli Studi di Modena e Reggio Emilia
+  - Università degli Studi di Cassino e del Lazio Meridionale
 highlights:
   - Multimodal representation learning across radiomics, pathomics, and electronic health records.
   - Explainable AI methods for attention, counterfactual reasoning, and user-facing clinical transparency.
   - Prospective validation in non-small cell lung cancer with comparison against conventional clinical markers.
-project_filter: aida-prin-2022
+project_filter: aida
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -42,6 +45,7 @@ project_filter: aida-prin-2022
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -66,6 +70,10 @@ project_filter: aida-prin-2022
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>
