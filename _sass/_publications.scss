@@ -444,11 +444,16 @@
   }
 }
 
-.publication-keywords {
+.publication-keyword-group {
   display: flex;
   flex-wrap: wrap;
   gap: 0.45rem;
   margin-top: 0.95rem;
+  align-items: center;
+}
+
+.publication-keyword-group + .publication-keyword-group {
+  margin-top: 0.55rem;
 }
 
 .publication-keyword {
@@ -463,6 +468,19 @@
   letter-spacing: 0.02em;
 }
 
+.publication-project {
+  border: 1px solid rgba(95, 198, 255, 0.34);
+  background: rgba(95, 198, 255, 0.1);
+  color: #9adfff;
+}
+
+a.publication-project:hover {
+  border-color: rgba(95, 198, 255, 0.62);
+  background: rgba(95, 198, 255, 0.18);
+  color: #ffffff;
+  text-decoration: none;
+}
+
 .member-profile-publications {
   margin-top: 0;
 
@@ -471,11 +489,19 @@
   }
 }
 
+.publications-search-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(18rem, 24rem);
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 1rem;
+}
+
 .bibsearch-form-input {
   display: block;
   width: 100%;
   max-width: 100%;
-  margin: 0 0 1rem;
+  margin: 0;
   min-height: 3.65rem;
   padding-left: 1.35rem !important;
   padding-right: 1.15rem !important;
@@ -499,6 +525,44 @@
   }
 }
 
+.publications-year-range {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.035);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.14);
+}
+
+.publications-year-range .publications-keyword-title {
+  margin-bottom: 0.55rem;
+}
+
+.publications-year-range-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.65rem;
+}
+
+.publications-year-range-field {
+  display: grid;
+  gap: 0.35rem;
+  margin: 0;
+  color: var(--global-text-color-light);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.publications-year-range-field input {
+  width: 100%;
+  min-height: 2.45rem;
+  padding: 0 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--global-text-color);
+}
+
 .arco-scroll-progress {
   position: fixed;
   top: 0;
@@ -518,6 +582,10 @@ html {
 }
 
 @media (max-width: 767.98px) {
+  .publications-search-row {
+    grid-template-columns: 1fr;
+  }
+
   .publications {
     ol.bibliography li {
       padding: 1.3rem 1rem 1.2rem 1.2rem;

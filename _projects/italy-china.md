@@ -60,10 +60,6 @@ project_filter: italy-china
 
     <aside class="project-profile-panel">
       <div class="project-profile-panel-block">
-        <h3>Status</h3>
-        <p>{{ page.status }}</p>
-      </div>
-      <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
       </div>

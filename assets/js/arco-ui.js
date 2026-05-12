@@ -42,7 +42,6 @@
     ".member-profile-hero",
     ".member-profile-section",
     ".project-profile-hero",
-    ".project-profile-section",
     ".project-profile-panel",
   ];
 

@@ -75,7 +75,7 @@
               {%- if publication.year != blank %}{{ publication.year }}{% endif %}
             </div>
             {% if keyword_items.size > 0 %}
-              <div class="publication-keywords">
+              <div class="publication-keyword-group publication-theme-group" aria-label="Publication themes">
                 {% for keyword in keyword_items %}
                   {% assign clean_keyword = keyword | strip %}
                   {% if clean_keyword != '' %}
@@ -85,19 +85,25 @@
               </div>
             {% endif %}
             {% if project_items.size > 0 %}
-              <div class="publication-keywords publication-projects">
+              <div class="publication-keyword-group publication-projects" aria-label="Related projects">
                 {% for project in project_items %}
                   {% assign clean_project = project | strip %}
                   {% if clean_project != '' %}
                     {% assign project_label = clean_project %}
+                    {% assign project_url = '' %}
                     {% for site_project in site.projects %}
                       {% assign site_project_key = site_project.project_filter | default: site_project.slug %}
                       {% if site_project_key == clean_project %}
                         {% assign project_label = site_project.title %}
+                        {% assign project_url = site_project.url | relative_url %}
                         {% break %}
                       {% endif %}
                     {% endfor %}
-                    <span class="publication-keyword publication-project">{{ project_label }}</span>
+                    {% if project_url != '' %}
+                      <a class="publication-keyword publication-project" href="{{ project_url }}">{{ project_label }}</a>
+                    {% else %}
+                      <span class="publication-keyword publication-project">{{ project_label }}</span>
+                    {% endif %}
                   {% endif %}
                 {% endfor %}
               </div>

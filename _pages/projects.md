@@ -7,6 +7,10 @@ nav: true
 nav_order: 2
 ---
 
+{% assign sorted_projects = site.projects | sort: "importance" %}
+{% assign active_projects = sorted_projects | where: "project_state", "active" %}
+{% assign ended_projects = sorted_projects | where: "project_state", "ended" %}
+
 <section class="page-hero page-hero-projects">
   <div class="page-hero-copy">
     <p class="page-hero-kicker">Research Portfolio</p>
@@ -21,19 +25,12 @@ nav_order: 2
   </div>
   <aside class="page-hero-panel">
     <div class="page-hero-metric">
-      <span class="page-hero-metric-value">{{ site.projects | size }}</span>
-      <span class="page-hero-metric-label">Structured project pages</span>
-    </div>
-    <div class="page-hero-metric">
-      <span class="page-hero-metric-value">Translational</span>
-      <span class="page-hero-metric-label">From methods to clinical deployment</span>
+      <span class="page-hero-metric-value">{{ active_projects | size }}</span>
+      <span class="page-hero-metric-label">Active projects</span>
     </div>
   </aside>
 </section>
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
-{% assign active_projects = sorted_projects | where: "project_state", "active" %}
-{% assign ended_projects = sorted_projects | where: "project_state", "ended" %}
 {% if active_projects.size > 0 %}
 
   <section class="about-section">
@@ -53,25 +50,15 @@ nav_order: 2
       >
         <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
         <div class="about-project-body">
-          {% if project.project_type %}
-            <span class="about-project-badge">{{ project.project_type }}</span>
-          {% endif %}
-          <div class="about-project-story-strip">
-            <span>Challenge</span>
-            <span>Approach</span>
-            <span>Outputs</span>
-          </div>
           <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
+          <p>{{ project.full_title | default: project.title }}</p>
           <div class="about-project-meta">
             {% if project.collaborators %}
               <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
             {% endif %}
             {% if project.timeline %}
-              <span><i class="fa-regular fa-calendar"></i> {{ project.timeline }}</span>
-            {% endif %}
-            {% if project.status %}
-              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+              {% assign clean_timeline = project.timeline | remove: " dataset programme" | remove: " Dataset Programme" %}
+              <span><i class="fa-regular fa-calendar"></i> {{ clean_timeline }}</span>
             {% endif %}
           </div>
           <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
@@ -86,7 +73,7 @@ nav_order: 2
 
   <section class="about-section about-section-last">
     <div class="about-section-heading">
-      <h2>Ended Projects</h2>
+      <h2>Completed Projects</h2>
       <p class="about-section-kicker">Completed Initiatives</p>
     </div>
     <div class="about-project-grid">
@@ -101,25 +88,15 @@ nav_order: 2
       >
         <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
         <div class="about-project-body">
-          {% if project.project_type %}
-            <span class="about-project-badge">{{ project.project_type }}</span>
-          {% endif %}
-          <div class="about-project-story-strip">
-            <span>Challenge</span>
-            <span>Approach</span>
-            <span>Outputs</span>
-          </div>
           <h3>{{ project.title }}</h3>
-          <p>{{ project.description }}</p>
+          <p>{{ project.full_title | default: project.title }}</p>
           <div class="about-project-meta">
             {% if project.collaborators %}
               <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
             {% endif %}
             {% if project.timeline %}
-              <span><i class="fa-regular fa-calendar"></i> {{ project.timeline }}</span>
-            {% endif %}
-            {% if project.status %}
-              <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+              {% assign clean_timeline = project.timeline | remove: " dataset programme" | remove: " Dataset Programme" %}
+              <span><i class="fa-regular fa-calendar"></i> {{ clean_timeline }}</span>
             {% endif %}
           </div>
           <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>

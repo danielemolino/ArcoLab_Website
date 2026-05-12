@@ -55,21 +55,17 @@ latest_posts:
     <div class="about-flagship-copy">
       <p class="about-section-kicker">Research Areas</p>
       <h2>Research areas spanning method design, clinical translation, and industrial impact</h2>
-      <p class="about-section-copy">
-        ArCo Lab develops applied artificial intelligence across a connected pipeline: foundational model design, clinically grounded validation, and deployment-oriented solutions for industrial and agricultural settings.
-      </p>
     </div>
 
     <div class="about-focus-grid">
       <article class="about-focus-card about-focus-card-research-area">
         <div class="about-focus-visual about-focus-visual-pink">
           <i class="fa-solid fa-brain"></i>
-          <span class="about-focus-status">Core Area</span>
         </div>
         <div class="about-focus-body">
-          <h3>Generative and Deep Learning Architecture for Medical Image Synthesis and Analysis</h3>
+          <h3>AI Methodologies</h3>
           <p>
-            Placeholder copy: this area covers model design for image synthesis, reconstruction, multimodal representation learning, and analysis pipelines aimed at robust biomedical imaging workflows.
+            ArCo Lab is composed of PhD students, postdoctoral researchers, researchers, and professors with multidisciplinary backgrounds spanning computer engineering, biomedical engineering, artificial intelligence, data science, and healthcare-oriented research.
           </p>
           <div class="about-focus-tags">
             <span>Generative AI</span>
@@ -82,12 +78,11 @@ latest_posts:
       <article class="about-focus-card about-focus-card-research-area">
         <div class="about-focus-visual about-focus-visual-green">
           <i class="fa-solid fa-user-doctor"></i>
-          <span class="about-focus-status">Clinical Area</span>
         </div>
         <div class="about-focus-body">
           <h3>Clinical Application</h3>
           <p>
-            Placeholder copy: this area focuses on decision support, multimodal clinical modelling, outcome prediction, and translational validation in real healthcare pathways and patient-facing contexts.
+            This area focuses on decision support, multimodal clinical modelling, outcome prediction, and translational validation in real healthcare pathways and patient-facing contexts.
           </p>
           <div class="about-focus-tags">
             <span>Clinical AI</span>
@@ -100,12 +95,11 @@ latest_posts:
       <article class="about-focus-card about-focus-card-research-area">
         <div class="about-focus-visual about-focus-visual-blue">
           <i class="fa-solid fa-industry"></i>
-          <span class="about-focus-status">Applied Area</span>
         </div>
         <div class="about-focus-body">
           <h3>Industrial Application</h3>
           <p>
-            Placeholder copy: this area extends lab methods toward industrial use cases, including monitoring, predictive systems, and agriculture-oriented applications where data-driven automation must remain reliable and interpretable.
+            This area extends lab methods toward industrial use cases, including monitoring, predictive systems, and agriculture-oriented applications where data-driven automation must remain reliable and interpretable.
           </p>
           <div class="about-focus-tags">
             <span>Industry 4.0</span>
@@ -128,8 +122,7 @@ latest_posts:
 
   <div class="about-project-rail-shell">
     <div class="about-project-rail" aria-label="Active research projects">
-      {% assign featured_projects_limited = featured_projects | slice: 0, 5 %}
-      {% for project in featured_projects_limited %}
+      {% for project in featured_projects %}
         <article
           class="about-project-card about-project-card-clickable"
           onclick="window.location.href='{{ project.url | relative_url }}'"
@@ -137,68 +130,6 @@ latest_posts:
           role="link"
           tabindex="0"
           aria-label="View {{ project.title }} project"
-        >
-          <div class="about-project-media">
-            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-          </div>
-          <div class="about-project-body">
-            {% if project.project_type %}
-              <span class="about-project-badge">{{ project.project_type }}</span>
-            {% endif %}
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <div class="about-project-meta">
-              {% if project.collaborators %}
-                <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
-              {% endif %}
-              {% if project.status %}
-                <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
-              {% endif %}
-            </div>
-            <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-      {% endfor %}
-      {% for project in featured_projects_limited %}
-        <article
-          class="about-project-card about-project-card-clickable"
-          onclick="window.location.href='{{ project.url | relative_url }}'"
-          onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
-          role="link"
-          tabindex="0"
-          aria-label="View {{ project.title }} project"
-          aria-hidden="true"
-        >
-          <div class="about-project-media">
-            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-          </div>
-          <div class="about-project-body">
-            {% if project.project_type %}
-              <span class="about-project-badge">{{ project.project_type }}</span>
-            {% endif %}
-            <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
-            <div class="about-project-meta">
-              {% if project.collaborators %}
-                <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
-              {% endif %}
-              {% if project.status %}
-                <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
-              {% endif %}
-            </div>
-            <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
-          </div>
-        </article>
-      {% endfor %}
-      {% for project in featured_projects_limited %}
-        <article
-          class="about-project-card about-project-card-clickable"
-          onclick="window.location.href='{{ project.url | relative_url }}'"
-          onkeydown="if(event.key === 'Enter'){ window.location.href='{{ project.url | relative_url }}'; }"
-          role="link"
-          tabindex="0"
-          aria-label="View {{ project.title }} project"
-          aria-hidden="true"
         >
           <div class="about-project-media">
             <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
@@ -250,13 +181,8 @@ latest_posts:
     <div class="about-split-copy">
       <h2>Meet the Research Group</h2>
       <p>
-        Placeholder copy: ArCo Lab brings together researchers working across artificial intelligence, medicine, engineering, and data-driven decision systems, building a group that spans methodological research, clinical translation, and applied innovation.
+        ArCo Lab is built on multidisciplinary collaboration among computer engineers, biomedical engineers, data scientists, postdocs, PhD students, researchers, and professors, combining methodological depth with clinical and applied perspectives.
       </p>
-      <ul class="about-feature-list">
-        <li>Placeholder copy on interdisciplinary collaboration across technical and biomedical expertise.</li>
-        <li>Placeholder copy on shared research directions, project work, and scientific exchange inside the lab.</li>
-        <li>Placeholder copy on training, mentorship, and the growth of PhD students, postdocs, and researchers.</li>
-      </ul>
       <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/team/' | relative_url }}">
         <span>Open Team Page</span>
         <i class="fa-solid fa-arrow-right"></i>
@@ -271,12 +197,15 @@ latest_posts:
 <section class="about-section about-section-last">
   <div class="about-section-heading">
     <h2>Recent Publications</h2>
-    <p class="about-section-kicker">Latest Research Outputs</p>
-    <p class="about-section-copy">
-      This section shows the three most recent publications according to the global bibliography ordering, which is currently sorted by publication year in descending order.
-    </p>
   </div>
 
 {% include recent_publications.liquid %}
+
+  <div class="about-section-actions">
+    <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}">
+      <i class="fa-solid fa-book-open"></i>
+      <span>View Publications</span>
+    </a>
+  </div>
 
 </section>

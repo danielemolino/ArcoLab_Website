@@ -787,6 +787,12 @@
   color: var(--global-text-color-light);
 }
 
+.about-section-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.6rem;
+}
+
 .about-focus-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }

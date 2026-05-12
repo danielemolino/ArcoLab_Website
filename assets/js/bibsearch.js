@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (CSS.highlights && normalizedSearchTerm !== "") {
       highlightSearchTerm({
         search: normalizedSearchTerm,
-        selector: ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keywords",
+        selector: ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keyword-group",
       });
     }
 
@@ -54,6 +54,10 @@ document.addEventListener("DOMContentLoaded", function () {
         element.classList.add("unloaded");
       }
     });
+
+    if (typeof window.updatePublicationYearGroups === "function") {
+      window.updatePublicationYearGroups();
+    }
   };
 
   const updateInputField = () => {

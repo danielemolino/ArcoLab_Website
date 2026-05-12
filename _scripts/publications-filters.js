@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const keywordMap = new Map();
   const projectMap = new Map();
   const yearMap = new Map();
+  const hiddenKeywordFilters = new Set(["covid-19"]);
   let projectLabels = {};
   if (projectLabelsScript) {
     try {
@@ -45,6 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     keywords.forEach((keyword) => {
       const normalized = keyword.toLowerCase();
+      if (hiddenKeywordFilters.has(normalized)) {
+        return;
+      }
       if (!keywordMap.has(normalized)) {
         keywordMap.set(normalized, keyword);
       }
@@ -75,14 +79,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const activeKeywords = new Set();
   const activeProjects = new Set();
-  const activeYears = new Set();
+  let activeYearStart = "";
+  let activeYearEnd = "";
 
   const keywordActions = document.createElement("div");
   keywordActions.className = "publications-keyword-actions";
   const projectActions = document.createElement("div");
   projectActions.className = "publications-keyword-actions";
   const yearActions = document.createElement("div");
-  yearActions.className = "publications-keyword-actions";
+  yearActions.className = "publications-year-range-controls";
+  let yearStartInput = null;
+  let yearEndInput = null;
+
+  const updatePublicationYearGroups = () => {
+    document.querySelectorAll(".publications h2.bibliography").forEach((heading) => {
+      let iterator = heading.nextElementSibling;
+      let hasVisibleGroup = false;
+
+      while (iterator && iterator.tagName !== "H2") {
+        if (iterator.tagName === "OL" && iterator.classList.contains("bibliography")) {
+          const items = Array.from(iterator.querySelectorAll(":scope > li"));
+          const hasVisibleItems = items.some((item) => item.style.display !== "none" && !item.classList.contains("unloaded"));
+          iterator.classList.toggle("unloaded", !hasVisibleItems);
+          if (iterator.previousElementSibling && iterator.previousElementSibling !== heading) {
+            iterator.previousElementSibling.classList.toggle("unloaded", !hasVisibleItems);
+          }
+          if (hasVisibleItems) {
+            hasVisibleGroup = true;
+          }
+        }
+        iterator = iterator.nextElementSibling;
+      }
+
+      heading.classList.toggle("unloaded", !hasVisibleGroup);
+    });
+  };
+
+  window.updatePublicationYearGroups = updatePublicationYearGroups;
 
   const render = () => {
     publicationRows.forEach((item) => {
@@ -96,6 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
         .map((project) => project.trim().toLowerCase())
         .filter(Boolean);
       const year = ((row && row.dataset.year) || "").trim();
+      const numericYear = Number(year);
       const keywordMatches =
         activeKeywords.size === 0 ||
         Array.from(activeKeywords).every((keyword) => keywords.includes(keyword));
@@ -103,7 +137,8 @@ document.addEventListener("DOMContentLoaded", () => {
         activeProjects.size === 0 ||
         Array.from(activeProjects).every((project) => projects.includes(project));
       const yearMatches =
-        activeYears.size === 0 || Array.from(activeYears).every((value) => value === year);
+        (!activeYearStart || numericYear >= Number(activeYearStart)) &&
+        (!activeYearEnd || numericYear <= Number(activeYearEnd));
       item.style.display = keywordMatches && projectMatches && yearMatches ? "" : "none";
     });
 
@@ -125,14 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
       button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
 
-    Array.from(yearActions.querySelectorAll("button")).forEach((button) => {
-      const isActive =
-        button.dataset.year === ""
-          ? activeYears.size === 0
-          : activeYears.has(button.dataset.year);
-      button.classList.toggle("is-active", isActive);
-      button.setAttribute("aria-pressed", isActive ? "true" : "false");
-    });
+    if (yearStartInput) yearStartInput.value = activeYearStart;
+    if (yearEndInput) yearEndInput.value = activeYearEnd;
+    updatePublicationYearGroups();
   };
 
   const createKeywordButton = (label, keyword = "") => {
@@ -173,24 +203,20 @@ document.addEventListener("DOMContentLoaded", () => {
     return button;
   };
 
-  const createYearButton = (label, year = "") => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "publications-keyword-chip";
-    button.dataset.year = year;
-    button.textContent = label;
-    button.addEventListener("click", () => {
-      if (year === "") {
-        activeYears.clear();
-      } else if (activeYears.has(year)) {
-        activeYears.delete(year);
-      } else {
-        activeYears.clear();
-        activeYears.add(year);
-      }
-      render();
-    });
-    return button;
+  const createYearInput = (label, minYear, maxYear) => {
+    const wrapper = document.createElement("label");
+    wrapper.className = "publications-year-range-field";
+    const text = document.createElement("span");
+    text.textContent = label;
+    const input = document.createElement("input");
+    input.type = "number";
+    input.inputMode = "numeric";
+    input.min = minYear;
+    input.max = maxYear;
+    input.placeholder = "Any";
+    wrapper.appendChild(text);
+    wrapper.appendChild(input);
+    return { wrapper, input };
   };
 
   if (keywordFiltersRoot && keywordMap.size > 0) {
@@ -224,15 +250,30 @@ document.addEventListener("DOMContentLoaded", () => {
   if (yearFiltersRoot && yearMap.size > 0) {
     const title = document.createElement("p");
     title.className = "publications-keyword-title";
-    title.textContent = "Filter by year";
+    title.textContent = "Year range";
     yearFiltersRoot.appendChild(title);
     yearFiltersRoot.appendChild(yearActions);
-    yearActions.appendChild(createYearButton("All", ""));
-    Array.from(yearMap.keys())
-      .sort((a, b) => Number(b) - Number(a))
-      .forEach((year) => {
-        yearActions.appendChild(createYearButton(year, year));
+    const years = Array.from(yearMap.keys()).sort((a, b) => Number(b) - Number(a));
+    const minYear = Math.min(...years.map((year) => Number(year)));
+    const maxYear = Math.max(...years.map((year) => Number(year)));
+    const startField = createYearInput("From", minYear, maxYear);
+    const endField = createYearInput("To", minYear, maxYear);
+    yearStartInput = startField.input;
+    yearEndInput = endField.input;
+    yearActions.appendChild(startField.wrapper);
+    yearActions.appendChild(endField.wrapper);
+    [yearStartInput, yearEndInput].forEach((input) => {
+      input.addEventListener("input", () => {
+        activeYearStart = yearStartInput.value.trim();
+        activeYearEnd = yearEndInput.value.trim();
+        if (activeYearStart && activeYearEnd && Number(activeYearStart) > Number(activeYearEnd)) {
+          const swappedStart = activeYearEnd;
+          activeYearEnd = activeYearStart;
+          activeYearStart = swappedStart;
+        }
+        render();
       });
+    });
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -242,7 +283,8 @@ document.addEventListener("DOMContentLoaded", () => {
     activeProjects.add(initialProject);
   }
   if (initialYear && yearMap.has(initialYear)) {
-    activeYears.add(initialYear);
+    activeYearStart = initialYear;
+    activeYearEnd = initialYear;
   }
 
   render();

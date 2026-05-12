@@ -17,11 +17,6 @@ description: Full profile and recent publications of Valerio Guarrasi.
       <h1>{{ member.name }}</h1>
       <p class="member-profile-role">{{ member.title }}</p>
       <p class="member-profile-bio">{{ member.bio }}</p>
-      <div class="member-profile-tags">
-        {% for interest in member.interests %}
-          <span>{{ interest }}</span>
-        {% endfor %}
-      </div>
       <div class="member-profile-links">
         <a class="member-profile-link-btn member-profile-link-btn-scholar" href="{{ member.scholar_url }}"><i class="fa-solid fa-graduation-cap"></i><span>Google Scholar</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-orcid" href="{{ member.orcid_url }}"><i class="fa-solid fa-id-badge"></i><span>ORCID</span></a>
@@ -38,18 +33,6 @@ description: Full profile and recent publications of Valerio Guarrasi.
       {% include member_selected_publications.liquid %}
     {% else %}
       <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
-    {% endif %}
-
-    {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
-      <p class="member-profile-footnote">
-        Full publication list:
-        <a href="{{ member.scholar_url }}">{{ member.scholar_url }}</a>
-      </p>
-    {% else %}
-      <p class="member-profile-footnote">
-        Browse all indexed publications for this author:
-        <a href="{{ '/publications/' | relative_url }}?search=Valerio%20Guarrasi">{{ '/publications/' | relative_url }}?search=Valerio Guarrasi</a>
-      </p>
     {% endif %}
   </div>
 </section>

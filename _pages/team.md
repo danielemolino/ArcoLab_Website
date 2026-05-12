@@ -24,10 +24,6 @@ nav_order: 1
       <span class="page-hero-metric-value">{{ site.data.team | size }}</span>
       <span class="page-hero-metric-label">Current profiles</span>
     </div>
-    <div class="page-hero-metric">
-      <span class="page-hero-metric-value">AI + Medicine</span>
-      <span class="page-hero-metric-label">Interdisciplinary research focus</span>
-    </div>
   </aside>
 </section>
 
@@ -68,14 +64,6 @@ nav_order: 1
         {% if member.title %}
         <p class="about-team-role">{{ member.title }}</p>
         {% endif %}
-        <p class="about-team-bio">{{ member.short_bio | default: member.bio }}</p>
-        {% if member.interests %}
-        <div class="about-team-tags">
-          {% for interest in member.interests limit: 3 %}
-          <span>{{ interest }}</span>
-          {% endfor %}
-        </div>
-        {% endif %}
         <div class="about-team-links">
           {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
           <a class="about-team-action-link" href="{{ member.scholar_url }}" aria-label="Google Scholar" title="Google Scholar" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-graduation-cap"></i></a>
@@ -115,7 +103,6 @@ nav_order: 1
           </div>
           <h3>Placeholder Alumna One</h3>
           <p class="about-team-role">Former PhD Candidate in Artificial Intelligence</p>
-          <p class="about-team-bio">Placeholder content for a completed PhD profile that can later include thesis topic, current position, and period in the lab.</p>
         </div>
       </article>
 
@@ -127,7 +114,6 @@ nav_order: 1
           </div>
           <h3>Placeholder Alumnus Two</h3>
           <p class="about-team-role">Former PhD Candidate in Biomedical Engineering</p>
-          <p class="about-team-bio">Placeholder content for a former doctoral researcher, ready to be replaced by real alumni information and current affiliation.</p>
         </div>
       </article>
 
@@ -139,7 +125,6 @@ nav_order: 1
           </div>
           <h3>Placeholder Alumna Three</h3>
           <p class="about-team-role">Former PhD Candidate in Applied AI</p>
-          <p class="about-team-bio">Placeholder content for a past lab member whose profile can later highlight thesis area, collaborations, and current destination.</p>
         </div>
       </article>
 
@@ -151,7 +136,6 @@ nav_order: 1
           </div>
           <h3>Placeholder Alumnus Four</h3>
           <p class="about-team-role">Former PhD Candidate in Clinical AI</p>
-          <p class="about-team-bio">Placeholder content for a completed PhD path, intended as a temporary entry until real alumni records are added.</p>
         </div>
       </article>
     </div>

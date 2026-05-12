@@ -25,11 +25,13 @@ nav_order: 3
   </div>
 </section>
 
-{% include bib_search.liquid %}
+<div class="publications-search-row">
+  {% include bib_search.liquid %}
+  <div id="publications-year-filters" class="publications-year-range"></div>
+</div>
 
 <div id="publications-keyword-filters" class="publications-keyword-filters"></div>
 <div id="publications-project-filters" class="publications-keyword-filters"></div>
-<div id="publications-year-filters" class="publications-keyword-filters"></div>
 
 <div class="publications">
 {% bibliography %}
@@ -40,6 +42,12 @@ nav_order: 3
     {% assign sorted_projects = site.projects | sort: "title" %}
     {% for project in sorted_projects %}
       {{ project.project_filter | default: project.slug | jsonify }}: {{ project.title | jsonify }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+  window.arcoProjectUrls = {
+    {% assign sorted_projects = site.projects | sort: "title" %}
+    {% for project in sorted_projects %}
+      {{ project.project_filter | default: project.slug | jsonify }}: {{ project.url | relative_url | jsonify }}{% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
 </script>
