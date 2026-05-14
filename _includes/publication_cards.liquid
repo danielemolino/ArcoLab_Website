@@ -25,7 +25,7 @@
                   {%- if clean_author != '' -%}
                     {%- if forloop.length > 1 -%}
                       {%- if forloop.first == false -%}
-                        {%- if forloop.length > 2 -%}, {% elsif forloop.length == 2 -%}  {% endif -%}
+                        {%- if forloop.length > 2 -%}, {% elsif forloop.length == 2 -%} {% endif -%}
                       {%- endif -%}
                       {%- if forloop.last and author_limit == author_items.size -%}and {% endif -%}
                     {%- endif -%}

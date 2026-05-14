@@ -1,28 +1,28 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: VirtualScanner
+full_title: Intelligenza Aumentata per democratizzare la diagnosi di polmonite
+permalink: /projects/virtual-scanner/
+description: Augmented intelligence platform for pneumonia diagnosis using generative AI to synthesise CT-like chest volumes from X-ray exams.
+img: /assets/img/9.jpg
+importance: 15
+project_state: active
+category: generative-medical-imaging
+project_type: Applied Clinical AI
+status: Intesa Sanpaolo proposal
+timeline: 12 months
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Virtual Scanner
+  - Pneumonia Diagnosis
+  - Generative AI
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Universita Campus Bio-Medico di Roma
+  - Hospitals in Peru
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - CT-like chest volume synthesis from X-ray exams to support pneumonia diagnosis.
+  - Local deployment designed for settings with limited connectivity and no cloud dependency.
+  - Training of clinical operators and evaluation of diagnostic impact in target hospitals.
+project_filter: virtual-scanner
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,10 +52,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        VirtualScanner applies augmented intelligence to pneumonia diagnosis by generating CT-like chest volumes from standard X-ray acquisitions. The proposal targets hospitals in Peru, where the system is intended to support clinicians with limited infrastructure and no dependence on cloud services.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The project material describes deployment in two hospitals, operator training, and an expected reduction of diagnostic errors through a local AI-assisted workflow.
       </p>
     </div>
 

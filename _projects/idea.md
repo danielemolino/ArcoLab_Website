@@ -1,28 +1,31 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: IDEA
+full_title: AI-powered Digital Twin for next-generation lung cancer care
+permalink: /projects/idea/
+description: Digital twin research for next-generation lung cancer diagnosis, virtual treatment, and decision support.
+img: /assets/img/7.jpg
+importance: 13
+project_state: active
+category: digital-twins
+project_type: Research Project
+status: Project proposal
+timeline: 24 months
+grant_number: Horizon Europe Cluster 1 Health D3/D4/D5
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Digital Twin
+  - Lung Cancer Care
+  - Clinical Decision Support
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Unit of Computer Systems and Bioinformatics, UCBM
+  - Radiation Oncology, UCBM
+  - Diagnostic Imaging, UCBM
+  - Bioethics and Humanities, UCBM
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Radiological digital twins for lung cancer diagnosis and treatment decision support.
+  - Virtual scanning and virtual treatments for patient-specific clinical scenarios.
+  - Data interfaces, security, explainability, fairness, and ethical analysis.
+project_filter: idea
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,10 +55,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        IDEA proposes AI-powered digital twins for next-generation lung cancer care. The project combines imaging, treatment information, data security, explainability, and ethics to support clinical decision-making for non-small cell lung cancer.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The technical programme covers radiological digital twins, virtual scans, virtual treatments, and AI methods that can support diagnosis and therapy planning while accounting for data governance and clinical usability.
       </p>
     </div>
 
@@ -63,6 +66,10 @@ project_filter: we-ease-it
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>

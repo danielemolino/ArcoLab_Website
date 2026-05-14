@@ -1,28 +1,28 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: XDeepScan
+full_title: AIpowered Fake Detection for Medical Imaging
+permalink: /projects/xdeepscan/
+description: AI and cybersecurity project for detecting fraudulent alterations and deepfakes in diagnostic medical images.
+img: /assets/projects/xdeepscan-interface.png
+importance: 17
+project_state: active
+category: cybersecurity
+project_type: Industrial Research
+status: STEP proposal
+timeline: 36 months
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Medical Image Integrity
+  - Deepfake Detection
+  - Explainable AI
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Converger
+  - Universita Campus Bio-Medico di Roma
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Detection of manipulated CT, MR, and diagnostic images.
+  - Discriminative and generative AI models for medical image tamper detection.
+  - Explainable AI methods for interpreting detected alterations in clinical images.
+project_filter: xdeepscan
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,10 +52,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        XDeepScan targets the integrity of medical imaging data. The project develops AI methods to detect fraudulent alterations and deepfakes in diagnostic images, protecting clinical data reliability and supporting cybersecurity in healthcare.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The development plan combines discriminative models, generative models, latent diffusion techniques, and explainable AI to identify and interpret image tampering across CT, MR, and other diagnostic imaging scenarios.
       </p>
     </div>
 

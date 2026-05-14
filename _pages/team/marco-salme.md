@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Daniele Molino
-permalink: /team/daniele-molino/
-description: Full profile and recent publications of Daniele Molino.
+title: Marco Salmè
+permalink: /team/marco-salme/
+description: Full profile and recent publications of Marco Salmè.
 ---
 
-{% assign member = site.data.team | where: "slug", "daniele-molino" | first %}
+{% assign member = site.data.team | where: "slug", "marco-salme" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

@@ -26,7 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
     if (CSS.highlights && normalizedSearchTerm !== "") {
       highlightSearchTerm({
         search: normalizedSearchTerm,
-        selector: ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keyword-group",
+        selector:
+          ".bibliography > li .title, .bibliography > li .author, .bibliography > li .periodical, .bibliography > li .publication-keyword-group",
       });
     }
 

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: AIDA
+full_title: Explainable AI for integrating multimodal data in clinical applications
 permalink: /projects/aida-prin-2022/
 description: Explainable multimodal deep learning for personalized oncology, with a focus on robust fusion, missing modalities, and clinical validation in non-small cell lung cancer.
 img: /assets/projects/aida-visual.jpg

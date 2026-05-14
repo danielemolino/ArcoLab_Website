@@ -61,7 +61,7 @@ socials_in_search: true
 posts_in_search: true
 bib_search: true
 lab_graph:
-  enabled: true
+  enabled: false
   nav_title: Graph
   show_in_nav: false
   enable_people: false

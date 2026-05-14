@@ -234,9 +234,7 @@ document.addEventListener("DOMContentLoaded", () => {
     state.yearMin = nextMin;
     state.yearMax = nextMax;
     controls.yearRangeSummary.textContent =
-      nextMin === minYear && nextMax === maxYear
-        ? "Showing all years"
-        : `Showing papers from ${nextMin} to ${nextMax}`;
+      nextMin === minYear && nextMax === maxYear ? "Showing all years" : `Showing papers from ${nextMin} to ${nextMax}`;
     renderGraph();
   };
 

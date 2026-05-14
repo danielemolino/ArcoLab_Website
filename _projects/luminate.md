@@ -1,28 +1,31 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: LUMINATE
+full_title: "Advancing Lung Cancer Screening: Artificial Intelligence, Multimodal Imaging and Cutting-Edge Technologies for Early Detection and Characterization"
+permalink: /projects/luminate/
+description: Multimodal lung cancer screening research using low-dose CT, low-dose FDG PET/CT, and AI risk prediction.
+img: /assets/img/8.jpg
+importance: 14
+project_state: active
+category: lung-cancer-screening
+project_type: PNRR Research Project
+status: Project code PNRR-MCNT2-2023-12377755
+timeline: 24 months
+grant_number: PNRR-MCNT2-2023-12377755
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Lung Cancer Screening
+  - Multimodal Imaging
+  - Risk Prediction
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Ospedale San Raffaele Milano
+  - Universita Campus Bio-Medico di Roma
+  - University of Calabria
+  - Ruggi d'Aragona
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Early detection and characterisation of suspicious lung nodules.
+  - AI models for lung cancer risk prediction from clinical and imaging data.
+  - Integration of low-dose CT and low-dose FDG PET/CT in screening workflows.
+project_filter: luminate
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,10 +55,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        LUMINATE addresses lung cancer screening through artificial intelligence, multimodal imaging, and technologies for early detection and characterisation. The project combines low-dose CT, low-dose FDG PET/CT, and clinical information to improve risk assessment.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The UCBM engineering unit contributes AI models for predicting lung cancer risk using clinical and imaging data, within a multi-centre project coordinated by Ospedale San Raffaele.
       </p>
     </div>
 
@@ -63,6 +66,10 @@ project_filter: we-ease-it
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>

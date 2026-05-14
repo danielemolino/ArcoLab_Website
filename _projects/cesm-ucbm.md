@@ -1,15 +1,16 @@
 ---
 layout: page
 title: CESM@UCBM
+full_title: Contrast-Enhanced Spectral Mammography at UCBM
 permalink: /projects/cesm-ucbm/
 description: Deep generative modelling for virtual contrast enhancement in spectral mammography, supported by a publicly released in-house CESM dataset.
 img: /assets/projects/cesm-vce.png
 importance: 5
-project_state: active
+project_state: ended
 category: generative-medical-imaging
 project_type: Clinical Application
 status: Dataset and study available
-timeline: 2021-2024 dataset programme
+timeline: 2021-2024
 focus_areas:
   - Generative AI
   - Mammography

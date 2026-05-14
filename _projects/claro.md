@@ -1,6 +1,7 @@
 ---
 layout: page
 title: CLARO
+full_title: a CoLlAborative multi-sources Radiopathomics approach for personalized Oncology in non-small cell lung cancer
 permalink: /projects/claro/
 description: A collaborative multi-source radiopathomics project for personalized oncology in non-small cell lung cancer.
 img: /assets/img/10.jpg
@@ -8,8 +9,9 @@ importance: 4
 project_state: ended
 category: personalized-oncology
 project_type: Clinical Application
-status: 16 April 2019 - in progress
-timeline: 16 April 2019 - present
+status: Completed
+timeline: 2019-2021
+grant_number: Internal research project
 scientific_manager: Prof. Sara Ramella
 coordinating_institution: Oncological Radiotherapy, Campus Bio-Medico University
 focus_areas:
@@ -73,6 +75,10 @@ project_filter: claro
       <div class="project-profile-panel-block">
         <h3>Scientific Manager</h3>
         <p>{{ page.scientific_manager }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Coordinating Institution</h3>

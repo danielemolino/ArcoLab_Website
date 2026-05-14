@@ -27,6 +27,8 @@ shared/news_sync.json
 shared/*.secret.json
 shared/project_migration_checklist.md
 paolo_soda_openalex_publications_clean_final*.csv
+Materiale Progetti/
+_site/Materiale Progetti/
 www.cosbi-lab.it/
 www.cosbi-lab.it.zip
 CHAT_CONTEXT.md

@@ -1,28 +1,32 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: XGeM+
+full_title: MedCoDi+ - Dalla Fondazione del Modello al Prototipo Operativo per la Generazione Multimodale di Immagini e Referti Medici
+permalink: /projects/xgem/
+description: Technology-transfer line around multimodal medical data generation, web prototyping, and operational validation of XGeM-like models.
+img: /assets/projects/xgem-model.png
+importance: 20
+project_state: active
+category: generative-medical-imaging
+project_type: Technology Transfer
+status: FAIR technology-transfer proposal
+timeline: 2025
+official_page: https://xgem.ucbm.org/overview
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Multimodal Generation
+  - Medical Reports
+  - Technology Transfer
 collaborators:
-  - Università Campus Bio-Medico di Roma
+  - Universita Campus Bio-Medico di Roma
   - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Elekta
+  - Rogue Data
+  - Medical Horizons
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Any-to-any multimodal generation of medical images and radiology reports.
+  - Transformation of a static demo into an interactive web prototype.
+  - Validation on chest radiology and extension toward additional anatomical districts.
+project_filter: xgem
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +47,7 @@ project_filter: we-ease-it
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -52,10 +57,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        XGeM+ builds on multimodal medical data generation research to move from model foundations toward an operational prototype. The source material describes MedCoDi+ as a technology-transfer effort for generating medical images and reports from flexible multimodal inputs.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The project focuses on an interactive web interface, secure data handling, documentation, and validation on chest radiology, with broader extension to additional anatomical contexts.
       </p>
     </div>
 

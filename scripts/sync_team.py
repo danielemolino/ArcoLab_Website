@@ -21,6 +21,7 @@ import json
 import re
 import shutil
 import sys
+import unicodedata
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -47,7 +48,6 @@ REQUIRED_COLUMNS = {
     "scholar_url",
     "orcid_url",
     "interests",
-    "short_bio",
     "bio",
     "github_url",
     "linkedin_url",
@@ -101,6 +101,11 @@ def load_config(path: Path) -> dict[str, Any]:
 
 def normalize_space(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
+
+
+def strip_accents(value: str) -> str:
+    normalized = unicodedata.normalize("NFKD", value or "")
+    return "".join(char for char in normalized if not unicodedata.combining(char))
 
 
 def normalize_google_sheet_source(source: str) -> str:
@@ -157,7 +162,7 @@ def truthy(value: str) -> bool:
 
 
 def slugify(value: str) -> str:
-    value = normalize_space(value).lower()
+    value = strip_accents(normalize_space(value)).lower()
     value = re.sub(r"[^a-z0-9]+", "-", value)
     return value.strip("-") or "member"
 
@@ -301,7 +306,7 @@ def download_drive_photos(folder_url: str, destination: Path) -> None:
 
 def photo_candidates(name: str, surname: str) -> list[str]:
     bases = []
-    joined = f"{name}_{surname}".lower()
+    joined = strip_accents(f"{name}_{surname}").lower()
     joined = re.sub(r"[^a-z0-9]+", "_", joined).strip("_")
     if joined:
         bases.append(joined)
@@ -346,7 +351,7 @@ def sync_photo(
 
 
 def normalize_person_string(value: str) -> str:
-    value = normalize_space(value).lower()
+    value = strip_accents(normalize_space(value)).lower()
     value = re.sub(r"[^a-z0-9 ]+", " ", value)
     return normalize_space(value)
 
@@ -451,7 +456,6 @@ def build_member(
         "github_url": row.get("github_url", ""),
         "linkedin_url": row.get("linkedin_url", ""),
         "interests": interests,
-        "short_bio": row.get("short_bio", ""),
         "bio": row.get("bio", ""),
         "recent_publications": recent_publications,
     }
@@ -493,7 +497,6 @@ def write_yaml(members: list[dict[str, Any]], destination: Path) -> None:
                 lines.append(f"    - {yaml_quote(interest)}")
         else:
             lines.append("  interests: []")
-        lines.append(f"  short_bio: {yaml_quote(member['short_bio'])}")
         lines.append(f"  bio: {yaml_quote(member['bio'])}")
         lines.append(f"  order: {index}")
         if member["recent_publications"]:
@@ -575,18 +578,6 @@ description: Full profile and recent publications of {member['name']}.
       {{% include member_selected_publications.liquid %}}
     {{% else %}}
       <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
-    {{% endif %}}
-
-    {{% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}}
-      <p class="member-profile-footnote">
-        Full publication list:
-        <a href="{{{{ member.scholar_url }}}}">{{{{ member.scholar_url }}}}</a>
-      </p>
-    {{% else %}}
-      <p class="member-profile-footnote">
-        Browse all indexed publications for this author:
-        <a href="{{{{ '/publications/' | relative_url }}}}?search={member['name'].replace(' ', '%20')}">{{{{ '/publications/' | relative_url }}}}?search={member['name']}</a>
-      </p>
     {{% endif %}}
   </div>
 </section>

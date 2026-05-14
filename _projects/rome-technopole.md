@@ -1,28 +1,32 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: Rome Technopole
+full_title: Human-Centric Artificial Intelligence - Flagship Project 8
+permalink: /projects/rome-technopole/
+description: Rome Technopole activity on human-centric artificial intelligence, ethics, adoption, and AI analytics.
+img: /assets/projects/rome-technopole-fp8.jpg
+importance: 11
+project_state: active
+category: artificial-intelligence
+project_type: Innovation Ecosystem
+status: Current ecosystem activity
+timeline: PNRR ecosystem
+official_page: https://www.rometechnopole.it/progetti-flagship-project-8/
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Human-Centric AI
+  - AI Ethics
+  - AI Analytics
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Fondazione Rome Technopole
+  - Universita Campus Bio-Medico di Roma
+  - Unidata
+  - UniCredit
+  - ENEA
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Human-centred AI technologies that support people without replacing human responsibility.
+  - Ethical and moral analysis of intelligent technologies and sustainable adoption.
+  - AI and analytics activities for knowledge transfer, training, and enterprise adoption.
+project_filter: rome-technopole
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +47,7 @@ project_filter: we-ease-it
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -52,10 +57,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        Rome Technopole Flagship Project 8 addresses human-centric artificial intelligence. The project promotes ethical and responsible AI, with attention to technologies that support people, improve digital ecosystems, and align with emerging European principles.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The official Rome Technopole material identifies Universita Campus Bio-Medico di Roma in the work on ethical and moral implications of AI and sustainable adoption of intelligent technologies.
       </p>
     </div>
 

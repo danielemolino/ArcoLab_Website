@@ -7,7 +7,7 @@ This script is intentionally isolated from the sync workflow:
 - it prefers peer-reviewed versions over arXiv when possible
 
 Typical usage:
-python3 scripts/discover_author_publications.py --author "Paolo Soda"
+python scripts/discover_author_publications.py --author "Paolo Soda"
 """
 
 from __future__ import annotations

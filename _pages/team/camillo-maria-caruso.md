@@ -17,6 +17,11 @@ description: Full profile and recent publications of Camillo Maria Caruso.
       <h1>{{ member.name }}</h1>
       <p class="member-profile-role">{{ member.title }}</p>
       <p class="member-profile-bio">{{ member.bio }}</p>
+      <div class="member-profile-tags">
+        {% for interest in member.interests %}
+          <span>{{ interest }}</span>
+        {% endfor %}
+      </div>
       <div class="member-profile-links">
         <a class="member-profile-link-btn member-profile-link-btn-scholar" href="{{ member.scholar_url }}"><i class="fa-solid fa-graduation-cap"></i><span>Google Scholar</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-orcid" href="{{ member.orcid_url }}"><i class="fa-solid fa-id-badge"></i><span>ORCID</span></a>

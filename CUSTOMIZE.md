@@ -62,7 +62,7 @@ Here we will give you some tips on how to customize the website. One important t
     - [How it works](#how-it-works)
     - [Configuration](#configuration-1)
     - [Disable related posts for a specific post](#disable-related-posts-for-a-specific-post)
-    - [Additional configuration in _config.yml](#additional-configuration-in-_configyml)
+    - [Additional configuration in \_config.yml](#additional-configuration-in-_configyml)
   - [Managing publication display](#managing-publication-display)
   - [Adding a Google Calendar](#adding-a-google-calendar)
     - [Basic usage](#basic-usage)
@@ -1362,7 +1362,7 @@ For more API details, see [Vanilla Cookie Consent documentation](https://cookiec
 ## Setting up a Personal Access Token (PAT) for Google Scholar Citation Updates
 
 > [!TIP]
-> After setting up al-folio you may want to run `python3 bin/update_citations.py` to fill the `_data/citations.yml` file with your Google Scholar citation counts.
+> After setting up al-folio you may want to run `python bin/update_citations.py` to fill the `_data/citations.yml` file with your Google Scholar citation counts.
 
 This project includes an automated workflow to update the citation counts for your publications using Google Scholar.
 The workflow commits changes to `_data/citations.yml` directly to the `main` branch.

@@ -104,7 +104,7 @@ def main() -> int:
         return fail(
             "Missing Google API dependencies.\n"
             "Install them with:\n"
-            "python3 -m pip install google-api-python-client google-auth"
+            "python -m pip install google-api-python-client google-auth"
         )
 
     sync_data = load_json(sync_config)

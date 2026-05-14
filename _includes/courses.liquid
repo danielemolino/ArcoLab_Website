@@ -1,19 +1,22 @@
 {% assign courses_source = site.data.education_courses %}
 {% if courses_source and courses_source.size > 0 %}
-  {% assign courses_by_program = courses_source | group_by: "degree_program" %}
-  {% assign regular_program_groups = courses_by_program | where_exp: "group", "group.name != 'Masters' and group.name != 'Summer Schools'" | sort: "name" %}
-  {% assign special_program_names = "Masters,Summer Schools" | split: "," %}
+  {% assign courses_by_program = courses_source | group_by: 'degree_program' %}
+  {% assign regular_program_groups = courses_by_program
+    | where_exp: 'group', "group.name != 'Masters' and group.name != 'Summer Schools'"
+    | sort: 'name'
+  %}
+  {% assign special_program_names = 'Masters,Summer Schools' | split: ',' %}
   <div class="courses">
     {% for program_group in regular_program_groups %}
       <h2 class="course-group">{{ program_group.name }}</h2>
       <div class="course-list">
-        {% assign program_courses = program_group.items | sort: "title" %}
+        {% assign program_courses = program_group.items | sort: 'title' %}
         {% for course in program_courses %}
           <div class="course-item">
             <div class="course-cell course-cell-title">
               <div class="course-heading">
                 <h3 class="course-title">{{ course.title }}</h3>
-                {% if course.cfu %}
+                {% if course.cfu and course.cfu != '' %}
                   <span class="course-cfu">{{ course.cfu }} CFU</span>
                 {% endif %}
               </div>
@@ -24,7 +27,7 @@
                 <p class="course-people"><strong>Course Lead:</strong> {{ course.holder }}</p>
               {% endif %}
               {% if course.assistants %}
-                <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ", " }}</p>
+                <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
               {% endif %}
             </div>
           </div>
@@ -33,17 +36,17 @@
     {% endfor %}
 
     {% for special_group_name in special_program_names %}
-      {% assign special_group = courses_by_program | where: "name", special_group_name | first %}
+      {% assign special_group = courses_by_program | where: 'name', special_group_name | first %}
       <h2 class="course-group">{{ special_group_name }}</h2>
       <div class="course-list">
         {% if special_group %}
-          {% assign special_courses = special_group.items | sort: "title" %}
+          {% assign special_courses = special_group.items | sort: 'title' %}
           {% for course in special_courses %}
             <div class="course-item">
               <div class="course-cell course-cell-title">
                 <div class="course-heading">
                   <h3 class="course-title">{{ course.title }}</h3>
-                  {% if course.cfu %}
+                  {% if course.cfu and course.cfu != '' %}
                     <span class="course-cfu">{{ course.cfu }} CFU</span>
                   {% endif %}
                 </div>
@@ -54,16 +57,16 @@
                   <p class="course-people"><strong>Course Lead:</strong> {{ course.holder }}</p>
                 {% endif %}
                 {% if course.assistants %}
-                  <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ", " }}</p>
+                  <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
                 {% endif %}
               </div>
             </div>
           {% endfor %}
         {% else %}
-          {% if special_group_name == "Masters" %}
-            {% assign placeholder_title = "Placeholder Master" %}
+          {% if special_group_name == 'Masters' %}
+            {% assign placeholder_title = 'Placeholder Master' %}
           {% else %}
-            {% assign placeholder_title = "Placeholder Summer School" %}
+            {% assign placeholder_title = 'Placeholder Summer School' %}
           {% endif %}
           <div class="course-item course-item-placeholder">
             <div class="course-cell course-cell-title">

@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Italy-China (2023-2025)
+title: MAECI Italy-China
+full_title: Trustworthy AI-driven next generation precision medicine in COVID-19
 permalink: /projects/italy-china/
 description: Bilateral research programme on trustworthy multimodal AI for COVID-19 risk analysis, explainability, and robust validation across imaging and clinical data.
 img: /assets/img/6.jpg
@@ -21,7 +22,7 @@ highlights:
   - Multimodal signatures for severe COVID-19 outcomes using imaging and clinical variables.
   - Explainable AI methods for risk factor analysis and transparent prognostic modelling.
   - Bilateral collaboration joining chest X-ray and chest CT expertise with robust validation protocols.
-project_filter: italy-china
+project_filter: maeci-italy-china
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}

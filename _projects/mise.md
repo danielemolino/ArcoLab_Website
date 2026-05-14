@@ -1,28 +1,31 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
+title: MISE
+full_title: Piattaforma per la Medicina di Precisione. Intelligenza Artificiale e Diagnostica Clinica Integrata
+permalink: /projects/mise/
+description: Collaborative platform for precision medicine, federated learning, and integrated clinical diagnostics.
+img: /assets/projects/mise-ai-overview.png
+importance: 8
 project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+category: precision-medicine
+project_type: Industrial Research
+status: Completed programme
+timeline: 36 months
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Precision Medicine
+  - Federated Learning
+  - Clinical Data Integration
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Bracco Imaging
+  - Orobix
+  - INNOMED
+  - Istituto Italiano di Tecnologia
+  - Universita Campus Bio-Medico di Roma
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - Federated learning methods for distributed clinical research across multiple data holders.
+  - Consensus models that can be trained without centralising sensitive clinical data.
+  - Integration of AI algorithms with clinical applications for precision medicine workflows.
+project_filter: mise
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,10 +55,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        MISE develops a collaborative technological platform for precision medicine and integrated clinical diagnostics. The project focuses on distributed clinical data aggregation, standardised information sharing, and AI methods that can learn from multiple clinical sources while preserving data locality.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        ArCo's contribution is centred on the integration of AI algorithms and clinical applications, with emphasis on federated learning, model-parameter sharing, and consensus models for clinical research.
       </p>
     </div>
 

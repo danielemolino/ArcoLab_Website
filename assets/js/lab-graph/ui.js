@@ -39,20 +39,14 @@ export function renderDetails(panel, node, actions) {
   const data = node.data();
   const links = [];
   if (data.doiUrl) {
-    links.push(
-      `<a class="btn btn-sm z-depth-0 publication-cta publication-cta-read" href="${data.doiUrl}">READ THE PAPER</a>`,
-    );
+    links.push(`<a class="btn btn-sm z-depth-0 publication-cta publication-cta-read" href="${data.doiUrl}">READ THE PAPER</a>`);
   }
   if (data.pdf) links.push(`<a class="btn btn-sm z-depth-0" href="${data.pdf}">PDF</a>`);
   if (data.code) {
-    links.push(
-      `<a class="btn btn-sm z-depth-0 publication-cta publication-cta-code" href="${data.code}">Code</a>`,
-    );
+    links.push(`<a class="btn btn-sm z-depth-0 publication-cta publication-cta-code" href="${data.code}">Code</a>`);
   }
   if (data.website) {
-    links.push(
-      `<a class="btn btn-sm z-depth-0 publication-cta publication-cta-website" href="${data.website}">Website</a>`,
-    );
+    links.push(`<a class="btn btn-sm z-depth-0 publication-cta publication-cta-website" href="${data.website}">Website</a>`);
   }
 
   panel.innerHTML = `

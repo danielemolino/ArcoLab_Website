@@ -1,28 +1,31 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: PACY
+full_title: Pro-Active Cybersecurity
+permalink: /projects/pacy/
+description: AI-driven web application for identifying cyber vulnerabilities and recommending real-time mitigation strategies for SMEs.
+img: /assets/projects/pacy-google-org.jpg
+importance: 18
+project_state: active
+category: cybersecurity
+project_type: Google.org Impact Challenge
+status: Tech for Social Good 2023
+timeline: 2024-2026
+grant_number: Google.org Grant Proposal
+official_page: https://impactchallenge.withgoogle.com/techforsocialgood/funding/politecnico-milano-e-campus-biomedico-roma
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - Cybersecurity
+  - SME Support
+  - AI Decision Support
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - Google.org
+  - Politecnico di Milano
+  - Universita Campus Bio-Medico di Roma
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - AI-driven web app for identifying cyber vulnerabilities and gaps.
+  - Real-time mitigation recommendations for SMEs facing digital threats.
+  - Integration with cybersecurity education and hands-on support activities.
+project_filter: pacy
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +46,7 @@ project_filter: we-ease-it
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -52,10 +56,10 @@ project_filter: we-ease-it
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
+        PACY is the Pro-Active Cybersecurity platform developed in the context of the Google.org Impact Challenge: Tech for Social Good 2023. The initiative joins Politecnico di Milano and Universita Campus Bio-Medico di Roma to support SMEs with AI-based cybersecurity assistance.
       </p>
       <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
+        The platform identifies cyber vulnerabilities, highlights protection gaps, and recommends real-time mitigation strategies. The local proposal also describes Operational Technology cybersecurity assessment through time-varying Bayesian models and decision-support methods.
       </p>
     </div>
 
@@ -63,6 +67,10 @@ project_filter: we-ease-it
       <div class="project-profile-panel-block">
         <h3>Timeline</h3>
         <p>{{ page.timeline }}</p>
+      </div>
+      <div class="project-profile-panel-block">
+        <h3>Grant</h3>
+        <p>{{ page.grant_number }}</p>
       </div>
       <div class="project-profile-panel-block">
         <h3>Collaborators</h3>

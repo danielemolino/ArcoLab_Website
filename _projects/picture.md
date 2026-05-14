@@ -1,6 +1,7 @@
 ---
 layout: page
 title: PICTURE
+full_title: Predicting pathological complete response after neoadjuvant therapies in NSCLC using multimodal data
 permalink: /projects/picture/
 description: AI-driven prediction of pathological complete response after neoadjuvant therapies in non-small cell lung cancer through multimodal data fusion.
 img: /assets/projects/picture-overview.png
