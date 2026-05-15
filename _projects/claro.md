@@ -4,7 +4,7 @@ title: CLARO
 full_title: a CoLlAborative multi-sources Radiopathomics approach for personalized Oncology in non-small cell lung cancer
 permalink: /projects/claro/
 description: A collaborative multi-source radiopathomics project for personalized oncology in non-small cell lung cancer.
-img: /assets/img/10.jpg
+img: /assets/projects/claro-logo.jpg
 importance: 4
 project_state: ended
 category: personalized-oncology

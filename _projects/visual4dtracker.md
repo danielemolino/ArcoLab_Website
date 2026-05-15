@@ -4,7 +4,7 @@ title: Visual4DTracker
 full_title: Visual interaction and tracking for 3D+t biomedical image stacks
 permalink: /projects/visual4dtracker/
 description: Software-oriented line on visual interaction with 3D+t image stacks, supporting exploration, tracking, and analysis workflows for biomedical image sequences.
-img: /assets/img/5.jpg
+img: /assets/projects/visual4dtracker-gui.png
 importance: 7
 project_state: ended
 category: imaging-tools

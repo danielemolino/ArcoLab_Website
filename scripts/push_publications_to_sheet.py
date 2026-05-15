@@ -67,12 +67,14 @@ def load_project_rows(projects_dir: Path) -> list[list[str]]:
             continue
         frontmatter_text = parts[1]
         title_match = re.search(r"^title:\s*(.+)$", frontmatter_text, re.MULTILINE)
+        filter_match = re.search(r"^project_filter:\s*(.+)$", frontmatter_text, re.MULTILINE)
         state_match = re.search(r"^project_state:\s*(.+)$", frontmatter_text, re.MULTILINE)
         title = title_match.group(1).strip().strip('"').strip("'") if title_match else path.stem
+        project_id = filter_match.group(1).strip().strip('"').strip("'") if filter_match else path.stem
         state = state_match.group(1).strip().strip('"').strip("'") if state_match else ""
         rows.append(
             [
-                path.stem,
+                project_id,
                 title,
                 state,
             ]
@@ -91,6 +93,81 @@ def get_sheet_title(service, spreadsheet_id: str, gid: int) -> str:
         if int(props.get("sheetId", -1)) == gid:
             return props.get("title", "")
     raise ValueError(f"Could not find a sheet tab with gid={gid}.")
+
+
+def get_sheet_properties(service, spreadsheet_id: str, gid: int) -> tuple[str, int]:
+    metadata = (
+        service.spreadsheets()
+        .get(spreadsheetId=spreadsheet_id, fields="sheets(properties(sheetId,title))")
+        .execute()
+    )
+    for sheet in metadata.get("sheets", []):
+        props = sheet.get("properties", {})
+        if int(props.get("sheetId", -1)) == gid:
+            return props.get("title", ""), int(props.get("sheetId", gid))
+    raise ValueError(f"Could not find a sheet tab with gid={gid}.")
+
+
+def apply_publication_validations(
+    service,
+    spreadsheet_id: str,
+    sheet_id: int,
+    keywords: list[str],
+    projects: list[str],
+) -> None:
+    requests = []
+    if keywords:
+        requests.append(
+            {
+                "setDataValidation": {
+                    "range": {
+                        "sheetId": sheet_id,
+                        "startRowIndex": 1,
+                        "endRowIndex": 2000,
+                        "startColumnIndex": 7,
+                        "endColumnIndex": 8,
+                    },
+                    "rule": {
+                        "condition": {
+                            "type": "ONE_OF_LIST",
+                            "values": [{"userEnteredValue": value} for value in keywords],
+                        },
+                        "inputMessage": "Use controlled keywords. For multiple values, separate them with ';'.",
+                        "strict": False,
+                        "showCustomUi": True,
+                    },
+                }
+            }
+        )
+    if projects:
+        requests.append(
+            {
+                "setDataValidation": {
+                    "range": {
+                        "sheetId": sheet_id,
+                        "startRowIndex": 1,
+                        "endRowIndex": 2000,
+                        "startColumnIndex": 8,
+                        "endColumnIndex": 9,
+                    },
+                    "rule": {
+                        "condition": {
+                            "type": "ONE_OF_LIST",
+                            "values": [{"userEnteredValue": value} for value in projects],
+                        },
+                        "inputMessage": "Use project_filter ids. For multiple values, separate them with ';'.",
+                        "strict": False,
+                        "showCustomUi": True,
+                    },
+                }
+            }
+        )
+    if not requests:
+        return
+    service.spreadsheets().batchUpdate(
+        spreadsheetId=spreadsheet_id,
+        body={"requests": requests},
+    ).execute()
 
 
 def ensure_sheet_title(service, spreadsheet_id: str, title: str) -> None:
@@ -192,7 +269,7 @@ def main() -> int:
     credentials = Credentials.from_service_account_file(str(credentials_path), scopes=SCOPES)
     service = build("sheets", "v4", credentials=credentials, cache_discovery=False)
 
-    sheet_title = get_sheet_title(service, spreadsheet_id, gid)
+    sheet_title, sheet_id = get_sheet_properties(service, spreadsheet_id, gid)
     write_values(service, spreadsheet_id, sheet_title, values)
 
     if keyword_values:
@@ -202,6 +279,10 @@ def main() -> int:
     if project_values:
         ensure_sheet_title(service, spreadsheet_id, "project_ids")
         write_values(service, spreadsheet_id, "project_ids", project_values)
+
+    keywords = [row[0] for row in keyword_values[1:] if row]
+    projects = [row[0] for row in project_values[1:] if row]
+    apply_publication_validations(service, spreadsheet_id, sheet_id, keywords, projects)
 
     print(
         f"Pushed {max(len(values) - 1, 0)} publication rows from {source} "

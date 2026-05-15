@@ -53,7 +53,6 @@ FIELD_ORDER = [
     "code",
     "website",
     "note",
-    "selected",
 ]
 
 REQUIRED_COLUMNS = {
@@ -65,7 +64,6 @@ REQUIRED_COLUMNS = {
     "code",
     "website",
     "keywords",
-    "selected",
 }
 
 
@@ -416,7 +414,6 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
         "code": row.get("code", ""),
         "website": row.get("website", ""),
         "note": row.get("notes", ""),
-        "selected": "true" if truthy(row.get("selected", "")) else "",
     }
     entry["key"] = build_key(row, entry)
     return entry

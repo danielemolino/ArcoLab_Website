@@ -4,7 +4,7 @@ title: MAECI Italy-China
 full_title: Trustworthy AI-driven next generation precision medicine in COVID-19
 permalink: /projects/italy-china/
 description: Bilateral research programme on trustworthy multimodal AI for COVID-19 risk analysis, explainability, and robust validation across imaging and clinical data.
-img: /assets/img/6.jpg
+img: /assets/projects/maeci-italy-china-poster.jpg
 importance: 3
 project_state: ended
 category: clinical-ai

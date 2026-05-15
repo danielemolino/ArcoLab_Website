@@ -131,21 +131,17 @@ latest_posts:
           tabindex="0"
           aria-label="View {{ project.title }} project"
         >
-          <div class="about-project-media">
-            <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
-          </div>
+          <img src="{{ project.img | relative_url }}" alt="{{ project.title }}">
           <div class="about-project-body">
-            {% if project.project_type %}
-              <span class="about-project-badge">{{ project.project_type }}</span>
-            {% endif %}
             <h3>{{ project.title }}</h3>
-            <p>{{ project.description }}</p>
+            <p>{{ project.full_title | default: project.title }}</p>
             <div class="about-project-meta">
               {% if project.collaborators %}
                 <span><i class="fa-regular fa-handshake"></i> {{ project.collaborators | size }} collaborators</span>
               {% endif %}
-              {% if project.status %}
-                <span><i class="fa-regular fa-clock"></i> {{ project.status }}</span>
+              {% if project.timeline %}
+                {% assign clean_timeline = project.timeline | remove: " dataset programme" | remove: " Dataset Programme" %}
+                <span><i class="fa-regular fa-calendar"></i> {{ clean_timeline }}</span>
               {% endif %}
             </div>
             <a class="about-project-link" href="{{ project.url | relative_url }}" onclick="event.stopPropagation()">Open project page <span aria-hidden="true">&rarr;</span></a>
@@ -189,7 +185,7 @@ latest_posts:
       </a>
     </div>
     <div class="about-split-media">
-      <img src="{{ '/assets/img/12.jpg' | relative_url }}" alt="Team presentation placeholder">
+      <img src="{{ '/assets/team_photos/arco_lab_group.jpg' | relative_url }}" alt="ArCo Lab team">
     </div>
   </div>
 </section>

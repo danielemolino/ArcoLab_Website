@@ -4,7 +4,7 @@ title: LUMINATE
 full_title: "Advancing Lung Cancer Screening: Artificial Intelligence, Multimodal Imaging and Cutting-Edge Technologies for Early Detection and Characterization"
 permalink: /projects/luminate/
 description: Multimodal lung cancer screening research using low-dose CT, low-dose FDG PET/CT, and AI risk prediction.
-img: /assets/img/8.jpg
+img: /assets/projects/luminate-lung-screening.jpg
 importance: 14
 project_state: active
 category: lung-cancer-screening

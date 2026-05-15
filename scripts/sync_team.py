@@ -59,30 +59,25 @@ ROLE_META = {
         "card_label": "Principal Investigator",
         "sort": 0,
     },
+    "faculty": {
+        "group_label": "Faculty",
+        "card_label": "Faculty",
+        "sort": 1,
+    },
     "researcher": {
         "group_label": "Researchers",
         "card_label": "Researcher",
-        "sort": 1,
+        "sort": 2,
     },
     "postdoc": {
         "group_label": "Post Doc",
         "card_label": "Post Doc",
-        "sort": 2,
+        "sort": 3,
     },
     "phd": {
         "group_label": "PhD Candidate",
         "card_label": "PhD Candidate",
-        "sort": 3,
-    },
-    "collaborator": {
-        "group_label": "Collaborators",
-        "card_label": "Collaborator",
         "sort": 4,
-    },
-    "alumni": {
-        "group_label": "PhD Alumni",
-        "card_label": "PhD Alumni",
-        "sort": 5,
     },
 }
 
@@ -171,9 +166,8 @@ def normalize_role(value: str) -> str:
     key = normalize_space(value).lower()
     aliases = {
         "prof": "pi",
-        "professor": "researcher",
-        "faculty": "researcher",
-        "faculty member": "researcher",
+        "professor": "faculty",
+        "faculty member": "faculty",
         "researchers": "researcher",
         "post-doc": "postdoc",
         "post doc": "postdoc",
@@ -181,7 +175,6 @@ def normalize_role(value: str) -> str:
         "phd candidates": "phd",
         "phd student": "phd",
         "phd students": "phd",
-        "collaborators": "collaborator",
     }
     key = aliases.get(key, key)
     return key if key in ROLE_META else "researcher"

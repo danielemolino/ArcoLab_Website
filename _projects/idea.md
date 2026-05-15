@@ -4,7 +4,7 @@ title: IDEA
 full_title: AI-powered Digital Twin for next-generation lung cancer care
 permalink: /projects/idea/
 description: Digital twin research for next-generation lung cancer diagnosis, virtual treatment, and decision support.
-img: /assets/img/7.jpg
+img: /assets/projects/idea-digital-twin.png
 importance: 13
 project_state: active
 category: digital-twins

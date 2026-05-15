@@ -24,7 +24,6 @@ OUTPUT_FIELDS = [
     "website",
     "keywords",
     "projects",
-    "selected",
 ]
 
 EXCLUDED_DOIS = {
@@ -127,7 +126,6 @@ def convert_row(source_row: dict[str, str], overlay_row: dict[str, str] | None) 
         "website": overlay_value(overlay_row, "website"),
         "keywords": overlay_value(overlay_row, "keywords"),
         "projects": overlay_value(overlay_row, "projects"),
-        "selected": "TRUE" if overlay_row and is_truthy(overlay_row.get("selected", "")) else "FALSE",
     }
 
 

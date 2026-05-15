@@ -24,10 +24,6 @@ nav_order: 4
       <span class="page-hero-metric-value">{{ site.data.education_courses | size }}</span>
       <span class="page-hero-metric-label">Course entries</span>
     </div>
-    <div class="page-hero-metric">
-      <span class="page-hero-metric-value">AI + Engineering</span>
-      <span class="page-hero-metric-label">Educational focus across data, learning, and intelligent systems</span>
-    </div>
   </aside>
 </section>
 

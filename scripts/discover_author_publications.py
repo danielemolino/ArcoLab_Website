@@ -53,7 +53,6 @@ OUTPUT_COLUMNS = [
     "website",
     "keywords",
     "projects",
-    "selected",
 ]
 
 
@@ -284,7 +283,6 @@ def work_to_row(work: dict[str, Any]) -> dict[str, str]:
         "website": landing if not pdf else "",
         "keywords": infer_keywords(work),
         "projects": "",
-        "selected": "FALSE",
     }
 
 

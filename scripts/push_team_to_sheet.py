@@ -26,6 +26,7 @@ DEFAULT_SOURCE = ROOT / "shared" / "team_sheet.csv"
 DEFAULT_SYNC_CONFIG = ROOT / "shared" / "team_sync.json"
 DEFAULT_CREDENTIALS = ROOT / "shared" / "google-service-account.json"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
+ROLE_VALUES = ["pi", "faculty", "researcher", "postdoc", "phd"]
 
 
 def fail(message: str) -> int:
@@ -65,6 +66,49 @@ def get_sheet_title(service, spreadsheet_id: str, gid: int) -> str:
         if int(props.get("sheetId", -1)) == gid:
             return props.get("title", "")
     raise ValueError(f"Could not find a sheet tab with gid={gid}.")
+
+
+def get_sheet_properties(service, spreadsheet_id: str, gid: int) -> tuple[str, int]:
+    metadata = (
+        service.spreadsheets()
+        .get(spreadsheetId=spreadsheet_id, fields="sheets(properties(sheetId,title))")
+        .execute()
+    )
+    for sheet in metadata.get("sheets", []):
+        props = sheet.get("properties", {})
+        if int(props.get("sheetId", -1)) == gid:
+            return props.get("title", ""), int(props.get("sheetId", gid))
+    raise ValueError(f"Could not find a sheet tab with gid={gid}.")
+
+
+def apply_role_validation(service, spreadsheet_id: str, sheet_id: int) -> None:
+    service.spreadsheets().batchUpdate(
+        spreadsheetId=spreadsheet_id,
+        body={
+            "requests": [
+                {
+                    "setDataValidation": {
+                        "range": {
+                            "sheetId": sheet_id,
+                            "startRowIndex": 1,
+                            "endRowIndex": 1000,
+                            "startColumnIndex": 3,
+                            "endColumnIndex": 4,
+                        },
+                        "rule": {
+                            "condition": {
+                                "type": "ONE_OF_LIST",
+                                "values": [{"userEnteredValue": value} for value in ROLE_VALUES],
+                            },
+                            "inputMessage": "Choose one: pi, faculty, researcher, postdoc, phd.",
+                            "strict": True,
+                            "showCustomUi": True,
+                        },
+                    }
+                }
+            ]
+        },
+    ).execute()
 
 
 def main() -> int:
@@ -118,7 +162,7 @@ def main() -> int:
     credentials = Credentials.from_service_account_file(str(credentials_path), scopes=SCOPES)
     service = build("sheets", "v4", credentials=credentials, cache_discovery=False)
 
-    sheet_title = get_sheet_title(service, spreadsheet_id, gid)
+    sheet_title, sheet_id = get_sheet_properties(service, spreadsheet_id, gid)
     target_range = f"'{sheet_title}'!A1:Z"
 
     service.spreadsheets().values().clear(
@@ -133,6 +177,8 @@ def main() -> int:
         valueInputOption="RAW",
         body={"values": values},
     ).execute()
+
+    apply_role_validation(service, spreadsheet_id, sheet_id)
 
     print(
         f"Pushed {max(len(values) - 1, 0)} team rows from {source} "

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: XGeM+
-full_title: MedCoDi+ - Dalla Fondazione del Modello al Prototipo Operativo per la Generazione Multimodale di Immagini e Referti Medici
+full_title: XGeM+ - Generazione multimodale di immagini e referti medici
 permalink: /projects/xgem/
 description: Technology-transfer line around multimodal medical data generation, web prototyping, and operational validation of XGeM-like models.
 img: /assets/projects/xgem-model.png
@@ -57,7 +57,7 @@ project_filter: xgem
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>
-        XGeM+ builds on multimodal medical data generation research to move from model foundations toward an operational prototype. The source material describes MedCoDi+ as a technology-transfer effort for generating medical images and reports from flexible multimodal inputs.
+        XGeM+ builds on multimodal medical data generation research to move from model foundations toward an operational prototype. The technology-transfer effort focuses on generating medical images and reports from flexible multimodal inputs.
       </p>
       <p>
         The project focuses on an interactive web interface, secure data handling, documentation, and validation on chest radiology, with broader extension to additional anatomical contexts.

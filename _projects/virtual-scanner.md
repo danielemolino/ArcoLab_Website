@@ -4,7 +4,7 @@ title: VirtualScanner
 full_title: Intelligenza Aumentata per democratizzare la diagnosi di polmonite
 permalink: /projects/virtual-scanner/
 description: Augmented intelligence platform for pneumonia diagnosis using generative AI to synthesise CT-like chest volumes from X-ray exams.
-img: /assets/img/9.jpg
+img: /assets/projects/virtual-scanner-pneumonia-xray.jpg
 importance: 15
 project_state: active
 category: generative-medical-imaging

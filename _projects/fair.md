@@ -1,9 +1,9 @@
 ---
 layout: page
 title: FAIR
-full_title: Future Artificial Intelligence Research
+full_title: Future Artificial Intelligence Research - Resilient AI
 permalink: /projects/fair/
-description: National PNRR partnership for human-centred, trustworthy, resilient, and sustainable artificial intelligence.
+description: National PNRR partnership for human-centred and resilient artificial intelligence, including ArCo's work on robust multimodal biomedical AI.
 img: /assets/projects/fair-preview.jpg
 importance: 9
 project_state: ended
@@ -22,8 +22,8 @@ collaborators:
   - Universita Campus Bio-Medico di Roma
 highlights:
   - Human-centred AI methods designed to collaborate with people and operate in evolving contexts.
-  - Robust and resilient learning under noisy, incomplete, and real-world data.
-  - Multimodal AI research with attention to safety, trust, and sustainability.
+  - Robust and resilient learning under noisy, incomplete, inconsistent, and real-world data.
+  - Data augmentation, adversarial robustness, fairness, and multimodal representation learning for biomedical case studies.
 project_filter: fair
 ---
 
@@ -58,7 +58,7 @@ project_filter: fair
         FAIR is the Italian PNRR extended partnership dedicated to Future Artificial Intelligence Research. The programme addresses core AI challenges including human-centred interaction, integration across data sources, resilience, adaptability, quality, sustainability, and bio-inspired intelligence.
       </p>
       <p>
-        Within this national ecosystem, ArCo contributes expertise in multimodal biomedical AI, explainable decision support, and robust learning for medical data that are incomplete, heterogeneous, or collected in real-world clinical settings.
+        Within this national ecosystem, ArCo contributes to the Resilient AI line with expertise in multimodal biomedical AI, explainable decision support, missing modalities, adversarial robustness, fairness, and robust learning for medical data collected in real-world clinical settings.
       </p>
     </div>
 

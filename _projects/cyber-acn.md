@@ -4,7 +4,7 @@ title: Cyber ACN
 full_title: "Sicurezza dei dati medici: strumenti di Intelligenza Artificiale Generativa per la condivisione e l'anonimizzazione sicura dei dati"
 permalink: /projects/cyber-acn/
 description: Generative AI research for secure medical data sharing, anonymisation, synthetic datasets, and adversarial robustness.
-img: /assets/img/11.jpg
+img: /assets/projects/cybersecurity-health-data.png
 importance: 16
 project_state: active
 category: cybersecurity
