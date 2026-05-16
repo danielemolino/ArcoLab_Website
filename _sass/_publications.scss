@@ -243,16 +243,6 @@
           }
         }
 
-        a[href*="github.com"] {
-          background: rgba(255, 255, 255, 0.055);
-        }
-
-        a[href*="github.com"]::before {
-          content: "\f09b";
-          font: var(--fa-font-brands);
-          font-size: 0.95rem;
-        }
-
         a.award.btn {
           border-color: var(--global-highlight-color);
         }

@@ -113,7 +113,7 @@
                 <a href="{{ publication.doi_url }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-read" role="button">READ THE PAPER</a>
               {%- endif %}
               {% if publication.code != blank -%}
-                <a href="{{ publication.code }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-code" role="button">Code</a>
+                <a href="{{ publication.code }}" class="btn btn-sm z-depth-0 publication-cta publication-cta-code" role="button"><i class="fa-brands fa-github" aria-hidden="true"></i><span>Code</span></a>
               {%- endif %}
               {% if publication.pdf != blank -%}
                 <a href="{{ publication.pdf }}" class="btn btn-sm z-depth-0" role="button">PDF</a>
