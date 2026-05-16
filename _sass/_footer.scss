@@ -144,6 +144,23 @@ footer.sticky-bottom {
   font-size: 0.9rem;
 }
 
+.footer-github-pill {
+  gap: 0.45rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.08) !important;
+  color: #f3f4f6 !important;
+}
+
+.footer-github-pill:hover {
+  border-color: rgba(255, 255, 255, 0.42);
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #fff !important;
+}
+
+.footer-github-pill i {
+  font-size: 0.9rem;
+}
+
 .footer-secondary a {
   position: relative;
 
