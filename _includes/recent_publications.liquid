@@ -1,3 +1,2 @@
-<div class="publications about-home-publications">
-  {% bibliography --group_by none --max 3 %}
-</div>
+{% assign recent_publications = site.data.publications | reverse %}
+{% include publication_cards.liquid publications=recent_publications limit=3 %}

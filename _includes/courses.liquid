@@ -26,7 +26,7 @@
               {% if course.holder %}
                 <p class="course-people"><strong>Course Lead:</strong> {{ course.holder }}</p>
               {% endif %}
-              {% if course.assistants %}
+              {% if course.assistants and course.assistants.size > 0 %}
                 <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
               {% endif %}
             </div>
@@ -56,7 +56,7 @@
                 {% if course.holder %}
                   <p class="course-people"><strong>Course Lead:</strong> {{ course.holder }}</p>
                 {% endif %}
-                {% if course.assistants %}
+                {% if course.assistants and course.assistants.size > 0 %}
                   <p class="course-people"><strong>Assistants:</strong> {{ course.assistants | join: ', ' }}</p>
                 {% endif %}
               </div>

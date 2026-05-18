@@ -1,6 +1,7 @@
 <div class="member-profile-publications publications">
   <ol class="bibliography">
-    {% for publication in include.publications %}
+    {% assign publication_limit = include.limit | default: include.publications.size %}
+    {% for publication in include.publications limit: publication_limit %}
       {% assign keyword_items = '' | split: '' %}
       {% if publication.keywords %}
         {% assign keyword_items = publication.keywords | split: ';' %}
