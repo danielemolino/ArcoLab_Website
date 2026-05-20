@@ -1,32 +1,30 @@
 ---
 layout: page
-title: Rome Technopole
-full_title: Human-Centric Artificial Intelligence - Flagship Project 8
-permalink: /projects/rome-technopole/
-description: Rome Technopole activity on human-centric artificial intelligence, ethics, adoption, and AI analytics.
-img: /assets/projects/rome-technopole-fp8.jpg
-importance: 11
-project_state: active
-category: artificial-intelligence
-project_type: Innovation Ecosystem
-status: Current ecosystem activity
-timeline: PNRR ecosystem
-official_page: https://www.rometechnopole.it/progetti-flagship-project-8/
+title: "Rome Technopole"
+full_title: "Human-Centric Artificial Intelligence - Flagship Project 8"
+permalink: "/projects/rome-technopole/"
+description: "Rome Technopole activity on human-centric artificial intelligence, ethics, adoption, and AI analytics."
+img: "/assets/projects/rome-technopole-fp8.jpg"
+project_state: "active"
+project_type: "Innovation Ecosystem"
+timeline: ""
+grant_number: ""
+official_page: "https://www.rometechnopole.it/progetti-flagship-project-8/"
 focus_areas:
-  - Human-Centric AI
-  - AI Ethics
-  - AI Analytics
+  - "Human-Centric AI"
+  - "AI Ethics"
+  - "AI Analytics"
 collaborators:
-  - Fondazione Rome Technopole
-  - Universita Campus Bio-Medico di Roma
-  - Unidata
-  - UniCredit
-  - ENEA
+  - "Fondazione Rome Technopole"
+  - "Universita Campus Bio-Medico di Roma"
+  - "Unidata"
+  - "UniCredit"
+  - "ENEA"
 highlights:
-  - Human-centred AI technologies that support people without replacing human responsibility.
-  - Ethical and moral analysis of intelligent technologies and sustainable adoption.
-  - AI and analytics activities for knowledge transfer, training, and enterprise adoption.
-project_filter: rome-technopole
+  - "Human-centred AI technologies that support people without replacing human responsibility."
+  - "Ethical and moral analysis of intelligent technologies and sustainable adoption."
+  - "AI and analytics activities for knowledge transfer, training, and enterprise adoption."
+project_filter: "rome-technopole"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -47,7 +45,9 @@ project_filter: rome-technopole
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -56,27 +56,33 @@ project_filter: rome-technopole
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        Rome Technopole Flagship Project 8 addresses human-centric artificial intelligence. The project promotes ethical and responsible AI, with attention to technologies that support people, improve digital ecosystems, and align with emerging European principles.
-      </p>
-      <p>
-        The official Rome Technopole material identifies Universita Campus Bio-Medico di Roma in the work on ethical and moral implications of AI and sustainable adoption of intelligent technologies.
-      </p>
+      <p>Rome Technopole Flagship Project 8 addresses human-centric artificial intelligence. The project promotes ethical and responsible AI, with attention to technologies that support people, improve digital ecosystems, and align with emerging European principles.</p>
+      <p>The official Rome Technopole material identifies Universita Campus Bio-Medico di Roma in the work on ethical and moral implications of AI and sustainable adoption of intelligent technologies.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

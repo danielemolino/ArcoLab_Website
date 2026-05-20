@@ -145,6 +145,13 @@ def normalize_projects(value: str) -> str:
     return "; ".join(unique)
 
 
+def projects_from_row(row: dict[str, str]) -> str:
+    values = [row.get("projects", "")]
+    for index in range(1, 6):
+        values.append(row.get(f"project_{index}", ""))
+    return normalize_projects("; ".join(value for value in values if value))
+
+
 def authors_from_crossref(author_list: list[dict[str, Any]]) -> str:
     authors = []
     for author in author_list or []:
@@ -409,7 +416,7 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
             abstract_from_openalex((openalex_metadata or {}).get("abstract_inverted_index")),
         ),
         "keywords": normalize_keywords(row.get("keywords", "")),
-        "projects": normalize_projects(row.get("projects", "")),
+        "projects": projects_from_row(row),
         "pdf": row.get("pdf", ""),
         "code": row.get("code", ""),
         "website": row.get("website", ""),

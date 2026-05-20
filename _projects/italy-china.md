@@ -1,28 +1,27 @@
 ---
 layout: page
-title: MAECI Italy-China
-full_title: Trustworthy AI-driven next generation precision medicine in COVID-19
-permalink: /projects/italy-china/
-description: Bilateral research programme on trustworthy multimodal AI for COVID-19 risk analysis, explainability, and robust validation across imaging and clinical data.
-img: /assets/projects/maeci-italy-china-poster.jpg
-importance: 3
-project_state: ended
-category: clinical-ai
-project_type: Collaborative Research
-status: Completed in December 2025
-timeline: 2023-2025
+title: "MAECI Italy-China"
+full_title: "Trustworthy AI-driven next generation precision medicine in COVID-19"
+permalink: "/projects/italy-china/"
+description: "Bilateral research programme on trustworthy multimodal AI for COVID-19 risk analysis, explainability, and robust validation across imaging and clinical data."
+img: "/assets/projects/maeci-italy-china-poster.jpg"
+project_state: "ended"
+project_type: "Collaborative Research"
+timeline: "2023-2025"
+grant_number: ""
+official_page: ""
 focus_areas:
-  - COVID-19 Prognosis
-  - Trustworthy AI
-  - Multimodal Learning
+  - "COVID-19 Prognosis"
+  - "Trustworthy AI"
+  - "Multimodal Learning"
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Shenzhen University
+  - "Università Campus Bio-Medico di Roma"
+  - "Shenzhen University"
 highlights:
-  - Multimodal signatures for severe COVID-19 outcomes using imaging and clinical variables.
-  - Explainable AI methods for risk factor analysis and transparent prognostic modelling.
-  - Bilateral collaboration joining chest X-ray and chest CT expertise with robust validation protocols.
-project_filter: maeci-italy-china
+  - "Multimodal signatures for severe COVID-19 outcomes using imaging and clinical variables."
+  - "Explainable AI methods for risk factor analysis and transparent prognostic modelling."
+  - "Bilateral collaboration joining chest X-ray and chest CT expertise with robust validation protocols."
+project_filter: "maeci-italy-china"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +42,9 @@ project_filter: maeci-italy-china
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -51,27 +53,33 @@ project_filter: maeci-italy-china
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        The Italy-China programme focused on trustworthy next-generation precision medicine for COVID-19, combining chest X-ray, chest CT, and clinical information to identify patients at risk of severe outcomes. The technical core of the project was multimodal deep learning for richer joint representations under limited and heterogeneous biomedical data.
-      </p>
-      <p>
-        Beyond pure prediction, the programme addressed explainability, counterfactual reasoning, and human-understandable concepts to make AI outputs more useful to physicians, patients, and regulators. The collaboration joined ArCo’s work on multimodal learning and explainable AI with complementary expertise in deep networks and CT-driven risk analysis.
-      </p>
+      <p>The Italy-China programme focused on trustworthy next-generation precision medicine for COVID-19, combining chest X-ray, chest CT, and clinical information to identify patients at risk of severe outcomes. The technical core of the project was multimodal deep learning for richer joint representations under limited and heterogeneous biomedical data.</p>
+      <p>Beyond pure prediction, the programme addressed explainability, counterfactual reasoning, and human-understandable concepts to make AI outputs more useful to physicians, patients, and regulators. The collaboration joined ArCo’s work on multimodal learning and explainable AI with complementary expertise in deep networks and CT-driven risk analysis.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

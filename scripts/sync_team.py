@@ -412,7 +412,7 @@ def recent_publications_for_member(
             }
         )
     publications.sort(key=lambda item: (item.get("year", ""), item.get("title", "")), reverse=True)
-    return publications[:3]
+    return publications[:10]
 
 
 def build_member(
@@ -529,7 +529,7 @@ def render_profile_page(member: dict[str, Any]) -> str:
             '        <a class="member-profile-link-btn member-profile-link-btn-linkedin" href="{{ member.linkedin_url }}"><i class="fa-brands fa-linkedin-in"></i><span>LinkedIn</span></a>'
         )
     links.append(
-        '        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ \'/publications/\' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>'
+        '        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ \'/publications/\' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse All Publications</span></a>'
     )
     links.append(
         '        <a class="member-profile-link-btn member-profile-link-btn-back" href="{{ \'/team/\' | relative_url }}"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>'

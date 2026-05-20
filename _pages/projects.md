@@ -7,7 +7,7 @@ nav: true
 nav_order: 2
 ---
 
-{% assign sorted_projects = site.projects | sort: "importance" %}
+{% assign sorted_projects = site.data.projects | sort: "title" %}
 {% assign active_projects = sorted_projects | where: "project_state", "active" %}
 {% assign ended_projects = sorted_projects | where: "project_state", "ended" %}
 

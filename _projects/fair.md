@@ -1,30 +1,28 @@
 ---
 layout: page
-title: FAIR
-full_title: Future Artificial Intelligence Research - Resilient AI
-permalink: /projects/fair/
-description: National PNRR partnership for human-centred and resilient artificial intelligence, including ArCo's work on robust multimodal biomedical AI.
-img: /assets/projects/fair-preview.jpg
-importance: 9
-project_state: ended
-category: artificial-intelligence
-project_type: National Partnership
-status: PNRR programme
-timeline: 2023-2025
-official_page: https://fondazione-fair.it/
+title: "FAIR"
+full_title: "Future Artificial Intelligence Research - Resilient AI"
+permalink: "/projects/fair/"
+description: "National PNRR partnership for human-centred and resilient artificial intelligence, including ArCo's work on robust multimodal biomedical AI."
+img: "/assets/projects/fair-preview.jpg"
+project_state: "ended"
+project_type: "National Partnership"
+timeline: "2023-2025"
+grant_number: ""
+official_page: "https://fondazione-fair.it/"
 focus_areas:
-  - Trustworthy AI
-  - Resilient AI
-  - Multimodal Learning
+  - "Trustworthy AI"
+  - "Resilient AI"
+  - "Multimodal Learning"
 collaborators:
-  - Fondazione FAIR
-  - Consiglio Nazionale delle Ricerche
-  - Universita Campus Bio-Medico di Roma
+  - "Fondazione FAIR"
+  - "Consiglio Nazionale delle Ricerche"
+  - "Universita Campus Bio-Medico di Roma"
 highlights:
-  - Human-centred AI methods designed to collaborate with people and operate in evolving contexts.
-  - Robust and resilient learning under noisy, incomplete, inconsistent, and real-world data.
-  - Data augmentation, adversarial robustness, fairness, and multimodal representation learning for biomedical case studies.
-project_filter: fair
+  - "Human-centred AI methods designed to collaborate with people and operate in evolving contexts."
+  - "Robust and resilient learning under noisy, incomplete, inconsistent, and real-world data."
+  - "Data augmentation, adversarial robustness, fairness, and multimodal representation learning for biomedical case studies."
+project_filter: "fair"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -45,7 +43,9 @@ project_filter: fair
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -54,27 +54,33 @@ project_filter: fair
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        FAIR is the Italian PNRR extended partnership dedicated to Future Artificial Intelligence Research. The programme addresses core AI challenges including human-centred interaction, integration across data sources, resilience, adaptability, quality, sustainability, and bio-inspired intelligence.
-      </p>
-      <p>
-        Within this national ecosystem, ArCo contributes to the Resilient AI line with expertise in multimodal biomedical AI, explainable decision support, missing modalities, adversarial robustness, fairness, and robust learning for medical data collected in real-world clinical settings.
-      </p>
+      <p>FAIR is the Italian PNRR extended partnership dedicated to Future Artificial Intelligence Research. The programme addresses core AI challenges including human-centred interaction, integration across data sources, resilience, adaptability, quality, sustainability, and bio-inspired intelligence.</p>
+      <p>Within this national ecosystem, ArCo contributes to the Resilient AI line with expertise in multimodal biomedical AI, explainable decision support, missing modalities, adversarial robustness, fairness, and robust learning for medical data collected in real-world clinical settings.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

@@ -1,31 +1,28 @@
 ---
 layout: page
-title: PACY
-full_title: Pro-Active Cybersecurity
-permalink: /projects/pacy/
-description: AI-driven web application for identifying cyber vulnerabilities and recommending real-time mitigation strategies for SMEs.
-img: /assets/projects/pacy-google-org.jpg
-importance: 18
-project_state: active
-category: cybersecurity
-project_type: Google.org Impact Challenge
-status: Tech for Social Good 2023
-timeline: 2024-2026
-grant_number: Google.org Grant Proposal
-official_page: https://impactchallenge.withgoogle.com/techforsocialgood/funding/politecnico-milano-e-campus-biomedico-roma
+title: "PACY"
+full_title: "Pro-Active Cybersecurity"
+permalink: "/projects/pacy/"
+description: "AI-driven web application for identifying cyber vulnerabilities and recommending real-time mitigation strategies for SMEs."
+img: "/assets/projects/pacy-google-org.jpg"
+project_state: "active"
+project_type: "Google.org Impact Challenge"
+timeline: "2024-2026"
+grant_number: "Google.org Grant Proposal"
+official_page: "https://impactchallenge.withgoogle.com/techforsocialgood/funding/politecnico-milano-e-campus-biomedico-roma"
 focus_areas:
-  - Cybersecurity
-  - SME Support
-  - AI Decision Support
+  - "Cybersecurity"
+  - "SME Support"
+  - "AI Decision Support"
 collaborators:
-  - Google.org
-  - Politecnico di Milano
-  - Universita Campus Bio-Medico di Roma
+  - "Google.org"
+  - "Politecnico di Milano"
+  - "Universita Campus Bio-Medico di Roma"
 highlights:
-  - AI-driven web app for identifying cyber vulnerabilities and gaps.
-  - Real-time mitigation recommendations for SMEs facing digital threats.
-  - Integration with cybersecurity education and hands-on support activities.
-project_filter: pacy
+  - "AI-driven web app for identifying cyber vulnerabilities and gaps."
+  - "Real-time mitigation recommendations for SMEs facing digital threats."
+  - "Integration with cybersecurity education and hands-on support activities."
+project_filter: "pacy"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -46,7 +43,9 @@ project_filter: pacy
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -55,31 +54,33 @@ project_filter: pacy
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        PACY is the Pro-Active Cybersecurity platform developed in the context of the Google.org Impact Challenge: Tech for Social Good 2023. The initiative joins Politecnico di Milano and Universita Campus Bio-Medico di Roma to support SMEs with AI-based cybersecurity assistance.
-      </p>
-      <p>
-        The platform identifies cyber vulnerabilities, highlights protection gaps, and recommends real-time mitigation strategies. The local proposal also describes Operational Technology cybersecurity assessment through time-varying Bayesian models and decision-support methods.
-      </p>
+      <p>PACY is the Pro-Active Cybersecurity platform developed in the context of the Google.org Impact Challenge: Tech for Social Good 2023. The initiative joins Politecnico di Milano and Universita Campus Bio-Medico di Roma to support SMEs with AI-based cybersecurity assistance.</p>
+      <p>The platform identifies cyber vulnerabilities, highlights protection gaps, and recommends real-time mitigation strategies. The local proposal also describes Operational Technology cybersecurity assessment through time-varying Bayesian models and decision-support methods.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Grant</h3>
-        <p>{{ page.grant_number }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

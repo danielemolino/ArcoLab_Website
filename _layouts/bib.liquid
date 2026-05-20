@@ -232,10 +232,10 @@
           {% if clean_project != '' %}
             {% assign project_label = clean_project %}
             {% assign project_url = '' %}
-            {% for site_project in site.projects %}
+            {% for site_project in site.data.projects %}
               {% assign site_project_key = site_project.project_filter | default: site_project.slug %}
               {% if site_project_key == clean_project %}
-                {% assign project_label = site_project.title %}
+                {% assign project_label = site_project.title | default: site_project.name %}
                 {% assign project_url = site_project.url | relative_url %}
                 {% break %}
               {% endif %}

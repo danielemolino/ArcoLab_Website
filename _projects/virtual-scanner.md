@@ -1,28 +1,27 @@
 ---
 layout: page
-title: VirtualScanner
-full_title: Intelligenza Aumentata per democratizzare la diagnosi di polmonite
-permalink: /projects/virtual-scanner/
-description: Augmented intelligence platform for pneumonia diagnosis using generative AI to synthesise CT-like chest volumes from X-ray exams.
-img: /assets/projects/virtual-scanner-pneumonia-xray.jpg
-importance: 15
-project_state: active
-category: generative-medical-imaging
-project_type: Applied Clinical AI
-status: Intesa Sanpaolo proposal
-timeline: 12 months
+title: "VirtualScanner"
+full_title: "Intelligenza Aumentata per democratizzare la diagnosi di polmonite"
+permalink: "/projects/virtual-scanner/"
+description: "Augmented intelligence platform for pneumonia diagnosis using generative AI to synthesise CT-like chest volumes from X-ray exams."
+img: "/assets/projects/virtual-scanner-pneumonia-xray.jpg"
+project_state: "active"
+project_type: "Applied Clinical AI"
+timeline: ""
+grant_number: ""
+official_page: ""
 focus_areas:
-  - Virtual Scanner
-  - Pneumonia Diagnosis
-  - Generative AI
+  - "Virtual Scanner"
+  - "Pneumonia Diagnosis"
+  - "Generative AI"
 collaborators:
-  - Universita Campus Bio-Medico di Roma
-  - Hospitals in Peru
+  - "Universita Campus Bio-Medico di Roma"
+  - "Hospitals in Peru"
 highlights:
-  - CT-like chest volume synthesis from X-ray exams to support pneumonia diagnosis.
-  - Local deployment designed for settings with limited connectivity and no cloud dependency.
-  - Training of clinical operators and evaluation of diagnostic impact in target hospitals.
-project_filter: virtual-scanner
+  - "CT-like chest volume synthesis from X-ray exams to support pneumonia diagnosis."
+  - "Local deployment designed for settings with limited connectivity and no cloud dependency."
+  - "Training of clinical operators and evaluation of diagnostic impact in target hospitals."
+project_filter: "virtual-scanner"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +42,9 @@ project_filter: virtual-scanner
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -51,27 +53,33 @@ project_filter: virtual-scanner
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        VirtualScanner applies augmented intelligence to pneumonia diagnosis by generating CT-like chest volumes from standard X-ray acquisitions. The proposal targets hospitals in Peru, where the system is intended to support clinicians with limited infrastructure and no dependence on cloud services.
-      </p>
-      <p>
-        The project material describes deployment in two hospitals, operator training, and an expected reduction of diagnostic errors through a local AI-assisted workflow.
-      </p>
+      <p>VirtualScanner applies augmented intelligence to pneumonia diagnosis by generating CT-like chest volumes from standard X-ray acquisitions. The proposal targets hospitals in Peru, where the system is intended to support clinicians with limited infrastructure and no dependence on cloud services.</p>
+      <p>The project material describes deployment in two hospitals, operator training, and an expected reduction of diagnostic errors through a local AI-assisted workflow.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

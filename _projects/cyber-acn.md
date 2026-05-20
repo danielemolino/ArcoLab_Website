@@ -1,30 +1,29 @@
 ---
 layout: page
-title: Cyber ACN
+title: "Cyber ACN"
 full_title: "Sicurezza dei dati medici: strumenti di Intelligenza Artificiale Generativa per la condivisione e l'anonimizzazione sicura dei dati"
-permalink: /projects/cyber-acn/
-description: Generative AI research for secure medical data sharing, anonymisation, synthetic datasets, and adversarial robustness.
-img: /assets/projects/cybersecurity-health-data.png
-importance: 16
-project_state: active
-category: cybersecurity
-project_type: Cybersecurity Research
-status: Project proposal
-timeline: Not specified in source material
+permalink: "/projects/cyber-acn/"
+description: "Generative AI research for secure medical data sharing, anonymisation, synthetic datasets, and adversarial robustness."
+img: "/assets/projects/cybersecurity-health-data.png"
+project_state: "active"
+project_type: "Cybersecurity Research"
+timeline: ""
+grant_number: ""
+official_page: ""
 focus_areas:
-  - Synthetic Medical Data
-  - Privacy-Preserving AI
-  - Cybersecurity
+  - "Synthetic Medical Data"
+  - "Privacy-Preserving AI"
+  - "Cybersecurity"
 collaborators:
-  - Bracco Imaging
-  - Eustema
-  - Centro Diagnostico Italiano
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - "Bracco Imaging"
+  - "Eustema"
+  - "Centro Diagnostico Italiano"
+  - "Fondazione Policlinico Universitario Campus Bio-Medico"
 highlights:
-  - Generative models for synthetic medical datasets that support secure sharing.
-  - Adversarial training, penetration testing, and model hardening against cyber threats.
-  - Differential privacy and benchmark workflows for privacy-preserving medical AI.
-project_filter: cyber-acn
+  - "Generative models for synthetic medical datasets that support secure sharing."
+  - "Adversarial training, penetration testing, and model hardening against cyber threats."
+  - "Differential privacy and benchmark workflows for privacy-preserving medical AI."
+project_filter: "cyber-acn"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -45,6 +44,9 @@ project_filter: cyber-acn
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -53,27 +55,33 @@ project_filter: cyber-acn
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        Cyber ACN studies secure medical data sharing through generative artificial intelligence. The project material focuses on synthetic medical data, anonymisation, and robust AI pipelines that can support collaboration while reducing exposure of sensitive data.
-      </p>
-      <p>
-        The research plan includes adversarial robustness, model hardening, penetration testing, differential privacy, and benchmarks for evaluating the security of generative medical AI systems.
-      </p>
+      <p>Cyber ACN studies secure medical data sharing through generative artificial intelligence. The project material focuses on synthetic medical data, anonymisation, and robust AI pipelines that can support collaboration while reducing exposure of sensitive data.</p>
+      <p>The research plan includes adversarial robustness, model hardening, penetration testing, differential privacy, and benchmarks for evaluating the security of generative medical AI systems.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

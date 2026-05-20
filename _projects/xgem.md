@@ -1,32 +1,30 @@
 ---
 layout: page
-title: XGeM+
-full_title: XGeM+ - Generazione multimodale di immagini e referti medici
-permalink: /projects/xgem/
-description: Technology-transfer line around multimodal medical data generation, web prototyping, and operational validation of XGeM-like models.
-img: /assets/projects/xgem-model.png
-importance: 20
-project_state: active
-category: generative-medical-imaging
-project_type: Technology Transfer
-status: FAIR technology-transfer proposal
-timeline: 2025
-official_page: https://xgem.ucbm.org/overview
+title: "XGeM+"
+full_title: "XGeM+ - Generazione multimodale di immagini e referti medici"
+permalink: "/projects/xgem/"
+description: "Technology-transfer line around multimodal medical data generation, web prototyping, and operational validation of XGeM-like models."
+img: "/assets/projects/xgem-model.png"
+project_state: "active"
+project_type: "Technology Transfer"
+timeline: "2025"
+grant_number: ""
+official_page: "https://xgem.ucbm.org/overview"
 focus_areas:
-  - Multimodal Generation
-  - Medical Reports
-  - Technology Transfer
+  - "Multimodal Generation"
+  - "Medical Reports"
+  - "Technology Transfer"
 collaborators:
-  - Universita Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
-  - Elekta
-  - Rogue Data
-  - Medical Horizons
+  - "Universita Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Elekta"
+  - "Rogue Data"
+  - "Medical Horizons"
 highlights:
-  - Any-to-any multimodal generation of medical images and radiology reports.
-  - Transformation of a static demo into an interactive web prototype.
-  - Validation on chest radiology and extension toward additional anatomical districts.
-project_filter: xgem
+  - "Any-to-any multimodal generation of medical images and radiology reports."
+  - "Transformation of a static demo into an interactive web prototype."
+  - "Validation on chest radiology and extension toward additional anatomical districts."
+project_filter: "xgem"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -47,7 +45,9 @@ project_filter: xgem
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -56,27 +56,33 @@ project_filter: xgem
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        XGeM+ builds on multimodal medical data generation research to move from model foundations toward an operational prototype. The technology-transfer effort focuses on generating medical images and reports from flexible multimodal inputs.
-      </p>
-      <p>
-        The project focuses on an interactive web interface, secure data handling, documentation, and validation on chest radiology, with broader extension to additional anatomical contexts.
-      </p>
+      <p>XGeM+ builds on multimodal medical data generation research to move from model foundations toward an operational prototype. The technology-transfer effort focuses on generating medical images and reports from flexible multimodal inputs.</p>
+      <p>The project focuses on an interactive web interface, secure data handling, documentation, and validation on chest radiology, with broader extension to additional anatomical contexts.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

@@ -1,35 +1,30 @@
 ---
 layout: page
-title: CLARO
-full_title: a CoLlAborative multi-sources Radiopathomics approach for personalized Oncology in non-small cell lung cancer
-permalink: /projects/claro/
-description: A collaborative multi-source radiopathomics project for personalized oncology in non-small cell lung cancer.
-img: /assets/projects/claro-logo.jpg
-importance: 4
-project_state: ended
-category: personalized-oncology
-project_type: Clinical Application
-status: Completed
-timeline: 2019-2021
-grant_number: Internal research project
-scientific_manager: Prof. Sara Ramella
-coordinating_institution: Oncological Radiotherapy, Campus Bio-Medico University
+title: "CLARO"
+full_title: "a CoLlAborative multi-sources Radiopathomics approach for personalized Oncology in non-small cell lung cancer"
+permalink: "/projects/claro/"
+description: "A collaborative multi-source radiopathomics project for personalized oncology in non-small cell lung cancer."
+img: "/assets/projects/claro-logo.jpg"
+project_state: "ended"
+project_type: "Clinical Application"
+timeline: "2019-2021"
+grant_number: "Internal research project"
+official_page: "https://www.unicampus.it/progetto-di-ricerca/claro-a-collaborative-multi-sources-radiopathomics-approach-for-personalized-oncology-in-non-small-cell-lung-cancer/"
 focus_areas:
-  - RadioPathomics
-  - Personalized Oncology
-  - Decision Support
+  - "RadioPathomics"
+  - "Personalized Oncology"
+  - "Decision Support"
 collaborators:
-  - Oncological Radiotherapy, Campus Bio-Medico University
-  - Bioinformatics Systems Engineering, UCBM
-  - Diagnostic imaging, UCBM
-  - Medical Oncology, UCBM
-  - Medical Oncology, University of Turin - AOU S. Luigi Gonzaga Orbassano, Italy
+  - "Oncological Radiotherapy, Campus Bio-Medico University"
+  - "Bioinformatics Systems Engineering, UCBM"
+  - "Diagnostic imaging, UCBM"
+  - "Medical Oncology, UCBM"
+  - "Medical Oncology, University of Turin - AOU S. Luigi Gonzaga Orbassano, Italy"
 highlights:
-  - Imaging characteristics specific to lung cancer used as biomarkers for response prediction.
-  - Multimodal analysis of radiological and anatomo-pathological images with clinical information.
-  - Quantitative biomarker signatures for therapy selection in stage III-IV non-small cell lung cancer.
-official_page: https://www.unicampus.it/progetto-di-ricerca/claro-a-collaborative-multi-sources-radiopathomics-approach-for-personalized-oncology-in-non-small-cell-lung-cancer/
-project_filter: claro
+  - "Imaging characteristics specific to lung cancer used as biomarkers for response prediction."
+  - "Multimodal analysis of radiological and anatomo-pathological images with clinical information."
+  - "Quantitative biomarker signatures for therapy selection in stage III-IV non-small cell lung cancer."
+project_filter: "claro"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -50,7 +45,9 @@ project_filter: claro
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -59,39 +56,33 @@ project_filter: claro
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        CLARO was born from a collaborative project between the Faculties of Medicine and Surgery and Engineering, with the aim of identifying imaging characteristics specific to lung cancer and using them as biomarkers to predict response to oncological therapies.
-      </p>
-      <p>
-        The project combines radiological and anatomo-pathological images with other clinical information to build personalized image-analysis models for stage III-IV non-small cell lung cancer. The goal is to convert heterogeneous medical data into a single and interpretable biomarker signature to support precision medicine.
-      </p>
+      <p>CLARO was born from a collaborative project between the Faculties of Medicine and Surgery and Engineering, with the aim of identifying imaging characteristics specific to lung cancer and using them as biomarkers to predict response to oncological therapies.</p>
+      <p>The project combines radiological and anatomo-pathological images with other clinical information to build personalized image-analysis models for stage III-IV non-small cell lung cancer. The goal is to convert heterogeneous medical data into a single and interpretable biomarker signature to support precision medicine.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Scientific Manager</h3>
-        <p>{{ page.scientific_manager }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Grant</h3>
-        <p>{{ page.grant_number }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Coordinating Institution</h3>
-        <p>{{ page.coordinating_institution }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

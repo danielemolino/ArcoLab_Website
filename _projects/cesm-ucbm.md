@@ -1,28 +1,27 @@
 ---
 layout: page
-title: CESM@UCBM
-full_title: Contrast-Enhanced Spectral Mammography at UCBM
-permalink: /projects/cesm-ucbm/
-description: Deep generative modelling for virtual contrast enhancement in spectral mammography, supported by a publicly released in-house CESM dataset.
-img: /assets/projects/cesm-vce.png
-importance: 5
-project_state: ended
-category: generative-medical-imaging
-project_type: Clinical Application
-status: Dataset and study available
-timeline: 2021-2024
+title: "CESM@UCBM"
+full_title: "Contrast-Enhanced Spectral Mammography at UCBM"
+permalink: "/projects/cesm-ucbm/"
+description: "Deep generative modelling for virtual contrast enhancement in spectral mammography, supported by a publicly released in-house CESM dataset."
+img: "/assets/projects/cesm-vce.png"
+project_state: "ended"
+project_type: "Clinical Application"
+timeline: "2021-2024"
+grant_number: ""
+official_page: ""
 focus_areas:
-  - Generative AI
-  - Mammography
-  - Dataset Curation
+  - "Generative AI"
+  - "Mammography"
+  - "Dataset Curation"
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - "Università Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitario Campus Bio-Medico"
 highlights:
-  - Virtual contrast enhancement from low-energy images only, reducing reliance on contrast medium and double acquisition.
-  - Public release of a 1138-image CESM dataset with imaging and clinical annotations.
-  - Comparative evaluation of autoencoder, Pix2Pix, and CycleGAN approaches with radiologist assessment.
-project_filter: cesm-ucbm
+  - "Virtual contrast enhancement from low-energy images only, reducing reliance on contrast medium and double acquisition."
+  - "Public release of a 1138-image CESM dataset with imaging and clinical annotations."
+  - "Comparative evaluation of autoencoder, Pix2Pix, and CycleGAN approaches with radiologist assessment."
+project_filter: "cesm-ucbm"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +42,9 @@ project_filter: cesm-ucbm
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -51,27 +53,33 @@ project_filter: cesm-ucbm
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        CESM@UCBM studies virtual contrast enhancement in contrast-enhanced spectral mammography. The central technical goal is to generate synthetic recombined images from low-energy acquisitions only, preserving the clinical value of CESM while reducing the burden associated with contrast administration and higher radiation exposure.
-      </p>
-      <p>
-        The project is also a data resource effort. It released a curated in-house dataset of 1138 CESM images collected at the Fondazione Policlinico Universitario Campus Bio-Medico, with acquisition metadata and lesion-related annotations that support reproducible research on generative models and breast imaging analysis.
-      </p>
+      <p>CESM@UCBM studies virtual contrast enhancement in contrast-enhanced spectral mammography. The central technical goal is to generate synthetic recombined images from low-energy acquisitions only, preserving the clinical value of CESM while reducing the burden associated with contrast administration and higher radiation exposure.</p>
+      <p>The project is also a data resource effort. It released a curated in-house dataset of 1138 CESM images collected at the Fondazione Policlinico Universitario Campus Bio-Medico, with acquisition metadata and lesion-related annotations that support reproducible research on generative models and breast imaging analysis.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

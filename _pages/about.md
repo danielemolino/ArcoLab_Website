@@ -118,7 +118,7 @@ latest_posts:
     <h2>Active Research Projects</h2>
   </div>
 
-{% assign featured_projects = site.projects | where: "project_state", "active" | sort: "importance" %}
+{% assign featured_projects = site.data.projects | where: "project_state", "active" | sort: "title" %}
 
   <div class="about-project-rail-shell">
     <div class="about-project-rail" aria-label="Active research projects">

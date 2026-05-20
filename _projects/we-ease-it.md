@@ -1,28 +1,27 @@
 ---
 layout: page
-title: We-ease-it
-full_title: Hospital 4.0 telemonitoring platform for frail patients
-permalink: /projects/we-ease-it/
-description: Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models.
-img: /assets/projects/we-ease-it-model.png
-importance: 6
-project_state: ended
-category: digital-health
-project_type: Clinical Application
-status: Completed in May 2024
-timeline: 2021-2024
+title: "We-ease-it"
+full_title: "Hospital 4.0 telemonitoring platform for frail patients"
+permalink: "/projects/we-ease-it/"
+description: "Hospital 4.0 telemonitoring platform for frail patients, combining home-life data, hospital information systems, and AI-driven predictive models."
+img: "/assets/projects/we-ease-it-model.png"
+project_state: "ended"
+project_type: "Clinical Application"
+timeline: "2021-2024"
+grant_number: ""
+official_page: ""
 focus_areas:
-  - Telemonitoring
-  - Digital Health
-  - Predictive Modelling
+  - "Telemonitoring"
+  - "Digital Health"
+  - "Predictive Modelling"
 collaborators:
-  - Università Campus Bio-Medico di Roma
-  - Fondazione Policlinico Universitario Campus Bio-Medico
+  - "Università Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitario Campus Bio-Medico"
 highlights:
-  - Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients.
-  - Integration of daily-life signals with hospital information systems through an M-shaped platform architecture.
-  - Personalized predictive models for COPD, heart failure, and non-small cell lung cancer.
-project_filter: we-ease-it
+  - "Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients."
+  - "Integration of daily-life signals with hospital information systems through an M-shaped platform architecture."
+  - "Personalized predictive models for COPD, heart failure, and non-small cell lung cancer."
+project_filter: "we-ease-it"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -43,6 +42,9 @@ project_filter: we-ease-it
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -51,27 +53,33 @@ project_filter: we-ease-it
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.
-      </p>
-      <p>
-        The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.
-      </p>
+      <p>We-ease-it aimed to build an intelligent Hospital 4.0 service for telemonitoring frail patients outside the hospital while keeping care pathways tightly connected to institutional information systems. The project addressed an increasingly urgent healthcare problem: supporting chronic, elderly, and vulnerable patients without relying only on conventional in-hospital workflows.</p>
+      <p>The technical programme combined home monitoring, hospital data integration, and AI-driven data mining to build personalized predictive models of disease evolution. The platform architecture followed an M-shaped model, with a horizontal core and disease-specific vertical modules, and targeted COPD, heart failure, and NSCLC as primary use cases.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

@@ -142,7 +142,7 @@
   website: ""
   url: "https://doi.org/10.1016/j.compmedimag.2026.102705"
   keywords: "oncology; generative AI; clinical prediction"
-  projects: ""
+  projects: "picture"
 - key: "iele2026probabilisticndvi"
   title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
   author: "Irene Iele and Giulia Romoli and Daniele Molino and Elena Mulero Ayllón and Filippo Ruffini and Paolo Soda and Matteo Tortora"

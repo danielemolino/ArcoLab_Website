@@ -1,31 +1,29 @@
 ---
 layout: page
-title: IDEA
-full_title: AI-powered Digital Twin for next-generation lung cancer care
-permalink: /projects/idea/
-description: Digital twin research for next-generation lung cancer diagnosis, virtual treatment, and decision support.
-img: /assets/projects/idea-digital-twin.png
-importance: 13
-project_state: active
-category: digital-twins
-project_type: Research Project
-status: Project proposal
-timeline: 24 months
-grant_number: Horizon Europe Cluster 1 Health D3/D4/D5
+title: "IDEA"
+full_title: "AI-powered Digital Twin for next-generation lung cancer care"
+permalink: "/projects/idea/"
+description: "Digital twin research for next-generation lung cancer diagnosis, virtual treatment, and decision support."
+img: "/assets/projects/idea-digital-twin.png"
+project_state: "active"
+project_type: "Research Project"
+timeline: ""
+grant_number: "Horizon Europe Cluster 1 Health D3/D4/D5"
+official_page: ""
 focus_areas:
-  - Digital Twin
-  - Lung Cancer Care
-  - Clinical Decision Support
+  - "Digital Twin"
+  - "Lung Cancer Care"
+  - "Clinical Decision Support"
 collaborators:
-  - Unit of Computer Systems and Bioinformatics, UCBM
-  - Radiation Oncology, UCBM
-  - Diagnostic Imaging, UCBM
-  - Bioethics and Humanities, UCBM
+  - "Unit of Computer Systems and Bioinformatics, UCBM"
+  - "Radiation Oncology, UCBM"
+  - "Diagnostic Imaging, UCBM"
+  - "Bioethics and Humanities, UCBM"
 highlights:
-  - Radiological digital twins for lung cancer diagnosis and treatment decision support.
-  - Virtual scanning and virtual treatments for patient-specific clinical scenarios.
-  - Data interfaces, security, explainability, fairness, and ethical analysis.
-project_filter: idea
+  - "Radiological digital twins for lung cancer diagnosis and treatment decision support."
+  - "Virtual scanning and virtual treatments for patient-specific clinical scenarios."
+  - "Data interfaces, security, explainability, fairness, and ethical analysis."
+project_filter: "idea"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -46,6 +44,9 @@ project_filter: idea
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -54,31 +55,33 @@ project_filter: idea
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        IDEA proposes AI-powered digital twins for next-generation lung cancer care. The project combines imaging, treatment information, data security, explainability, and ethics to support clinical decision-making for non-small cell lung cancer.
-      </p>
-      <p>
-        The technical programme covers radiological digital twins, virtual scans, virtual treatments, and AI methods that can support diagnosis and therapy planning while accounting for data governance and clinical usability.
-      </p>
+      <p>IDEA proposes AI-powered digital twins for next-generation lung cancer care. The project combines imaging, treatment information, data security, explainability, and ethics to support clinical decision-making for non-small cell lung cancer.</p>
+      <p>The technical programme covers radiological digital twins, virtual scans, virtual treatments, and AI methods that can support diagnosis and therapy planning while accounting for data governance and clinical usability.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Grant</h3>
-        <p>{{ page.grant_number }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

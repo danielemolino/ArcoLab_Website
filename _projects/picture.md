@@ -1,30 +1,27 @@
 ---
 layout: page
-title: PICTURE
-full_title: Predicting pathological complete response after neoadjuvant therapies in NSCLC using multimodal data
-permalink: /projects/picture/
-description: AI-driven prediction of pathological complete response after neoadjuvant therapies in non-small cell lung cancer through multimodal data fusion.
-img: /assets/projects/picture-overview.png
-importance: 2
-project_state: active
-category: multimodal-clinical-ai
-project_type: Clinical Application
-status: Through December 2026
-timeline: 2023-2026
-grant_number: P2022P3CXJ-PICTURE (CUP C53D23009280001)
-official_page: https://www.unicampus.it/en/research-project/picture/
+title: "PICTURE"
+full_title: "Predicting pathological complete response after neoadjuvant therapies in NSCLC using multimodal data"
+permalink: "/projects/picture/"
+description: "AI-driven prediction of pathological complete response after neoadjuvant therapies in non-small cell lung cancer through multimodal data fusion."
+img: "/assets/projects/picture-overview.png"
+project_state: "active"
+project_type: "Clinical Application"
+timeline: "2023-2026"
+grant_number: "P2022P3CXJ-PICTURE (CUP C53D23009280001)"
+official_page: "https://www.unicampus.it/en/research-project/picture/"
 focus_areas:
-  - Pathological Response Prediction
-  - Multimodal Learning
-  - Explainable AI
+  - "Pathological Response Prediction"
+  - "Multimodal Learning"
+  - "Explainable AI"
 collaborators:
-  - Università degli Studi di Torino
-  - Università degli Studi di Cassino e del Lazio Meridionale
+  - "Università degli Studi di Torino"
+  - "Università degli Studi di Cassino e del Lazio Meridionale"
 highlights:
-  - Fusion of radiology, histology, cytology, molecular data, and electronic health records.
-  - Prediction of pathological complete response before surgery in NSCLC.
-  - Robust and explainable multimodal deep learning pipelines, including transfer toward chemoimmunotherapy settings.
-project_filter: picture
+  - "Fusion of radiology, histology, cytology, molecular data, and electronic health records."
+  - "Prediction of pathological complete response before surgery in NSCLC."
+  - "Robust and explainable multimodal deep learning pipelines, including transfer toward chemoimmunotherapy settings."
+project_filter: "picture"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -45,7 +42,9 @@ project_filter: picture
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -54,31 +53,33 @@ project_filter: picture
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        PICTURE addresses one of the central questions in contemporary lung oncology: whether pathological complete response after neoadjuvant treatment can be predicted before surgical resection. The project assumes that a multimodal view of the patient offers a more faithful representation of treatment response than any single data source taken in isolation.
-      </p>
-      <p>
-        The project develops AI systems that integrate radiology imaging, histology, cytology, molecular data, and electronic health records to support pre-surgical decision-making in NSCLC. Alongside predictive performance, PICTURE emphasizes robustness, explainability, and the possibility of transferring learned models toward chemoimmunotherapy scenarios.
-      </p>
+      <p>PICTURE addresses one of the central questions in contemporary lung oncology: whether pathological complete response after neoadjuvant treatment can be predicted before surgical resection. The project assumes that a multimodal view of the patient offers a more faithful representation of treatment response than any single data source taken in isolation.</p>
+      <p>The project develops AI systems that integrate radiology imaging, histology, cytology, molecular data, and electronic health records to support pre-surgical decision-making in NSCLC. Alongside predictive performance, PICTURE emphasizes robustness, explainability, and the possibility of transferring learned models toward chemoimmunotherapy scenarios.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Grant</h3>
-        <p>{{ page.grant_number }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

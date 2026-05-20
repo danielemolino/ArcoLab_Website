@@ -19,7 +19,7 @@ description: Full profile and recent publications of Ermanno Cordelli.
       <p class="member-profile-bio">{{ member.bio }}</p>
       <div class="member-profile-links">
         <a class="member-profile-link-btn member-profile-link-btn-orcid" href="{{ member.orcid_url }}"><i class="fa-solid fa-id-badge"></i><span>ORCID</span></a>
-        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse Publications</span></a>
+        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse All Publications</span></a>
         <a class="member-profile-link-btn member-profile-link-btn-back" href="{{ '/team/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>
       </div>
     </div>

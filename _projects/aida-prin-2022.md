@@ -1,31 +1,28 @@
 ---
 layout: page
-title: AIDA
-full_title: Explainable AI for integrating multimodal data in clinical applications
-permalink: /projects/aida-prin-2022/
-description: Explainable multimodal deep learning for personalized oncology, with a focus on robust fusion, missing modalities, and clinical validation in non-small cell lung cancer.
-img: /assets/projects/aida-visual.jpg
-importance: 1
-project_state: active
-category: multimodal-clinical-ai
-project_type: Clinical Application
-status: Through December 2026
-timeline: 2023-2026
-grant_number: 20228MZFAA-AIDA (CUP C53D23003620008)
-official_page: https://www.unicampus.it/progetto-di-ricerca/aida-prin-2022/
+title: "AIDA"
+full_title: "Explainable AI for integrating multimodal data in clinical applications"
+permalink: "/projects/aida-prin-2022/"
+description: "Explainable multimodal deep learning for personalized oncology, with a focus on robust fusion, missing modalities, and clinical validation in non-small cell lung cancer."
+img: "/assets/projects/aida-visual.jpg"
+project_state: "active"
+project_type: "Clinical Application"
+timeline: "2023-2026"
+grant_number: "20228MZFAA-AIDA (CUP C53D23003620008)"
+official_page: "https://www.unicampus.it/progetto-di-ricerca/aida-prin-2022/"
 focus_areas:
-  - Multimodal Deep Learning
-  - Explainable AI
-  - Personalized Oncology
+  - "Multimodal Deep Learning"
+  - "Explainable AI"
+  - "Personalized Oncology"
 collaborators:
-  - Università degli Studi di Torino
-  - Università degli Studi di Modena e Reggio Emilia
-  - Università degli Studi di Cassino e del Lazio Meridionale
+  - "Università degli Studi di Torino"
+  - "Università degli Studi di Modena e Reggio Emilia"
+  - "Università degli Studi di Cassino e del Lazio Meridionale"
 highlights:
-  - Multimodal representation learning across radiomics, pathomics, and electronic health records.
-  - Explainable AI methods for attention, counterfactual reasoning, and user-facing clinical transparency.
-  - Prospective validation in non-small cell lung cancer with comparison against conventional clinical markers.
-project_filter: aida
+  - "Multimodal representation learning across radiomics, pathomics, and electronic health records."
+  - "Explainable AI methods for attention, counterfactual reasoning, and user-facing clinical transparency."
+  - "Prospective validation in non-small cell lung cancer with comparison against conventional clinical markers."
+project_filter: "aida"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -46,7 +43,9 @@ project_filter: aida
       </div>
       <div class="member-profile-links">
         <a class="about-hero-btn about-hero-btn-primary about-inline-btn" href="{{ '/publications/' | relative_url }}?project={{ page.project_filter | url_encode }}">View Publications</a>
-        <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% if page.official_page and page.official_page != '' %}
+          <a class="about-hero-btn about-hero-btn-secondary" href="{{ page.official_page }}" target="_blank" rel="noopener">Official Project Page <span aria-hidden="true">&rarr;</span></a>
+        {% endif %}
         <a class="about-hero-btn about-hero-btn-secondary" href="{{ '/projects/' | relative_url }}">Back to Projects <span aria-hidden="true">&rarr;</span></a>
       </div>
     </div>
@@ -55,31 +54,33 @@ project_filter: aida
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>
-        AIDA develops explainable multimodal deep learning for healthcare scenarios where single-modality pipelines are not enough. The project investigates when and how to fuse heterogeneous evidence, how to learn stronger shared representations, and how to maintain robustness when data are incomplete or some modalities are missing.
-      </p>
-      <p>
-        The translational application is personalized oncology in non-small cell lung cancer, where radiomic, pathomic, and electronic health record data are combined to predict response, relapse, progression-free survival, and overall survival. The project also studies clinical trust through explainability mechanisms designed for physicians and domain experts.
-      </p>
+      <p>AIDA develops explainable multimodal deep learning for healthcare scenarios where single-modality pipelines are not enough. The project investigates when and how to fuse heterogeneous evidence, how to learn stronger shared representations, and how to maintain robustness when data are incomplete or some modalities are missing.</p>
+      <p>The translational application is personalized oncology in non-small cell lung cancer, where radiomic, pathomic, and electronic health record data are combined to predict response, relapse, progression-free survival, and overall survival. The project also studies clinical trust through explainability mechanisms designed for physicians and domain experts.</p>
     </div>
 
     <aside class="project-profile-panel">
-      <div class="project-profile-panel-block">
-        <h3>Timeline</h3>
-        <p>{{ page.timeline }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Grant</h3>
-        <p>{{ page.grant_number }}</p>
-      </div>
-      <div class="project-profile-panel-block">
-        <h3>Collaborators</h3>
-        <ul class="project-profile-list">
-          {% for organization in page.collaborators %}
-            <li>{{ organization }}</li>
-          {% endfor %}
-        </ul>
-      </div>
+      {% if page.timeline and page.timeline != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Timeline</h3>
+          <p>{{ page.timeline }}</p>
+        </div>
+      {% endif %}
+      {% if page.grant_number and page.grant_number != '' %}
+        <div class="project-profile-panel-block">
+          <h3>Grant</h3>
+          <p>{{ page.grant_number }}</p>
+        </div>
+      {% endif %}
+      {% if page.collaborators and page.collaborators != empty %}
+        <div class="project-profile-panel-block">
+          <h3>Collaborators</h3>
+          <ul class="project-profile-list">
+            {% for organization in page.collaborators %}
+              <li>{{ organization }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
     </aside>
 
   </div>

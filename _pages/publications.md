@@ -39,13 +39,13 @@ nav_order: 3
 
 <script>
   window.arcoProjectLabels = {
-    {% assign sorted_projects = site.projects | sort: "title" %}
+    {% assign sorted_projects = site.data.projects | sort: "title" %}
     {% for project in sorted_projects %}
-      {{ project.project_filter | default: project.slug | jsonify }}: {{ project.title | jsonify }}{% unless forloop.last %},{% endunless %}
+      {{ project.project_filter | default: project.slug | jsonify }}: {{ project.title | default: project.name | jsonify }}{% unless forloop.last %},{% endunless %}
     {% endfor %}
   };
   window.arcoProjectUrls = {
-    {% assign sorted_projects = site.projects | sort: "title" %}
+    {% assign sorted_projects = site.data.projects | sort: "title" %}
     {% for project in sorted_projects %}
       {{ project.project_filter | default: project.slug | jsonify }}: {{ project.url | relative_url | jsonify }}{% unless forloop.last %},{% endunless %}
     {% endfor %}

@@ -26,7 +26,7 @@ DEFAULT_SOURCE = ROOT / "shared" / "publications_sheet.csv"
 DEFAULT_SYNC_CONFIG = ROOT / "shared" / "publications_sync.json"
 DEFAULT_CREDENTIALS = ROOT / "shared" / "google-service-account.json"
 DEFAULT_KEYWORD_VOCAB = ROOT / "shared" / "publication_keyword_vocab.csv"
-DEFAULT_PROJECTS_DIR = ROOT / "_projects"
+DEFAULT_PROJECTS_SOURCE = ROOT / "shared" / "projects_sheet.csv"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 
@@ -56,9 +56,28 @@ def load_csv_values(path: Path) -> list[list[str]]:
         return [row for row in reader]
 
 
-def load_project_rows(projects_dir: Path) -> list[list[str]]:
+def load_project_rows(projects_source: Path) -> list[list[str]]:
     rows = [["project_id", "title", "state"]]
-    for path in sorted(projects_dir.glob("*.md")):
+    if projects_source.is_file() and projects_source.suffix.lower() == ".csv":
+        with projects_source.open(encoding="utf-8-sig", newline="") as handle:
+            reader = csv.DictReader(handle)
+            for row in reader:
+                status = (row.get("status", "") or "").strip().lower()
+                if status in {"draft", "ignore", "skip"}:
+                    continue
+                project_id = (row.get("project_filter", "") or "").strip()
+                if not project_id:
+                    continue
+                rows.append(
+                    [
+                        project_id,
+                        (row.get("name", "") or project_id).strip(),
+                        (row.get("project_state", "") or "").strip(),
+                    ]
+                )
+        return rows
+
+    for path in sorted(projects_source.glob("*.md")):
         content = path.read_text(encoding="utf-8")
         if not content.startswith("---"):
             continue
@@ -112,11 +131,13 @@ def apply_publication_validations(
     service,
     spreadsheet_id: str,
     sheet_id: int,
+    headers: list[str],
     keywords: list[str],
     projects: list[str],
 ) -> None:
     requests = []
-    if keywords:
+    if keywords and "keywords" in headers:
+        keyword_column = headers.index("keywords")
         requests.append(
             {
                 "setDataValidation": {
@@ -124,8 +145,8 @@ def apply_publication_validations(
                         "sheetId": sheet_id,
                         "startRowIndex": 1,
                         "endRowIndex": 2000,
-                        "startColumnIndex": 7,
-                        "endColumnIndex": 8,
+                        "startColumnIndex": keyword_column,
+                        "endColumnIndex": keyword_column + 1,
                     },
                     "rule": {
                         "condition": {
@@ -140,28 +161,40 @@ def apply_publication_validations(
             }
         )
     if projects:
-        requests.append(
-            {
-                "setDataValidation": {
-                    "range": {
-                        "sheetId": sheet_id,
-                        "startRowIndex": 1,
-                        "endRowIndex": 2000,
-                        "startColumnIndex": 8,
-                        "endColumnIndex": 9,
-                    },
-                    "rule": {
-                        "condition": {
-                            "type": "ONE_OF_LIST",
-                            "values": [{"userEnteredValue": value} for value in projects],
+        project_columns = [
+            index
+            for index, header in enumerate(headers)
+            if re.fullmatch(r"project_[1-5]", header or "")
+        ]
+        if "projects" in headers:
+            project_columns.append(headers.index("projects"))
+        for column in sorted(set(project_columns)):
+            strict = re.fullmatch(r"project_[1-5]", headers[column] or "") is not None
+            requests.append(
+                {
+                    "setDataValidation": {
+                        "range": {
+                            "sheetId": sheet_id,
+                            "startRowIndex": 1,
+                            "endRowIndex": 2000,
+                            "startColumnIndex": column,
+                            "endColumnIndex": column + 1,
                         },
-                        "inputMessage": "Use project_filter ids. For multiple values, separate them with ';'.",
-                        "strict": False,
-                        "showCustomUi": True,
+                        "rule": {
+                            "condition": {
+                                "type": "ONE_OF_LIST",
+                                "values": [{"userEnteredValue": value} for value in projects],
+                            },
+                            "inputMessage": (
+                                "Select one project_filter id in this column. "
+                                "Use project_2/project_3 for additional projects."
+                            ),
+                            "strict": strict,
+                            "showCustomUi": True,
+                        },
                     },
                 }
-            }
-        )
+            )
     if not requests:
         return
     service.spreadsheets().batchUpdate(
@@ -223,9 +256,14 @@ def main() -> int:
         help="CSV file containing the controlled keyword vocabulary.",
     )
     parser.add_argument(
-        "--projects-dir",
-        default=str(DEFAULT_PROJECTS_DIR),
-        help="Directory containing project pages used to derive project ids.",
+        "--projects-source",
+        default=str(DEFAULT_PROJECTS_SOURCE),
+        help="CSV source, or legacy project page directory, used to derive project ids.",
+    )
+    parser.add_argument(
+        "--helpers-only",
+        action="store_true",
+        help="Only update helper tabs and dropdown validations, without rewriting the publications sheet.",
     )
     args = parser.parse_args()
 
@@ -233,7 +271,7 @@ def main() -> int:
     sync_config = Path(args.sync_config)
     credentials_path = Path(args.credentials)
     keyword_vocab = Path(args.keyword_vocab)
-    projects_dir = Path(args.projects_dir)
+    projects_source = Path(args.projects_source)
 
     if not source.exists():
         return fail(f"Missing CSV source: {source}")
@@ -263,14 +301,16 @@ def main() -> int:
 
     spreadsheet_id, gid = extract_sheet_identifiers(source_url)
     values = load_csv_values(source)
+    headers = values[0] if values else []
     keyword_values = load_csv_values(keyword_vocab) if keyword_vocab.exists() else []
-    project_values = load_project_rows(projects_dir) if projects_dir.exists() else []
+    project_values = load_project_rows(projects_source) if projects_source.exists() else []
 
     credentials = Credentials.from_service_account_file(str(credentials_path), scopes=SCOPES)
     service = build("sheets", "v4", credentials=credentials, cache_discovery=False)
 
     sheet_title, sheet_id = get_sheet_properties(service, spreadsheet_id, gid)
-    write_values(service, spreadsheet_id, sheet_title, values)
+    if not args.helpers_only:
+        write_values(service, spreadsheet_id, sheet_title, values)
 
     if keyword_values:
         ensure_sheet_title(service, spreadsheet_id, "keyword_vocab")
@@ -282,12 +322,18 @@ def main() -> int:
 
     keywords = [row[0] for row in keyword_values[1:] if row]
     projects = [row[0] for row in project_values[1:] if row]
-    apply_publication_validations(service, spreadsheet_id, sheet_id, keywords, projects)
+    apply_publication_validations(service, spreadsheet_id, sheet_id, headers, keywords, projects)
 
-    print(
-        f"Pushed {max(len(values) - 1, 0)} publication rows from {source} "
-        f"to spreadsheet {spreadsheet_id} (gid={gid}, sheet='{sheet_title}')."
-    )
+    if args.helpers_only:
+        print(
+            f"Updated publication helper tabs and dropdowns in spreadsheet {spreadsheet_id} "
+            f"(gid={gid}, sheet='{sheet_title}')."
+        )
+    else:
+        print(
+            f"Pushed {max(len(values) - 1, 0)} publication rows from {source} "
+            f"to spreadsheet {spreadsheet_id} (gid={gid}, sheet='{sheet_title}')."
+        )
     return 0
 
 

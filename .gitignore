@@ -4,6 +4,8 @@ _site
 .idea
 .jekyll-cache
 .jekyll-metadata
+__pycache__/
+*.pyc
 .ruby-version
 .sass-cache
 .tweet-cache
@@ -23,6 +25,9 @@ shared/publications_sync.json
 shared/team_sync.json
 shared/education_sync.json
 shared/news_sync.json
+shared/projects_sync.json
+shared/project_images_uploads/*
+!shared/project_images_uploads/.gitkeep
 !shared/*.example.json
 shared/*.secret.json
 shared/project_migration_checklist.md
