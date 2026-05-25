@@ -9,6 +9,8 @@ import io
 import json
 import re
 import sys
+import shutil
+import urllib.parse
 import urllib.request
 from pathlib import Path
 from typing import Any
@@ -18,7 +20,10 @@ ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_CONFIG = ROOT / "shared" / "news_sync.json"
 DEFAULT_SOURCE = ROOT / "shared" / "news_sheet.csv"
 DEFAULT_OUTPUT = ROOT / "_data" / "news_feed.yml"
+DEFAULT_IMAGES_SOURCE = ROOT / "shared" / "news_images_uploads"
+DEFAULT_IMAGES_DEST = ROOT / "assets" / "news"
 USER_AGENT = "ArcoLabNewsSync/1.0 (arcolabucbm@gmail.com)"
+IMAGE_EXTENSIONS = (".png", ".jpg", ".jpeg", ".webp", ".gif")
 
 REQUIRED_COLUMNS = {
     "status",
@@ -40,6 +45,12 @@ def normalize_space(value: str) -> str:
     return re.sub(r"\s+", " ", value or "").strip()
 
 
+def slugify(value: str) -> str:
+    value = normalize_space(value).lower()
+    value = re.sub(r"[^a-z0-9]+", "-", value)
+    return value.strip("-") or "news-image"
+
+
 def normalize_google_sheet_source(source: str) -> str:
     source = normalize_space(source)
     if not source.startswith("https://docs.google.com/spreadsheets/d/"):
@@ -59,6 +70,80 @@ def yaml_quote(value: str) -> str:
     value = str(value)
     escaped = value.replace("\\", "\\\\").replace('"', '\\"')
     return f'"{escaped}"'
+
+
+def extension_from_content_type(content_type: str) -> str:
+    content_type = content_type.split(";", 1)[0].strip().lower()
+    return {
+        "image/jpeg": ".jpg",
+        "image/jpg": ".jpg",
+        "image/png": ".png",
+        "image/webp": ".webp",
+        "image/gif": ".gif",
+    }.get(content_type, "")
+
+
+def image_filename_from_value(value: str, fallback_base: str) -> str:
+    value = normalize_space(value)
+    if not value:
+        return ""
+    if value.startswith("/assets/news/"):
+        return Path(value).name
+    parsed = urllib.parse.urlparse(value)
+    if parsed.scheme in {"http", "https"}:
+        filename = Path(urllib.parse.unquote(parsed.path)).name
+        if Path(filename).suffix.lower() in IMAGE_EXTENSIONS:
+            return filename
+        return f"{fallback_base}.jpg"
+    return Path(value).name
+
+
+def sync_news_image(
+    raw_value: str,
+    date: str,
+    title: str,
+    images_source: Path,
+    images_dest: Path,
+) -> str:
+    raw_value = normalize_space(raw_value)
+    if not raw_value:
+        return ""
+
+    fallback_base = slugify(f"{date}-{title}")
+    images_dest.mkdir(parents=True, exist_ok=True)
+
+    parsed = urllib.parse.urlparse(raw_value)
+    if parsed.scheme in {"http", "https"}:
+        target_name = image_filename_from_value(raw_value, fallback_base)
+        target = images_dest / target_name
+        try:
+            request = urllib.request.Request(raw_value, headers={"User-Agent": USER_AGENT})
+            with urllib.request.urlopen(request, timeout=30) as response:
+                data = response.read()
+                detected_extension = extension_from_content_type(response.headers.get("Content-Type", ""))
+            if Path(target_name).suffix.lower() not in IMAGE_EXTENSIONS and detected_extension:
+                target_name = f"{fallback_base}{detected_extension}"
+                target = images_dest / target_name
+            target.write_bytes(data)
+            return f"/assets/news/{target_name}"
+        except Exception as exc:  # noqa: BLE001
+            print(f"Warning: failed to download news image {raw_value}: {exc}", file=sys.stderr)
+            return raw_value
+
+    filename = image_filename_from_value(raw_value, fallback_base)
+    if not filename:
+        return ""
+    source = images_source / filename
+    target = images_dest / filename
+    if source.exists():
+        shutil.copy2(source, target)
+        return f"/assets/news/{filename}"
+    if target.exists():
+        return f"/assets/news/{filename}"
+    if raw_value.startswith("/assets/news/"):
+        return raw_value
+    print(f"Warning: news image not found: {filename}", file=sys.stderr)
+    return f"/assets/news/{filename}"
 
 
 def load_rows(source: str, mirror_path: Path | None = None) -> list[dict[str, str]]:
@@ -109,10 +194,14 @@ def main() -> int:
     parser.add_argument("--source", default="", help="Path to a local CSV or Google Sheet URL.")
     parser.add_argument("--config", default=str(DEFAULT_CONFIG), help="JSON config file with the shared Google Sheet URL.")
     parser.add_argument("--output", default=str(DEFAULT_OUTPUT), help="Target YAML file.")
+    parser.add_argument("--images-source", default="", help="Local folder containing uploaded news images.")
+    parser.add_argument("--images-dest", default=str(DEFAULT_IMAGES_DEST), help="Destination folder for site-ready news images.")
     args = parser.parse_args()
 
     config = load_config(Path(args.config))
     source = normalize_space(args.source) or normalize_space(str(config.get("source", ""))) or str(DEFAULT_SOURCE)
+    images_source = Path(normalize_space(args.images_source) or normalize_space(str(config.get("images_source", ""))) or str(DEFAULT_IMAGES_SOURCE))
+    images_dest = Path(args.images_dest)
     normalized_source = normalize_google_sheet_source(source)
     mirror_path = DEFAULT_SOURCE if re.match(r"^https?://", normalized_source) else None
     rows = load_rows(source, mirror_path=mirror_path)
@@ -129,7 +218,13 @@ def main() -> int:
                 "summary": row.get("summary", ""),
                 "category": row.get("category", ""),
                 "linkedin_url": row.get("linkedin_url", ""),
-                "image_url": row.get("image_url", ""),
+                "image_url": sync_news_image(
+                    row.get("image_url", ""),
+                    row.get("date", ""),
+                    row.get("title", ""),
+                    images_source,
+                    images_dest,
+                ),
             }
         )
 

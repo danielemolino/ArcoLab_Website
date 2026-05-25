@@ -28,6 +28,8 @@ shared/news_sync.json
 shared/projects_sync.json
 shared/project_images_uploads/*
 !shared/project_images_uploads/.gitkeep
+shared/news_images_uploads/*
+!shared/news_images_uploads/.gitkeep
 !shared/*.example.json
 shared/*.secret.json
 shared/project_migration_checklist.md
