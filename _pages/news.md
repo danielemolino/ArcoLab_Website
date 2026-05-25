@@ -32,7 +32,7 @@ nav_order: 5
         <article class="news-card">
           {% if item.image_url != blank %}
             <div class="news-card-media">
-              <img src="{{ item.image_url }}" alt="{{ item.title }}">
+              <img src="{{ item.image_url | relative_url }}" alt="{{ item.title }}">
             </div>
           {% else %}
             <div class="news-card-media news-card-media-fallback" aria-hidden="true">
@@ -58,7 +58,7 @@ nav_order: 5
             <article class="news-card">
               {% if item.image_url != blank %}
                 <div class="news-card-media">
-                  <img src="{{ item.image_url }}" alt="{{ item.title }}">
+                  <img src="{{ item.image_url | relative_url }}" alt="{{ item.title }}">
                 </div>
               {% else %}
                 <div class="news-card-media news-card-media-fallback" aria-hidden="true">
