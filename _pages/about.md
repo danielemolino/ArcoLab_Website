@@ -54,7 +54,7 @@ latest_posts:
   <div class="about-flagship-panel">
     <div class="about-flagship-copy">
       <p class="about-section-kicker">Research Areas</p>
-      <h2>Research areas spanning method design, clinical translation, and industrial impact</h2>
+      <h2>Research areas from intelligent methods to real-world translation</h2>
     </div>
 
     <div class="about-focus-grid">
@@ -63,48 +63,65 @@ latest_posts:
           <i class="fa-solid fa-brain"></i>
         </div>
         <div class="about-focus-body">
-          <h3>AI Methodologies</h3>
+          <h3>Artificial Intelligence</h3>
           <p>
-            ArCo Lab is composed of PhD students, postdoctoral researchers, researchers, and professors with multidisciplinary backgrounds spanning computer engineering, biomedical engineering, artificial intelligence, data science, and healthcare-oriented research.
+            We develop AI methods for multimodal data, generative modelling, time-series analysis, and decision support, with attention to robustness, interpretability, and deployment in real-world scenarios.
           </p>
           <div class="about-focus-tags">
             <span>Generative AI</span>
-            <span>Medical Imaging</span>
-            <span>Deep Architectures</span>
+            <span>Multimodal AI</span>
+            <span>Deep Learning</span>
           </div>
         </div>
       </article>
 
       <article class="about-focus-card about-focus-card-research-area">
         <div class="about-focus-visual about-focus-visual-green">
-          <i class="fa-solid fa-user-doctor"></i>
+          <i class="fa-solid fa-microchip"></i>
         </div>
         <div class="about-focus-body">
-          <h3>Clinical Application</h3>
+          <h3>Computer Systems</h3>
           <p>
-            This area focuses on decision support, multimodal clinical modelling, outcome prediction, and translational validation in real healthcare pathways and patient-facing contexts.
+            We design and optimize computing systems that bring intelligence close to sensors and devices, including embedded platforms, IoT architectures, edge computing, data acquisition, and performance-aware AI deployment.
           </p>
           <div class="about-focus-tags">
-            <span>Clinical AI</span>
-            <span>Decision Support</span>
-            <span>Validation</span>
+            <span>Embedded Systems</span>
+            <span>Edge AI</span>
+            <span>IoT</span>
           </div>
         </div>
       </article>
 
       <article class="about-focus-card about-focus-card-research-area">
         <div class="about-focus-visual about-focus-visual-blue">
-          <i class="fa-solid fa-industry"></i>
+          <i class="fa-solid fa-layer-group"></i>
         </div>
         <div class="about-focus-body">
-          <h3>Industrial Application</h3>
+          <h3>Applications</h3>
           <p>
-            This area extends lab methods toward industrial use cases, including monitoring, predictive systems, and agriculture-oriented applications where data-driven automation must remain reliable and interpretable.
+            We apply AI and system-level methods across healthcare, industrial processes, agriculture, and other data-intensive domains where reliability and impact are essential.
           </p>
           <div class="about-focus-tags">
-            <span>Industry 4.0</span>
+            <span>Clinical AI</span>
             <span>Agriculture</span>
-            <span>Applied AI</span>
+            <span>Industry 4.0</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="about-focus-card about-focus-card-research-area about-focus-card-translation">
+        <div class="about-focus-visual about-focus-visual-amber">
+          <i class="fa-solid fa-arrows-turn-to-dots"></i>
+        </div>
+        <div class="about-focus-body">
+          <h3>Translation</h3>
+          <p>
+            We support the translation of research into operational solutions, working with companies, institutions, and clinical partners to prototype, validate, and deploy data-driven technologies.
+          </p>
+          <div class="about-focus-tags">
+            <span>Technology Transfer</span>
+            <span>Prototyping</span>
+            <span>Validation</span>
           </div>
         </div>
       </article>
