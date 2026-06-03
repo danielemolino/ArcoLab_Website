@@ -28,7 +28,7 @@ nav_order: 1
 </section>
 
 {% assign team_members = site.data.team | sort: "order" %}
-{% assign role_sections = "pi|Principal Investigator,researcher|Researchers,collaborator|Collaborators,postdoc|Post Doc,phd|PhD Candidate" | split: "," %}
+{% assign role_sections = "pi|PI,senior_staff|Senior Staff,researchers|Researchers,phd|PhD" | split: "," %}
 
 {% for section in role_sections %}
 {% assign parts = section | split: "|" %}
@@ -61,7 +61,9 @@ nav_order: 1
           <span class="about-team-role-badge">{{ member.role_label }}</span>
         </div>
         <h3>{{ member.name }}</h3>
-        {% if member.title %}
+        {% if member.affiliation %}
+        <p class="about-team-role">{{ member.affiliation }}</p>
+        {% elsif member.title %}
         <p class="about-team-role">{{ member.title }}</p>
         {% endif %}
         <div class="about-team-links">
@@ -84,6 +86,9 @@ nav_order: 1
 {% endif %}
 {% endfor %}
 
+{% assign alumni_members = team_members | where: "role", "phd_alumni" %}
+{% if alumni_members.size > 0 %}
+
 <section class="team-role-group team-alumni-group">
   <details class="team-alumni-details">
     <summary class="team-alumni-summary">View PhD Alumni</summary>
@@ -91,54 +96,45 @@ nav_order: 1
       <div>
         <h2>PhD Alumni</h2>
       </div>
-      <span class="team-role-count">4</span>
+      <span class="team-role-count">{{ alumni_members.size }}</span>
     </div>
 
     <div class="about-team-grid">
-      <article class="about-team-card">
-        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
+      {% for member in alumni_members %}
+      <article
+        class="about-team-card about-team-card-clickable"
+        onclick="window.location.href='{{ member.profile_path | relative_url }}'"
+        onkeydown="if(event.key === 'Enter'){ window.location.href='{{ member.profile_path | relative_url }}'; }"
+        role="link"
+        tabindex="0"
+        aria-label="View {{ member.name }} profile"
+      >
+        <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
         <div class="about-team-body">
           <div class="about-team-card-header">
-            <span class="about-team-role-badge">PhD Alumni</span>
+            <span class="about-team-role-badge">{{ member.role_label }}</span>
           </div>
-          <h3>Placeholder Alumna One</h3>
-          <p class="about-team-role">Former PhD Candidate in Artificial Intelligence</p>
+          <h3>{{ member.name }}</h3>
+          {% if member.affiliation %}
+          <p class="about-team-role">{{ member.affiliation }}</p>
+          {% elsif member.title %}
+          <p class="about-team-role">{{ member.title }}</p>
+          {% endif %}
+          <div class="about-team-links">
+            {% if member.scholar_url and member.scholar_url contains 'scholar.google.' %}
+            <a class="about-team-action-link" href="{{ member.scholar_url }}" aria-label="Google Scholar" title="Google Scholar" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-graduation-cap"></i></a>
+            {% endif %}
+            <a class="about-team-action-link" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}" aria-label="Filter publications by {{ member.name }}" title="Publications by {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-solid fa-book-open"></i></a>
+            {% if member.email %}
+            <a class="about-team-action-link" href="mailto:{{ member.email }}" aria-label="Email {{ member.name }}" title="Email {{ member.name }}" onclick="event.preventDefault(); event.stopPropagation(); window.location.href=this.href;"><i class="fa-regular fa-envelope"></i></a>
+            {% endif %}
+          </div>
+          <span class="about-team-profile-link">Open profile <span aria-hidden="true">&rarr;</span></span>
         </div>
       </article>
-
-      <article class="about-team-card">
-        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
-        <div class="about-team-body">
-          <div class="about-team-card-header">
-            <span class="about-team-role-badge">PhD Alumni</span>
-          </div>
-          <h3>Placeholder Alumnus Two</h3>
-          <p class="about-team-role">Former PhD Candidate in Biomedical Engineering</p>
-        </div>
-      </article>
-
-      <article class="about-team-card">
-        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
-        <div class="about-team-body">
-          <div class="about-team-card-header">
-            <span class="about-team-role-badge">PhD Alumni</span>
-          </div>
-          <h3>Placeholder Alumna Three</h3>
-          <p class="about-team-role">Former PhD Candidate in Applied AI</p>
-        </div>
-      </article>
-
-      <article class="about-team-card">
-        <img src="{{ '/assets/img/prof_pic_color.png' | relative_url }}" alt="Placeholder PhD alumnus">
-        <div class="about-team-body">
-          <div class="about-team-card-header">
-            <span class="about-team-role-badge">PhD Alumni</span>
-          </div>
-          <h3>Placeholder Alumnus Four</h3>
-          <p class="about-team-role">Former PhD Candidate in Clinical AI</p>
-        </div>
-      </article>
+      {% endfor %}
     </div>
 
   </details>
 </section>
+{% endif %}

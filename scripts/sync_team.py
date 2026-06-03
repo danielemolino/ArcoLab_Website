@@ -44,6 +44,7 @@ REQUIRED_COLUMNS = {
     "surname",
     "role",
     "title",
+    "institution",
     "email",
     "scholar_url",
     "orcid_url",
@@ -55,28 +56,28 @@ REQUIRED_COLUMNS = {
 
 ROLE_META = {
     "pi": {
-        "group_label": "Principal Investigator",
-        "card_label": "Principal Investigator",
+        "group_label": "PI",
+        "card_label": "PI",
         "sort": 0,
     },
-    "faculty": {
-        "group_label": "Faculty",
-        "card_label": "Faculty",
+    "senior_staff": {
+        "group_label": "Senior Staff",
+        "card_label": "Senior Staff",
         "sort": 1,
     },
-    "researcher": {
+    "researchers": {
         "group_label": "Researchers",
         "card_label": "Researcher",
         "sort": 2,
     },
-    "postdoc": {
-        "group_label": "Post Doc",
-        "card_label": "Post Doc",
+    "phd": {
+        "group_label": "PhD",
+        "card_label": "PhD",
         "sort": 3,
     },
-    "phd": {
-        "group_label": "PhD Candidate",
-        "card_label": "PhD Candidate",
+    "phd_alumni": {
+        "group_label": "PhD Alumni",
+        "card_label": "PhD Alumni",
         "sort": 4,
     },
 }
@@ -166,18 +167,34 @@ def normalize_role(value: str) -> str:
     key = normalize_space(value).lower()
     aliases = {
         "prof": "pi",
-        "professor": "faculty",
-        "faculty member": "faculty",
-        "researchers": "researcher",
-        "post-doc": "postdoc",
-        "post doc": "postdoc",
+        "principal investigator": "pi",
+        "principal investigators": "pi",
+        "professor": "senior_staff",
+        "professors": "senior_staff",
+        "faculty": "senior_staff",
+        "faculty member": "senior_staff",
+        "senior": "senior_staff",
+        "senior staff": "senior_staff",
+        "senior_staff": "senior_staff",
+        "researcher": "researchers",
+        "researchers": "researchers",
+        "ricercatore": "researchers",
+        "ricercatori": "researchers",
+        "post-doc": "researchers",
+        "postdoc": "researchers",
+        "post doc": "researchers",
+        "postdoctoral researcher": "researchers",
         "phd candidate": "phd",
         "phd candidates": "phd",
         "phd student": "phd",
         "phd students": "phd",
+        "phd alumni": "phd_alumni",
+        "phd alumnus": "phd_alumni",
+        "phd alumna": "phd_alumni",
+        "alumni": "phd_alumni",
     }
     key = aliases.get(key, key)
-    return key if key in ROLE_META else "researcher"
+    return key if key in ROLE_META else "researchers"
 
 
 def split_list(value: str) -> list[str]:
@@ -430,6 +447,9 @@ def build_member(
     interests = split_list(row.get("interests", ""))
     photo = sync_photo(photo_source, photo_dest, name, surname)
     recent_publications = recent_publications_for_member(bibliography, name, surname)
+    title = row.get("title", "")
+    institution = row.get("institution", "")
+    affiliation = " @ ".join(part for part in (title, institution) if part)
 
     return {
         "name": full_name,
@@ -441,7 +461,9 @@ def build_member(
         "role_label": role_meta["card_label"],
         "role_group_label": role_meta["group_label"],
         "role_sort": role_meta["sort"],
-        "title": row.get("title", ""),
+        "title": title,
+        "institution": institution,
+        "affiliation": affiliation,
         "email": row.get("email", ""),
         "photo": photo,
         "scholar_url": row.get("scholar_url", ""),
@@ -478,6 +500,8 @@ def write_yaml(members: list[dict[str, Any]], destination: Path) -> None:
         lines.append(f"  role_label: {yaml_quote(member['role_label'])}")
         lines.append(f"  role_group_label: {yaml_quote(member['role_group_label'])}")
         lines.append(f"  title: {yaml_quote(member['title'])}")
+        lines.append(f"  institution: {yaml_quote(member['institution'])}")
+        lines.append(f"  affiliation: {yaml_quote(member['affiliation'])}")
         lines.append(f"  email: {yaml_quote(member['email'])}")
         lines.append(f"  photo: {member['photo']}")
         lines.append(f"  scholar_url: {yaml_quote(member['scholar_url'])}")
@@ -552,7 +576,7 @@ description: Full profile and recent publications of {member['name']}.
     <div class="member-profile-copy">
       <p class="member-profile-kicker">{{{{ member.role_label }}}}</p>
       <h1>{{{{ member.name }}}}</h1>
-      <p class="member-profile-role">{{{{ member.title }}}}</p>
+      <p class="member-profile-role">{{{{ member.affiliation | default: member.title }}}}</p>
       <p class="member-profile-bio">{{{{ member.bio }}}}</p>
       <div class="member-profile-tags">
         {{% for interest in member.interests %}}

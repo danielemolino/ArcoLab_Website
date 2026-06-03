@@ -15,7 +15,7 @@ description: Full profile and recent publications of Camillo Maria Caruso.
     <div class="member-profile-copy">
       <p class="member-profile-kicker">{{ member.role_label }}</p>
       <h1>{{ member.name }}</h1>
-      <p class="member-profile-role">{{ member.title }}</p>
+      <p class="member-profile-role">{{ member.affiliation | default: member.title }}</p>
       <p class="member-profile-bio">{{ member.bio }}</p>
       <div class="member-profile-tags">
         {% for interest in member.interests %}

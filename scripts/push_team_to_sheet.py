@@ -26,7 +26,7 @@ DEFAULT_SOURCE = ROOT / "shared" / "team_sheet.csv"
 DEFAULT_SYNC_CONFIG = ROOT / "shared" / "team_sync.json"
 DEFAULT_CREDENTIALS = ROOT / "shared" / "google-service-account.json"
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
-ROLE_VALUES = ["pi", "faculty", "researcher", "postdoc", "phd"]
+ROLE_VALUES = ["pi", "senior_staff", "researchers", "phd", "phd_alumni"]
 
 
 def fail(message: str) -> int:
@@ -100,7 +100,7 @@ def apply_role_validation(service, spreadsheet_id: str, sheet_id: int) -> None:
                                 "type": "ONE_OF_LIST",
                                 "values": [{"userEnteredValue": value} for value in ROLE_VALUES],
                             },
-                            "inputMessage": "Choose one: pi, faculty, researcher, postdoc, phd.",
+                            "inputMessage": "Choose one: pi, senior_staff, researchers, phd, phd_alumni.",
                             "strict": True,
                             "showCustomUi": True,
                         },
