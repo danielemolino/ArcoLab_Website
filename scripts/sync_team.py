@@ -56,8 +56,8 @@ REQUIRED_COLUMNS = {
 
 ROLE_META = {
     "pi": {
-        "group_label": "PI",
-        "card_label": "PI",
+        "group_label": "Principal Investigator",
+        "card_label": "Principal Investigator",
         "sort": 0,
     },
     "senior_staff": {

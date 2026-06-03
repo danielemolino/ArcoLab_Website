@@ -28,7 +28,7 @@ nav_order: 1
 </section>
 
 {% assign team_members = site.data.team | sort: "order" %}
-{% assign role_sections = "pi|PI,senior_staff|Senior Staff,researchers|Researchers,phd|PhD" | split: "," %}
+{% assign role_sections = "pi|Principal Investigator,senior_staff|Senior Staff,researchers|Researchers,phd|PhD" | split: "," %}
 
 {% for section in role_sections %}
 {% assign parts = section | split: "|" %}
