@@ -147,7 +147,7 @@ def normalize_projects(value: str) -> str:
 
 def projects_from_row(row: dict[str, str]) -> str:
     values = [row.get("projects", "")]
-    for index in range(1, 6):
+    for index in range(1, 11):
         values.append(row.get(f"project_{index}", ""))
     return normalize_projects("; ".join(value for value in values if value))
 

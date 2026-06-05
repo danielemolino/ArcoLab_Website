@@ -101,6 +101,29 @@ def load_project_rows(projects_source: Path) -> list[list[str]]:
     return rows
 
 
+def append_publication_project_ids(project_rows: list[list[str]], publication_rows: list[list[str]]) -> list[list[str]]:
+    if not publication_rows:
+        return project_rows
+
+    headers = publication_rows[0]
+    project_columns = [
+        index
+        for index, header in enumerate(headers)
+        if header == "projects" or re.fullmatch(r"project_([1-9]|10)", header or "")
+    ]
+    known = {row[0] for row in project_rows[1:] if row}
+    for row in publication_rows[1:]:
+        for column in project_columns:
+            if column >= len(row):
+                continue
+            for project_id in re.split(r"[;,]", row[column] or ""):
+                project_id = project_id.strip()
+                if project_id and project_id not in known:
+                    project_rows.append([project_id, project_id, "ack"])
+                    known.add(project_id)
+    return project_rows
+
+
 def get_sheet_title(service, spreadsheet_id: str, gid: int) -> str:
     metadata = (
         service.spreadsheets()
@@ -164,12 +187,12 @@ def apply_publication_validations(
         project_columns = [
             index
             for index, header in enumerate(headers)
-            if re.fullmatch(r"project_[1-5]", header or "")
+            if re.fullmatch(r"project_([1-9]|10)", header or "")
         ]
         if "projects" in headers:
             project_columns.append(headers.index("projects"))
         for column in sorted(set(project_columns)):
-            strict = re.fullmatch(r"project_[1-5]", headers[column] or "") is not None
+            strict = re.fullmatch(r"project_([1-9]|10)", headers[column] or "") is not None
             requests.append(
                 {
                     "setDataValidation": {
@@ -187,7 +210,7 @@ def apply_publication_validations(
                             },
                             "inputMessage": (
                                 "Select one project_filter id in this column. "
-                                "Use project_2/project_3 for additional projects."
+                                "Use additional project_* columns for additional projects."
                             ),
                             "strict": strict,
                             "showCustomUi": True,
@@ -304,6 +327,7 @@ def main() -> int:
     headers = values[0] if values else []
     keyword_values = load_csv_values(keyword_vocab) if keyword_vocab.exists() else []
     project_values = load_project_rows(projects_source) if projects_source.exists() else []
+    project_values = append_publication_project_ids(project_values, values)
 
     credentials = Credentials.from_service_account_file(str(credentials_path), scopes=SCOPES)
     service = build("sheets", "v4", credentials=credentials, cache_discovery=False)
