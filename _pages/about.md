@@ -99,7 +99,7 @@ latest_posts:
         <div class="about-focus-body">
           <h3>Control & Dynamical Systems</h3>
           <p>
-            We develop control and estimation methods for networked and dynamical systems, including distributed filtering, consensus algorithms, data-driven modelling of nonlinear dynamics, and adaptive strategies for biomedical control problems.
+            We develop control and estimation methods for networked and dynamical systems, including distributed filtering, consensus algorithms, nonlinear dynamics modelling, and adaptive biomedical control.
           </p>
           <div class="about-focus-tags">
             <span>Networked Control</span>
@@ -116,7 +116,7 @@ latest_posts:
         <div class="about-focus-body">
           <h3>Applications</h3>
           <p>
-            We apply AI and system-level methods across healthcare, industrial processes, agriculture, and other data-intensive domains where reliability and impact are essential.
+            We apply AI and system-level methods across healthcare, industrial processes, agriculture, and data-intensive domains, focusing on reliability, interpretability, and measurable real-world impact.
           </p>
           <div class="about-focus-tags">
             <span>Clinical AI</span>
