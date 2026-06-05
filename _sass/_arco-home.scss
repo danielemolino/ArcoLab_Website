@@ -802,7 +802,7 @@
 }
 
 .about-focus-grid {
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .about-focus-card {
@@ -832,6 +832,12 @@
 }
 
 .about-focus-card:nth-child(4) {
+  background:
+    linear-gradient(180deg, rgba(72, 210, 220, 0.1) 0%, rgba(255, 255, 255, 0.02) 26%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.02) 100%);
+}
+
+.about-focus-card:nth-child(5) {
   background:
     linear-gradient(180deg, rgba(255, 174, 84, 0.1) 0%, rgba(255, 255, 255, 0.02) 26%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.045) 0%, rgba(255, 255, 255, 0.02) 100%);
@@ -867,6 +873,10 @@
 
 .about-focus-visual-blue {
   background: linear-gradient(135deg, #6698ff 0%, #4b57dc 100%);
+}
+
+.about-focus-visual-cyan {
+  background: linear-gradient(135deg, #48d2dc 0%, #2676c7 100%);
 }
 
 .about-focus-visual-amber {

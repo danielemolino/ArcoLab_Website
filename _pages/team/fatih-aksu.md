@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Ermanno Cordelli
-permalink: /team/ermanno-cordelli/
-description: Full profile and recent publications of Ermanno Cordelli.
+title: Fatih Aksu
+permalink: /team/fatih-aksu/
+description: Full profile and recent publications of Fatih Aksu.
 ---
 
-{% assign member = site.data.team | where: "slug", "ermanno-cordelli" | first %}
+{% assign member = site.data.team | where: "slug", "fatih-aksu" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

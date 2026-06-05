@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Ermanno Cordelli
-permalink: /team/ermanno-cordelli/
-description: Full profile and recent publications of Ermanno Cordelli.
+title: Guido Manni
+permalink: /team/guido-manni/
+description: Full profile and recent publications of Guido Manni.
 ---
 
-{% assign member = site.data.team | where: "slug", "ermanno-cordelli" | first %}
+{% assign member = site.data.team | where: "slug", "guido-manni" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

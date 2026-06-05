@@ -65,7 +65,7 @@ latest_posts:
         <div class="about-focus-body">
           <h3>Artificial Intelligence</h3>
           <p>
-            We develop AI methods for multimodal data, generative modelling, time-series analysis, and decision support, with attention to robustness, interpretability, and deployment in real-world scenarios.
+            We develop AI methods for multimodal data, generative modelling, time-series analysis, and decision support, with attention to robustness, interpretability, and explainability.
           </p>
           <div class="about-focus-tags">
             <span>Generative AI</span>
@@ -82,12 +82,29 @@ latest_posts:
         <div class="about-focus-body">
           <h3>Computer Systems</h3>
           <p>
-            We design and optimize computing systems that bring intelligence close to sensors and devices, including embedded platforms, IoT architectures, edge computing, data acquisition, and performance-aware AI deployment.
+            We design and optimize computing systems that bring intelligence close to sensors and devices, including embedded platforms, IoT architectures, edge computing, and performance-aware AI deployment.
           </p>
           <div class="about-focus-tags">
             <span>Embedded Systems</span>
             <span>Edge AI</span>
             <span>IoT</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="about-focus-card about-focus-card-research-area">
+        <div class="about-focus-visual about-focus-visual-cyan">
+          <i class="fa-solid fa-wave-square"></i>
+        </div>
+        <div class="about-focus-body">
+          <h3>Control & Dynamical Systems</h3>
+          <p>
+            We develop control and estimation methods for networked and dynamical systems, including distributed filtering, consensus algorithms, data-driven modelling of nonlinear dynamics, and adaptive strategies for biomedical control problems.
+          </p>
+          <div class="about-focus-tags">
+            <span>Networked Control</span>
+            <span>Distributed Estimation</span>
+            <span>Dynamical Systems</span>
           </div>
         </div>
       </article>

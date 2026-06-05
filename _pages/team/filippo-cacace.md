@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Ermanno Cordelli
-permalink: /team/ermanno-cordelli/
-description: Full profile and recent publications of Ermanno Cordelli.
+title: Filippo Cacace
+permalink: /team/filippo-cacace/
+description: Full profile and recent publications of Filippo Cacace.
 ---
 
-{% assign member = site.data.team | where: "slug", "ermanno-cordelli" | first %}
+{% assign member = site.data.team | where: "slug", "filippo-cacace" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">
