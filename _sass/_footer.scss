@@ -197,8 +197,79 @@ footer.sticky-bottom {
     flex-wrap: wrap;
   }
 
+  .footer-primary,
+  .footer-secondary,
+  .footer-tertiary {
+    width: 100%;
+  }
+
   .footer-secondary,
   .footer-tertiary {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width: 767.98px) {
+  footer.fixed-bottom {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  footer.sticky-bottom {
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+
+  footer.fixed-bottom .container,
+  footer.sticky-bottom .container {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .footer-panel {
+    gap: 0.9rem;
+    padding: 0;
+  }
+
+  .footer-primary {
+    gap: 0.65rem;
+  }
+
+  .footer-brand {
+    max-width: 9.5rem;
+
+    img {
+      max-height: 2rem;
+    }
+  }
+
+  .footer-institution {
+    max-width: none;
+    font-size: 0.68rem;
+    line-height: 1.55;
+  }
+
+  .footer-secondary {
+    gap: 0.45rem 0.8rem;
+    align-items: flex-start;
+  }
+
+  .footer-secondary a,
+  .footer-tertiary a,
+  .footer-tertiary span {
+    font-size: 0.72rem;
+  }
+
+  .footer-tertiary {
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .footer-tertiary a,
+  .footer-tertiary span {
+    min-height: 1.8rem;
+    padding: 0.2rem 0.5rem;
   }
 }
