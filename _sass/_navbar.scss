@@ -280,7 +280,7 @@
   }
 }
 
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   #light-toggle {
     transform: translateY(4px);
   }
@@ -323,7 +323,7 @@
   margin-right: auto;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 992px) {
   #navbar .container {
     display: grid;
     grid-template-columns: auto 1fr auto;
@@ -370,7 +370,7 @@
   }
 }
 
-@media (max-width: 575.98px) {
+@media (max-width: 991.98px) {
   .navbar.navbar-light .navbar-brand {
     position: static;
     transform: none;

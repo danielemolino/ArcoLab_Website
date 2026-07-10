@@ -188,6 +188,13 @@ footer.sticky-bottom {
 }
 
 @media (max-width: 991.98px) {
+  footer.fixed-bottom {
+    position: static;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
   .footer-panel {
     flex-direction: column;
     align-items: flex-start;
@@ -210,13 +217,6 @@ footer.sticky-bottom {
 }
 
 @media (max-width: 767.98px) {
-  footer.fixed-bottom {
-    position: static;
-    right: auto;
-    bottom: auto;
-    left: auto;
-  }
-
   footer.sticky-bottom {
     padding-top: 30px;
     padding-bottom: 30px;
