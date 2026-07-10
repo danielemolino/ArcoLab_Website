@@ -65,11 +65,9 @@ The generated site is written to `_site/`, which is ignored by Git.
 
 ## Updating content
 
-Team, Projects, Publications, News, and Education are maintained through shared Google Sheets and Drive folders. Collaborators should use the English [content update guide](update_the_website/ARCO_LAB_CONTENT_UPDATE_GUIDE.md).
+Team, Projects, Publications, News, and Education are maintained through a separate private content-management workflow. The public repository contains only the generated website content and published assets.
 
-The technical workflow and section-specific notes are in [`update_the_website/`](update_the_website/README.md). Generated files should not be edited manually: synchronization scripts regenerate them from the shared sources.
-
-Local service-account credentials, sync configuration files, upload folders, and CSV working copies are ignored by Git and must never be committed.
+Generated files should not be edited manually when the change belongs to the content workflow. Local service-account credentials, synchronization configuration, shared CSV sources, upload folders, and internal documentation are kept outside the public repository.
 
 ## Deployment
 

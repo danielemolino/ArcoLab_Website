@@ -26,6 +26,9 @@ shared/google-service-account.json
 shared/google-service-account.*.json
 shared/*service-account*.json
 shared/credentials*.json
+shared/
+update_the_website/
+output/
 shared/publications_sync.json
 shared/team_sync.json
 shared/education_sync.json
