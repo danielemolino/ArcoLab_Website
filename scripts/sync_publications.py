@@ -92,10 +92,6 @@ def normalize_title_for_match(value: str) -> str:
     return normalize_space(value)
 
 
-def truthy(value: str) -> bool:
-    return str(value).strip().lower() in {"1", "true", "yes", "y", "selected"}
-
-
 def arxiv_id_from_doi(doi: str) -> str:
     doi = normalize_space(doi)
     match = re.match(r"^10\.48550/arxiv\.([A-Za-z0-9.\-_/]+)$", doi, re.IGNORECASE)
