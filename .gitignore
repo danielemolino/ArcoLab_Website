@@ -1,6 +1,7 @@
 _site
 .bundle
 .DS_store
+**/.DS_Store
 .idea
 .jekyll-cache
 .jekyll-metadata
@@ -12,8 +13,12 @@ __pycache__/
 .venv
 assets/libs/
 assets/rendercv/rendercv_output/*.typ
+faces/
 Gemfile.lock
+lighthouse_results/
 node_modules/
+readme_preview/
+screenshots/
 vendor
 .env
 .env.*
@@ -30,6 +35,9 @@ shared/project_images_uploads/*
 !shared/project_images_uploads/.gitkeep
 shared/news_images_uploads/*
 !shared/news_images_uploads/.gitkeep
+shared/team_photos_uploads/*
+!shared/team_photos_uploads/.gitkeep
+shared/discovered_publications*.csv
 !shared/*.example.json
 shared/*.secret.json
 shared/project_migration_checklist.md
