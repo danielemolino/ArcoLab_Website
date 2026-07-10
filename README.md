@@ -75,10 +75,6 @@ Local service-account credentials, sync configuration files, upload folders, and
 
 Pushing site changes to `main` triggers [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml). The workflow builds the Jekyll site and publishes the static artifact for GitHub Pages.
 
-The final custom domain and institutional hosting configuration are managed separately through the University's IT process.
-
 ## Design and identity
 
 The ArCo Lab visual identity is stored in [`assets/branding/arco/`](assets/branding/arco/). The main logo is used by the website and this README.
-
-The historical site export is kept locally under `www.cosbi-lab.it/` for reference and is ignored by Git. It is not part of the public build.
