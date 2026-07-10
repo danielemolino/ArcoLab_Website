@@ -1,0 +1,40 @@
+---
+layout: page
+title: Ludovica Pompilio
+permalink: /team/ludovica-pompilio/
+description: Full profile and recent publications of Ludovica Pompilio.
+---
+
+{% assign member = site.data.team | where: "slug", "ludovica-pompilio" | first %}
+
+<section class="member-profile">
+  <div class="member-profile-hero">
+    <div class="member-profile-media">
+      <img src="{{ member.photo | relative_url }}" alt="{{ member.name }}">
+    </div>
+    <div class="member-profile-copy">
+      <p class="member-profile-kicker">{{ member.role_label }}</p>
+      <h1>{{ member.name }}</h1>
+      <p class="member-profile-role">{{ member.affiliation | default: member.title }}</p>
+      <p class="member-profile-bio">{{ member.bio }}</p>
+      <div class="member-profile-tags">
+        {% for interest in member.interests %}
+          <span>{{ interest }}</span>
+        {% endfor %}
+      </div>
+      <div class="member-profile-links">
+        <a class="member-profile-link-btn member-profile-link-btn-publications" href="{{ '/publications/' | relative_url }}?search={{ member.name | url_encode }}"><i class="fa-solid fa-book-open"></i><span>Browse All Publications</span></a>
+        <a class="member-profile-link-btn member-profile-link-btn-back" href="{{ '/team/' | relative_url }}"><i class="fa-solid fa-arrow-left"></i><span>Back to Team</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="member-profile-section">
+    <h2>Recent Publications</h2>
+    {% if member.recent_publications and member.recent_publications != empty %}
+      {% include member_selected_publications.liquid %}
+    {% else %}
+      <p class="member-profile-footnote">Recent publications will appear here when this member is matched to the bibliography workflow.</p>
+    {% endif %}
+  </div>
+</section>

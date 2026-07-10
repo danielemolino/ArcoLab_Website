@@ -352,11 +352,14 @@ def sync_photo(
     if not source:
         source = find_photo_file(ROOT / "faces", name, surname)
     if not source:
+        source = find_photo_file(photo_dest, name, surname)
+    if not source:
         return DEFAULT_PLACEHOLDER
 
     target_name = f"{photo_candidates(name, surname)[0]}{source.suffix.lower()}"
     target = photo_dest / target_name
-    shutil.copy2(source, target)
+    if source.resolve() != target.resolve():
+        shutil.copy2(source, target)
     return f"/assets/team_photos/{target_name}"
 
 

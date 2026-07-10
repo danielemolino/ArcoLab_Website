@@ -26,9 +26,9 @@ All commit messages should follow this format:
 ```
 feat: Add dark mode toggle button to header
 fix: Correct baseurl in project site configuration
-docs: Update INSTALL.md with Docker troubleshooting
+docs: Update the ArCo Lab content workflow documentation
 style: Format all Liquid templates with Prettier
-config: Enable blog section in _config.yml
+config: Update site-wide configuration
 chore: Update Jekyll dependencies with bundle update --all
 ```
 
