@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Matteo Tortora
-permalink: /team/matteo-tortora/
-description: Full profile and recent publications of Matteo Tortora.
+title: Alessandro Pesci
+permalink: /team/alessandro-pesci/
+description: Full profile and recent publications of Alessandro Pesci.
 ---
 
-{% assign member = site.data.team | where: "slug", "matteo-tortora" | first %}
+{% assign member = site.data.team | where: "slug", "alessandro-pesci" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Matteo Tortora
-permalink: /team/matteo-tortora/
-description: Full profile and recent publications of Matteo Tortora.
+title: Elena Mulero Ayllón
+permalink: /team/elena-mulero-ayllon/
+description: Full profile and recent publications of Elena Mulero Ayllón.
 ---
 
-{% assign member = site.data.team | where: "slug", "matteo-tortora" | first %}
+{% assign member = site.data.team | where: "slug", "elena-mulero-ayllon" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

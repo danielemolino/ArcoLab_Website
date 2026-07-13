@@ -219,7 +219,12 @@ latest_posts:
       </a>
     </div>
     <div class="about-split-media">
-      <img src="{{ '/assets/team_photos/arco_lab_group.jpg' | relative_url }}" alt="ArCo Lab team">
+      {% assign home_team_photo = site.static_files | where: "path", "/assets/team_photos/arco.jpg" | first %}
+      {% if home_team_photo %}
+        <img src="{{ '/assets/team_photos/arco.jpg' | relative_url }}" alt="ArCo Lab team">
+      {% else %}
+        <img src="{{ '/assets/team_photos/arco_lab_group.jpg' | relative_url }}" alt="ArCo Lab team">
+      {% endif %}
     </div>
   </div>
 </section>

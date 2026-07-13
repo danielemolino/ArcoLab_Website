@@ -1,26 +1,25 @@
 ---
 layout: page
-title: "Visual4DTracker"
-full_title: "Visual interaction and tracking for 3D+t biomedical image stacks"
-permalink: "/projects/visual4dtracker/"
-description: "Software-oriented line on visual interaction with 3D+t image stacks, supporting exploration, tracking, and analysis workflows for biomedical image sequences."
-img: "/assets/projects/visual4dtracker-gui.png"
-project_state: "ended"
-project_type: "Research Software"
-timeline: ""
+title: "ADELAI"
+full_title: "Alzheimer’s DiseasE Longitudinal study with Artificial Intelligence"
+permalink: "/projects/adelai/"
+description: "ADELAI collects longitudinal data from patients with dementia during routine neurological assessments. The collected data include clinical history, neurological examinations, neuropsychological test results, and patients’ written and spoken responses to structured questions. Digital interaction data, including keystroke press and release timing, are also acquired. These heterogeneous data are used to develop and evaluate AI models capable of identifying patterns associated with cognitive impairment and disease progression, with the long-term goal of enabling continuous, non-invasive monitoring approaches."
+img: "/assets/projects/adelai.png"
+project_state: "active"
+project_type: "Technology Transfer"
+timeline: "2025"
 grant_number: ""
 official_page: ""
 focus_areas:
-  - "Image Analysis"
-  - "Research Software"
-  - "Visual Tracking"
+  - "Missing Modalities"
+  - "Multimodal Telemonitoring"
+  - "Neurodegenerative Disease"
 collaborators:
-  - "Università Campus Bio-Medico di Roma"
+  - "Universita Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitario Campus Bio-Medico"
 highlights:
-  - "Visual interaction with 3D+t image stacks for analysis and exploration workflows."
-  - "Software-oriented support for tracking and inspection in temporal biomedical imaging data."
-  - "Reusable tooling that complements the lab's broader imaging and computer vision work."
-project_filter: "visual4dtracker"
+  - "Development and validation of artificial intelligence methods for dementia, with a focus on multimodal learning, missing modalities, longitudinal disease modeling, early diagnosis, prognosis, and non-invasive patient monitoring. Research activities include the integration of clinical, neuropsychological, speech, and keystroke dynamics data, as well as the exploration of machine learning, deep learning, and foundation models."
+project_filter: "adelai"
 ---
 
 {% assign project_publications = site.data.publications | where_exp: "item", "item.projects contains page.project_filter" %}
@@ -52,8 +51,7 @@ project_filter: "visual4dtracker"
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>Visual4DTracker appears in the previous lab portfolio as a software-focused effort centered on the interaction with 3D+t image stacks. The available archived material is minimal, but it clearly identifies the project as part of the lab’s imaging tooling line rather than as a conventional funded clinical project.</p>
-      <p>In the current site, it is represented as a compact research software page that can later be enriched with interface screenshots, supported use cases, and links to related publications or code repositories.</p>
+      <p>ADELAI is a longitudinal study aimed at collecting real-world clinical and behavioral data from patients with dementia. The study investigates the potential of artificial intelligence to support the diagnosis, prognosis, and longitudinal monitoring of cognitive decline through non-invasive and multimodal data collected during routine neurological visits.</p>
     </div>
 
     <aside class="project-profile-panel">

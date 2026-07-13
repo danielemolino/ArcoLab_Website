@@ -36,6 +36,7 @@ DEFAULT_PHOTO_SOURCE = ROOT / "shared" / "team_photos_uploads"
 DEFAULT_PHOTO_DEST = ROOT / "assets" / "team_photos"
 DEFAULT_BIB = ROOT / "_bibliography" / "papers.bib"
 DEFAULT_PLACEHOLDER = "/assets/img/prof_pic_color.png"
+HOME_PHOTO_NAME = "arco.jpg"
 USER_AGENT = "ArcoLabTeamSync/1.0 (arcolab@unicampus.it)"
 
 REQUIRED_COLUMNS = {
@@ -339,6 +340,29 @@ def find_photo_file(source_dir: Path, name: str, surname: str) -> Path | None:
             if key in indexed_files:
                 return indexed_files[key]
     return None
+
+
+def find_named_photo_file(source_dir: Path, filename: str) -> Path | None:
+    if not source_dir.exists():
+        return None
+    expected_name = filename.lower()
+    for path in source_dir.iterdir():
+        if path.is_file() and path.name.lower() == expected_name:
+            return path
+    return None
+
+
+def sync_home_photo(photo_source: Path, photo_dest: Path) -> None:
+    source = find_named_photo_file(photo_source, HOME_PHOTO_NAME)
+    if not source:
+        source = find_named_photo_file(photo_dest, HOME_PHOTO_NAME)
+    if not source:
+        return
+
+    photo_dest.mkdir(parents=True, exist_ok=True)
+    target = photo_dest / HOME_PHOTO_NAME
+    if source.resolve() != target.resolve():
+        shutil.copy2(source, target)
 
 
 def sync_photo(
@@ -669,6 +693,7 @@ def main() -> int:
 
     if photos_drive_folder:
         download_drive_photos(photos_drive_folder, photos_source)
+    sync_home_photo(photos_source, photos_dest)
 
     mirror_path = DEFAULT_SOURCE if re.match(r"^https?://", normalize_google_sheet_source(source)) else None
     rows = load_rows(source, mirror_path=mirror_path)

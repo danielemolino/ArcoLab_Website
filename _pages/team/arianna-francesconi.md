@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Matteo Tortora
-permalink: /team/matteo-tortora/
-description: Full profile and recent publications of Matteo Tortora.
+title: Arianna Francesconi
+permalink: /team/arianna-francesconi/
+description: Full profile and recent publications of Arianna Francesconi.
 ---
 
-{% assign member = site.data.team | where: "slug", "matteo-tortora" | first %}
+{% assign member = site.data.team | where: "slug", "arianna-francesconi" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">
