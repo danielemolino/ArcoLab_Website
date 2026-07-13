@@ -9,7 +9,9 @@ Photos are resolved from a local folder so the workflow stays reliable without
 Google API credentials. If a public Google Drive folder URL is provided, the
 script also tries a best-effort download into the local upload cache first.
 If a matching photo is found, it is copied into assets/team_photos/ and linked
-automatically from the generated site data.
+automatically from the generated site data. When rembg is available, team
+photos are rendered on a white background while the uploaded originals remain
+untouched.
 """
 
 from __future__ import annotations
@@ -23,6 +25,7 @@ import shutil
 import sys
 import unicodedata
 import urllib.request
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -37,6 +40,7 @@ DEFAULT_PHOTO_DEST = ROOT / "assets" / "team_photos"
 DEFAULT_BIB = ROOT / "_bibliography" / "papers.bib"
 DEFAULT_PLACEHOLDER = "/assets/img/prof_pic_color.png"
 HOME_PHOTO_NAME = "arco.jpg"
+DEFAULT_BACKGROUND_MODEL = "u2net_human_seg"
 USER_AGENT = "ArcoLabTeamSync/1.0 (arcolab@unicampus.it)"
 
 REQUIRED_COLUMNS = {
@@ -289,7 +293,7 @@ def parse_drive_folder_listing(folder_url: str) -> list[dict[str, str]]:
     return files
 
 
-def download_drive_photos(folder_url: str, destination: Path) -> None:
+def download_drive_photos(folder_url: str, destination: Path, force: bool = False) -> None:
     folder_url = normalize_space(folder_url)
     if not folder_url:
         return
@@ -299,6 +303,12 @@ def download_drive_photos(folder_url: str, destination: Path) -> None:
     if not files:
         log("Warning: no downloadable files were discovered in the Google Drive photo folder.")
         return
+
+    if force:
+        for path in destination.iterdir():
+            if path.is_file() and path.suffix.lower() in PHOTO_EXTENSIONS:
+                path.unlink()
+        log("Refreshed the local team photo cache before downloading.")
 
     for file_info in files:
         filename = normalize_space(file_info["name"])
@@ -352,6 +362,45 @@ def find_named_photo_file(source_dir: Path, filename: str) -> Path | None:
     return None
 
 
+@lru_cache(maxsize=4)
+def background_session(model_name: str):
+    from rembg import new_session
+
+    return new_session(model_name)
+
+
+def render_team_photo(source: Path, target: Path, model_name: str = DEFAULT_BACKGROUND_MODEL) -> None:
+    try:
+        from PIL import Image
+        from rembg import remove
+    except ImportError:
+        log("Warning: rembg is not installed; keeping the original team photo.")
+        shutil.copy2(source, target)
+        return
+
+    try:
+        image = Image.open(source).convert("RGBA")
+        result = remove(image, session=background_session(model_name))
+        if not isinstance(result, Image.Image):
+            result = Image.open(io.BytesIO(result)).convert("RGBA")
+        else:
+            result = result.convert("RGBA")
+
+        white_background = Image.new("RGBA", result.size, (255, 255, 255, 255))
+        white_background.alpha_composite(result)
+        output = white_background.convert("RGB")
+        suffix = target.suffix.lower()
+        if suffix in {".jpg", ".jpeg"}:
+            output.save(target, format="JPEG", quality=95, optimize=True)
+        elif suffix == ".webp":
+            output.save(target, format="WEBP", quality=95, method=6)
+        else:
+            output.save(target, format="PNG", optimize=True)
+    except Exception as exc:  # noqa: BLE001
+        log(f"Warning: background removal failed for {source.name}: {exc}")
+        shutil.copy2(source, target)
+
+
 def sync_home_photo(photo_source: Path, photo_dest: Path) -> None:
     source = find_named_photo_file(photo_source, HOME_PHOTO_NAME)
     if not source:
@@ -370,6 +419,8 @@ def sync_photo(
     photo_dest: Path,
     name: str,
     surname: str,
+    remove_background: bool = False,
+    background_model: str = DEFAULT_BACKGROUND_MODEL,
 ) -> str:
     photo_dest.mkdir(parents=True, exist_ok=True)
     source = find_photo_file(photo_source, name, surname)
@@ -383,7 +434,13 @@ def sync_photo(
     target_name = f"{photo_candidates(name, surname)[0]}{source.suffix.lower()}"
     target = photo_dest / target_name
     if source.resolve() != target.resolve():
-        shutil.copy2(source, target)
+        if source.parent.resolve() == photo_dest.resolve():
+            shutil.copy2(source, target)
+            return f"/assets/team_photos/{target_name}"
+        if remove_background:
+            render_team_photo(source, target, model_name=background_model)
+        else:
+            shutil.copy2(source, target)
     return f"/assets/team_photos/{target_name}"
 
 
@@ -464,6 +521,8 @@ def build_member(
     bibliography: list[dict[str, str]],
     photo_source: Path,
     photo_dest: Path,
+    remove_background: bool = False,
+    background_model: str = DEFAULT_BACKGROUND_MODEL,
 ) -> dict[str, Any]:
     name = normalize_space(row.get("name", ""))
     surname = normalize_space(row.get("surname", ""))
@@ -472,7 +531,14 @@ def build_member(
     role_meta = ROLE_META[role]
     slug = slugify(full_name)
     interests = split_list(row.get("interests", ""))
-    photo = sync_photo(photo_source, photo_dest, name, surname)
+    photo = sync_photo(
+        photo_source,
+        photo_dest,
+        name,
+        surname,
+        remove_background=remove_background,
+        background_model=background_model,
+    )
     recent_publications = recent_publications_for_member(bibliography, name, surname)
     title = row.get("title", "")
     institution = row.get("institution", "")
@@ -668,9 +734,24 @@ def main() -> int:
         help="Public Google Drive folder URL used to auto-download team photos.",
     )
     parser.add_argument(
+        "--force-photos-download",
+        action="store_true",
+        help="Clear the local team photo cache and download the current Drive files before syncing.",
+    )
+    parser.add_argument(
         "--photos-dest",
         default=str(DEFAULT_PHOTO_DEST),
         help="Destination folder for site-ready team photos.",
+    )
+    parser.add_argument(
+        "--remove-background",
+        action="store_true",
+        help="Render matched team photos on a white background using rembg.",
+    )
+    parser.add_argument(
+        "--background-model",
+        default=DEFAULT_BACKGROUND_MODEL,
+        help=f"rembg model used with --remove-background (default: {DEFAULT_BACKGROUND_MODEL}).",
     )
     parser.add_argument(
         "--bib",
@@ -692,7 +773,7 @@ def main() -> int:
     bibliography = parse_bibliography(Path(args.bib))
 
     if photos_drive_folder:
-        download_drive_photos(photos_drive_folder, photos_source)
+        download_drive_photos(photos_drive_folder, photos_source, force=args.force_photos_download)
     sync_home_photo(photos_source, photos_dest)
 
     mirror_path = DEFAULT_SOURCE if re.match(r"^https?://", normalize_google_sheet_source(source)) else None
@@ -704,7 +785,14 @@ def main() -> int:
         status = normalize_space(row.get("status", "")).lower()
         if status in {"draft", "hide", "ignore", "skip"}:
             continue
-        member = build_member(row, bibliography, photos_source, photos_dest)
+        member = build_member(
+            row,
+            bibliography,
+            photos_source,
+            photos_dest,
+            remove_background=args.remove_background,
+            background_model=args.background_model,
+        )
         if member["slug"] in seen_slugs:
             log(f"Skipping duplicate member slug: {member['slug']}")
             continue
