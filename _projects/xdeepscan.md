@@ -16,7 +16,7 @@ focus_areas:
   - "Explainable AI"
 collaborators:
   - "Converger"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
 highlights:
   - "Detection of manipulated CT, MR, and diagnostic images."
   - "Discriminative and generative AI models for medical image tamper detection."

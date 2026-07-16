@@ -16,7 +16,7 @@ focus_areas:
   - "Predictive Modelling"
 collaborators:
   - "Università Campus Bio-Medico di Roma"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Hospital 4.0 service for intelligent telemonitoring of frail, chronic, and oncologic patients."
   - "Integration of daily-life signals with hospital information systems through an M-shaped platform architecture."

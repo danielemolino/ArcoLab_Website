@@ -17,7 +17,7 @@ focus_areas:
 collaborators:
   - "Google.org"
   - "Politecnico di Milano"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
 highlights:
   - "AI-driven web app for identifying cyber vulnerabilities and gaps."
   - "Real-time mitigation recommendations for SMEs facing digital threats."
@@ -54,7 +54,7 @@ project_filter: "pacy"
   <div class="project-profile-grid">
     <div class="project-profile-section">
       <h2>Overview</h2>
-      <p>PACY is the Pro-Active Cybersecurity platform developed in the context of the Google.org Impact Challenge: Tech for Social Good 2023. The initiative joins Politecnico di Milano and Universita Campus Bio-Medico di Roma to support SMEs with AI-based cybersecurity assistance.</p>
+      <p>PACY is the Pro-Active Cybersecurity platform developed in the context of the Google.org Impact Challenge: Tech for Social Good 2023. The initiative joins Politecnico di Milano and Università Campus Bio-Medico di Roma to support SMEs with AI-based cybersecurity assistance.</p>
       <p>The platform identifies cyber vulnerabilities, highlights protection gaps, and recommends real-time mitigation strategies. The local proposal also describes Operational Technology cybersecurity assessment through time-varying Bayesian models and decision-support methods.</p>
     </div>
 

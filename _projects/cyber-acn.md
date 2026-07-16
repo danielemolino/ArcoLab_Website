@@ -18,7 +18,7 @@ collaborators:
   - "Bracco Imaging"
   - "Eustema"
   - "Centro Diagnostico Italiano"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Generative models for synthetic medical datasets that support secure sharing."
   - "Adversarial training, penetration testing, and model hardening against cyber threats."

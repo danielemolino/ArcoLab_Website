@@ -17,7 +17,7 @@ focus_areas:
 collaborators:
   - "Fondazione FAIR"
   - "Consiglio Nazionale delle Ricerche"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
 highlights:
   - "Human-centred AI methods designed to collaborate with people and operate in evolving contexts."
   - "Robust and resilient learning under noisy, incomplete, inconsistent, and real-world data."

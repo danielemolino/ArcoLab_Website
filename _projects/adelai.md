@@ -15,8 +15,8 @@ focus_areas:
   - "Multimodal Telemonitoring"
   - "Neurodegenerative Disease"
 collaborators:
-  - "Universita Campus Bio-Medico di Roma"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Università Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Development and validation of artificial intelligence methods for dementia, with a focus on multimodal learning, missing modalities, longitudinal disease modeling, early diagnosis, prognosis, and non-invasive patient monitoring. Research activities include the integration of clinical, neuropsychological, speech, and keystroke dynamics data, as well as the exploration of machine learning, deep learning, and foundation models."
 project_filter: "adelai"

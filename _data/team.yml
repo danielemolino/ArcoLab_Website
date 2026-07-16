@@ -103,12 +103,12 @@
       pdf: ""
       code: "https://github.com/cosbidev/NAIM"
       website: ""
-    - title: "Multimodal Clinical Data Integration for Prognosis of Pulmonary Embolism: A Comparative Study"
-      venue: ""
+    - title: "Multimodal Stepwise Clinically-Guided Attention Learning for Pathological Complete Response Prediction in Breast Cancer"
+      venue: "arXiv preprint arXiv:2605.07561"
       year: "2026"
       abstract: ""
-      doi_url: "https://doi.org/10.13140/rg.2.2.26384.16646"
-      url: "https://doi.org/10.13140/rg.2.2.26384.16646"
+      doi_url: "https://doi.org/10.48550/arXiv.2605.07561"
+      url: "https://arxiv.org/abs/2605.07561"
       pdf: ""
       code: ""
       website: ""
@@ -204,6 +204,15 @@
       pdf: ""
       code: "https://github.com/cosbidev/NAIM"
       website: ""
+    - title: "Multimodal Stepwise Clinically-Guided Attention Learning for Pathological Complete Response Prediction in Breast Cancer"
+      venue: "arXiv preprint arXiv:2605.07561"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2605.07561"
+      url: "https://arxiv.org/abs/2605.07561"
+      pdf: ""
+      code: ""
+      website: ""
     - title: "Machine Learning Models for Sepsis: From Early Detection to Short- and Long-Term Prognosis"
       venue: ""
       year: "2026"
@@ -232,22 +241,13 @@
       code: ""
       website: ""
     - title: "Handling Missing Modalities in Multimodal Survival Prediction for Non-Small Cell Lung Cancer"
-      venue: "arXiv preprint arXiv:2601.10386"
+      venue: ""
       year: "2026"
       abstract: ""
-      doi_url: "https://doi.org/10.48550/arxiv.2601.10386"
-      url: "https://arxiv.org/abs/2601.10386"
+      doi_url: "https://doi.org/10.1038/s41746-026-02783-3"
+      url: "https://doi.org/10.1038/s41746-026-02783-3"
       pdf: ""
       code: "https://github.com/arco-group/Handling-Missing-Modalities-in-Multimodal-Survival-Prediction-for-Non-Small-Cell-Lung-Cancer"
-      website: ""
-    - title: "Fairness-Aware Partial-label Domain Adaptation for Voice Classification of Parkinson's and ALS"
-      venue: "arXiv preprint arXiv:2602.18535"
-      year: "2026"
-      abstract: ""
-      doi_url: "https://doi.org/10.48550/arxiv.2602.18535"
-      url: "https://arxiv.org/abs/2602.18535"
-      pdf: ""
-      code: ""
       website: ""
 - name: "Giulio Iannello"
   given_name: "Giulio"
@@ -671,11 +671,11 @@
       code: ""
       website: ""
     - title: "Handling Missing Modalities in Multimodal Survival Prediction for Non-Small Cell Lung Cancer"
-      venue: "arXiv preprint arXiv:2601.10386"
+      venue: ""
       year: "2026"
       abstract: ""
-      doi_url: "https://doi.org/10.48550/arxiv.2601.10386"
-      url: "https://arxiv.org/abs/2601.10386"
+      doi_url: "https://doi.org/10.1038/s41746-026-02783-3"
+      url: "https://doi.org/10.1038/s41746-026-02783-3"
       pdf: ""
       code: "https://github.com/arco-group/Handling-Missing-Modalities-in-Multimodal-Survival-Prediction-for-Non-Small-Cell-Lung-Cancer"
       website: ""
@@ -741,9 +741,9 @@
   role: researchers
   role_label: "Researcher"
   role_group_label: "Researchers"
-  title: "Senior Postdoctoral Researcher"
+  title: "Postdoctoral Researcher"
   institution: "Università del Salento"
-  affiliation: "Senior Postdoctoral Researcher @ Università del Salento"
+  affiliation: "Postdoctoral Researcher @ Università del Salento"
   email: ""
   photo: /assets/img/prof_pic_color.png
   scholar_url: ""
@@ -1055,6 +1055,99 @@
       pdf: ""
       code: ""
       website: ""
+- name: "Alice Natalina Caragliano"
+  given_name: "Alice Natalina"
+  surname: "Caragliano"
+  slug: alice-natalina-caragliano
+  profile_path: /team/alice-natalina-caragliano/
+  role: phd
+  role_label: "PhD"
+  role_group_label: "PhD"
+  title: "PhD Candidate"
+  institution: "Università Campus Bio-Medico di Roma"
+  affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
+  email: "a.caragliano@unicampus.it"
+  photo: /assets/team_photos/alice_natalina_caragliano.jpg
+  scholar_url: "https://scholar.google.com/citations?user=aYThCWoAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0009-0007-8097-7290"
+  github_url: ""
+  linkedin_url: "https://www.linkedin.com/in/alice-caragliano-a68014183/"
+  interests:
+    - "Multimodal Learning"
+    - "Explainable AI"
+    - "Precision Medicine"
+  bio: "Alice Natalina Caragliano is a Ph.D. candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. Her work focuses on developing trustworthy AI solutions for precision oncology by integrating medical imaging and clinical data. Her research interests include multimodal deep learning, medical image analysis, explainable AI, and robust learning from limited, heterogeneous, and incomplete clinical datasets."
+  order: 13
+  recent_publications:
+    - title: "Multimodal Stepwise Clinically-Guided Attention Learning for Pathological Complete Response Prediction in Breast Cancer"
+      venue: "arXiv preprint arXiv:2605.07561"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2605.07561"
+      url: "https://arxiv.org/abs/2605.07561"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models"
+      venue: "arXiv preprint arXiv:2603.06147"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arxiv.2603.06147"
+      url: "https://arxiv.org/abs/2603.06147"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Learning from Limited and Incomplete Data: A Multimodal Framework for Predicting Pathological Response in NSCLC"
+      venue: "arXiv preprint arXiv:2603.15100"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arxiv.2603.15100"
+      url: "https://arxiv.org/abs/2603.15100"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Multimodal Doctor-in-the-Loop: A Clinically-Guided Explainable Framework for Predicting Pathological Response in Non-Small Cell Lung Cancer"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/ijcnn64981.2025.11228780"
+      url: "https://doi.org/10.1109/ijcnn64981.2025.11228780"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Doctor-in-the-Loop: An explainable, multi-view deep learning framework for predicting pathological response in non-small cell lung cancer"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1016/j.imavis.2025.105630"
+      url: "https://doi.org/10.1016/j.imavis.2025.105630"
+      pdf: ""
+      code: ""
+      website: ""
+- name: "Riccardo De Luca"
+  given_name: "Riccardo"
+  surname: "De Luca"
+  slug: riccardo-de-luca
+  profile_path: /team/riccardo-de-luca/
+  role: phd
+  role_label: "PhD"
+  role_group_label: "PhD"
+  title: "PhD Candidate"
+  institution: "Università Campus Bio-Medico di Roma"
+  affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
+  email: "riccardo.deluca@unicampus.it"
+  photo: /assets/team_photos/riccardo_de_luca.jpeg
+  scholar_url: "https://scholar.google.com/citations?hl=it&view_op=list_works&authuser=1&gmla=AO4B3ju8Q1hkuLax8c8PDMA9FSXrFYvN7FB7p7VOdN8-1RA_CDQu-LCkd06K8p-bOYKsjmIXhoQyezliOabkU0w6&user=51HS6n8AAAAJ"
+  orcid_url: "https://orcid.org/0009-0008-5058-6309"
+  github_url: "https://github.com/rickydeluca"
+  linkedin_url: "https://www.linkedin.com/in/riccardo-de-luca-28a9a12b6/"
+  interests:
+    - "Multimodal Learning"
+    - "Geometric Deep Learning"
+    - "Bioinformatics"
+  bio: "Riccardo De Luca is a Ph.D candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma with a background in Computer Science. His research focuses on multimodal learning for automatic biological pathway annotation from scientific literature. His research interest includes multimodal learning, geometric deep learning, bioinformatics and AI for science."
+  order: 14
+  recent_publications: []
 - name: "Arianna Francesconi"
   given_name: "Arianna"
   surname: "Francesconi"
@@ -1078,7 +1171,7 @@
     - "Imbalanced Data"
     - "Healthcare AI"
   bio: "Arianna Francesconi is a final-year Ph.D. candidate in Artificial Intelligence at UCBM. Her research focuses on machine learning and deep learning for biomedical applications, with particular interests in multimodal learning, domain adaptation, fairness, and robust learning from heterogeneous and incomplete data. Her work aims to develop AI methodologies that can effectively integrate and transfer knowledge across different data modalities, domains, and patient populations, with applications spanning medical imaging, speech analysis, and neurodegenerative diseases."
-  order: 13
+  order: 15
   recent_publications:
     - title: "Fairness-Aware Partial-label Domain Adaptation for Voice Classification of Parkinson's and ALS"
       venue: "arXiv preprint arXiv:2602.18535"
@@ -1136,7 +1229,7 @@
   interests:
     - "Lorem Ipsum"
   bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 14
+  order: 16
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
       venue: "arXiv preprint arXiv:2602.17683"
@@ -1177,15 +1270,17 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "guido.manni@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
-  scholar_url: ""
-  orcid_url: ""
-  github_url: ""
-  linkedin_url: ""
+  photo: /assets/team_photos/guido_manni.jpeg
+  scholar_url: "https://scholar.google.com/citations?user=iuBXv2MAAAAJ&hl=it"
+  orcid_url: "https://orcid.org/0000-0001-5427-2106"
+  github_url: "https://github.com/GuidoManni"
+  linkedin_url: "https://www.linkedin.com/in/guido-manni/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 15
+    - "Deep Learning"
+    - "Computer Vision"
+    - "Robotic Surgery"
+  bio: "Guido Manni is a PhD Candidate in Artificial Intelligence (Health and Life Sciences) with a background in Biomedical Engineering. He specializes in Computer Vision, Visual SLAM, and Deep Learning, with a focus on developing robust perception and 3D reconstruction solutions for autonomous robotic surgery."
+  order: 17
   recent_publications:
     - title: "SPARSE data, rich results: Few-shot semi-supervised learning via class-conditioned image translation"
       venue: ""
@@ -1193,6 +1288,15 @@
       abstract: ""
       doi_url: "https://doi.org/10.1016/j.compmedimag.2026.102705"
       url: "https://doi.org/10.1016/j.compmedimag.2026.102705"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "BodySLAM: A Generalized Monocular Visual SLAM Framework for Surgical Applications"
+      venue: ""
+      year: "2024"
+      abstract: ""
+      doi_url: "https://doi.org/10.1016/j.imavis.2026.106094"
+      url: "https://doi.org/10.1016/j.imavis.2026.106094"
       pdf: ""
       code: ""
       website: ""
@@ -1209,14 +1313,14 @@
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "M.Mantegna@unicampus.it"
   photo: /assets/img/prof_pic_color.png
-  scholar_url: ""
-  orcid_url: ""
+  scholar_url: "https://scholar.google.com/citations?user=EYgFDgEAAAAJ&hl=it"
+  orcid_url: "https://orcid.org/0009-0000-6129-5074"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/massimiliano-mantegna/"
   interests:
     - "Lorem Ipsum"
   bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 16
+  order: 18
   recent_publications:
     - title: "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models"
       venue: "arXiv preprint arXiv:2603.06147"
@@ -1245,6 +1349,39 @@
       pdf: ""
       code: ""
       website: ""
+- name: "Giustino Marino"
+  given_name: "Giustino"
+  surname: "Marino"
+  slug: giustino-marino
+  profile_path: /team/giustino-marino/
+  role: phd
+  role_label: "PhD"
+  role_group_label: "PhD"
+  title: "PhD Candidate"
+  institution: "Università Campus Bio-Medico di Roma"
+  affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
+  email: "giustino.marino@unicampus.it"
+  photo: /assets/img/prof_pic_color.png
+  scholar_url: "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Giustino+marino&btnG="
+  orcid_url: "https://orcid.org/0009-0003-9751-8673"
+  github_url: "https://github.com/gmarinoucbm"
+  linkedin_url: "https://www.linkedin.com/in/giustino-marino/"
+  interests:
+    - "Multimodal Learning"
+    - "Stress Detection"
+    - "Affective Computing"
+  bio: "Giustino Marino holds a degree in Computer Engineering from the Università degli Studi di Cassino e del Lazio Meridionale, and he is currently a Ph.D student at University Campus Bio-Medico of Rome, in the field of Artificial Intelligence (Health and Life Sciences area). His interests include artificial intelligence, deep learning and multimodal data analysis, with a focus on affective computing."
+  order: 19
+  recent_publications:
+    - title: "Temporal Multimodal Multitask Attention for Affective State Estimation in a Stressful Environment"
+      venue: ""
+      year: ""
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/TAFFC.2025.3618385"
+      url: "https://doi.org/10.1109/TAFFC.2025.3618385"
+      pdf: ""
+      code: ""
+      website: ""
 - name: "Daniele Molino"
   given_name: "Daniele"
   surname: "Molino"
@@ -1263,9 +1400,11 @@
   github_url: "https://github.com/danielemolino"
   linkedin_url: "https://www.linkedin.com/in/daniele-molino-388517272/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 17
+    - "Multimodal Generative AI"
+    - "Medical Image Synthesis"
+    - "Vision-Language Models"
+  bio: "Daniele Molino is a PhD student in the Italian National PhD Program in Artificial Intelligence, Health and Life Sciences track, at Università Campus Bio-Medico di Roma. His research focuses on multimodal generative artificial intelligence for medical applications, with particular attention to vision-language models, latent diffusion models, and synthetic medical data generation. His work investigates the joint generation and integration of heterogeneous clinical modalities, including radiological images, volumetric CT scans, and medical reports, aiming to improve data availability, clinical consistency, and downstream diagnostic performance."
+  order: 20
   recent_publications:
     - title: "XGeM: A multi-prompt foundation model for multimodal medical data generation"
       venue: ""
@@ -1332,7 +1471,7 @@
   interests:
     - "Lorem Ipsum"
   bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 18
+  order: 21
   recent_publications:
     - title: "A Systematic Benchmark of GAN Architectures for MRI-to-CT Synthesis"
       venue: "arXiv preprint arXiv:2603.13520"
@@ -1365,14 +1504,18 @@
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "ludovica.pompilio@unicampus.it"
   photo: /assets/team_photos/ludovica_pompilio.jpeg
-  scholar_url: ""
-  orcid_url: ""
-  github_url: ""
-  linkedin_url: ""
+  scholar_url: "https://scholar.google.com/citations?user=fF5lJeUAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0009-0009-9202-8206"
+  github_url: "https://github.com/lpompilio23"
+  linkedin_url: "https://www.linkedin.com/in/ludovica-pompilio-321383270/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 19
+    - "Artificial intelligence"
+    - "Medical Image Analysis"
+    - "Cyber AI"
+    - "Adversarial Manipulation Detection"
+    - "Privacy Preserving AI"
+  bio: "Ludovica Pompilio is enrolled in the National Ph.D. Program in Artificial Intelligence, XL bis cycle, course on Health and Life Sciences, organized by Università Campus Bio-Medico di Roma. Her research focuses on developing methods for detecting localized manipulations in medical images generated or introduced by generative models. She also investigates privacy-preserving generative approaches for synthetic medical data generation, with particular attention to the trade-off between data utility and privacy."
+  order: 22
   recent_publications:
     - title: "Texture-Aware StarGAN for CT data harmonization"
       venue: ""
@@ -1381,7 +1524,7 @@
       doi_url: "https://doi.org/10.1109/ijcnn64981.2025.11228038"
       url: "https://doi.org/10.1109/ijcnn64981.2025.11228038"
       pdf: ""
-      code: ""
+      code: "https://github.com/arco-group/CTHarmonization"
       website: ""
 - name: "Aurora Rofena"
   given_name: "Aurora"
@@ -1395,15 +1538,18 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "aurora.rofena@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/aurora_rofena.png
   scholar_url: "https://scholar.google.com/citations?user=I65WdP4AAAAJ&hl=it&oi=ao"
   orcid_url: "https://orcid.org/0009-0000-6309-6132"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/aurora-rofena/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 20
+    - "Artificial Intelligence"
+    - "Deep Learning"
+    - "Computer Vision"
+    - "Generative AI"
+  bio: "Aurora Rofena is a PhD Candidate in Artificial Intelligence at the University Campus Bio-Medico of Rome. Her research focuses on deep generative models for medical imaging, particularly cross-modality image-to-image translation, investigating how generative methods can synthesize one imaging modality from another to support clinical applications."
+  order: 23
   recent_publications:
     - title: "Lesion-Aware Generative Artificial Intelligence for Virtual Contrast-Enhanced Mammography in Breast Cancer"
       venue: ""
@@ -1476,7 +1622,7 @@
     - "Vision–Language"
     - "Generative Models"
   bio: "Filippo Ruffini is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma (UCBM) and Umeå University (Department of Diagnostics and Intervention). He received his Bachelor's degree in Medical Engineering from the University of Rome Tor Vergata, and his Master's degree in Biomedical Engineering, with honors (summa cum laude). His research focuses on trustworthy multimodal AI for oncology, spanning survival prediction, radiology vision-language models, medical image synthesis, and cross-modal retrieval. He is particularly interested in building models that fuse heterogeneous clinical data, imaging, tabular, and textual, into robust, interpretable representations for personalized cancer care. His work combines large-scale HPC infrastructure with end-to-end deep learning pipelines built on PyTorch and MONAI."
-  order: 21
+  order: 24
   recent_publications:
     - title: "Virtual Scanning for NSCLC Histology: Investigating the Discriminatory Power of Synthetic PET"
       venue: "arXiv preprint arXiv:2605.02746"
@@ -1506,11 +1652,11 @@
       code: ""
       website: ""
     - title: "Handling Missing Modalities in Multimodal Survival Prediction for Non-Small Cell Lung Cancer"
-      venue: "arXiv preprint arXiv:2601.10386"
+      venue: ""
       year: "2026"
       abstract: ""
-      doi_url: "https://doi.org/10.48550/arxiv.2601.10386"
-      url: "https://arxiv.org/abs/2601.10386"
+      doi_url: "https://doi.org/10.1038/s41746-026-02783-3"
+      url: "https://doi.org/10.1038/s41746-026-02783-3"
       pdf: ""
       code: "https://github.com/arco-group/Handling-Missing-Modalities-in-Multimodal-Survival-Prediction-for-Non-Small-Cell-Lung-Cancer"
       website: ""
@@ -1586,9 +1732,11 @@
   github_url: "https://github.com/marcosal30"
   linkedin_url: "https://www.linkedin.com/in/marco-salm%C3%A8-956747238/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 22
+    - "Deep Learning"
+    - "Multimodal Generative AI"
+    - "Trustworthy AI"
+  bio: "Marco Salmè is a PhD student enrolled in the Italian National PhD Program in Artificial Intelligence at Università Campus Bio-Medico di Roma. He graduated with honors in Computer Engineering from the same university. His research interests include multimodal generative AI and trustworthy AI, with applications in medicine and energy."
+  order: 25
   recent_publications:
     - title: "Concept-Enhanced Multimodal RAG: Towards Interpretable and Accurate Radiology Report Generation"
       venue: "arXiv preprint arXiv:2602.15650"
@@ -1635,9 +1783,12 @@
   github_url: "https://github.com/Durant9"
   linkedin_url: "www.linkedin.com/in/francescosarcina"
   interests:
-    - "Lorem Ipsum"
-  bio: ""
-  order: 23
+    - "Multimodal Learning"
+    - "Computer Vision"
+    - "Generative AI"
+    - "Cloud Continuum"
+  bio: "Francesco Sarcina is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma and Università della Campania \"Luigi Vanvitelli\". He received his Bachelor's degree in Industrial Engineering and his Master's degree in Biomedical Engineering at UCBM."
+  order: 26
   recent_publications: []
 - name: "Lorenzo Pede"
   given_name: "Lorenzo"
@@ -1659,7 +1810,7 @@
   interests:
     - "Lorem Ipsum"
   bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
-  order: 24
+  order: 27
   recent_publications:
     - title: "AI-Powered Insulin Pens for Pediatric Diabetes: Advancements in Lipodystrophy Detection and Injection Site Recognition"
       venue: ""

@@ -16,7 +16,7 @@ focus_areas:
   - "Risk Prediction"
 collaborators:
   - "Ospedale San Raffaele Milano"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
   - "University of Calabria"
   - "Ruggi d'Aragona"
 highlights:

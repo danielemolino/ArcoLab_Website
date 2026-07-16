@@ -1,13 +1,13 @@
 ---
 layout: page
 title: "PICTURE"
-full_title: "Predicting pathological complete response after neoadjuvant therapies in NSCLC using multimodal data"
+full_title: "Pathological response AI-driven prediCTion after neoadjUvant theRapiEs in NSCLC"
 permalink: "/projects/picture/"
 description: "AI-driven prediction of pathological complete response after neoadjuvant therapies in non-small cell lung cancer through multimodal data fusion."
-img: "/assets/projects/picture-overview.png"
-project_state: "active"
+img: "/assets/projects/picture.png"
+project_state: "ended"
 project_type: "Clinical Application"
-timeline: "2023-2026"
+timeline: "2022-2026"
 grant_number: "P2022P3CXJ-PICTURE (CUP C53D23009280001)"
 official_page: "https://www.unicampus.it/en/research-project/picture/"
 focus_areas:

@@ -19,7 +19,7 @@ collaborators:
   - "Orobix"
   - "INNOMED"
   - "Istituto Italiano di Tecnologia"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
 highlights:
   - "Federated learning methods for distributed clinical research across multiple data holders."
   - "Consensus models that can be trained without centralising sensitive clinical data."

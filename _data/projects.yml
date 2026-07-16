@@ -16,8 +16,8 @@
   description: "ADELAI collects longitudinal data from patients with dementia during routine neurological assessments. The collected data include clinical history, neurological examinations, neuropsychological test results, and patients’ written and spoken responses to structured questions. Digital interaction data, including keystroke press and release timing, are also acquired. These heterogeneous data are used to develop and evaluate AI models capable of identifying patterns associated with cognitive impairment and disease progression, with the long-term goal of enabling continuous, non-invasive monitoring approaches."
   url: "/projects/adelai/"
   collaborators:
-    - "Universita Campus Bio-Medico di Roma"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Università Campus Bio-Medico di Roma"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Missing Modalities"
     - "Multimodal Telemonitoring"
@@ -67,9 +67,9 @@
   description: "AI, augmented virtual reality, and navigation methods for 3D-guided robotic surgery."
   url: "/projects/bistoury/"
   collaborators:
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
     - "Teleconsys"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Robotic Surgery"
     - "Augmented Virtual Reality"
@@ -95,7 +95,7 @@
   url: "/projects/cesm-ucbm/"
   collaborators:
     - "Università Campus Bio-Medico di Roma"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Generative AI"
     - "Mammography"
@@ -152,7 +152,7 @@
     - "Bracco Imaging"
     - "Eustema"
     - "Centro Diagnostico Italiano"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Synthetic Medical Data"
     - "Privacy-Preserving AI"
@@ -179,7 +179,7 @@
   collaborators:
     - "Fondazione FAIR"
     - "Consiglio Nazionale delle Ricerche"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
   focus_areas:
     - "Trustworthy AI"
     - "Resilient AI"
@@ -205,8 +205,8 @@
   url: "/projects/fit4medrob/"
   collaborators:
     - "Consiglio Nazionale delle Ricerche"
-    - "Universita Campus Bio-Medico di Roma"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Università Campus Bio-Medico di Roma"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Medical Robotics"
     - "Digital Rehabilitation"
@@ -260,7 +260,7 @@
   url: "/projects/luminate/"
   collaborators:
     - "Ospedale San Raffaele Milano"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
     - "University of Calabria"
     - "Ruggi d'Aragona"
   focus_areas:
@@ -317,7 +317,7 @@
     - "Orobix"
     - "INNOMED"
     - "Istituto Italiano di Tecnologia"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
   focus_areas:
     - "Precision Medicine"
     - "Federated Learning"
@@ -344,7 +344,7 @@
   collaborators:
     - "Google.org"
     - "Politecnico di Milano"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
   focus_areas:
     - "Cybersecurity"
     - "SME Support"
@@ -356,12 +356,12 @@
 - name: "PICTURE"
   slug: "picture"
   title: "PICTURE"
-  full_title: "Predicting pathological complete response after neoadjuvant therapies in NSCLC using multimodal data"
-  project_state: "active"
+  full_title: "Pathological response AI-driven prediCTion after neoadjUvant theRapiEs in NSCLC"
+  project_state: "ended"
   project_type: "Clinical Application"
-  img: "/assets/projects/picture-overview.png"
-  timeline: "2023-2026"
-  start_year: "2023"
+  img: "/assets/projects/picture.png"
+  timeline: "2022-2026"
+  start_year: "2022"
   end_year: "2026"
   grant_number: "P2022P3CXJ-PICTURE (CUP C53D23009280001)"
   project_filter: "picture"
@@ -396,7 +396,7 @@
   url: "/projects/rome-technopole/"
   collaborators:
     - "Fondazione Rome Technopole"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
     - "Unidata"
     - "UniCredit"
     - "ENEA"
@@ -424,7 +424,7 @@
   description: "Augmented intelligence platform for pneumonia diagnosis using generative AI to synthesise CT-like chest volumes from X-ray exams."
   url: "/projects/virtual-scanner/"
   collaborators:
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
     - "Hospitals in Peru"
   focus_areas:
     - "Virtual Scanner"
@@ -476,7 +476,7 @@
   url: "/projects/we-ease-it/"
   collaborators:
     - "Università Campus Bio-Medico di Roma"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   focus_areas:
     - "Telemonitoring"
     - "Digital Health"
@@ -502,7 +502,7 @@
   url: "/projects/xdeepscan/"
   collaborators:
     - "Converger"
-    - "Universita Campus Bio-Medico di Roma"
+    - "Università Campus Bio-Medico di Roma"
   focus_areas:
     - "Medical Image Integrity"
     - "Deepfake Detection"
@@ -527,8 +527,8 @@
   description: "Technology-transfer line around multimodal medical data generation, web prototyping, and operational validation of XGeM-like models."
   url: "/projects/xgem/"
   collaborators:
-    - "Universita Campus Bio-Medico di Roma"
-    - "Fondazione Policlinico Universitario Campus Bio-Medico"
+    - "Università Campus Bio-Medico di Roma"
+    - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
     - "Elekta"
     - "Rogue Data"
     - "Medical Horizons"

@@ -16,8 +16,8 @@ focus_areas:
   - "Personalised Care"
 collaborators:
   - "Consiglio Nazionale delle Ricerche"
-  - "Universita Campus Bio-Medico di Roma"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Università Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Identification of patient and therapist needs not met by current robotic technologies."
   - "Tailoring and clinical assessment of rehabilitation, assistive, and occupational robots."
@@ -55,7 +55,7 @@ project_filter: "fit4medrob"
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>Fit4MedRob addresses rehabilitation and personal care for people with reduced or absent motor, sensory, or cognitive functions. The initiative combines clinical needs, bioengineering, robotics, social sciences, and adoption models to support patient-specific therapies and a continuum of care.</p>
-      <p>The project material identifies UCBM and the Fondazione Policlinico Universitario Campus Bio-Medico among the participants, with activities across clinical assessment, rehabilitation robotics, and digital instrumentation.</p>
+      <p>The project material identifies UCBM and the Fondazione Policlinico Universitàrio Campus Bio-Medico among the participants, with activities across clinical assessment, rehabilitation robotics, and digital instrumentation.</p>
     </div>
 
     <aside class="project-profile-panel">

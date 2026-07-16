@@ -16,7 +16,7 @@ focus_areas:
   - "Dataset Curation"
 collaborators:
   - "Università Campus Bio-Medico di Roma"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Virtual contrast enhancement from low-energy images only, reducing reliance on contrast medium and double acquisition."
   - "Public release of a 1138-image CESM dataset with imaging and clinical annotations."
@@ -54,7 +54,7 @@ project_filter: "cesm-ucbm"
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>CESM@UCBM studies virtual contrast enhancement in contrast-enhanced spectral mammography. The central technical goal is to generate synthetic recombined images from low-energy acquisitions only, preserving the clinical value of CESM while reducing the burden associated with contrast administration and higher radiation exposure.</p>
-      <p>The project is also a data resource effort. It released a curated in-house dataset of 1138 CESM images collected at the Fondazione Policlinico Universitario Campus Bio-Medico, with acquisition metadata and lesion-related annotations that support reproducible research on generative models and breast imaging analysis.</p>
+      <p>The project is also a data resource effort. It released a curated in-house dataset of 1138 CESM images collected at the Fondazione Policlinico Universitàrio Campus Bio-Medico, with acquisition metadata and lesion-related annotations that support reproducible research on generative models and breast imaging analysis.</p>
     </div>
 
     <aside class="project-profile-panel">

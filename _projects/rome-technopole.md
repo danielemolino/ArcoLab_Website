@@ -16,7 +16,7 @@ focus_areas:
   - "AI Analytics"
 collaborators:
   - "Fondazione Rome Technopole"
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
   - "Unidata"
   - "UniCredit"
   - "ENEA"
@@ -57,7 +57,7 @@ project_filter: "rome-technopole"
     <div class="project-profile-section">
       <h2>Overview</h2>
       <p>Rome Technopole Flagship Project 8 addresses human-centric artificial intelligence. The project promotes ethical and responsible AI, with attention to technologies that support people, improve digital ecosystems, and align with emerging European principles.</p>
-      <p>The official Rome Technopole material identifies Universita Campus Bio-Medico di Roma in the work on ethical and moral implications of AI and sustainable adoption of intelligent technologies.</p>
+      <p>The official Rome Technopole material identifies Università Campus Bio-Medico di Roma in the work on ethical and moral implications of AI and sustainable adoption of intelligent technologies.</p>
     </div>
 
     <aside class="project-profile-panel">

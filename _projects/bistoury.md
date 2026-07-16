@@ -15,9 +15,9 @@ focus_areas:
   - "Augmented Virtual Reality"
   - "3D Reconstruction"
 collaborators:
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
   - "Teleconsys"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
 highlights:
   - "Preoperative 3D model reconstruction from CT and MRI scans."
   - "Intraoperative 3D reconstruction and alignment of the surgical scene."

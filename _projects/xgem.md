@@ -15,8 +15,8 @@ focus_areas:
   - "Medical Reports"
   - "Technology Transfer"
 collaborators:
-  - "Universita Campus Bio-Medico di Roma"
-  - "Fondazione Policlinico Universitario Campus Bio-Medico"
+  - "Università Campus Bio-Medico di Roma"
+  - "Fondazione Policlinico Universitàrio Campus Bio-Medico"
   - "Elekta"
   - "Rogue Data"
   - "Medical Horizons"

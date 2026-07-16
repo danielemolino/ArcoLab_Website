@@ -15,7 +15,7 @@ focus_areas:
   - "Pneumonia Diagnosis"
   - "Generative AI"
 collaborators:
-  - "Universita Campus Bio-Medico di Roma"
+  - "Università Campus Bio-Medico di Roma"
   - "Hospitals in Peru"
 highlights:
   - "CT-like chest volume synthesis from X-ray exams to support pneumonia diagnosis."
