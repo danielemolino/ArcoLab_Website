@@ -128,6 +128,14 @@ def sync_news_image(
             return f"/assets/news/{target_name}"
         except Exception as exc:  # noqa: BLE001
             print(f"Warning: failed to download news image {raw_value}: {exc}", file=sys.stderr)
+            # LinkedIn image URLs can expire or reject automated downloads. Prefer
+            # a local upload, or an existing site asset, over keeping a fragile URL.
+            local_source = images_source / target_name
+            if local_source.exists():
+                shutil.copy2(local_source, target)
+                return f"/assets/news/{target_name}"
+            if target.exists():
+                return f"/assets/news/{target_name}"
             return raw_value
 
     filename = image_filename_from_value(raw_value, fallback_base)
