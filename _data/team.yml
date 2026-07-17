@@ -16,10 +16,12 @@
   scholar_url: "https://scholar.google.com/citations?user=E7rcYCQAAAAJ&hl=it&oi=ao"
   orcid_url: "https://orcid.org/0000-0002-8326-3303"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/paolo-soda-9622197a/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Artificial Intelligence"
+    - "Medical Image Analysis"
+    - "Machine Learning"
+  bio: "Paolo Soda is a Full Professor at Università Campus Bio-Medico di Roma. His research focuses on artificial intelligence, machine learning, data mining, and the analysis of biomedical data, with particular attention to 2D and 3D medical images and videos. His work spans methodological research and clinical applications, including medical image analysis, decision-support systems, and the integration of heterogeneous healthcare data."
   order: 1
   recent_publications:
     - title: "[18F]FDG PET/CT Radiomics for Predicting Pathological Risk Subtypes of Thymic Epithelial Tumors: A Bicentric Study"
@@ -124,14 +126,16 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "Associate Professor @ Università Campus Bio-Medico di Roma"
   email: "f.cacace@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
-  scholar_url: ""
-  orcid_url: ""
+  photo: /assets/team_photos/filippo_cacace.png
+  scholar_url: "https://scholar.google.com/citations?user=vPP6NjQAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0000-0003-1060-744X"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/filippo-cacace-781286/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Control Theory"
+    - "Multi-Agent Systems"
+    - "System Identification"
+  bio: "Filippo Cacace is an Associate Professor at Università Campus Bio-Medico di Roma. His research focuses on control theory, stochastic and time-delay systems, multi-agent systems, and system identification. He also investigates distributed-parameter systems and the application of control and modelling methodologies to systems biology."
   order: 2
   recent_publications: []
 - name: "Valerio Guarrasi"
@@ -261,14 +265,16 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "Honorary Professor @ Università Campus Bio-Medico di Roma"
   email: "g.iannello@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
-  scholar_url: ""
-  orcid_url: ""
+  photo: /assets/team_photos/giulio_iannello.png
+  scholar_url: "https://scholar.google.com/citations?user=L-UJxIgAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0000-0003-3864-5800"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/giulioiannello/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Biomedical Signal and Image Processing"
+    - "Bioinformatics"
+    - "High-Performance Computing"
+  bio: "Giulio Iannello graduated in Electronic Engineering at Politecnico di Milano in 1981 and received a Ph.D in Computer Science from the University of Napoli Federico II in 1987. He is currently Full Professor at the University Campus Bio-Medico di Roma, where is Dean of the Department of Engineering and responsible of the Research Group on Computer Systems and Bioinformatics His current research interests include biomedical data, signal and image processing, bioinformatics, multimedia data processing, wireless and high performance computer networks, design and analysis of parallel algorithms, performance evaluation of parallel and distributed systems. He has published over 130 journal and conference papers in these and related areas. He is member of several Program Committees of international conferences and referee of international journals. Dr. Iannello is a member of the IEEE, ACM and GIRPR."
   order: 4
   recent_publications:
     - title: "AI-CARE: Artificial Intelligence for Customized Adaptive Robot-Aided Rehabilitation"
@@ -373,14 +379,16 @@
   institution: "UniCamillus - Saint Camillus International University of Health Sciences"
   affiliation: "Associate Professor @ UniCamillus - Saint Camillus International University of Health Sciences"
   email: "rosa.sicilia@unicamillus.org"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/rosa_sicilia.png
   scholar_url: "https://scholar.google.com/citations?user=d3yjHMMAAAAJ&hl=it&oi=ao"
   orcid_url: "https://orcid.org/0000-0002-2513-0827"
   github_url: ""
   linkedin_url: "https://www.linkedin.com/in/rosa-sicilia-b02733b3/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Multimodal Learning"
+    - "Explainable AI"
+    - "Time-Series Analysis"
+  bio: "Rosa Sicilia is an Associate Professor at UniCamillus – Saint Camillus International University of Health Sciences. Her research focuses on artificial intelligence, machine learning, deep learning, and multimodal data mining for the analysis of complex biomedical and social data. Her work includes radiomics, radiopathomics, explainable artificial intelligence, multivariate time-series analysis, and multimodal models for precision medicine."
   order: 5
   recent_publications:
     - title: "Predicting lung cancer survival with attention-based CT slices combination"
@@ -485,14 +493,16 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "Associate Professor @ Università Campus Bio-Medico di Roma"
   email: "l.vollero@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/luca_vollero.png
   scholar_url: "https://scholar.google.com/citations?user=XOwJNf0AAAAJ&hl=it&oi=ao"
   orcid_url: "https://orcid.org/0000-0002-6928-0157"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/luca-vollero-0732976/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Computer Networks"
+    - "Distributed Systems"
+    - "Multimedia Data Processing"
+  bio: "Luca Vollero is an Associate Professor at Università Campus Bio-Medico di Roma. His research interests include wireless and high-performance networks, the design and analysis of network protocols, distributed systems, and multimedia data processing. His work also addresses performance evaluation methods and image-processing applications in networked and distributed environments."
   order: 6
   recent_publications:
     - title: "A 2D segmentation algorithm for the analisys of TBY-2 cells"
@@ -516,7 +526,7 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "Postdoctoral Researcher @ Università Campus Bio-Medico di Roma"
   email: "fatih.aksu@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/fatih_aksu.jpeg
   scholar_url: "https://scholar.google.com/citations?user=BxJ4uncAAAAJ&hl=en"
   orcid_url: "https://orcid.org/0000-0001-5677-2024"
   github_url: "https://github.com/aksufatih"
@@ -745,14 +755,16 @@
   institution: "Università del Salento"
   affiliation: "Postdoctoral Researcher @ Università del Salento"
   email: ""
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/ermanno_cordelli.jpg
   scholar_url: ""
-  orcid_url: ""
+  orcid_url: "https://orcid.org/0000-0001-6062-7575"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/ermanno-cordelli-136ab0b6/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Federated Learning"
+    - "Medical Image Analysis"
+    - "Precision Medicine"
+  bio: "Ermanno Cordelli is a researcher working on artificial intelligence and its applications in healthcare. His research focuses on machine learning, deep learning, computer vision, radiomics, and precision medicine, with particular attention to federated learning and distributed approaches for the analysis of sensitive biomedical data. His work also includes embedded and Internet-of-Things systems for healthcare applications."
   order: 9
   recent_publications:
     - title: "Leveraging Key-Points Encoded Human Pose Images for Human Activity Recognition"
@@ -926,12 +938,14 @@
   email: "a.sabatini@unicampus.it"
   photo: /assets/team_photos/anna_sabatini.jpeg
   scholar_url: ""
-  orcid_url: ""
+  orcid_url: "https://orcid.org/0000-0002-6206-5366"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/anna-sabatini-1b99aa225/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Embedded Systems"
+    - "Biomedical Sensors"
+    - "Electronic Interfaces"
+  bio: "Anna Sabatini is a Researcher at Università Campus Bio-Medico di Roma. She received her PhD in Science and Engineering for Humans and the Environment, with a specialization in information technologies for biomedicine. Her research focuses on the design and development of firmware, embedded systems, and electronic readout interfaces for medical, industrial, and food-related sensors."
   order: 11
   recent_publications: []
 - name: "Matteo Tortora"
@@ -1227,8 +1241,8 @@
   github_url: "https://github.com/ireneiele"
   linkedin_url: "https://www.linkedin.com/in/irei012abc/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Medical Imaging, Earth Observation, Test-Time Adaptation, Image-to-Image Translation, Agentic AI, vegetation forecasting, Quantum-ML"
+  bio: "Irene Iele is a PhD Candidate in Artificial Intelligence at the University Campus Bio-Medico of Rome. He graduated with honors in Biomedical Engineering from the same university. Her research spans adaptive and robust AI for medical imaging and Earth observation, with a particular focus on Test-Time Adaptation, medical image-to-image translation, and multi-agent systems. She also investigates probabilistic vegetation forecasting from satellite and meteorological data and hybrid quantum machine learning for clinical time-series forecasting"
   order: 16
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
@@ -1312,14 +1326,16 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "M.Mantegna@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/massimiliano_mantegna.png
   scholar_url: "https://scholar.google.com/citations?user=EYgFDgEAAAAJ&hl=it"
   orcid_url: "https://orcid.org/0009-0000-6129-5074"
   github_url: ""
   linkedin_url: "https://www.linkedin.com/in/massimiliano-mantegna/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Generative AI"
+    - "Medical Imaging"
+    - "Lung Cancer"
+  bio: "Massimiliano Mantegna is a PhD Candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. His research focuses on deep learning and generative artificial intelligence for medical imaging, with particular attention to lung cancer. His work investigates generative and multimodal models for modelling tumour evolution and supporting imaging-based prediction in oncology."
   order: 18
   recent_publications:
     - title: "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models"
@@ -1361,7 +1377,7 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "PhD Candidate @ Università Campus Bio-Medico di Roma"
   email: "giustino.marino@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/arco_placeholder.png
   scholar_url: "https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Giustino+marino&btnG="
   orcid_url: "https://orcid.org/0009-0003-9751-8673"
   github_url: "https://github.com/gmarinoucbm"
@@ -1469,8 +1485,10 @@
   github_url: "https://github.com/AlexFish90"
   linkedin_url: "https://www.linkedin.com/in/alessandro-pesci-61a2896b/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Artificial Intelligence"
+    - "Medical Data Analysis"
+    - "Clinical Decision Support"
+  bio: "Alessandro Pesci is a PhD Candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. His research focuses on the development of artificial intelligence methodologies for biomedical and clinical applications, with particular attention to data-driven models supporting medical analysis and decision-making."
   order: 21
   recent_publications:
     - title: "A Systematic Benchmark of GAN Architectures for MRI-to-CT Synthesis"
@@ -1777,7 +1795,7 @@
   institution: "Università deglli studi della Campania \"Luigi Vanvitelli\""
   affiliation: "PhD Candidate @ Università deglli studi della Campania \"Luigi Vanvitelli\""
   email: "francesco.sarcina@unicampus.it"
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/arco_placeholder.png
   scholar_url: "https://scholar.google.com/citations?user=lN4X0jUAAAAJ&hl=it"
   orcid_url: ""
   github_url: "https://github.com/Durant9"
@@ -1787,7 +1805,7 @@
     - "Computer Vision"
     - "Generative AI"
     - "Cloud Continuum"
-  bio: "Francesco Sarcina is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma and Università della Campania \"Luigi Vanvitelli\". He received his Bachelor's degree in Industrial Engineering and his Master's degree in Biomedical Engineering at UCBM."
+  bio: "Francesco Sarcina is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma and Università della Campania \"Luigi Vanvitelli\". He received his Bachelor's degree in Industrial Engineering and his Master's degree in Biomedical Engineering at UCBM. His research mainly focuses on Multimodal Generative AI for Predictive Medical Imaging and Distributed AI for Cloud Continuum applications."
   order: 26
   recent_publications: []
 - name: "Lorenzo Pede"
@@ -1802,14 +1820,16 @@
   institution: "Università Campus Bio-Medico di Roma"
   affiliation: "PhD @ Università Campus Bio-Medico di Roma"
   email: ""
-  photo: /assets/img/prof_pic_color.png
+  photo: /assets/team_photos/lorenzo_pede.jpeg
   scholar_url: ""
-  orcid_url: ""
+  orcid_url: "https://orcid.org/0009-0007-2082-0996"
   github_url: ""
-  linkedin_url: ""
+  linkedin_url: "https://www.linkedin.com/in/lorenzo-pede-9b90a9183/"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Artificial Intelligence"
+    - "Biomedical Data Analysis"
+    - "Digital Health"
+  bio: "Lorenzo Pede holds a PhD from Università Campus Bio-Medico di Roma. His research activity is related to the application of computational and artificial intelligence methodologies to biomedical and healthcare data."
   order: 27
   recent_publications:
     - title: "AI-Powered Insulin Pens for Pediatric Diabetes: Advancements in Lipodystrophy Detection and Injection Site Recognition"
