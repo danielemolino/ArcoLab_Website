@@ -464,6 +464,7 @@
   padding: 0.25rem 0 1rem;
   scroll-snap-type: x proximity;
   scroll-padding-inline: 0.25rem;
+  touch-action: pan-x pan-y;
   scrollbar-width: none;
   -ms-overflow-style: none;
   cursor: grab;

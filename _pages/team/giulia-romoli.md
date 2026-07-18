@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Massimiliano Mantegna
-permalink: /team/massimiliano-mantegna/
-description: Full profile and recent publications of Massimiliano Mantegna.
+title: Giulia Romoli
+permalink: /team/giulia-romoli/
+description: Full profile and recent publications of Giulia Romoli.
 ---
 
-{% assign member = site.data.team | where: "slug", "massimiliano-mantegna" | first %}
+{% assign member = site.data.team | where: "slug", "giulia-romoli" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

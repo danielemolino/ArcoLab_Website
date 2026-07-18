@@ -79,10 +79,12 @@
     let dragStartX = 0;
     let dragStartScroll = 0;
 
+    // Keep ordinary vertical scrolling on the page. Shift+wheel remains a
+    // deliberate way to move the horizontal rail with a mouse or trackpad.
     rail.addEventListener(
       "wheel",
       (event) => {
-        if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+        if (!event.shiftKey || Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
         event.preventDefault();
         rail.scrollLeft += event.deltaY;
       },

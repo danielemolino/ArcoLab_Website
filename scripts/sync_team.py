@@ -11,7 +11,8 @@ script also tries a best-effort download into the local upload cache first.
 If a matching photo is found, it is copied into assets/team_photos/ and linked
 automatically from the generated site data. When rembg is available, team
 photos are rendered on a white background while the uploaded originals remain
-untouched.
+untouched. The optional face-centering pass uses OpenCV locally and falls back
+to the rembg foreground mask when no face is detected.
 """
 
 from __future__ import annotations
@@ -41,6 +42,7 @@ DEFAULT_BIB = ROOT / "_bibliography" / "papers.bib"
 DEFAULT_PLACEHOLDER = "/assets/team_photos/arco_placeholder.png"
 HOME_PHOTO_NAME = "arco.jpg"
 DEFAULT_BACKGROUND_MODEL = "u2net_human_seg"
+DEFAULT_FACE_TARGET_Y = 0.42
 USER_AGENT = "ArcoLabTeamSync/1.0 (arcolab@unicampus.it)"
 
 REQUIRED_COLUMNS = {
@@ -369,7 +371,90 @@ def background_session(model_name: str):
     return new_session(model_name)
 
 
-def render_team_photo(source: Path, target: Path, model_name: str = DEFAULT_BACKGROUND_MODEL) -> None:
+def detect_primary_face(image: Any) -> tuple[int, int, int, int] | None:
+    """Return the largest frontal face detected by OpenCV, if any."""
+    try:
+        import cv2
+        import numpy as np
+    except ImportError:
+        log("Warning: OpenCV is not installed; using foreground centering only.")
+        return None
+
+    image_array = np.asarray(image.convert("RGB"))
+    grayscale = cv2.cvtColor(image_array, cv2.COLOR_RGB2GRAY)
+    cascade_path = Path(cv2.data.haarcascades) / "haarcascade_frontalface_default.xml"
+    detector = cv2.CascadeClassifier(str(cascade_path))
+    if detector.empty():
+        log("Warning: OpenCV face detector could not be loaded; using foreground centering only.")
+        return None
+
+    minimum_size = max(30, min(image.size) // 12)
+    faces = detector.detectMultiScale(
+        grayscale,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(minimum_size, minimum_size),
+    )
+    if len(faces) == 0:
+        return None
+    return tuple(max(faces, key=lambda face: int(face[2]) * int(face[3])))
+
+
+def square_crop_around_face(image: Any, face: tuple[int, int, int, int]) -> Any:
+    """Crop a square with the detected face in the upper-middle area."""
+    width, height = image.size
+    x, y, face_width, face_height = face
+    side = min(width, height, max(face_width * 4.0, face_height * 5.0))
+    side = max(1, int(side))
+    face_center_x = x + face_width / 2
+    face_center_y = y + face_height / 2
+    left = int(round(face_center_x - side / 2))
+    top = int(round(face_center_y - side * DEFAULT_FACE_TARGET_Y))
+
+    # Keep a generous safety margin around the detected face, including hair
+    # that frontal-face classifiers usually leave outside their bounding box.
+    required_left = x - face_width * 0.3
+    required_right = x + face_width * 1.3
+    required_top = y - face_height * 0.55
+    required_bottom = y + face_height * 1.25
+    left = min(left, int(round(required_left)))
+    left = max(left, int(round(required_right - side)))
+    top = min(top, int(round(required_top)))
+    top = max(top, int(round(required_bottom - side)))
+    left = max(0, min(left, width - side))
+    top = max(0, min(top, height - side))
+    return image.crop((left, top, left + side, top + side))
+
+
+def square_crop_around_foreground(image: Any) -> Any:
+    """Use the rembg alpha mask when face detection fails."""
+    alpha = image.getchannel("A")
+    mask = alpha.point(lambda value: 255 if value > 16 else 0)
+    bbox = mask.getbbox()
+    if not bbox:
+        return image
+
+    width, height = image.size
+    left, top, right, bottom = bbox
+    foreground_width = right - left
+    foreground_height = bottom - top
+    side = min(width, height, int(max(foreground_width, foreground_height) * 1.15))
+    side = max(1, side)
+    center_x = (left + right) / 2
+    center_y = (top + bottom) / 2
+    crop_left = int(round(center_x - side / 2))
+    crop_top = int(round(center_y - side / 2))
+    crop_left = max(0, min(crop_left, width - side))
+    crop_top = max(0, min(crop_top, height - side))
+    return image.crop((crop_left, crop_top, crop_left + side, crop_top + side))
+
+
+def render_team_photo(
+    source: Path,
+    target: Path,
+    model_name: str = DEFAULT_BACKGROUND_MODEL,
+    center_face: bool = False,
+) -> None:
     try:
         from PIL import Image
         from rembg import remove
@@ -380,11 +465,21 @@ def render_team_photo(source: Path, target: Path, model_name: str = DEFAULT_BACK
 
     try:
         image = Image.open(source).convert("RGBA")
+        face_detected = False
+        if center_face:
+            face = detect_primary_face(image)
+            if face:
+                image = square_crop_around_face(image, face)
+                face_detected = True
+            else:
+                log(f"Warning: no face detected in {source.name}; centering the foreground instead.")
         result = remove(image, session=background_session(model_name))
         if not isinstance(result, Image.Image):
             result = Image.open(io.BytesIO(result)).convert("RGBA")
         else:
             result = result.convert("RGBA")
+        if center_face and not face_detected:
+            result = square_crop_around_foreground(result)
 
         white_background = Image.new("RGBA", result.size, (255, 255, 255, 255))
         white_background.alpha_composite(result)
@@ -421,6 +516,7 @@ def sync_photo(
     surname: str,
     remove_background: bool = False,
     background_model: str = DEFAULT_BACKGROUND_MODEL,
+    center_face: bool = False,
 ) -> str:
     photo_dest.mkdir(parents=True, exist_ok=True)
     source = find_photo_file(photo_source, name, surname)
@@ -438,7 +534,7 @@ def sync_photo(
             shutil.copy2(source, target)
             return f"/assets/team_photos/{target_name}"
         if remove_background:
-            render_team_photo(source, target, model_name=background_model)
+            render_team_photo(source, target, model_name=background_model, center_face=center_face)
         else:
             shutil.copy2(source, target)
     return f"/assets/team_photos/{target_name}"
@@ -523,6 +619,7 @@ def build_member(
     photo_dest: Path,
     remove_background: bool = False,
     background_model: str = DEFAULT_BACKGROUND_MODEL,
+    center_face: bool = False,
 ) -> dict[str, Any]:
     name = normalize_space(row.get("name", ""))
     surname = normalize_space(row.get("surname", ""))
@@ -538,6 +635,7 @@ def build_member(
         surname,
         remove_background=remove_background,
         background_model=background_model,
+        center_face=center_face,
     )
     recent_publications = recent_publications_for_member(bibliography, name, surname)
     title = row.get("title", "")
@@ -754,6 +852,11 @@ def main() -> int:
         help=f"rembg model used with --remove-background (default: {DEFAULT_BACKGROUND_MODEL}).",
     )
     parser.add_argument(
+        "--center-face",
+        action="store_true",
+        help="Center the largest detected face before background removal, with a foreground fallback.",
+    )
+    parser.add_argument(
         "--bib",
         default=str(DEFAULT_BIB),
         help="Bibliography file used to compute selected publications.",
@@ -792,6 +895,7 @@ def main() -> int:
             photos_dest,
             remove_background=args.remove_background,
             background_model=args.background_model,
+            center_face=args.center_face,
         )
         if member["slug"] in seen_slugs:
             log(f"Skipping duplicate member slug: {member['slug']}")

@@ -754,17 +754,23 @@
   title: "Postdoctoral Researcher"
   institution: "Università del Salento"
   affiliation: "Postdoctoral Researcher @ Università del Salento"
-  email: ""
+  email: "e.cordelli@unisalento.it"
   photo: /assets/team_photos/ermanno_cordelli.jpg
   scholar_url: ""
   orcid_url: "https://orcid.org/0000-0001-6062-7575"
   github_url: ""
   linkedin_url: "https://www.linkedin.com/in/ermanno-cordelli-136ab0b6/"
   interests:
-    - "Federated Learning"
-    - "Medical Image Analysis"
+    - "Explainable AI"
+    - "Graph Neural Networks"
+    - "Vision Language Models"
+    - "Agentic AI"
+    - "Reinforcement Learning"
+    - "Generative AI"
     - "Precision Medicine"
-  bio: "Ermanno Cordelli is a researcher working on artificial intelligence and its applications in healthcare. His research focuses on machine learning, deep learning, computer vision, radiomics, and precision medicine, with particular attention to federated learning and distributed approaches for the analysis of sensitive biomedical data. His work also includes embedded and Internet-of-Things systems for healthcare applications."
+    - "Federated Learning"
+    - "Quantum AI"
+  bio: "Ermanno Cordelli is a researcher working on artificial intelligence and its applications in healthcare. His research focuses on machine learning, deep learning, computer vision, Explainable AI, AI agents, Large Language models and precision medicine, with particular attention to federated learning and distributed approaches for the analysis of sensitive biomedical data. His work also includes embedded and Internet-of-Things systems for healthcare applications."
   order: 9
   recent_publications:
     - title: "Leveraging Key-Points Encoded Human Pose Images for Human Activity Recognition"
@@ -875,8 +881,11 @@
   github_url: "https://github.com/elena-mulero"
   linkedin_url: "https://www.linkedin.com/in/elenamulero"
   interests:
-    - "Lorem Ipsum"
-  bio: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software including versions of Lorem Ipsum."
+    - "Medical Imaging"
+    - "Multimodal Learning"
+    - "Deep Learning"
+    - "Computer Vision"
+  bio: "Elena Mulero is a Junior Researcher at Università Campus Bio-Medico di Roma. Her research focuses on deep learning for biomedical applications, with a particular interest in medical imaging, tumor segmentation, and multimodal learning."
   order: 10
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
@@ -924,6 +933,57 @@
       pdf: ""
       code: ""
       website: ""
+- name: "Giulia Romoli"
+  given_name: "Giulia"
+  surname: "Romoli"
+  slug: giulia-romoli
+  profile_path: /team/giulia-romoli/
+  role: researchers
+  role_label: "Researcher"
+  role_group_label: "Researchers"
+  title: "Postdoctoral Researcher"
+  institution: "Umeå University"
+  affiliation: "Postdoctoral Researcher @ Umeå University"
+  email: "giulia.romoli@umu.se"
+  photo: /assets/team_photos/arco_placeholder.png
+  scholar_url: "https://scholar.google.com/citations?user=mSFVXpIAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0000-0003-1624-1709"
+  github_url: "https://github.com/gromoli94"
+  linkedin_url: "https://www.linkedin.com/in/giulia-romoli-89b07612a/"
+  interests:
+    - "Multimodal Generative AI"
+    - "Medical Image Synthesis"
+    - "Physically-Informed AI"
+  bio: "Giulia Romoli is a postdoctoral researcher with a PhD in Physics, currently employed at the Department of Diagnostics and Intervention at Umeå University (Sweden). Her current research focuses on multimodal, AI-driven analysis of biomedical images for clinical applications, with particular emphasis on lung cancer."
+  order: 11
+  recent_publications:
+    - title: "Virtual Scanning for NSCLC Histology: Investigating the Discriminatory Power of Synthetic PET"
+      venue: "arXiv preprint arXiv:2605.02746"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2605.02746"
+      url: "https://arxiv.org/abs/2605.02746"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
+      venue: "arXiv preprint arXiv:2602.17683"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arxiv.2602.17683"
+      url: "https://arxiv.org/abs/2602.17683"
+      pdf: ""
+      code: "https://github.com/arco-group/ndvi-forecasting"
+      website: ""
+    - title: "Agentic AI in Agriculture: Towards Automatic Farming Systems"
+      venue: ""
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.1007/978-3-032-30573-2_3"
+      url: "https://doi.org/10.1007/978-3-032-30573-2_3"
+      pdf: ""
+      code: ""
+      website: ""
 - name: "Anna Sabatini"
   given_name: "Anna"
   surname: "Sabatini"
@@ -946,7 +1006,7 @@
     - "Biomedical Sensors"
     - "Electronic Interfaces"
   bio: "Anna Sabatini is a Researcher at Università Campus Bio-Medico di Roma. She received her PhD in Science and Engineering for Humans and the Environment, with a specialization in information technologies for biomedicine. Her research focuses on the design and development of firmware, embedded systems, and electronic readout interfaces for medical, industrial, and food-related sensors."
-  order: 11
+  order: 12
   recent_publications: []
 - name: "Matteo Tortora"
   given_name: "Matteo"
@@ -976,8 +1036,8 @@
     - "Remote Sensing"
     - "Energy"
     - "Sustainability"
-  bio: "He is an Assistant Professor (RTD-A) at the Department of Electrical, Electronic, Telecommunications Engineering and Naval Architecture of the University of Genoa. He received his M.Sc. degree with honors and his Ph.D. in Biomedical Engineering from Università Campus Bio-Medico di Roma, where he later worked as a Postdoctoral Researcher on artificial intelligence for precision medicine. His research interests include multimodal deep learning, computer vision, reinforcement learning, time-series forecasting, and hybrid quantum-classical machine learning, with applications to biomedical imaging, remote sensing, energy, and industrial systems."
-  order: 12
+  bio: "Matteo Tortora is an Assistant Professor (RTD-A) at the Department of Electrical, Electronic, Telecommunications Engineering and Naval Architecture of the University of Genoa. He received his M.Sc. degree with honors and his Ph.D. in Biomedical Engineering from Università Campus Bio-Medico di Roma, where he later worked as a Postdoctoral Researcher on artificial intelligence for precision medicine. His research interests include multimodal deep learning, computer vision, reinforcement learning, time-series forecasting, and hybrid quantum-classical machine learning, with applications to biomedical imaging, remote sensing, energy, and industrial systems."
+  order: 13
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
       venue: "arXiv preprint arXiv:2602.17683"
@@ -1024,6 +1084,15 @@
       pdf: ""
       code: ""
       website: ""
+    - title: "Agentic AI in Agriculture: Towards Automatic Farming Systems"
+      venue: ""
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.1007/978-3-032-30573-2_3"
+      url: "https://doi.org/10.1007/978-3-032-30573-2_3"
+      pdf: ""
+      code: ""
+      website: ""
     - title: "Deep learning for human locomotion analysis in lower-limb exoskeletons: a comparative study"
       venue: ""
       year: "2025"
@@ -1060,15 +1129,6 @@
       pdf: ""
       code: ""
       website: ""
-    - title: "AI-CARE: Artificial Intelligence for Customized Adaptive Robot-Aided Rehabilitation"
-      venue: ""
-      year: "2025"
-      abstract: ""
-      doi_url: "https://doi.org/10.1007/978-3-031-81688-8_13"
-      url: "https://doi.org/10.1007/978-3-031-81688-8_13"
-      pdf: ""
-      code: ""
-      website: ""
 - name: "Alice Natalina Caragliano"
   given_name: "Alice Natalina"
   surname: "Caragliano"
@@ -1091,7 +1151,7 @@
     - "Explainable AI"
     - "Precision Medicine"
   bio: "Alice Natalina Caragliano is a Ph.D. candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. Her work focuses on developing trustworthy AI solutions for precision oncology by integrating medical imaging and clinical data. Her research interests include multimodal deep learning, medical image analysis, explainable AI, and robust learning from limited, heterogeneous, and incomplete clinical datasets."
-  order: 13
+  order: 14
   recent_publications:
     - title: "Multimodal Stepwise Clinically-Guided Attention Learning for Pathological Complete Response Prediction in Breast Cancer"
       venue: "arXiv preprint arXiv:2605.07561"
@@ -1160,8 +1220,124 @@
     - "Geometric Deep Learning"
     - "Bioinformatics"
   bio: "Riccardo De Luca is a Ph.D candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma with a background in Computer Science. His research focuses on multimodal learning for automatic biological pathway annotation from scientific literature. His research interest includes multimodal learning, geometric deep learning, bioinformatics and AI for science."
-  order: 14
+  order: 15
   recent_publications: []
+- name: "Francesco Di Feola"
+  given_name: "Francesco"
+  surname: "Di Feola"
+  slug: francesco-di-feola
+  profile_path: /team/francesco-di-feola/
+  role: phd
+  role_label: "PhD"
+  role_group_label: "PhD"
+  title: "PhD Candidate"
+  institution: "Umeå University"
+  affiliation: "PhD Candidate @ Umeå University"
+  email: "francesco.feola@umu.se"
+  photo: /assets/team_photos/francesco_di_feola.png
+  scholar_url: "https://scholar.google.com/citations?user=nzm0qagAAAAJ&hl=it&oi=ao"
+  orcid_url: "https://orcid.org/0009-0004-4792-5200"
+  github_url: "https://github.com/FrancescoDiFeola"
+  linkedin_url: "https://www.linkedin.com/in/francesco-di-feola/"
+  interests:
+    - "Generative Models"
+    - "Medical Imaging"
+    - "Multimodal Learning"
+    - "Test-Time-Adaptation"
+    - "Trustworthy AI"
+  bio: "Francesco Di Feola is a PhD student at the Department of Diagnostics and Intervention at Umeå University, Sweden. He received his M.Sc. degree in Biomedical Engineering, summa cum laude with honorable mention, from Università Campus Bio-Medico di Roma. His research focuses on generative artificial intelligence for medical imaging, with particular attention to medical image synthesis, cross-modality translation, and multimodal data generation. His work spans methodological research and clinical applications, including image quality enhancement, test-time adaptation, uncertainty quantification, and image integrity. A central theme of his research is the development of methodologies for the reliable use of synthetic medical data."
+  order: 16
+  recent_publications:
+    - title: "XGeM: A multi-prompt foundation model for multimodal medical data generation"
+      venue: ""
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.1016/j.compmedimag.2026.102718"
+      url: "https://doi.org/10.1016/j.compmedimag.2026.102718"
+      pdf: ""
+      code: "https://github.com/cosbidev/XGeM"
+      website: "https://xgem.ucbm.org/overview"
+    - title: "Virtual Scanning for NSCLC Histology: Investigating the Discriminatory Power of Synthetic PET"
+      venue: "arXiv preprint arXiv:2605.02746"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arXiv.2605.02746"
+      url: "https://arxiv.org/abs/2605.02746"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models"
+      venue: "arXiv preprint arXiv:2603.06147"
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arxiv.2603.06147"
+      url: "https://arxiv.org/abs/2603.06147"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Whole-Body Image-to-Image Translation for a Virtual Scanner in a Healthcare Digital Twin"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/cbms65348.2025.00114"
+      url: "https://doi.org/10.1109/cbms65348.2025.00114"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Texture-Aware StarGAN for CT data harmonization"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/ijcnn64981.2025.11228038"
+      url: "https://doi.org/10.1109/ijcnn64981.2025.11228038"
+      pdf: ""
+      code: "https://github.com/arco-group/CTHarmonization"
+      website: ""
+    - title: "Sample-Aware Test-Time Adaptation for Medical Image-to-Image Translation"
+      venue: "arXiv preprint arXiv:2508.00766"
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.48550/arxiv.2508.00766"
+      url: "https://arxiv.org/abs/2508.00766"
+      pdf: ""
+      code: "https://github.com/Sample-Aware-TTA/Code"
+      website: ""
+    - title: "Multi-scale texture loss for CT denoising with GANs"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1016/j.aiopen.2025.09.001"
+      url: "https://doi.org/10.1016/j.aiopen.2025.09.001"
+      pdf: ""
+      code: "https://github.com/FrancescoDiFeola/DenoTextureLoss"
+      website: ""
+    - title: "Hybrid 3D CNN-MAMBA for Emphysema Classification in the SCAPIS Cohort"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/cbms65348.2025.00141"
+      url: "https://doi.org/10.1109/cbms65348.2025.00141"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Any-to-Any Vision-Language Model for Multimodal X-ray Imaging and Radiological Report Generation"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1109/ijcnn64981.2025.11227399"
+      url: "https://doi.org/10.1109/ijcnn64981.2025.11227399"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "A systematic review of intermediate fusion in multimodal deep learning for biomedical applications"
+      venue: ""
+      year: "2025"
+      abstract: ""
+      doi_url: "https://doi.org/10.1016/j.imavis.2025.105509"
+      url: "https://doi.org/10.1016/j.imavis.2025.105509"
+      pdf: ""
+      code: "https://github.com/cosbidev/Intermediate-Multimodal-Fusion-Bio"
+      website: ""
 - name: "Arianna Francesconi"
   given_name: "Arianna"
   surname: "Francesconi"
@@ -1185,7 +1361,7 @@
     - "Imbalanced Data"
     - "Healthcare AI"
   bio: "Arianna Francesconi is a final-year Ph.D. candidate in Artificial Intelligence at UCBM. Her research focuses on machine learning and deep learning for biomedical applications, with particular interests in multimodal learning, domain adaptation, fairness, and robust learning from heterogeneous and incomplete data. Her work aims to develop AI methodologies that can effectively integrate and transfer knowledge across different data modalities, domains, and patient populations, with applications spanning medical imaging, speech analysis, and neurodegenerative diseases."
-  order: 15
+  order: 17
   recent_publications:
     - title: "Fairness-Aware Partial-label Domain Adaptation for Voice Classification of Parkinson's and ALS"
       venue: "arXiv preprint arXiv:2602.18535"
@@ -1243,7 +1419,7 @@
   interests:
     - "Medical Imaging, Earth Observation, Test-Time Adaptation, Image-to-Image Translation, Agentic AI, vegetation forecasting, Quantum-ML"
   bio: "Irene Iele is a PhD Candidate in Artificial Intelligence at the University Campus Bio-Medico of Rome. He graduated with honors in Biomedical Engineering from the same university. Her research spans adaptive and robust AI for medical imaging and Earth observation, with a particular focus on Test-Time Adaptation, medical image-to-image translation, and multi-agent systems. She also investigates probabilistic vegetation forecasting from satellite and meteorological data and hybrid quantum machine learning for clinical time-series forecasting"
-  order: 16
+  order: 18
   recent_publications:
     - title: "Probabilistic NDVI Forecasting from Sparse Satellite Time Series and Weather Covariates"
       venue: "arXiv preprint arXiv:2602.17683"
@@ -1260,6 +1436,15 @@
       abstract: ""
       doi_url: "https://doi.org/10.48550/arxiv.2603.08072"
       url: "https://arxiv.org/abs/2603.08072"
+      pdf: ""
+      code: ""
+      website: ""
+    - title: "Agentic AI in Agriculture: Towards Automatic Farming Systems"
+      venue: ""
+      year: "2026"
+      abstract: ""
+      doi_url: "https://doi.org/10.1007/978-3-032-30573-2_3"
+      url: "https://doi.org/10.1007/978-3-032-30573-2_3"
       pdf: ""
       code: ""
       website: ""
@@ -1294,7 +1479,7 @@
     - "Computer Vision"
     - "Robotic Surgery"
   bio: "Guido Manni is a PhD Candidate in Artificial Intelligence (Health and Life Sciences) with a background in Biomedical Engineering. He specializes in Computer Vision, Visual SLAM, and Deep Learning, with a focus on developing robust perception and 3D reconstruction solutions for autonomous robotic surgery."
-  order: 17
+  order: 19
   recent_publications:
     - title: "SPARSE data, rich results: Few-shot semi-supervised learning via class-conditioned image translation"
       venue: ""
@@ -1329,14 +1514,14 @@
   photo: /assets/team_photos/massimiliano_mantegna.png
   scholar_url: "https://scholar.google.com/citations?user=EYgFDgEAAAAJ&hl=it"
   orcid_url: "https://orcid.org/0009-0000-6129-5074"
-  github_url: ""
+  github_url: "https://github.com/maxi96-dot"
   linkedin_url: "https://www.linkedin.com/in/massimiliano-mantegna/"
   interests:
     - "Generative AI"
     - "Medical Imaging"
     - "Lung Cancer"
   bio: "Massimiliano Mantegna is a PhD Candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. His research focuses on deep learning and generative artificial intelligence for medical imaging, with particular attention to lung cancer. His work investigates generative and multimodal models for modelling tumour evolution and supporting imaging-based prediction in oncology."
-  order: 18
+  order: 20
   recent_publications:
     - title: "Longitudinal NSCLC Treatment Progression via Multimodal Generative Models"
       venue: "arXiv preprint arXiv:2603.06147"
@@ -1387,7 +1572,7 @@
     - "Stress Detection"
     - "Affective Computing"
   bio: "Giustino Marino holds a degree in Computer Engineering from the Università degli Studi di Cassino e del Lazio Meridionale, and he is currently a Ph.D student at University Campus Bio-Medico of Rome, in the field of Artificial Intelligence (Health and Life Sciences area). His interests include artificial intelligence, deep learning and multimodal data analysis, with a focus on affective computing."
-  order: 19
+  order: 21
   recent_publications:
     - title: "Temporal Multimodal Multitask Attention for Affective State Estimation in a Stressful Environment"
       venue: ""
@@ -1420,7 +1605,7 @@
     - "Medical Image Synthesis"
     - "Vision-Language Models"
   bio: "Daniele Molino is a PhD student in the Italian National PhD Program in Artificial Intelligence, Health and Life Sciences track, at Università Campus Bio-Medico di Roma. His research focuses on multimodal generative artificial intelligence for medical applications, with particular attention to vision-language models, latent diffusion models, and synthetic medical data generation. His work investigates the joint generation and integration of heterogeneous clinical modalities, including radiological images, volumetric CT scans, and medical reports, aiming to improve data availability, clinical consistency, and downstream diagnostic performance."
-  order: 20
+  order: 22
   recent_publications:
     - title: "XGeM: A multi-prompt foundation model for multimodal medical data generation"
       venue: ""
@@ -1489,7 +1674,7 @@
     - "Medical Data Analysis"
     - "Clinical Decision Support"
   bio: "Alessandro Pesci is a PhD Candidate in Artificial Intelligence at Università Campus Bio-Medico di Roma. His research focuses on the development of artificial intelligence methodologies for biomedical and clinical applications, with particular attention to data-driven models supporting medical analysis and decision-making."
-  order: 21
+  order: 23
   recent_publications:
     - title: "A Systematic Benchmark of GAN Architectures for MRI-to-CT Synthesis"
       venue: "arXiv preprint arXiv:2603.13520"
@@ -1533,7 +1718,7 @@
     - "Adversarial Manipulation Detection"
     - "Privacy Preserving AI"
   bio: "Ludovica Pompilio is enrolled in the National Ph.D. Program in Artificial Intelligence, XL bis cycle, course on Health and Life Sciences, organized by Università Campus Bio-Medico di Roma. Her research focuses on developing methods for detecting localized manipulations in medical images generated or introduced by generative models. She also investigates privacy-preserving generative approaches for synthetic medical data generation, with particular attention to the trade-off between data utility and privacy."
-  order: 22
+  order: 24
   recent_publications:
     - title: "Texture-Aware StarGAN for CT data harmonization"
       venue: ""
@@ -1567,7 +1752,7 @@
     - "Computer Vision"
     - "Generative AI"
   bio: "Aurora Rofena is a PhD Candidate in Artificial Intelligence at the University Campus Bio-Medico of Rome. Her research focuses on deep generative models for medical imaging, particularly cross-modality image-to-image translation, investigating how generative methods can synthesize one imaging modality from another to support clinical applications."
-  order: 23
+  order: 25
   recent_publications:
     - title: "Lesion-Aware Generative Artificial Intelligence for Virtual Contrast-Enhanced Mammography in Breast Cancer"
       venue: ""
@@ -1640,7 +1825,7 @@
     - "Vision–Language"
     - "Generative Models"
   bio: "Filippo Ruffini is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma (UCBM) and Umeå University (Department of Diagnostics and Intervention). He received his Bachelor's degree in Medical Engineering from the University of Rome Tor Vergata, and his Master's degree in Biomedical Engineering, with honors (summa cum laude). His research focuses on trustworthy multimodal AI for oncology, spanning survival prediction, radiology vision-language models, medical image synthesis, and cross-modal retrieval. He is particularly interested in building models that fuse heterogeneous clinical data, imaging, tabular, and textual, into robust, interpretable representations for personalized cancer care. His work combines large-scale HPC infrastructure with end-to-end deep learning pipelines built on PyTorch and MONAI."
-  order: 24
+  order: 26
   recent_publications:
     - title: "Virtual Scanning for NSCLC Histology: Investigating the Discriminatory Power of Synthetic PET"
       venue: "arXiv preprint arXiv:2605.02746"
@@ -1754,7 +1939,7 @@
     - "Multimodal Generative AI"
     - "Trustworthy AI"
   bio: "Marco Salmè is a PhD student enrolled in the Italian National PhD Program in Artificial Intelligence at Università Campus Bio-Medico di Roma. He graduated with honors in Computer Engineering from the same university. His research interests include multimodal generative AI and trustworthy AI, with applications in medicine and energy."
-  order: 25
+  order: 27
   recent_publications:
     - title: "Concept-Enhanced Multimodal RAG: Towards Interpretable and Accurate Radiology Report Generation"
       venue: "arXiv preprint arXiv:2602.15650"
@@ -1806,7 +1991,7 @@
     - "Generative AI"
     - "Cloud Continuum"
   bio: "Francesco Sarcina is a PhD student enrolled in the Italian National Program in Artificial Intelligence, jointly affiliated with Università Campus Bio-Medico di Roma and Università della Campania \"Luigi Vanvitelli\". He received his Bachelor's degree in Industrial Engineering and his Master's degree in Biomedical Engineering at UCBM. His research mainly focuses on Multimodal Generative AI for Predictive Medical Imaging and Distributed AI for Cloud Continuum applications."
-  order: 26
+  order: 28
   recent_publications: []
 - name: "Lorenzo Pede"
   given_name: "Lorenzo"
@@ -1830,7 +2015,7 @@
     - "Biomedical Data Analysis"
     - "Digital Health"
   bio: "Lorenzo Pede holds a PhD from Università Campus Bio-Medico di Roma. His research activity is related to the application of computational and artificial intelligence methodologies to biomedical and healthcare data."
-  order: 27
+  order: 29
   recent_publications:
     - title: "AI-Powered Insulin Pens for Pediatric Diabetes: Advancements in Lipodystrophy Detection and Injection Site Recognition"
       venue: ""

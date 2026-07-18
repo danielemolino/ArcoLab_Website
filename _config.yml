@@ -177,7 +177,6 @@ exclude:
   - scripts/
   - shared/
   - update_the_website/
-  - _pages/about_einstein.md
   - purgecss.config.js
   - vendor
   - www.cosbi-lab.it/

@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Massimiliano Mantegna
-permalink: /team/massimiliano-mantegna/
-description: Full profile and recent publications of Massimiliano Mantegna.
+title: Francesco Di Feola
+permalink: /team/francesco-di-feola/
+description: Full profile and recent publications of Francesco Di Feola.
 ---
 
-{% assign member = site.data.team | where: "slug", "massimiliano-mantegna" | first %}
+{% assign member = site.data.team | where: "slug", "francesco-di-feola" | first %}
 
 <section class="member-profile">
   <div class="member-profile-hero">

@@ -2,3 +2,4 @@ nbconvert
 pyyaml
 scholarly
 rembg[cpu]
+opencv-python-headless<5
