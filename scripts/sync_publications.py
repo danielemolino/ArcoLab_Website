@@ -343,7 +343,9 @@ def merge_row(row: dict[str, str], enrich: bool) -> dict[str, str]:
     if enrich and doi_from_sheet and not arxiv_id:
         metadata = fetch_crossref_by_doi(doi_from_sheet)
         openalex_metadata = fetch_openalex_by_doi(doi_from_sheet)
-    if enrich and metadata is None and row.get("title") and not arxiv_id:
+    # Avoid title-only guesses when the sheet already provides an explicit
+    # link but no DOI: similar proceedings titles can produce wrong matches.
+    if enrich and metadata is None and row.get("title") and not arxiv_id and not row.get("website"):
         metadata = search_crossref_by_title(row["title"])
 
     title_from_metadata = ""
